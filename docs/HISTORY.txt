@@ -1,8 +1,8 @@
-Changelog
-=========
+History
+=======
 
 0.1 - Unreleased
 ----------------
 
-* Initial release
+  - Get the initial view up and running [jladage]
 
