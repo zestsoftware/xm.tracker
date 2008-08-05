@@ -1,7 +1,7 @@
 from setuptools import setup, find_packages
 import os
 
-versionfile = open(os.path.join('Products', 'eXtremeManagement', 'version.txt'))
+versionfile = open(os.path.join('xm', 'tracker, 'version.txt'))
 version = versionfile.read().strip()
 versionfile.close()
 
