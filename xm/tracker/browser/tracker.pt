@@ -1,0 +1,21 @@
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
+      lang="en-US"
+      metal:use-macro="here/main_template/macros/master"
+      i18n:domain="eXtremeManagement">
+
+  <head>
+    <metal:block fill-slot="top_slot"
+                 tal:define="dummy python:request.set('disable_border', 1)" />
+  </head>
+  <body>
+    <div metal:fill-slot="main">
+      <div metal:define-macro="body">
+        
+        <h1 class="documentFirstHeading" i18n:translate="head_timetracker">Time Tracker</h1>
+        
+        <div id="timer"> 0:00</div>
+
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,15 @@
+<configure
+    xmlns="http://namespaces.zope.org/browser"
+    xmlns:zope="http://namespaces.zope.org/zope"
+    i18n_domain="xm.tracker">
+
+    <page
+        name="tracker"
+        class=".tracker.TrackerView"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="zope2.View"
+        template="tracker.pt"
+        allowed_interface=".interfaces.ITrackerView"
+        />
+
+</configure>
