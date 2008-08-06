@@ -1,7 +1,7 @@
 from Products.Five.browser import BrowserView
 
 
-class ITrackerView(BrowserView):
+class TrackerView(BrowserView):
     """Return management info about all projects.
     Specifically: which iterations can be invoiced.
     """
