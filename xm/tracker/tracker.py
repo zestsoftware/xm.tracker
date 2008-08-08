@@ -15,6 +15,7 @@ Main timer    The running timer on the top right of the main tracker screen
 """
 
 
+from Acquisition import aq_inner
 from Products.CMFPlone.Portal import PloneSite
 #from OFS.ObjectManager import ObjectManager
 from persistent.list import PersistentList
@@ -22,34 +23,40 @@ from zope.annotation.interfaces import IAnnotations
 from five import grok
 from zope.component import getMultiAdapter
 
+from zope.annotation.interfaces import IAttributeAnnotatable
+from Products.PlonePAS.tools.memberdata import MemberData
+from zope.interface import classImplements
+classImplements(MemberData, IAttributeAnnotatable)
+
+
+class ViewTracker(grok.Permission):
+    grok.name('xm.ViewTracker')
+    grok.title('View Tracker')
+
 
 class TrackerIndex(grok.View):
     grok.context(PloneSite)
     grok.name('timetracker')
+    #grok.require('xm.ViewTracker')
+    grok.require('cmf.ManagePortal')
     ANNO_KEY = 'xm-timetracker'
 
-    def __init__(self, context, request):
-        super(TrackerIndex, self).__init__(context, request)
+
+    def update(self):
+        context = aq_inner(self.context)
         portal_state = getMultiAdapter(
-            (context, request), name=u'plone_portal_state')
-        self.member = portal_state.member()
+            (context, self.request), name=u'plone_portal_state')
+        member = portal_state.member()
         if portal_state.anonymous():
             self.tracker = None
+            self.member = None
             return
-        annotations = IAnnotations(self.member)
+        annotations = IAnnotations(member)
+        self.member = member
         self.tracker = annotations.get(self.ANNO_KEY, None)
         if self.tracker is None:
             self.tracker = Tracker()
             annotations[self.ANNO_KEY] = self.tracker
-
-    def update(self, command=None):
-        """
-        if command == 'add':
-            self.context[TRACKER_AREA_ID] = TrackerArea()
-        if command == 'remove':
-            del self.context[TRACKER_AREA_ID]
-        """
-        pass
 
 
 class Tracker(grok.Model):

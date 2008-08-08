@@ -40,9 +40,9 @@ def test_suite():
 
 
         # Integration tests that use PloneTestCase
-        #ztc.ZopeDocFileSuite(
-        #    'README.txt', package='xm.tracker',
-        #    test_class=TestCase),
+        ztc.ZopeDocFileSuite(
+            'tracker.txt', package='xm.tracker',
+            test_class=TestCase),
 
         #ztc.FunctionalDocFileSuite(
         #    'browser.txt', package='xm.tracker',
