@@ -1,3 +1,14 @@
+from Products.CMFPlone.Portal import PloneSite
+from five import grok
+
+
+class SiteTracker(grok.View):
+    grok.context(PloneSite)
+    grok.name('groktest')
+
+    def render(self):
+        return u"Me Grok view PloneSite."
+
 
 
 class TimeEntry(object):
