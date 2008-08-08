@@ -4,26 +4,16 @@
     <h1>Me Grok view PloneSite</h1>
 
     <form
-        tal:attributes="action python:view.context.absolute_url() + '/@@xm-add-time-tracker'"
+        tal:attributes="action python:view.context.absolute_url() + '/@@timetracker'"
         method="POST">
 
-      <tal:area condition="view/area"> 
-        <h2>We have a tracker area</h2>
-        <p>
-          Go to the
-          <a href=""
-             tal:attributes="href view/area_url">tracker area</a>.
-        </p>
-        <p>
-          <input type="hidden" name="command" value="remove" />
-          <input type="submit" value="Remove the tracker area" />
-        </p>
+      <p>Member id: <span tal:replace="view/member/name" /></p>
+      <tal:area condition="view/tracker"> 
+        <h2>We have a tracker</h2>
       </tal:area>
 
-      <tal:add-area condition="not:view/area"> 
+      <tal:add-area condition="not:view/tracker"> 
         <h2>We have no tracker area</h2>
-        <input type="hidden" name="command" value="add" />
-        <input type="submit" value="Add a tracker area" />
       </tal:add-area>
     </form>
 

@@ -32,10 +32,10 @@ class TrackerIndex(grok.View):
         super(TrackerIndex, self).__init__(context, request)
         portal_state = getMultiAdapter(
             (context, request), name=u'plone_portal_state')
+        self.member = portal_state.member()
         if portal_state.anonymous():
             self.tracker = None
             return
-        self.member = portal_state.member()
         annotations = IAnnotations(self.member)
         self.tracker = annotations.get(self.ANNO_KEY, None)
         if self.tracker is None:
