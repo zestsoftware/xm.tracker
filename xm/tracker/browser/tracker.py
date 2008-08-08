@@ -3,6 +3,7 @@ from zope.annotation.interfaces import IAnnotations
 from zope.component import getMultiAdapter
 from xm.tracker.tracker import Tracker
 from Acquisition import aq_inner
+from zope.cachedescriptors.property import Lazy
 
 
 class TrackerView(BrowserView):
@@ -11,21 +12,20 @@ class TrackerView(BrowserView):
 
     ANNO_KEY = 'xm-timetracker'
 
-    def __call__(self):
+    @Lazy
+    def tracker(self):
         context = aq_inner(self.context)
         portal_state = getMultiAdapter(
             (context, self.request), name=u'plone_portal_state')
-        self.member = portal_state.member()
         if portal_state.anonymous():
-            self.tracker = None
-            self.member = None
-            return
-        annotations = IAnnotations(self.member)
-        self.tracker = annotations.get(self.ANNO_KEY, None)
-        if self.tracker is None:
-            self.tracker = Tracker()
-            annotations[self.ANNO_KEY] = self.tracker
-        return self.index()
+            return None
+        member = portal_state.member()
+        annotations = IAnnotations(member)
+        tracker = annotations.get(self.ANNO_KEY, None)
+        if tracker is None:
+            tracker = Tracker()
+            annotations[self.ANNO_KEY] = tracker
+        return tracker
 
     def tasks(self):
         """ Returns a list of dicts each dict represents a task and has the
