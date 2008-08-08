@@ -11,10 +11,58 @@
     <div metal:fill-slot="main">
       <div metal:define-macro="body">
         
-        <h1 class="documentFirstHeading" i18n:translate="head_timetracker">Time Tracker</h1>
+        <div id="timer"
+             style="float:right"
+             tal:content="python:view.time_spent().strftime('%M:%S')" />
+
+        <h1 class="documentFirstHeading"
+            i18n:translate="head_timetracker">Time Tracker</h1>
         
-        <div id="timer"> 0:00</div>
-        <p tal:content="python:len(view.tracker.tracked_tasks)" />
+        <form
+            method="post"
+            action="">
+          <input tal:condition="not:view/tracker/time"
+                 type="submit"
+                 name="start"
+                 value="Start working" />
+
+          <input tal:condition="view/tracker/time"
+                 type="submit"
+                 name="stop"
+                 value="Stop and reset" />
+
+          <input type="submit"
+                 name="demo"
+                 value="Clear tracker and add demo tracked tasks" />
+
+        </form>
+        <hr />
+        <div id="tracked_tasks">
+          <div class="tracked_task"
+               tal:repeat="tracked_task view/tracker/tracked_tasks">
+            <span tal:content="tracked_task/title" />
+            <div class="time_entry"
+                 tal:repeat="entry tracked_task/entries">
+              <span tal:content="entry/text" />:
+              <span tal:content="python:entry.time.strftime('%M:%S')" />
+            </div>
+            <form
+                method="post"
+                action="">
+              <input type="hidden"
+                     name="task_id"
+                     tal:attributes="value repeat/tracked_task/number" />
+              <input type="text"
+                     name="text" />
+              <input type="submit"
+                     name="track"
+                     value="Track" />
+              </form>
+          </div>
+          
+        </div>
+
+
 
       </div>
     </div>

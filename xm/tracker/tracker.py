@@ -31,7 +31,7 @@ classImplements(MemberData, IAttributeAnnotatable)
 class Tracker(Persistent):
 
     def __init__(self):
-        self.time = None
+        self.time = 0.0
         self.tracked_tasks = PersistentList()
         #self.adhoc_task = TrackedTask('ad-hoc')
 
@@ -47,4 +47,9 @@ class TrackedTask(Persistent):
         self.estimate = estimate
         self.entries = PersistentList()
 
-# class Entry
+
+class Entry(Persistent):
+    
+    def __init__(self, text, time):
+        self.text = text
+        self.time = time
