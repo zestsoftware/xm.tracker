@@ -1,0 +1,14 @@
+Tracker
+=======
+
+A tracker should not be viewable by an anonymous user.  This is
+because the tracker is designed to track time for a logged in user::
+
+  >>> from zope.publisher.browser import TestRequest
+  >>> from zope.annotation.interfaces import IAttributeAnnotatable
+  >>> from zope.interface import classImplements
+  >>> classImplements(TestRequest, IAttributeAnnotatable)
+  >>> from xm.tracker.tracker import TrackerIndex
+  >>> tracker_view = TrackerIndex(self.portal, TestRequest())
+  >>> print tracker_view()
+
