@@ -2,11 +2,10 @@ from zope.publisher.interfaces.browser import IBrowserView
 
 
 class ITrackerView(IBrowserView):
-    """Return management info about all projects.
-    Specifically: which iterations can be invoiced.
+    """
     """
 
-    def tasks():
+    def tracked_tasks():
         pass
 
     def adhoc_entries():

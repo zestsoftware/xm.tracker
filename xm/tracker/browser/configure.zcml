@@ -7,7 +7,7 @@
         name="tracker"
         class=".tracker.TrackerView"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        permission="zope2.View"
+        permission="xm.ViewTracker"
         template="tracker.pt"
         allowed_interface=".interfaces.ITrackerView"
         />

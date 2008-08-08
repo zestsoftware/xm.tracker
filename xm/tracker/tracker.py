@@ -15,59 +15,28 @@ Main timer    The running timer on the top right of the main tracker screen
 """
 
 
-from Acquisition import aq_inner
-from Products.CMFPlone.Portal import PloneSite
 #from OFS.ObjectManager import ObjectManager
 from persistent.list import PersistentList
-from zope.annotation.interfaces import IAnnotations
-from five import grok
-from zope.component import getMultiAdapter
-
+from persistent import Persistent
 from zope.annotation.interfaces import IAttributeAnnotatable
+
 from Products.PlonePAS.tools.memberdata import MemberData
 from zope.interface import classImplements
+
+
 classImplements(MemberData, IAttributeAnnotatable)
 
 
-class ViewTracker(grok.Permission):
-    grok.name('xm.ViewTracker')
-    grok.title('View Tracker')
 
-
-class TrackerIndex(grok.View):
-    grok.context(PloneSite)
-    grok.name('timetracker')
-    #grok.require('xm.ViewTracker')
-    grok.require('cmf.ManagePortal')
-    ANNO_KEY = 'xm-timetracker'
-
-
-    def update(self):
-        context = aq_inner(self.context)
-        portal_state = getMultiAdapter(
-            (context, self.request), name=u'plone_portal_state')
-        member = portal_state.member()
-        if portal_state.anonymous():
-            self.tracker = None
-            self.member = None
-            return
-        annotations = IAnnotations(member)
-        self.member = member
-        self.tracker = annotations.get(self.ANNO_KEY, None)
-        if self.tracker is None:
-            self.tracker = Tracker()
-            annotations[self.ANNO_KEY] = self.tracker
-
-
-class Tracker(grok.Model):
+class Tracker(Persistent):
 
     def __init__(self):
         self.time = None
-        self.tracked_tasks = []
+        self.tracked_tasks = PersistentList()
         #self.adhoc_task = TrackedTask('ad-hoc')
 
 
-class TrackedTask(grok.Model):
+class TrackedTask(Persistent):
     """A task from the XM site that is listed in the Time Tracker main screen.
     """
 
