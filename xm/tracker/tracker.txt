@@ -1,14 +1,30 @@
 Tracker
 =======
 
-A tracker should not be viewable by an anonymous user.  This is
-because the tracker is designed to track time for a logged in user::
+First create a tracker instance and add a few tasks.
 
-  >>> from zope.publisher.browser import TestRequest
-  >>> from zope.annotation.interfaces import IAttributeAnnotatable
-  >>> from zope.interface import classImplements
-  >>> classImplements(TestRequest, IAttributeAnnotatable)
-  >>> from xm.tracker.browser.tracker import TrackerView
-  >>> tracker_view = TrackerView(self.portal, TestRequest())
-  >>> print tracker_view()
+
+    >>> from xm.tracker.tracker import Tracker, Task, Entry
+    >>> t = Tracker()
+    >>> t.tasks.append(Task(u'Write the interfaces',
+    ...                     story=u'Write a Time tracker',
+    ...                     project=u'eXtremeManagement',
+    ...                     estimate=u'6 hours'))
+    >>> t.tasks.append(Task(u'Write the code',
+    ...                     story=u'Write a Time tracker',
+    ...                     project=u'eXtremeManagement'))
+    >>> len(t.tasks)
+    2
+    
+When the user has spent time on a task he can add an entry to the task.
+
+    >>> t.tasks[0].entries.append(Entry('Did something cool today!', 230))
+    >>> t.tasks[0].entries.append(Entry('Did something else as well!', 20))
+    >>> len(t.tasks[0].entries)
+    2
+    >>> t.tasks[0].total_time().strftime('%H:%M:%S')
+    '00:04:10'
+
+  
+
 

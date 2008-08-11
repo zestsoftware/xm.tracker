@@ -1,23 +1,27 @@
-from Products.Five.browser import BrowserView
-from zope.annotation.interfaces import IAnnotations
-from zope.component import getMultiAdapter
-from xm.tracker.tracker import Tracker
-from xm.tracker.tracker import TrackedTask
-from xm.tracker.tracker import Entry
-from Acquisition import aq_inner
-from persistent.list import PersistentList
-from zope.cachedescriptors.property import Lazy
 from random import random
 import mx.DateTime
+from Acquisition import aq_inner
+from Products.Five.browser import BrowserView
+from zope.annotation.interfaces import IAnnotations
+from zope.annotation.interfaces import IAttributeAnnotatable
+from zope.cachedescriptors.property import Lazy
+from zope.component import getMultiAdapter
+from zope.interface import classImplements
+from persistent.list import PersistentList
+from Products.PlonePAS.tools.memberdata import MemberData
+
+from xm.tracker.tracker import Tracker
+from xm.tracker.tracker import Task
+from xm.tracker.tracker import Entry
+
+TRACKER_KEY = 'xm-timetracker'
+classImplements(MemberData, IAttributeAnnotatable)
 
 
 class TrackerView(BrowserView):
     """View a tracker in the context of a Plone Site.
     """
 
-    ANNO_KEY = 'xm-timetracker'
-
-    @Lazy
     def tracker(self):
         context = aq_inner(self.context)
         portal_state = getMultiAdapter(
@@ -26,39 +30,39 @@ class TrackerView(BrowserView):
             return None
         member = portal_state.member()
         annotations = IAnnotations(member)
-        tracker = annotations.get(self.ANNO_KEY, None)
+        tracker = annotations.get(TRACKER_KEY, None)
         if tracker is None:
             tracker = Tracker()
-            annotations[self.ANNO_KEY] = tracker
-        if tracker.time is None:
-            tracker.time = 0.0
+            annotations[TRACKER_KEY] = tracker
+
         return tracker
 
     def time_spent(self):
         now = mx.DateTime.now()
-        previous = self.tracker.time or now
-        return now - previous
+        previous = self.tracker().starttime or now
+        time = now - previous
+        return time
 
     def __call__(self):
-        # Handle form here.
+        # Handle form here.        
+        tracker = self.tracker()
         start = self.request.get('start', False)
         stop = self.request.get('stop', False)
         demo = self.request.get('demo', False)
         track = self.request.get('track', False)
         now = mx.DateTime.now()
         if start:
-            self.tracker.time = now
+            tracker.starttime = now
         if stop:
-            self.tracker.time = None
+            tracker.starttime = None
         if demo:
-            self.tracker.time = 0.0
-            self.tracker.tracked_tasks = PersistentList()
+            tracker.tasks = PersistentList()
             for i in range(3):
-                task = TrackedTask("Task %d" % i,
+                task = Task("Task %d" % i,
                                    story = "Story %d" % i,
                                    project = "Project %d" % i,
                                    estimate = round(random() * 10))
-                self.tracker.tracked_tasks.append(task)
+                tracker.tasks.append(task)
 
         if track:
             task_id = int(self.request.get('task_id', 0))
@@ -67,30 +71,24 @@ class TrackerView(BrowserView):
                 pass
             task_id -= 1
             text = self.request.get('text')
-            tracked_task = self.tracker.tracked_tasks[task_id]
-            tracked_task.entries.append(Entry(text, self.time_spent()))
+            task = tracker.tasks[task_id]
+            task.entries.append(Entry(text, self.time_spent()))
             # This must be last:
-            self.tracker.time = now
+            tracker.starttime = now
         return self.index()
 
+
+    def track_time(self, task_uid):
+        """ Method to track time to a task
+        """
+        pass
+
+    def stop_timer(self):
+        self.tracker().starttime = None
+
+
     def tasks(self):
-        """ Returns a list of dicts each dict represents a task and has the
-            following keys:
-
-              - id
-              - title
-              - actual
-              - remaining
-              - entries
-
-            The entries key contains a list of entries which have already been
-            tracked. Each entry dict has:
-
-              - id
-              - date
-              - description
-              - time
-
+        """
         """
         pass
 

@@ -10,25 +10,27 @@
   <body>
     <div metal:fill-slot="main">
       <div metal:define-macro="body">
-        
+      <div tal:define="tracker view/tracker">  
         <div id="timer"
              style="float:right"
-             tal:content="python:view.time_spent().strftime('%M:%S')" />
-
+             tal:content="view/time_spent" />
+     
         <h1 class="documentFirstHeading"
             i18n:translate="head_timetracker">Time Tracker</h1>
         
-        <form
+        <form 
             method="post"
             action="">
-          <input tal:condition="not:view/tracker/time"
+          <input tal:condition="not: tracker/starttime"
                  type="submit"
                  name="start"
+                 id="start-timer"
                  value="Start working" />
 
-          <input tal:condition="view/tracker/time"
+          <input tal:condition="tracker/starttime"
                  type="submit"
                  name="stop"
+                 id="stop-timer"
                  value="Stop and reset" />
 
           <input type="submit"
@@ -37,12 +39,12 @@
 
         </form>
         <hr />
-        <div id="tracked_tasks">
-          <div class="tracked_task"
-               tal:repeat="tracked_task view/tracker/tracked_tasks">
-            <span tal:content="tracked_task/title" />
+        <div id="tasks">
+          <div class="task"
+               tal:repeat="task tracker/tasks">
+            <span tal:content="task/title" />
             <div class="time_entry"
-                 tal:repeat="entry tracked_task/entries">
+                 tal:repeat="entry task/entries">
               <span tal:content="entry/text" />:
               <span tal:content="python:entry.time.strftime('%M:%S')" />
             </div>
@@ -51,15 +53,16 @@
                 action="">
               <input type="hidden"
                      name="task_id"
-                     tal:attributes="value repeat/tracked_task/number" />
+                     tal:attributes="value repeat/task/number" />
               <input type="text"
                      name="text" />
               <input type="submit"
                      name="track"
+                     class="track-time"
                      value="Track" />
               </form>
           </div>
-          
+          </div>        
         </div>
 
 

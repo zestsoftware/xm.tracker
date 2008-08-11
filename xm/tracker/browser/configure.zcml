@@ -11,5 +11,10 @@
         template="tracker.pt"
         allowed_interface=".interfaces.ITrackerView"
         />
+    
+    <resource
+        file="tracker.kss"
+        name="tracker.kss"
+        />
 
 </configure>

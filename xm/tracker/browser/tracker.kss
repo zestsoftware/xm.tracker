@@ -1,0 +1,19 @@
+/*
+
+#start-timer:timer-start(mytimer) {
+    evt-timer-start-displayformat_nohours: '%0M:%0S';
+    evt-timer-start-displayformat_hours: '%h:%0M:%0S';
+}
+
+#stop-timer:timer-stop(mytimer) {
+    action-client: alert;
+    alert-message: pass(seconds);
+    evt-timer-stop-reset: false;
+}
+
+#timer:timer-update(mytimer) {
+    action-client: log;
+    log-message: pass(seconds);
+}
+
+*/

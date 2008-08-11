@@ -30,9 +30,9 @@ def test_suite():
     return unittest.TestSuite([
 
         # Unit tests
-        #doctestunit.DocFileSuite(
-        #    'README.txt', package='xm.tracker',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
+        doctestunit.DocFileSuite(
+            'tracker.txt', package='xm.tracker',
+            setUp=testing.setUp, tearDown=testing.tearDown),
 
         #doctestunit.DocTestSuite(
         #    module='xm.tracker.mymodule',
@@ -40,9 +40,9 @@ def test_suite():
 
 
         # Integration tests that use PloneTestCase
-        ztc.ZopeDocFileSuite(
-            'tracker.txt', package='xm.tracker',
-            test_class=TestCase),
+        #ztc.ZopeDocFileSuite(
+        #    'tracker.txt', package='xm.tracker',
+        #    test_class=TestCase),
 
         #ztc.FunctionalDocFileSuite(
         #    'browser.txt', package='xm.tracker',
