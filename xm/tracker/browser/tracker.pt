@@ -39,34 +39,8 @@
 
         </form>
         <hr />
-        <div id="tasks">
-          <div class="task"
-               tal:repeat="task tracker/tasks">
-            <span tal:content="task/title" />
-            <div class="time_entry"
-                 tal:repeat="entry task/entries">
-              <span tal:content="entry/text" />:
-              <span tal:content="python:entry.time.strftime('%M:%S')" />
-            </div>
-            <form
-                method="post"
-                action="">
-              <input type="hidden"
-                     name="task_id"
-                     tal:attributes="value repeat/task/number" />
-              <input type="text"
-                     name="text" />
-              <input type="submit"
-                     name="track"
-                     class="track-time"
-                     value="Track" />
-              </form>
-          </div>
-          </div>        
+        <div tal:replace="structure provider:xm.tracker.tasklist" />
         </div>
-
-
-
       </div>
     </div>
   </body>

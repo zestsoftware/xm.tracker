@@ -1,4 +1,5 @@
 from zope.publisher.interfaces.browser import IBrowserView
+from zope.viewlet.interfaces import IViewletManager
 
 
 class ITrackerView(IBrowserView):
@@ -31,4 +32,9 @@ class ITrackTime(IBrowserView):
 class IBook(IBrowserView):
     """ Marker interface for the Book view, which adds a Booking to the
     associated XMTask.
+    """
+
+
+class ITaskListManager(IViewletManager):
+    """Show a list of tasks.
     """

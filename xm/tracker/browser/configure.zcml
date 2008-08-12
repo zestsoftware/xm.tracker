@@ -17,4 +17,13 @@
         name="tracker.kss"
         />
 
+    <viewletManager
+        name="xm.tracker.tasklist"
+        provides=".interfaces.ITaskListManager"
+        permission="zope2.View"
+        class=".viewlets.TaskListManager"
+        />
+
+
+
 </configure>
