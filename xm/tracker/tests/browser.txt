@@ -1,0 +1,9 @@
+Time Tracker functional tests
+=============================
+
+This document explains how the user interface of the time tracker is used.
+
+
+    >>> from  zope.publisher.browser import TestRequest
+    >>> request = TestRequest()
+    >>>  
