@@ -47,6 +47,7 @@ class TrackerView(BrowserView):
 
     def __call__(self):
         # Handle form here.
+        # XXX This one will be removed, use separate views
         tracker = self.tracker()
         start = self.request.get('start', False)
         stop = self.request.get('stop', False)

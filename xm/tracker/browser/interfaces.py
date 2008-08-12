@@ -15,12 +15,7 @@ class ITrackerView(IBrowserView):
         """ Return a DateTimeDelta
         """
         pass
-        
-    def track_time(uid):
-        """ Method to track time to a task
-        """
-        pass
-        
+
     def stop_timer():
         """ This method will set the starttime of the tracker to None
         """
