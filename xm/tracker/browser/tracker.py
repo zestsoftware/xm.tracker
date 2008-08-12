@@ -43,21 +43,13 @@ class TrackerView(BrowserView):
         now = mx.DateTime.now()
         previous = self.tracker().starttime or now
         time = now - previous
-        return time
+        return time.strftime("%H:%M:%S")
 
     def __call__(self):
-        # Handle form here.
         # XXX This one will be removed, use separate views
         tracker = self.tracker()
-        start = self.request.get('start', False)
-        stop = self.request.get('stop', False)
+        ### Remove before releasing
         demo = self.request.get('demo', False)
-        track = self.request.get('track', False)
-        now = mx.DateTime.now()
-        if start:
-            tracker.starttime = now
-        if stop:
-            tracker.starttime = None
         if demo:
             tracker.tasks = PersistentList()
             for i in range(3):
@@ -67,37 +59,64 @@ class TrackerView(BrowserView):
                             project = "Project %d" % i,
                             estimate = round(random() * 10))
                 tracker.tasks.append(task)
+            tracker.tasks[0].entries.append(Entry('Did my homework', 86400))
+            tracker.tasks[0].entries.append(Entry('Did my thing', 3600))
 
         return self.index()
 
-    def stop_timer(self):
-        self.tracker().starttime = None
+
+class Stop(BrowserView):
+    """ This view stops the timer"""
+
+    def __call__(self):
+        trackerview = self.context.restrictedTraverse('@@tracker')
+        tracker = trackerview.tracker()
+        tracker.starttime = None
+        message = _(u'msg_stopped_timer',
+                    default=u'Stopped the timer')
+        self.context.plone_utils.addPortalMessage(message)
+        response = self.request.response
+        response.redirect('@@tracker')
+
+
+class Start(BrowserView):
+    """ This view starts the timer"""
+
+    def __call__(self):
+        trackerview = self.context.restrictedTraverse('@@tracker')
+        tracker = trackerview.tracker()
+        tracker.starttime = mx.DateTime.now()
+        message = _(u'msg_started_timer',
+                    default=u'Started the timer')
+        self.context.plone_utils.addPortalMessage(message)
+        response = self.request.response
+        response.redirect('@@tracker')
 
 
 class TrackTime(BrowserView):
-        """ This view stores an entry for a given task"""
+    """ This view stores an entry for a given task"""
 
-        def __call__(self):
-            uid = self.request.get('uid')
-            text = self.request.get('text')
-            trackerview = self.context.restrictedTraverse('@@tracker')
-            tracker = trackerview.tracker()
-            task = tracker.get_task(uid)
-            if task is None:
-                message = _(u'msg_no_task_found',
-                            default=u'No task found with this UID')
-                self.context.plone_utils.addPortalMessage(message)
-                response = self.request.response
-                response.redirect('@@tracker')
-            time = tracker.starttime - mx.DateTime.now()
-            task.entries.append(Entry(text, time))
-            # Reset the timer's start time
-            tracker.starttime = mx.DateTime.now()
-            message = _(u'msg_added_entry',
-                        default=u'Added entry')
+    def __call__(self):
+        uid = self.request.get('uid')
+        text = self.request.get('text')
+        trackerview = self.context.restrictedTraverse('@@tracker')
+        tracker = trackerview.tracker()
+        task = tracker.get_task(uid)
+        if task is None:
+            message = _(u'msg_no_task_found',
+                        default=u'No task found with this UID')
             self.context.plone_utils.addPortalMessage(message)
             response = self.request.response
             response.redirect('@@tracker')
+        time = tracker.starttime - mx.DateTime.now()
+        task.entries.append(Entry(text, time))
+        # Reset the timer's start time
+        tracker.starttime = mx.DateTime.now()
+        message = _(u'msg_added_entry',
+                    default=u'Added entry')
+        self.context.plone_utils.addPortalMessage(message)
+        response = self.request.response
+        response.redirect('@@tracker')
 
 
 class Book(BrowserView):

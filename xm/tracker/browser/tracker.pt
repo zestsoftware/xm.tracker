@@ -18,21 +18,24 @@
         <h1 class="documentFirstHeading"
             i18n:translate="head_timetracker">Time Tracker</h1>
         
-        <form 
+        <form tal:condition="not: tracker/starttime"
             method="post"
-            action="">
-          <input tal:condition="not: tracker/starttime"
-                 type="submit"
+            action="@@tracker_start">
+          <input type="submit"
                  name="start"
                  id="start-timer"
                  value="Start working" />
-
-          <input tal:condition="tracker/starttime"
-                 type="submit"
+        </form>
+        <form tal:condition="tracker/starttime"
+            method="post"
+            action="@@tracker_stop">
+          <input type="submit"
                  name="stop"
                  id="stop-timer"
                  value="Stop and reset" />
-
+        </form>
+        <form method="post"
+              action="">
           <input type="submit"
                  name="demo"
                  value="Clear tracker and add demo tracked tasks" />

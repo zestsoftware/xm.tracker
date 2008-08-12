@@ -20,6 +20,20 @@
         />
     
     <page
+        name="tracker_start"
+        class=".tracker.Start"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+            
+    <page
+        name="tracker_stop"
+        class=".tracker.Stop"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
+    <page
         name="book"
         class=".tracker.Book"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"

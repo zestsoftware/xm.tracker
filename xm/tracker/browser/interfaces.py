@@ -17,11 +17,6 @@ class ITrackerView(IBrowserView):
         """
         pass
 
-    def stop_timer():
-        """ This method will set the starttime of the tracker to None
-        """
-        pass
-
 
 class ITrackTime(IBrowserView):
     """ Marker interface for the TrackTime view. This view save an entry for

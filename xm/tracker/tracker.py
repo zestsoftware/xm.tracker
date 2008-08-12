@@ -64,6 +64,7 @@ class Entry(Persistent):
 
     def __init__(self, text, time):
         self.text = text
-        delta = DateTimeDeltaFromSeconds(time)
-        self.time = delta
+        if type(time) == type(1):
+            time = DateTimeDeltaFromSeconds(time)
+        self.time = time
         self.date = mx.DateTime.now()
