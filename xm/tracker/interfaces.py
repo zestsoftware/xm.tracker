@@ -11,6 +11,11 @@ class ITracker(Interface):
     tasks = Attribute("Tracked Tasks")
     queue = Attribute("Queue of unassigned entries")
 
+    def get_task(uid):
+        """ Get a task by providing a uid
+        """
+        pass
+
 
 class ITask(Interface):
     """A task represents a XMtask from eXtremeManagement. It copies a few
@@ -23,11 +28,6 @@ class ITask(Interface):
     project = Attribute("Title of the project")
     estimate = Attribute("The estimated number of hours")
     entries = Attribute("List of timelog entries for this task")
-    
-    def get_task(uid):
-        """ Get a task by providing a uid
-        """
-        pass
     
     def total_time():
         """ Return a DateTimeDelta of the sum of entries for a task
