@@ -16,7 +16,7 @@ Main timer    The running timer on the top right of the main tracker screen
 from persistent import Persistent
 from persistent.list import PersistentList
 from zope.interface import implements
-from mx.DateTime import now
+import mx.DateTime
 from mx.DateTime import DateTimeDeltaFromSeconds
 from Products.CMFCore.utils import getToolByName
 
@@ -31,15 +31,21 @@ class Tracker(Persistent):
     def __init__(self):
         self.starttime = None
         self.tasks = PersistentList()
+        self.queue = PersistentList()
+
+    def get_task(self, uid):
+        for task in self.tasks:
+            if task.uid == uid:
+                return task
 
 
 class Task(Persistent):
     """A task from the XM site that is listed in the Time Tracker main screen.
     """
     implements(ITask)
-    def __init__(self, title, task_uid=None, story=None, project=None,
+    def __init__(self, title, uid=None, story=None, project=None,
                  estimate=None):
-        self.task_uid = task_uid
+        self.uid = uid
         self.title = title
         self.story = story
         self.project = project
@@ -60,4 +66,4 @@ class Entry(Persistent):
         self.text = text
         delta = DateTimeDeltaFromSeconds(time)
         self.time = delta
-        self.date = now()
+        self.date = mx.DateTime.now()

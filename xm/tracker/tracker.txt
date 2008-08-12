@@ -1,30 +1,57 @@
 Tracker
 =======
 
+The tracker stores a list of tasks. Each task stores timelog entries.
+
+>>> from xm.tracker.tracker import Tracker, Task, Entry
+>>> import mx.DateTime
+
 First create a tracker instance and add a few tasks.
 
+    >>> tracker = Tracker()
 
-    >>> from xm.tracker.tracker import Tracker, Task, Entry
-    >>> t = Tracker()
-    >>> t.tasks.append(Task(u'Write the interfaces',
-    ...                     story=u'Write a Time tracker',
-    ...                     project=u'eXtremeManagement',
-    ...                     estimate=u'6 hours'))
-    >>> t.tasks.append(Task(u'Write the code',
-    ...                     story=u'Write a Time tracker',
-    ...                     project=u'eXtremeManagement'))
-    >>> len(t.tasks)
+A New Tracker will have it's starttime set to None.
+
+    >>> tracker.starttime == None
+    True
+
+    >>> t1 = Task(u'Write the interfaces',
+    ...           story=u'Write a Time tracker',
+    ...           project=u'eXtremeManagement',
+    ...           estimate=u'6 hours')
+    >>> tracker.tasks.append(t1)
+    >>> t2 = Task(u'Write the code',
+    ...           story=u'Write a Time tracker',
+    ...           project=u'eXtremeManagement')
+    >>> tracker.tasks.append(t2)
+    >>> len(tracker.tasks)
     2
-    
+
+    >>> tracker.tasks[0].title
+    u'Write the interfaces'
+
 When the user has spent time on a task he can add an entry to the task.
+The task stores a list of entries.
 
-    >>> t.tasks[0].entries.append(Entry('Did something cool today!', 230))
-    >>> t.tasks[0].entries.append(Entry('Did something else as well!', 20))
-    >>> len(t.tasks[0].entries)
+    >>> t1.entries
+    []
+    >>> t1.entries.append(Entry('Did something cool today!', 230))
+    >>> t1.entries.append(Entry('Did something else as well!', 20))
+    >>> len(t1.entries)
     2
-    >>> t.tasks[0].total_time().strftime('%H:%M:%S')
+    >>> t1.total_time().strftime('%H:%M:%S')
     '00:04:10'
+    >>> t1.entries[0].time
+    <mx.DateTime.DateTimeDelta object for '00:03:50.00' at ...>
 
-  
+Each entry has a date attribute this is set to today upon instantiating.
+
+    >>> d = mx.DateTime.now()
+    >>> e1 = t1.entries[0]
+    >>> e1.date
+    <mx.DateTime.DateTime object for '...' at ...>
+
+    >>> e1.date.day == d.day
+    True
 
 

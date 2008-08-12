@@ -1,5 +1,5 @@
 import unittest
-
+from zope.testing import doctest
 from zope.testing import doctestunit
 from zope.component import testing
 
@@ -9,7 +9,7 @@ def test_suite():
 
         # Unit tests
         doctestunit.DocFileSuite(
-            'tracker.txt', package='xm.tracker',
+            'tracker.txt', package='xm.tracker', optionflags=doctest.ELLIPSIS,
             setUp=testing.setUp, tearDown=testing.tearDown),
 
         #doctestunit.DocTestSuite(

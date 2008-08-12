@@ -1,4 +1,5 @@
 import unittest
+from zope.testing import doctest
 # Not used yet, so avoid loading ztc or ptc.
 #from Testing import ZopeTestCase as ztc
 #from xm.tracker.tests import base

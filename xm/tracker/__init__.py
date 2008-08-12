@@ -1,3 +1,6 @@
+from zope.i18nmessageid import MessageFactory
+XMTrackerMessageFactory = MessageFactory('xm.tracker')
+
 from Products.CMFCore.permissions import setDefaultRoles
 
 setDefaultRoles("eXtremeManagement: View Tracker",
