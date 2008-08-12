@@ -1,8 +1,7 @@
 import unittest
 from zope.testing import doctest
-# Not used yet, so avoid loading ztc or ptc.
-#from Testing import ZopeTestCase as ztc
-#from xm.tracker.tests import base
+from Testing import ZopeTestCase as ztc
+from xm.tracker.tests import base
 
 
 def test_suite():
@@ -13,9 +12,10 @@ def test_suite():
         #    'tracker.txt', package='xm.tracker',
         #    test_class=base.TestCase),
 
-        #ztc.FunctionalDocFileSuite(
-        #    'browser.txt', package='xm.tracker',
-        #    test_class=base.TestCase),
+        ztc.FunctionalDocFileSuite(
+            'browser.txt', package='xm.tracker.tests',
+            optionflags=doctest.ELLIPSIS,
+            test_class=base.TestCase),
 
         ])
 

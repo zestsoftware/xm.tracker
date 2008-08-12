@@ -10,10 +10,10 @@
     </div>
     <form
         method="post"
-        action="">
+        action="@@track_time">
       <input type="hidden"
-             name="task_id"
-             tal:attributes="value repeat/task/number" />
+             name="uid"
+             tal:attributes="value task/uid" />
       <input type="text"
              name="text" />
       <input type="submit"

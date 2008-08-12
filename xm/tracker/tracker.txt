@@ -16,11 +16,13 @@ A New Tracker will have it's starttime set to None.
     True
 
     >>> t1 = Task(u'Write the interfaces',
+    ...           uid=u'MADKKJERN@342kNK',
     ...           story=u'Write a Time tracker',
     ...           project=u'eXtremeManagement',
     ...           estimate=u'6 hours')
     >>> tracker.tasks.append(t1)
     >>> t2 = Task(u'Write the code',
+    ...           uid=u'MDAeOJGSPERKWEL#2',
     ...           story=u'Write a Time tracker',
     ...           project=u'eXtremeManagement')
     >>> tracker.tasks.append(t2)
@@ -29,6 +31,12 @@ A New Tracker will have it's starttime set to None.
 
     >>> tracker.tasks[0].title
     u'Write the interfaces'
+
+    >>> tracker.get_task(u'MDAeOJGSPERKWEL#2')
+    <xm.tracker.tracker.Task object at ...>
+    
+    
+
 
 When the user has spent time on a task he can add an entry to the task.
 The task stores a list of entries.

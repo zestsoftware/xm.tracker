@@ -62,22 +62,12 @@ class TrackerView(BrowserView):
             tracker.tasks = PersistentList()
             for i in range(3):
                 task = Task("Task %d" % i,
-                                   story = "Story %d" % i,
-                                   project = "Project %d" % i,
-                                   estimate = round(random() * 10))
+                            uid = "slk3aJKE@$SKDGAA%d" % i,
+                            story = "Story %d" % i,
+                            project = "Project %d" % i,
+                            estimate = round(random() * 10))
                 tracker.tasks.append(task)
 
-        if track:
-            task_id = int(self.request.get('task_id', 0))
-            if task_id == 0:
-                # Handle untracked task with this?
-                pass
-            task_id -= 1
-            text = self.request.get('text')
-            task = tracker.tasks[task_id]
-            task.entries.append(Entry(text, self.time_spent()))
-            # This must be last:
-            tracker.starttime = now
         return self.index()
 
     def stop_timer(self):
@@ -98,16 +88,16 @@ class TrackTime(BrowserView):
                             default=u'No task found with this UID')
                 self.context.plone_utils.addPortalMessage(message)
                 response = self.request.response
-                here_url = self.context.absolute_url()
-                response.redirect(here_url)
+                response.redirect('@@tracker')
             time = tracker.starttime - mx.DateTime.now()
             task.entries.append(Entry(text, time))
+            # Reset the timer's start time
+            tracker.starttime = mx.DateTime.now()
             message = _(u'msg_added_entry',
                         default=u'Added entry')
             self.context.plone_utils.addPortalMessage(message)
             response = self.request.response
-            here_url = self.context.absolute_url()
-            response.redirect(here_url)
+            response.redirect('@@tracker')
 
 
 class Book(BrowserView):
@@ -141,7 +131,6 @@ class Book(BrowserView):
                               'setDescription': description})
                 message = _(u'msg_added_booking',
                             default=u'Added booking to task')
-                self.context.plone_utils.addPortalMessage(message)
                 if self.request.get('bookandclose', None):
                     self.context.portal_workflow.doActionFor(
                         xmtask, 'mark_completed')
@@ -149,5 +138,4 @@ class Book(BrowserView):
                                 default=u'Added booking to task and closed it')
         self.context.plone_utils.addPortalMessage(message)
         response = self.request.response
-        here_url = self.context.absolute_url()
-        response.redirect(here_url)
+        response.redirect('@@tracker')

@@ -11,7 +11,21 @@
         template="tracker.pt"
         allowed_interface=".interfaces.ITrackerView"
         />
+
+    <page
+        name="track_time"
+        class=".tracker.TrackTime"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
     
+    <page
+        name="book"
+        class=".tracker.Book"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
     <resource
         file="tracker.kss"
         name="tracker.kss"
