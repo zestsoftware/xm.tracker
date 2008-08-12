@@ -4,13 +4,13 @@ from zope.publisher.interfaces.browser import IBrowserView
 class ITrackerView(IBrowserView):
     """
     """
-    
+
     def tracker():
         """ Returns the tracker object stored in an Annotation on the
         MemberData object.
         """
         pass
-    
+
     def spent_time():
         """ Return a DateTimeDelta
         """
@@ -26,8 +26,9 @@ class ITrackTime(IBrowserView):
     """ Marker interface for the TrackTime view. This view save an entry for
     a given task.
     """
-    
+
+
 class IBook(IBrowserView):
     """ Marker interface for the Book view, which adds a Booking to the
-    associated XMTask. 
+    associated XMTask.
     """

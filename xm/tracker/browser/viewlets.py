@@ -1,4 +1,3 @@
-from Products.CMFCore.utils import getToolByName
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from zope.component import getMultiAdapter
@@ -15,7 +14,6 @@ class TaskViewlet(ViewletBase):
         self.site_url = self.portal_state.portal_url()
         self.entries = self._get_entries()
 
-
     def _get_entries(self):
         """
         """
@@ -25,7 +23,5 @@ class TaskViewlet(ViewletBase):
         for entry in tracker.entries:
             result.append(dict(
                 text = entry.text,
-                time = entry.time.strftime('%H:%M:%S'),))
+                time = entry.time.strftime('%H:%M:%S'), ))
         return result
-
-         

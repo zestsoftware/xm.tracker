@@ -28,7 +28,7 @@ class ITask(Interface):
     project = Attribute("Title of the project")
     estimate = Attribute("The estimated number of hours")
     entries = Attribute("List of timelog entries for this task")
-    
+
     def total_time():
         """ Return a DateTimeDelta of the sum of entries for a task
         """
