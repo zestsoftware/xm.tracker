@@ -47,3 +47,10 @@ class TaskViewlet(ViewletBase):
 
     def total_time(self):
         return self.context.total_time().strftime('%M:%S')
+
+    def entries(self):
+        result = []
+        for entry in self.context.entries:
+            result.append(dict(text = entry.text,
+                               time = entry.time.strftime('%M:%S')))
+        return result
