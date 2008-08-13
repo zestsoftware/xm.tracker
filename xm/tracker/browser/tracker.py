@@ -54,18 +54,16 @@ class Demo(TrackerView):
 
     def __call__(self):
         tracker = self.tracker()
-        demo = self.request.get('demo', False)
-        if demo:
-            tracker.tasks = PersistentList()
-            for i in range(3):
-                task = Task("Task %d" % i,
-                            uid = "slk3aJKE@$SKDGAA%d" % i,
-                            story = "Story %d" % i,
-                            project = "Project %d" % i,
-                            estimate = round(random() * 10))
-                tracker.tasks.append(task)
-            tracker.tasks[0].entries.append(Entry('Did my homework', 86400))
-            tracker.tasks[0].entries.append(Entry('Did my thing', 3600))
+        tracker.tasks = PersistentList()
+        for i in range(3):
+            task = Task("Task %d" % i,
+                        uid = "slk3aJKE@$SKDGAA%d" % i,
+                        story = "Story %d" % i,
+                        project = "Project %d" % i,
+                        estimate = round(random() * 10))
+            tracker.tasks.append(task)
+        tracker.tasks[0].entries.append(Entry('Did my homework', 86400))
+        tracker.tasks[0].entries.append(Entry('Did my thing', 3600))
 
         response = self.request.response
         response.redirect('@@tracker')
