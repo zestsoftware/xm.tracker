@@ -2,6 +2,7 @@ from random import random
 import math
 
 import mx.DateTime
+import transaction
 from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
 from zope.annotation.interfaces import IAnnotations
@@ -190,6 +191,13 @@ class Book(TrackerView):
                             default=u'Added booking to task')
                 # Remove current entries.  No need to book twice...
                 task.entries = PersistentList()
+                # The next part is really a separate action so it
+                # needs a transaction commit before it.  Without it,
+                # the adding of a booking above fails with an
+                # UnAuthorized error because the xm task is closed
+                # below...
+                # XXX is this save?  Can anything unforeseen happen?
+                transaction.commit()
                 if self.request.get('book_and_close', None):
                     try:
                         self.context.portal_workflow.doActionFor(
