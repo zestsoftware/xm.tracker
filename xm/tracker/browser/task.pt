@@ -9,6 +9,7 @@
   </div>
   <form
       method="post"
+      tal:condition="python:view.view.tracker().starttime"
       action="@@track_time">
     <input type="hidden"
            name="uid"
