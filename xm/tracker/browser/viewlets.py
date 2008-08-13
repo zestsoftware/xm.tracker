@@ -45,5 +45,5 @@ class TaskViewlet(ViewletBase):
     implements(IViewlet)
     render = ViewPageTemplateFile('task.pt')
 
-    def update(self):
-        pass
+    def total_time(self):
+        return self.context.total_time().strftime('%M:%S')

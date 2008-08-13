@@ -65,7 +65,7 @@
         name="xm.tracker.task"
         manager=".interfaces.ITaskListManager"
         class=".viewlets.TaskViewlet"
-        permission="zope2.View"
+        permission="zope.Public"
         />
 
 </configure>
