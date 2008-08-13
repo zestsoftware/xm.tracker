@@ -65,12 +65,11 @@ class TrackerView(BrowserView):
         return self.index()
 
 
-class Stop(BrowserView):
+class Stop(TrackerView):
     """ This view stops the timer"""
 
     def __call__(self):
-        trackerview = self.context.restrictedTraverse('@@tracker')
-        tracker = trackerview.tracker()
+        tracker = self.tracker()
         tracker.starttime = None
         message = _(u'msg_stopped_timer',
                     default=u'Stopped the timer')
@@ -79,12 +78,11 @@ class Stop(BrowserView):
         response.redirect('@@tracker')
 
 
-class Start(BrowserView):
+class Start(TrackerView):
     """ This view starts the timer"""
 
     def __call__(self):
-        trackerview = self.context.restrictedTraverse('@@tracker')
-        tracker = trackerview.tracker()
+        tracker = self.tracker()
         tracker.starttime = mx.DateTime.now()
         message = _(u'msg_started_timer',
                     default=u'Started the timer')
@@ -93,14 +91,13 @@ class Start(BrowserView):
         response.redirect('@@tracker')
 
 
-class TrackTime(BrowserView):
+class TrackTime(TrackerView):
     """ This view stores an entry for a given task"""
 
     def __call__(self):
         uid = self.request.get('uid')
         text = self.request.get('text')
-        trackerview = self.context.restrictedTraverse('@@tracker')
-        tracker = trackerview.tracker()
+        tracker = self.tracker()
         task = tracker.get_task(uid)
         if task is None:
             message = _(u'msg_no_task_found',
@@ -119,13 +116,12 @@ class TrackTime(BrowserView):
         response.redirect('@@tracker')
 
 
-class Book(BrowserView):
+class Book(TrackerView):
     """ This view stores a booking for a given task """
 
     def __call__(self):
         uid = self.request.get('uid')
-        trackerview = self.context.restrictedTraverse('@@tracker')
-        tracker = trackerview.tracker()
+        tracker = self.tracker()
         task = tracker.get_task(uid)
         if task.entries is None:
             message = _(u'msg_no_entries_found',
