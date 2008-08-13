@@ -42,6 +42,14 @@
                  value="Clear tracker and add demo tracked tasks" />
 
         </form>
+        <form method="post"
+              action="@@tracker_add_tasks">
+          <input type="submit"
+                 name="select"
+                 id="add-tasks"
+                 value="Clear tracker and add all xm todo-tasks" />
+
+        </form>
         <hr />
         <div class="tracker-tasks"
              tal:content="structure provider:xm.tracker.tasklist" />

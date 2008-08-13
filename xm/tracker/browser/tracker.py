@@ -46,6 +46,34 @@ class TrackerView(BrowserView):
         return time.strftime("%H:%M:%S")
 
 
+class AddTasks(TrackerView):
+    """Make links to real xm tasks in the tracker.
+    """
+
+    def __call__(self):
+        tracker = self.tracker()
+        # Clean the current tasks, for demoing.
+        tracker.tasks = PersistentList()
+        for xm_task in self.selected_tasks():
+            task = Task(xm_task['title'],
+                        uid = xm_task['UID'],
+                        story = xm_task['story_title'],
+                        project = "Project unknown",
+                        estimate = xm_task['estimate'])
+            tracker.tasks.append(task)
+
+        response = self.request.response
+        response.redirect('@@tracker')
+
+    def selected_tasks(self):
+        """For now we just get all to-do tasks here.
+        """
+        context = aq_inner(self.context)
+        mytask_details = getMultiAdapter(
+            (context, self.request), name=u'mytask_details')
+        return mytask_details.tasklist().get('tasks')
+
+
 class Demo(TrackerView):
     """ This view adds demo data.  Only for development.
 

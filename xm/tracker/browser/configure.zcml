@@ -29,6 +29,13 @@
         />
             
     <page
+        name="tracker_add_tasks"
+        class=".tracker.AddTasks"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+            
+    <page
         name="tracker_start"
         class=".tracker.Start"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
