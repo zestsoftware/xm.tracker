@@ -53,8 +53,10 @@ class Task(Persistent):
         self.entries = PersistentList()
         
     def total_time(self):
-        return sum([entry.time for entry in self.entries])
-            
+        total = sum([entry.time for entry in self.entries])
+        if total == 0:
+            return DateTimeDeltaFromSeconds(0)
+        return total
 
 
 class Entry(Persistent):

@@ -2,6 +2,7 @@
      tal:define="task context">
 
   <span tal:content="task/title" />
+  &mdash;&nbsp;<span tal:content="python:task.total_time().strftime('%M:%S')" />
   <div class="time_entry"
        tal:repeat="entry task/entries">
     <span tal:content="entry/text" />:
