@@ -190,6 +190,9 @@ class Book(TrackerView):
                         xmtask, 'mark_completed')
                     message = _(u'msg_added_booking_closed_task',
                                 default=u'Added booking to task and closed it')
+                # Remove current entries.  No need to book twice...
+                task.entries = PersistentList()
+
         self.context.plone_utils.addPortalMessage(message)
         response = self.request.response
         response.redirect('@@tracker')
