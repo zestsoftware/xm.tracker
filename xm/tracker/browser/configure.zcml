@@ -53,8 +53,8 @@
         />
 
     <viewlet
-        name="xm.tracker.task.simple"
-        manager="xm.tracker.browser.interfaces.ITaskListManager"
+        name="xm.tracker.task"
+        manager=".interfaces.ITaskListManager"
         class=".viewlets.TaskViewlet"
         permission="zope2.View"
         />

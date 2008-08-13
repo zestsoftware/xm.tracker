@@ -27,7 +27,7 @@ class TaskListManager(Explicit):
         for task in self.tracker.tasks:
             viewlet = getMultiAdapter(
                 (task, self.request, self.__parent__, self),
-                IViewlet, name=u'xm.tracker.task.simple')
+                IViewlet, name=u'xm.tracker.task')
             viewlet.update()
             rows.append(viewlet)
         self.rows = rows
@@ -43,7 +43,7 @@ class TaskViewlet(ViewletBase):
     """
     """
     implements(IViewlet)
-    render = ViewPageTemplateFile('task-simple.pt')
+    render = ViewPageTemplateFile('task.pt')
 
     def update(self):
         pass
