@@ -50,7 +50,7 @@
         />
 
     <page
-        name="book"
+        name="tracker_book"
         class=".tracker.Book"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"

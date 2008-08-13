@@ -14,6 +14,7 @@ from xm.tracker.tracker import Tracker
 from xm.tracker.tracker import Task
 from xm.tracker.tracker import Entry
 from xm.tracker import XMTrackerMessageFactory as _
+from xm.booking.browser.add import create_booking
 
 
 TRACKER_KEY = 'xm-timetracker'
@@ -137,10 +138,11 @@ class TrackTime(TrackerView):
             self.context.plone_utils.addPortalMessage(message)
             response = self.request.response
             response.redirect('@@tracker')
-        time = tracker.starttime - mx.DateTime.now()
+        current_time = mx.DateTime.now()
+        time = current_time - tracker.starttime
         task.entries.append(Entry(text, time))
         # Reset the timer's start time
-        tracker.starttime = mx.DateTime.now()
+        tracker.starttime = current_time
         message = _(u'msg_added_entry',
                     default=u'Added entry')
         self.context.plone_utils.addPortalMessage(message)
@@ -155,7 +157,7 @@ class Book(TrackerView):
         uid = self.request.get('uid')
         tracker = self.tracker()
         task = tracker.get_task(uid)
-        if task.entries is None:
+        if len(task.entries) == 0:
             message = _(u'msg_no_entries_found',
                         default=u'No entries found for this task')
         else:
@@ -166,16 +168,17 @@ class Book(TrackerView):
                             default=u'No task found with this UID')
             else:
                 xmtask = brains[0].getObject()
-                booking = xmtask.invokeFactory(type_name='Booking', id='bogus')
                 hours = task.total_time().hours
                 minutes = task.total_time().minutes
+                # make quarters of this.
+                minutes = int(round(minutes / 15.0) * 15)
                 description = ''
                 for entry in task.entries:
                     description += (entry.text + '\n')
-                booking.edit({'setHours': hours,
-                              'setMinutes': minutes,
-                              'Title': task[0].entries[0],
-                              'setDescription': description})
+                # Using the title of the first entry.
+                title = task.entries[0].text
+                create_booking(xmtask, title=title, hours=hours,
+                               minutes=minutes, description=description)
                 message = _(u'msg_added_booking',
                             default=u'Added booking to task')
                 if self.request.get('bookandclose', None):
