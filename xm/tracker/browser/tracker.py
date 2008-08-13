@@ -188,6 +188,8 @@ class Book(TrackerView):
                                minutes=minutes, description=description)
                 message = _(u'msg_added_booking',
                             default=u'Added booking to task')
+                # Remove current entries.  No need to book twice...
+                task.entries = PersistentList()
                 if self.request.get('book_and_close', None):
                     try:
                         self.context.portal_workflow.doActionFor(
@@ -196,10 +198,10 @@ class Book(TrackerView):
                         message = _(u'msg_added_booking_failed_to_close_task',
                                     default=u'Added booking to task but closing it failed.')
                     else:
+                        # Remove the tracked task as it is not needed anymore.
+                        tracker.tasks.remove(task)
                         message = _(u'msg_added_booking_closed_task',
                                     default=u'Added booking to task and closed it')
-                # Remove current entries.  No need to book twice...
-                task.entries = PersistentList()
 
         self.context.plone_utils.addPortalMessage(message)
         response = self.request.response
