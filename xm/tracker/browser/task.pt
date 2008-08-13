@@ -22,6 +22,7 @@
            class="track-time"
            value="Track" />
   </form>
+  <tal:book condition="view/entries">
   <form
       method="post"
       action="@@tracker_book">
@@ -44,4 +45,5 @@
            class="book-time"
            value="Book and close" />
   </form>
+  </tal:book>
 </div>
