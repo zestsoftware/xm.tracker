@@ -185,11 +185,13 @@ class Book(TrackerView):
         # XXX rounding up now to ease testing.
         #minutes = int(round(minutes / 15.0) * 15)
         minutes = int(math.ceil(minutes / 15.0) * 15)
-        description = ''
-        for entry in task.entries:
-            description += (entry.text + '\n')
-        # Using the title of the first entry.
+        # Using the title of the first entry as title of the complete
+        # booking.
         title = task.entries[0].text
+        description = u''
+        if len(task.entries) > 1:
+            for entry in task.entries:
+                description += (entry.text + '\n')
         try:
             create_booking(xmtask, title=title, hours=hours,
                            minutes=minutes, description=description)
