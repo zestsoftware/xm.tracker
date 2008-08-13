@@ -1,4 +1,6 @@
 from random import random
+import math
+
 import mx.DateTime
 from Acquisition import aq_inner
 from Products.Five.browser import BrowserView
@@ -171,7 +173,9 @@ class Book(TrackerView):
                 hours = task.total_time().hours
                 minutes = task.total_time().minutes
                 # make quarters of this.
-                minutes = int(round(minutes / 15.0) * 15)
+                # XXX rounding up now to ease testing.
+                #minutes = int(round(minutes / 15.0) * 15)
+                minutes = int(math.ceil(minutes / 15.0) * 15)
                 description = ''
                 for entry in task.entries:
                     description += (entry.text + '\n')
