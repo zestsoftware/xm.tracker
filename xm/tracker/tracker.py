@@ -64,7 +64,9 @@ class Entry(Persistent):
 
     def __init__(self, text, time):
         self.text = text
-        if type(time) == type(1):
+        if isinstance(time, basestring) or isinstance(time, float):
+            time = int(time)
+        if isinstance(time, int):
             time = DateTimeDeltaFromSeconds(time)
         self.time = time
         self.date = mx.DateTime.now()

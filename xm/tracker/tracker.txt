@@ -12,7 +12,7 @@ First create a tracker instance and add a few tasks.
 
 A New Tracker will have it's starttime set to None.
 
-    >>> tracker.starttime == None
+    >>> tracker.starttime is None
     True
 
     >>> t1 = Task(u'Write the interfaces',
@@ -63,3 +63,15 @@ Each entry has a date attribute this is set to today upon instantiating.
     True
 
 
+Entries can get either a timedelta or a number of seconds as input.
+
+    >>> from mx.DateTime import DateTimeDeltaFromSeconds
+    >>> minute = DateTimeDeltaFromSeconds(60)
+    >>> Entry('dummy text', 60).time == minute
+    True
+    >>> Entry('dummy text', minute).time == minute
+    True
+    >>> Entry('dummy text', '60').time == minute
+    True
+    >>> Entry('dummy text', 60.0).time == minute
+    True
