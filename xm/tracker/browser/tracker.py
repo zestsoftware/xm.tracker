@@ -11,6 +11,7 @@ from zope.interface import classImplements
 from persistent.list import PersistentList
 from Products.PlonePAS.tools.memberdata import MemberData
 from Products.CMFCore.utils import getToolByName
+from Products.CMFCore.WorkflowCore import WorkflowException
 
 from xm.tracker.tracker import Tracker
 from xm.tracker.tracker import Task
@@ -187,11 +188,16 @@ class Book(TrackerView):
                                minutes=minutes, description=description)
                 message = _(u'msg_added_booking',
                             default=u'Added booking to task')
-                if self.request.get('bookandclose', None):
-                    self.context.portal_workflow.doActionFor(
-                        xmtask, 'mark_completed')
-                    message = _(u'msg_added_booking_closed_task',
-                                default=u'Added booking to task and closed it')
+                if self.request.get('book_and_close', None):
+                    try:
+                        self.context.portal_workflow.doActionFor(
+                            xmtask, 'complete')
+                    except WorkflowException:
+                        message = _(u'msg_added_booking_failed_to_close_task',
+                                    default=u'Added booking to task but closing it failed.')
+                    else:
+                        message = _(u'msg_added_booking_closed_task',
+                                    default=u'Added booking to task and closed it')
                 # Remove current entries.  No need to book twice...
                 task.entries = PersistentList()
 
