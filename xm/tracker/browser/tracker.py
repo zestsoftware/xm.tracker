@@ -45,10 +45,15 @@ class TrackerView(BrowserView):
         time = now - previous
         return time.strftime("%H:%M:%S")
 
+
+class Demo(TrackerView):
+    """ This view adds demo data.  Only for development.
+
+    XXX Remove before releasing.
+    """
+
     def __call__(self):
-        # XXX This one will be removed, use separate views
         tracker = self.tracker()
-        ### Remove before releasing
         demo = self.request.get('demo', False)
         if demo:
             tracker.tasks = PersistentList()
@@ -62,7 +67,8 @@ class TrackerView(BrowserView):
             tracker.tasks[0].entries.append(Entry('Did my homework', 86400))
             tracker.tasks[0].entries.append(Entry('Did my thing', 3600))
 
-        return self.index()
+        response = self.request.response
+        response.redirect('@@tracker')
 
 
 class Stop(TrackerView):

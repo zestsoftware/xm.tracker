@@ -34,8 +34,9 @@
                  id="stop-timer"
                  value="Stop and reset" />
         </form>
+        <!-- XXX Remove demo button before releasing. -->
         <form method="post"
-              action="">
+              action="@@tracker_demo">
           <input type="submit"
                  name="demo"
                  value="Clear tracker and add demo tracked tasks" />
