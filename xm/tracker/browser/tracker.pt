@@ -42,7 +42,7 @@
 
         </form>
         <hr />
-        <div class="tasks"
+        <div class="tracker-tasks"
              tal:content="structure provider:xm.tracker.tasklist" />
         </div>
       </div>
