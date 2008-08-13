@@ -1,0 +1,23 @@
+<div class="task"
+     tal:define="task context">
+
+  <span tal:content="task/title" />
+  <div class="time_entry"
+       tal:repeat="entry task/entries">
+    <span tal:content="entry/text" />:
+    <span tal:content="python:entry.time.strftime('%M:%S')" />
+  </div>
+  <form
+      method="post"
+      action="@@track_time">
+    <input type="hidden"
+           name="uid"
+           tal:attributes="value task/uid" />
+    <input type="text"
+           name="text" />
+    <input type="submit"
+           name="track"
+           class="track-time"
+           value="Track" />
+  </form>
+</div>

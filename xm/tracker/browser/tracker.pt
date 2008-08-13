@@ -42,7 +42,8 @@
 
         </form>
         <hr />
-        <div tal:replace="structure provider:xm.tracker.tasklist" />
+        <div class="tasks"
+             tal:content="structure provider:xm.tracker.tasklist" />
         </div>
       </div>
     </div>

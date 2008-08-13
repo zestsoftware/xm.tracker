@@ -4,14 +4,12 @@ from zope.interface import implements
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from plone.app.layout.viewlets.common import ViewletBase
 from zope.component import getMultiAdapter
+from zope.viewlet.interfaces import IViewlet
 
-from xm.tracker.browser.interfaces import ITaskListManager
+from xm.tracker.browser.interfaces import ITaskViewlet
 
 
 class TaskListManager(Explicit):
-    implements(ITaskListManager)
-    template = ViewPageTemplateFile('tasklist.pt')
-    render = template
 
     def __init__(self, context, request, view):
         self.context = context
@@ -25,26 +23,27 @@ class TaskListManager(Explicit):
         # XXX make a separate function instead of doing this in update()?
         self.tracker = tracker_view.tracker()
 
+        rows = []
+        for task in self.tracker.tasks:
+            viewlet = getMultiAdapter(
+                (task, self.request, self.__parent__, self),
+                IViewlet, name=u'xm.tracker.task.simple')
+            viewlet.update()
+            rows.append(viewlet)
+        self.rows = rows
+
+    def render(self, *args, **kw):
+        result = u''
+        for row in self.rows:
+            result += row.render()
+        return result
+
 
 class TaskViewlet(ViewletBase):
     """
     """
-    #render = ViewPageTemplateFile('task.pt')
+    implements(IViewlet)
+    render = ViewPageTemplateFile('task-simple.pt')
 
     def update(self):
-        self.portal_state = getMultiAdapter((self.context, self.request),
-                                            name=u'plone_portal_state')
-        self.site_url = self.portal_state.portal_url()
-        self.entries = self._get_entries()
-
-    def _get_entries(self):
-        """
-        """
-        tracker = getMultiAdapter((self.context, self.request),
-                                    name=u'tracker')
-        result = []
-        for entry in tracker.entries:
-            result.append(dict(
-                text = entry.text,
-                time = entry.time.strftime('%H:%M:%S'), ))
-        return result
+        pass

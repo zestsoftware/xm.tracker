@@ -1,5 +1,6 @@
 from zope.publisher.interfaces.browser import IBrowserView
 from zope.viewlet.interfaces import IViewletManager
+from zope.viewlet.interfaces import IViewlet
 
 
 class ITrackerView(IBrowserView):
@@ -32,4 +33,9 @@ class IBook(IBrowserView):
 
 class ITaskListManager(IViewletManager):
     """Show a list of tasks.
+    """
+
+
+class ITaskViewlet(IViewlet):
+    """Show a task.
     """
