@@ -23,27 +23,27 @@
            value="Track" />
   </form>
   <tal:book condition="view/entries">
-  <form
-      method="post"
-      action="@@tracker_book">
-    <input type="hidden"
-           name="uid"
-           tal:attributes="value task/uid" />
-    <input type="submit"
-           name="book"
-           class="book-time"
-           value="Book" />
-  </form>
-  <form
-      method="post"
-      action="@@tracker_book">
-    <input type="hidden"
-           name="uid"
-           tal:attributes="value task/uid" />
-    <input type="submit"
-           name="book_and_close"
-           class="book-time"
-           value="Book and close" />
-  </form>
+    <form
+        method="post"
+        action="@@tracker_book">
+      <input type="hidden"
+             name="uid"
+             tal:attributes="value task/uid" />
+      <input type="submit"
+             name="book"
+             class="book-time"
+             value="Book" />
+    </form>
+    <form
+        method="post"
+        action="@@tracker_book">
+      <input type="hidden"
+             name="uid"
+             tal:attributes="value task/uid" />
+      <input type="submit"
+             name="book_and_close"
+             class="book-time"
+             value="Book and close" />
+    </form>
   </tal:book>
 </div>
