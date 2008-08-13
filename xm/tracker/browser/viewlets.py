@@ -54,3 +54,7 @@ class TaskViewlet(ViewletBase):
             result.append(dict(text = entry.text,
                                time = entry.time.strftime('%M:%S')))
         return result
+
+    def tracker_has_started(self):
+        tracker = self.view.tracker()
+        return bool(tracker.starttime)
