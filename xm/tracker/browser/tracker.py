@@ -167,56 +167,72 @@ class Book(TrackerView):
         if len(task.entries) == 0:
             message = _(u'msg_no_entries_found',
                         default=u'No entries found for this task')
-        else:
-            uid_catalog = getToolByName(self.context, 'uid_catalog')
-            brains = uid_catalog({'UID': uid})
-            if brains is None:
-                message = _(u'msg_no_task_found',
-                            default=u'No task found with this UID')
-            else:
-                xmtask = brains[0].getObject()
-                hours = task.total_time().hours
-                minutes = task.total_time().minutes
-                # make quarters of this.
-                # XXX rounding up now to ease testing.
-                #minutes = int(round(minutes / 15.0) * 15)
-                minutes = int(math.ceil(minutes / 15.0) * 15)
-                description = ''
-                for entry in task.entries:
-                    description += (entry.text + '\n')
-                # Using the title of the first entry.
-                title = task.entries[0].text
-                try:
-                    create_booking(xmtask, title=title, hours=hours,
-                                   minutes=minutes, description=description)
-                except Unauthorized:
-                    message = _(u'msg_failed_add_booking',
-                                default=u'Not permitted to add booking to task. Check if the task is in the correct state.')
-                else:
-                    message = _(u'msg_added_booking',
-                                default=u'Added booking to task')
-                    # Remove current entries.  No need to book twice...
-                    task.entries = PersistentList()
-                    # The next part is really a separate action so it
-                    # needs a transaction commit before it.  Without it,
-                    # the adding of a booking above fails with an
-                    # Unauthorized error because the xm task is closed
-                    # below...
-                    # XXX is this save?  Can anything unforeseen happen?
-                    transaction.commit()
-                    if self.request.get('book_and_close', None):
-                        try:
-                            self.context.portal_workflow.doActionFor(
-                                xmtask, 'complete')
-                        except WorkflowException:
-                            message = _(u'msg_added_booking_failed_to_close_task',
-                                        default=u'Added booking to task but closing it failed.')
-                        else:
-                            # Remove the tracked task as it is not needed anymore.
-                            tracker.tasks.remove(task)
-                            message = _(u'msg_added_booking_closed_task',
-                                        default=u'Added booking to task and closed it')
+            self.redirect_to_tracker(message)
+            return
 
-        self.context.plone_utils.addPortalMessage(message)
+        uid_catalog = getToolByName(self.context, 'uid_catalog')
+        brains = uid_catalog({'UID': uid})
+        if brains is None:
+            message = _(u'msg_no_task_found',
+                        default=u'No task found with this UID')
+            self.redirect_to_tracker(message)
+            return
+
+        xmtask = brains[0].getObject()
+        hours = task.total_time().hours
+        minutes = task.total_time().minutes
+        # make quarters of this.
+        # XXX rounding up now to ease testing.
+        #minutes = int(round(minutes / 15.0) * 15)
+        minutes = int(math.ceil(minutes / 15.0) * 15)
+        description = ''
+        for entry in task.entries:
+            description += (entry.text + '\n')
+        # Using the title of the first entry.
+        title = task.entries[0].text
+        try:
+            create_booking(xmtask, title=title, hours=hours,
+                           minutes=minutes, description=description)
+        except Unauthorized:
+            message = _(u'msg_failed_add_booking',
+                        default=u'Not permitted to add booking to task. Check if the task is in the correct state.')
+            self.redirect_to_tracker(message)
+            return
+
+        message = _(u'msg_added_booking',
+                    default=u'Added booking to task')
+        # Remove current entries.  No need to book twice...
+        task.entries = PersistentList()
+        if not self.request.get('book_and_close', None):
+            self.redirect_to_tracker(message)
+            return
+
+        # The next part is really a separate action so it
+        # needs a transaction commit before it.  Without it,
+        # the adding of a booking above fails with an
+        # Unauthorized error because the xm task is closed
+        # below...
+        # XXX is this save?  Can anything unforeseen happen?
+        # XXX Perhaps just do a redirect instead to a 'Close' view.
+        transaction.commit()
+
+        try:
+            self.context.portal_workflow.doActionFor(
+                xmtask, 'complete')
+        except WorkflowException:
+            message = _(u'msg_added_booking_failed_to_close_task',
+                        default=u'Added booking to task but closing failed.')
+            self.redirect_to_tracker(message)
+            return
+
+        # Remove the tracked task as it is not needed anymore.
+        tracker.tasks.remove(task)
+        message = _(u'msg_added_booking_closed_task',
+                    default=u'Added booking to task and closed it')
+        self.redirect_to_tracker(message)
+
+    def redirect_to_tracker(self, message= None):
+        if message is not None:
+            self.context.plone_utils.addPortalMessage(message)
         response = self.request.response
         response.redirect('@@tracker')
