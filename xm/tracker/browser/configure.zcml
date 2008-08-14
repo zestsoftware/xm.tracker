@@ -41,7 +41,13 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
         />
-            
+
+    <zope:adapter
+        name="xm.tracker.startstop"
+        provides="zope.contentprovider.interfaces.IContentProvider"
+        factory="xm.tracker.browser.tracker.StartStopProvider"
+        />
+  
     <page
         name="tracker_stop"
         class=".tracker.Stop"

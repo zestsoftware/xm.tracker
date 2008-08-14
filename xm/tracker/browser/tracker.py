@@ -4,13 +4,20 @@ import math
 import mx.DateTime
 import transaction
 from AccessControl import Unauthorized
-from Acquisition import aq_inner
+from Acquisition import aq_inner, Explicit
 from Products.Five.browser import BrowserView
 from zope.annotation.interfaces import IAnnotations
 from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.component import getMultiAdapter
+from zope.contentprovider.interfaces import IContentProvider
+from zope.interface import implements
+from zope.interface import Interface
+from zope.component import adapts
 from zope.interface import classImplements
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+
 from persistent.list import PersistentList
+from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from Products.PlonePAS.tools.memberdata import MemberData
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowCore import WorkflowException
@@ -101,6 +108,24 @@ class Demo(TrackerView):
 
         response = self.request.response
         response.redirect('@@tracker')
+
+
+class StartStopProvider(Explicit):
+    """ This view renders the start/stop button of the timer
+    """
+    adapts(Interface, IDefaultBrowserLayer, Interface)
+
+    render = ZopeTwoPageTemplateFile('startstop.pt')
+    
+    def __init__(self, context, request, view):
+        self.context = context
+        self.request = request
+        self.__parent__ = view
+
+    def update(self):
+        tracker = self.context.restrictedTraverse('@@tracker').tracker()
+        self.is_started = bool(tracker.starttime)
+
 
 
 class Stop(TrackerView):
@@ -197,7 +222,8 @@ class Book(TrackerView):
                            minutes=minutes, description=description)
         except Unauthorized:
             message = _(u'msg_failed_add_booking',
-                        default=u'Not permitted to add booking to task. Check if the task is in the correct state.')
+                        default=u'Not permitted to add booking to task. Check'
+                                u' if the task is in the correct state.')
             self.redirect_to_tracker(message)
             return
 
