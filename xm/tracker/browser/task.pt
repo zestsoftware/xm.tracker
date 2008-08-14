@@ -8,12 +8,15 @@
     [<span tal:content="task/project|nothing" />
     | <span tal:content="task/story|nothing" />]
   </div>
-  <div class="time_entry"
-       tal:repeat="entry view/entries">
-    <span tal:content="entry/date" />
-    <span tal:content="entry/text" />:
-    <span tal:content="entry/time" />
-  </div>
+  <table
+      class="entry_table">
+    <tr class="time_entry"
+        tal:repeat="entry view/entries">
+      <td tal:content="entry/date" />
+      <td tal:content="entry/text" />
+      <td tal:content="entry/time" />
+    </tr>
+  </table>
   <form
       method="post"
       tal:condition="view/tracker_has_started"
