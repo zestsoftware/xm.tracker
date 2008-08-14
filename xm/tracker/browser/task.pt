@@ -1,8 +1,13 @@
 <div class="task"
      tal:define="task context">
 
-  <span tal:content="task/title" />
-  &mdash;&nbsp;<span tal:content="view/total_time" />
+  <hr />
+  <h2 style="float:right" tal:content="view/total_time" />
+  <h2 tal:content="task/title" />
+  <div class="storyline">
+    [<span tal:content="task/project|nothing" />
+    | <span tal:content="task/story|nothing" />]
+  </div>
   <div class="time_entry"
        tal:repeat="entry view/entries">
     <span tal:content="entry/text" />:

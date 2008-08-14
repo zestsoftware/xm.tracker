@@ -3,12 +3,13 @@
       i18n:domain="eXtremeManagement">
 
   <head>
+    <title i18n:translate="head_timetracker">Time Tracker</title>
   </head>
   <body>
   <div tal:define="tracker view/tracker;
                      putils context/plone_utils">  
     <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
-    <div id="timer"
+    <h1 id="timer"
          style="float:right"
          tal:content="view/time_spent" />
     
@@ -31,7 +32,6 @@
              value="Clear tracker and add all xm todo-tasks" />
 
     </form>
-    <hr />
     <div class="tracker-tasks"
          tal:content="structure provider:xm.tracker.tasklist" />
   </div>
