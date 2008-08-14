@@ -130,9 +130,8 @@ class Stop(TrackerView):
     def __call__(self):
         tracker = self.tracker()
         tracker.starttime = None
-        message = _(u'msg_stopped_timer',
-                    default=u'Stopped the timer')
-        IStatusMessage(self.request).addStatusMessage(message, type="info")
+        msg = _(u'msg_stopped_timer', default=u'Stopped the timer')
+        IStatusMessage(self.request).addStatusMessage(msg, type="info")
         self.request.response.redirect('@@tracker')
 
 
@@ -142,9 +141,8 @@ class Start(TrackerView):
     def __call__(self):
         tracker = self.tracker()
         tracker.starttime = mx.DateTime.now()
-        message = _(u'msg_started_timer',
-                    default=u'Started the timer')
-        IStatusMessage(self.request).addStatusMessage(message, type="info")
+        msg = _(u'msg_started_timer', default=u'Started the timer')
+        IStatusMessage(self.request).addStatusMessage(msg, type="info")
         self.request.response.redirect('@@tracker')
 
 
@@ -157,16 +155,16 @@ class TrackTime(TrackerView):
         tracker = self.tracker()
         task = tracker.get_task(uid)
         if task is None:
-            message = _(u'msg_no_task_found',
-                        default=u'No task found with this UID')
-            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            msg = _(u'msg_no_task_found',
+                    default=u'No task found with this UID')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
         if tracker.starttime is None:
-            message = _(u'msg_no_tracking_without_starttime',
-                        default=u'Cannot track time when the tracker has not '
-                        u'started.')
-            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            msg = _(u'msg_no_tracking_without_starttime',
+                    default=u'Cannot track time when the tracker has not '
+                            u'started.')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
         current_time = mx.DateTime.now()
@@ -176,9 +174,8 @@ class TrackTime(TrackerView):
         task.entries.append(Entry(text, time))
         # Reset the timer's start time
         tracker.starttime = current_time
-        message = _(u'msg_added_entry',
-                    default=u'Added entry')
-        IStatusMessage(self.request).addStatusMessage(message, type="info")
+        msg = _(u'msg_added_entry', default=u'Added entry')
+        IStatusMessage(self.request).addStatusMessage(msg, type="info")
         self.request.response.redirect('@@tracker')
 
 
@@ -190,18 +187,18 @@ class Book(TrackerView):
         tracker = self.tracker()
         task = tracker.get_task(uid)
         if len(task.entries) == 0:
-            message = _(u'msg_no_entries_found',
-                        default=u'No entries found for this task')
-            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            msg = _(u'msg_no_entries_found',
+                    default=u'No entries found for this task')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
 
         uid_catalog = getToolByName(self.context, 'uid_catalog')
         brains = uid_catalog({'UID': uid})
         if brains is None:
-            message = _(u'msg_no_task_found',
-                        default=u'No task found with this UID')
-            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            msg = _(u'msg_no_task_found',
+                    default=u'No task found with this UID')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
 
@@ -223,16 +220,15 @@ class Book(TrackerView):
             create_booking(xmtask, title=title, hours=hours,
                            minutes=minutes, description=description)
         except Unauthorized:
-            message = _(u'msg_failed_add_booking',
-                        default=u'Not permitted to add booking to task. Check'
-                                u' if the task is in the correct state.')
-            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            msg = _(u'msg_failed_add_booking',
+                    default=u'Not permitted to add booking to task. Check'
+                            u' if the task is in the correct state.')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
 
-        message = _(u'msg_added_booking',
-                    default=u'Added booking to task')
-        IStatusMessage(self.request).addStatusMessage(message, type="info")
+        msg = _(u'msg_added_booking', default=u'Added booking to task')
+        IStatusMessage(self.request).addStatusMessage(msg, type="info")
         # Remove current entries.  No need to book twice...
         task.entries = PersistentList()
         if not self.request.get('book_and_close', None):
@@ -252,15 +248,14 @@ class Book(TrackerView):
             self.context.portal_workflow.doActionFor(
                 xmtask, 'complete')
         except WorkflowException:
-            message = _(u'msg_close_task_failed',
-                        default=u'Closing of task failed.')
-            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            msg = _(u'msg_close_task_failed',
+                    default=u'Closing of task failed.')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
 
         # Remove the tracked task as it is not needed anymore.
         tracker.tasks.remove(task)
-        message = _(u'msg_close_task_success',
-                    default=u'Task has been closed.')
-        IStatusMessage(self.request).addStatusMessage(message, type="info")
+        msg = _(u'msg_close_task_success', default=u'Task has been closed.')
+        IStatusMessage(self.request).addStatusMessage(msg, type="info")
         self.request.response.redirect('@@tracker')
