@@ -62,6 +62,13 @@
         permission="xm.ViewTracker"
         />
 
+    <page
+        name="close_task"
+        class=".tracker.CloseTask"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
     <resource
         file="tracker.kss"
         name="tracker.kss"

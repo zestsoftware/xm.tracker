@@ -199,7 +199,7 @@ class Book(TrackerView):
 
         uid_catalog = getToolByName(self.context, 'uid_catalog')
         brains = uid_catalog({'UID': uid})
-        if brains is None:
+        if len(brains) == 0:
             msg = _(u'msg_no_task_found',
                     default=u'No task found with this UID')
             IStatusMessage(self.request).addStatusMessage(msg, type="error")
@@ -235,22 +235,31 @@ class Book(TrackerView):
         IStatusMessage(self.request).addStatusMessage(msg, type="info")
         # Remove current entries.  No need to book twice...
         task.entries = PersistentList()
-        if not self.request.get('book_and_close', None):
+        if self.request.get('book_and_close', None):
+            # When redirecting we get a new request, so the uid
+            # parameter gets lost, so we need to add it here ourselves.
+            self.request.response.redirect('@@close_task?uid=%s' % uid)
+        else:
+            self.request.response.redirect('@@tracker')
+
+
+class CloseTask(TrackerView):
+    """This view closes an xm task."""
+
+    def __call__(self):
+        uid = self.request.get('uid')
+        uid_catalog = getToolByName(self.context, 'uid_catalog')
+        brains = uid_catalog({'UID': uid})
+        if len(brains) == 0:
+            msg = _(u'msg_no_task_found',
+                    default=u'No task found with this UID')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
 
-        # The next part is really a separate action so it
-        # needs a transaction commit before it.  Without it,
-        # the adding of a booking above fails with an
-        # Unauthorized error because the xm task is closed
-        # below...
-        # XXX is this safe?  Can anything unforeseen happen?
-        # XXX Perhaps just do a redirect instead to a 'Close' view.
-        transaction.commit()
-
+        xmtask = brains[0].getObject()
         try:
-            self.context.portal_workflow.doActionFor(
-                xmtask, 'complete')
+            self.context.portal_workflow.doActionFor(xmtask, 'complete')
         except WorkflowException:
             msg = _(u'msg_close_task_failed',
                     default=u'Closing of task failed.')
@@ -259,6 +268,8 @@ class Book(TrackerView):
             return
 
         # Remove the tracked task as it is not needed anymore.
+        tracker = self.tracker()
+        task = tracker.get_task(uid)
         tracker.tasks.remove(task)
         msg = _(u'msg_close_task_success', default=u'Task has been closed.')
         IStatusMessage(self.request).addStatusMessage(msg, type="info")
