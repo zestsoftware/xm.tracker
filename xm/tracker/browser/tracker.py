@@ -9,8 +9,6 @@ from Products.Five.browser import BrowserView
 from zope.annotation.interfaces import IAnnotations
 from zope.annotation.interfaces import IAttributeAnnotatable
 from zope.component import getMultiAdapter
-from zope.contentprovider.interfaces import IContentProvider
-from zope.interface import implements
 from zope.interface import Interface
 from zope.component import adapts
 from zope.interface import classImplements
@@ -21,6 +19,7 @@ from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from Products.PlonePAS.tools.memberdata import MemberData
 from Products.CMFCore.utils import getToolByName
 from Products.CMFCore.WorkflowCore import WorkflowException
+from Products.statusmessages.interfaces import IStatusMessage
 
 from xm.tracker.tracker import Tracker
 from xm.tracker.tracker import Task
@@ -75,8 +74,7 @@ class AddTasks(TrackerView):
                         estimate = xm_task['estimate'])
             tracker.tasks.append(task)
 
-        response = self.request.response
-        response.redirect('@@tracker')
+        self.request.response.redirect('@@tracker')
 
     def selected_tasks(self):
         """For now we just get all to-do tasks here.
@@ -106,8 +104,7 @@ class Demo(TrackerView):
         tracker.tasks[0].entries.append(Entry('Did my homework', 86400))
         tracker.tasks[0].entries.append(Entry('Did my thing', 3600))
 
-        response = self.request.response
-        response.redirect('@@tracker')
+        self.request.response.redirect('@@tracker')
 
 
 class StartStopProvider(Explicit):
@@ -116,7 +113,7 @@ class StartStopProvider(Explicit):
     adapts(Interface, IDefaultBrowserLayer, Interface)
 
     render = ZopeTwoPageTemplateFile('startstop.pt')
-    
+
     def __init__(self, context, request, view):
         self.context = context
         self.request = request
@@ -127,7 +124,6 @@ class StartStopProvider(Explicit):
         self.is_started = bool(tracker.starttime)
 
 
-
 class Stop(TrackerView):
     """ This view stops the timer"""
 
@@ -136,9 +132,8 @@ class Stop(TrackerView):
         tracker.starttime = None
         message = _(u'msg_stopped_timer',
                     default=u'Stopped the timer')
-        self.context.plone_utils.addPortalMessage(message)
-        response = self.request.response
-        response.redirect('@@tracker')
+        IStatusMessage(self.request).addStatusMessage(message, type="info")
+        self.request.response.redirect('@@tracker')
 
 
 class Start(TrackerView):
@@ -149,9 +144,8 @@ class Start(TrackerView):
         tracker.starttime = mx.DateTime.now()
         message = _(u'msg_started_timer',
                     default=u'Started the timer')
-        self.context.plone_utils.addPortalMessage(message)
-        response = self.request.response
-        response.redirect('@@tracker')
+        IStatusMessage(self.request).addStatusMessage(message, type="info")
+        self.request.response.redirect('@@tracker')
 
 
 class TrackTime(TrackerView):
@@ -165,9 +159,16 @@ class TrackTime(TrackerView):
         if task is None:
             message = _(u'msg_no_task_found',
                         default=u'No task found with this UID')
-            self.context.plone_utils.addPortalMessage(message)
-            response = self.request.response
-            response.redirect('@@tracker')
+            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            self.request.response.redirect('@@tracker')
+            return
+        if tracker.starttime is None:
+            message = _(u'msg_no_tracking_without_starttime',
+                        default=u'Cannot track time when the tracker has not '
+                        u'started.')
+            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            self.request.response.redirect('@@tracker')
+            return
         current_time = mx.DateTime.now()
         time = current_time - tracker.starttime
         if not text:
@@ -177,9 +178,8 @@ class TrackTime(TrackerView):
         tracker.starttime = current_time
         message = _(u'msg_added_entry',
                     default=u'Added entry')
-        self.context.plone_utils.addPortalMessage(message)
-        response = self.request.response
-        response.redirect('@@tracker')
+        IStatusMessage(self.request).addStatusMessage(message, type="info")
+        self.request.response.redirect('@@tracker')
 
 
 class Book(TrackerView):
@@ -192,7 +192,8 @@ class Book(TrackerView):
         if len(task.entries) == 0:
             message = _(u'msg_no_entries_found',
                         default=u'No entries found for this task')
-            self.redirect_to_tracker(message)
+            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            self.request.response.redirect('@@tracker')
             return
 
         uid_catalog = getToolByName(self.context, 'uid_catalog')
@@ -200,7 +201,8 @@ class Book(TrackerView):
         if brains is None:
             message = _(u'msg_no_task_found',
                         default=u'No task found with this UID')
-            self.redirect_to_tracker(message)
+            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            self.request.response.redirect('@@tracker')
             return
 
         xmtask = brains[0].getObject()
@@ -224,15 +226,17 @@ class Book(TrackerView):
             message = _(u'msg_failed_add_booking',
                         default=u'Not permitted to add booking to task. Check'
                                 u' if the task is in the correct state.')
-            self.redirect_to_tracker(message)
+            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            self.request.response.redirect('@@tracker')
             return
 
         message = _(u'msg_added_booking',
                     default=u'Added booking to task')
+        IStatusMessage(self.request).addStatusMessage(message, type="info")
         # Remove current entries.  No need to book twice...
         task.entries = PersistentList()
         if not self.request.get('book_and_close', None):
-            self.redirect_to_tracker(message)
+            self.request.response.redirect('@@tracker')
             return
 
         # The next part is really a separate action so it
@@ -240,7 +244,7 @@ class Book(TrackerView):
         # the adding of a booking above fails with an
         # Unauthorized error because the xm task is closed
         # below...
-        # XXX is this save?  Can anything unforeseen happen?
+        # XXX is this safe?  Can anything unforeseen happen?
         # XXX Perhaps just do a redirect instead to a 'Close' view.
         transaction.commit()
 
@@ -248,19 +252,15 @@ class Book(TrackerView):
             self.context.portal_workflow.doActionFor(
                 xmtask, 'complete')
         except WorkflowException:
-            message = _(u'msg_added_booking_failed_to_close_task',
-                        default=u'Added booking to task but closing failed.')
-            self.redirect_to_tracker(message)
+            message = _(u'msg_close_task_failed',
+                        default=u'Closing of task failed.')
+            IStatusMessage(self.request).addStatusMessage(message, type="error")
+            self.request.response.redirect('@@tracker')
             return
 
         # Remove the tracked task as it is not needed anymore.
         tracker.tasks.remove(task)
-        message = _(u'msg_added_booking_closed_task',
-                    default=u'Added booking to task and closed it')
-        self.redirect_to_tracker(message)
-
-    def redirect_to_tracker(self, message= None):
-        if message is not None:
-            self.context.plone_utils.addPortalMessage(message)
-        response = self.request.response
-        response.redirect('@@tracker')
+        message = _(u'msg_close_task_success',
+                    default=u'Task has been closed.')
+        IStatusMessage(self.request).addStatusMessage(message, type="info")
+        self.request.response.redirect('@@tracker')
