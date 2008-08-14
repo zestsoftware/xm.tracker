@@ -66,23 +66,25 @@ class AddTasks(TrackerView):
         tracker = self.tracker()
         # Clean the current tasks, for demoing.
         tracker.tasks = PersistentList()
-        for xm_task in self.selected_tasks():
-            task = Task(xm_task['title'],
-                        uid = xm_task['UID'],
-                        story = xm_task['story_title'],
-                        project = "Project unknown",
-                        estimate = xm_task['estimate'])
-            tracker.tasks.append(task)
-
+        for project_info in self.selected_tasks_per_project():
+            projectbrain = project_info['project']
+            xm_tasks = project_info['tasks']
+            for xm_task in xm_tasks:
+                task = Task(xm_task['title'],
+                            uid = xm_task['UID'],
+                            story = xm_task['story_title'],
+                            project = projectbrain.Title,
+                            estimate = xm_task['estimate'])
+                tracker.tasks.append(task)
         self.request.response.redirect('@@tracker')
 
-    def selected_tasks(self):
+    def selected_tasks_per_project(self):
         """For now we just get all to-do tasks here.
         """
         context = aq_inner(self.context)
         mytask_details = getMultiAdapter(
             (context, self.request), name=u'mytask_details')
-        return mytask_details.tasklist().get('tasks')
+        return mytask_details.projects()
 
 
 class Demo(TrackerView):
