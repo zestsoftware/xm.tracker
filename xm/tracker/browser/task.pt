@@ -10,6 +10,7 @@
   </div>
   <div class="time_entry"
        tal:repeat="entry view/entries">
+    <span tal:content="entry/date" />
     <span tal:content="entry/text" />:
     <span tal:content="entry/time" />
   </div>

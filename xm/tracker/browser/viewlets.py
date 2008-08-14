@@ -62,6 +62,7 @@ class TaskViewlet(BrowserView):
         result = []
         for entry in self.context.entries:
             result.append(dict(text = entry.text,
+                               date = entry.date.strftime('%Y-%m-%d'),
                                time = entry.time.strftime('%M:%S')))
         return result
 
