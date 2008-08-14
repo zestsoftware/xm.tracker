@@ -18,7 +18,7 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
         />
-    
+
     <!-- View for adding demo content.
          XXX  Remove before releasing. -->
     <page
@@ -27,14 +27,14 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
         />
-            
+
     <page
         name="tracker_add_tasks"
         class=".tracker.AddTasks"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
         />
-            
+
     <page
         name="tracker_start"
         class=".tracker.Start"
@@ -47,7 +47,7 @@
         provides="zope.contentprovider.interfaces.IContentProvider"
         factory="xm.tracker.browser.tracker.StartStopProvider"
         />
-  
+
     <page
         name="tracker_stop"
         class=".tracker.Stop"
