@@ -46,7 +46,7 @@ Now we go to the tracker view and start the timer.
     True
     >>> "Start working" in browser.contents
     True
-    >>> "00:00" in browser.contents
+    >>> "00:00:00" in browser.contents
     True
 
     >>> browser.getControl(name='start').click()
@@ -56,10 +56,13 @@ Now we go to the tracker view and start the timer.
     >>> "Stop and reset" in browser.contents
     True
 
-After reloading the page the time should not be 00:00 anymore.
+After reloading the page the time should not be 00:00 anymore.  We
+will wait one second before reloading.
 
+    >>> import time
+    >>> time.sleep(1)
     >>> browser.reload()
-    >>> "00:00" in browser.contents
+    >>> "00:00:00" in browser.contents
     False
 
 During development we provide a button to create demo content.
@@ -70,9 +73,9 @@ During development we provide a button to create demo content.
 
 We can now type a description for one of the tasks and click the track button
 
-    >>> browser.getControl(name='text'), index=2).value = 'Wrote my functional test'
+    >>> browser.getControl(name='text', index=2).value = 'Wrote my functional test'
     >>> browser.getControl(name='track', index=2).click()
-    >>> "Added entry" in browser.content
+    >>> "Added entry" in browser.contents
     True
 
     >>> "Wrote my functional test" in browser.contents
