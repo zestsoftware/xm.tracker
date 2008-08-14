@@ -15,6 +15,22 @@
       <td tal:content="entry/date" />
       <td tal:content="entry/text" />
       <td tal:content="entry/time" />
+      <td>
+        <form
+            method="post"
+            action="@@remove_entry">
+          <input type="hidden"
+                 name="uid"
+                 tal:attributes="value task/uid" />
+          <input type="hidden"
+                 name="entry_number"
+                 tal:attributes="value repeat/entry/index" />
+          <input type="submit"
+                 name="remove"
+                 class="remove-entry"
+                 value="Remove" />
+        </form>        
+      </td>
     </tr>
   </table>
   <form
