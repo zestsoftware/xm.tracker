@@ -1,19 +1,21 @@
-Tracker
-=======
+Trackers, tasks and entries
+===========================
 
 The tracker stores a list of tasks. Each task stores timelog entries.
 
     >>> from xm.tracker.tracker import Tracker, Task, Entry
     >>> import mx.DateTime
 
-First create a tracker instance and add a few tasks.
+First create a tracker instance.
 
     >>> tracker = Tracker()
 
-A New Tracker will have it's starttime set to None.
+A new Tracker will have it's starttime set to None.
 
     >>> tracker.starttime is None
     True
+
+Now add a few tasks.
 
     >>> t1 = Task(u'Write the interfaces',
     ...           uid=u'MADKKJERN@342kNK',
@@ -28,16 +30,17 @@ A New Tracker will have it's starttime set to None.
     >>> tracker.tasks.append(t2)
     >>> len(tracker.tasks)
     2
-
     >>> tracker.tasks[0].title
     u'Write the interfaces'
-
     >>> tracker.get_task(u'MDAeOJGSPERKWEL#2')
     <xm.tracker.tracker.Task object at ...>
 
 When the user has spent time on a task he can add an entry to the task.
-The task stores a list of entries.
+The task stores a list of entries and has a record of how much time
+has been spent in total on the task.
 
+    >>> t1.total_time().strftime('%H:%M:%S')
+    '00:00:00'
     >>> t1.entries
     []
     >>> t1.entries.append(Entry('Did something cool today!', 230))
@@ -49,13 +52,12 @@ The task stores a list of entries.
     >>> t1.entries[0].time
     <mx.DateTime.DateTimeDelta object for '00:03:50.00' at ...>
 
-Each entry has a date attribute this is set to today upon instantiating.
+Each entry has a date attribute.  It is set to today upon instantiating.
 
     >>> d = mx.DateTime.now()
     >>> e1 = t1.entries[0]
     >>> e1.date
     <mx.DateTime.DateTime object for '...' at ...>
-
     >>> e1.date.day == d.day
     True
 
