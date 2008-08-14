@@ -66,6 +66,14 @@
         permission="xm.ViewTracker"
         />
 
+    <page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".ksstracker.KSSTrackTime"
+        attribute="track_time"
+        name="kss_track_time"
+        permission="xm.ViewTracker"
+        />
+
     <zope:adapter
         name="xm.tracker.startstop"
         provides="zope.contentprovider.interfaces.IContentProvider"

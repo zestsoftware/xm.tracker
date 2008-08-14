@@ -9,6 +9,17 @@
     evt-click-preventdefault: True;
 }
 
+/* when 3.0 support will be dropped, the new way to provide form vars will
+     be one line, like this:
+
+       action-server: kss_track_time currentForm();
+*/
+
+.track-time:click {
+    action-server: kss_track_time;
+    kss_track_time-kssSubmitForm: currentForm();
+    evt-click-preventdefault: True;
+}
 
 /* Client side timer
 

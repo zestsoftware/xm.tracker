@@ -1,5 +1,6 @@
 <div class="task"
-     tal:define="task context">
+     tal:define="task nocall:context"
+     tal:attributes="id string:task-${task/uid}">
 
   <hr />
   <h2 style="float:right" tal:content="view/total_time" />
@@ -45,7 +46,7 @@
            name="text" />
     <input type="submit"
            name="track"
-           class="track-time"
+           tal:attributes="class string:track-time kssattr-uid-${task/uid}"
            value="Track" />
   </form>
   <tal:book condition="view/entries">

@@ -30,6 +30,13 @@ from xm.booking.browser.add import create_booking
 TRACKER_KEY = 'xm-timetracker'
 classImplements(MemberData, IAttributeAnnotatable)
 
+def add_entry(tracker, task, text):
+    current_time = mx.DateTime.now()
+    time = current_time - tracker.starttime
+    task.entries.append(Entry(text, time))
+    # Reset the timer's start time
+    tracker.starttime = current_time
+
 
 class TrackerView(BrowserView):
     """View a tracker in the context of a Plone Site.
@@ -174,11 +181,7 @@ class TrackTime(TrackerView):
             IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
-        current_time = mx.DateTime.now()
-        time = current_time - tracker.starttime
-        task.entries.append(Entry(text, time))
-        # Reset the timer's start time
-        tracker.starttime = current_time
+        add_entry(tracker, task, text)
         msg = _(u'msg_added_entry', default=u'Added entry')
         IStatusMessage(self.request).addStatusMessage(msg, type="info")
         self.request.response.redirect('@@tracker')

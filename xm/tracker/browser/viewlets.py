@@ -44,6 +44,12 @@ class TaskViewlet(BrowserView):
     """
     implements(IViewlet)
     render = ViewPageTemplateFile('task.pt')
+    
+    # Apparently this is needed to give access to the 'allowed'
+    # attribute in case this viewlet gets rendered within a KSS view
+    # (while adding a booking using this form), which messes up the
+    # Acquisition chain or something...
+    __allow_access_to_unprotected_subobjects__ = 1
 
     def __init__(self, context, request, view, manager):
         self.__parent__ = view
