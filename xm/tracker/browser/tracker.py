@@ -167,10 +167,14 @@ class TrackTime(TrackerView):
             IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
+        if not text:
+            msg = _(u'msg_missing_description',
+                    default='Entry not added. Please provide a description.')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
+            self.request.response.redirect('@@tracker')
+            return
         current_time = mx.DateTime.now()
         time = current_time - tracker.starttime
-        if not text:
-            text = task.title
         task.entries.append(Entry(text, time))
         # Reset the timer's start time
         tracker.starttime = current_time
