@@ -34,9 +34,6 @@ A New Tracker will have it's starttime set to None.
 
     >>> tracker.get_task(u'MDAeOJGSPERKWEL#2')
     <xm.tracker.tracker.Task object at ...>
-    
-    
-
 
 When the user has spent time on a task he can add an entry to the task.
 The task stores a list of entries.
@@ -61,7 +58,6 @@ Each entry has a date attribute this is set to today upon instantiating.
 
     >>> e1.date.day == d.day
     True
-
 
 Entries can get either a timedelta or a number of seconds as input.
 
