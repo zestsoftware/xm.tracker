@@ -8,6 +8,11 @@
   <body>
   <div tal:define="tracker view/tracker;
                      putils context/plone_utils">  
+    <div id="homelink"
+         i18n:domain="plone">
+      <a tal:attributes="href context/absolute_url"
+         i18n:translate="label_home">Home</a>
+    </div>
     <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
     <h1 id="timer"
          style="float:right"
