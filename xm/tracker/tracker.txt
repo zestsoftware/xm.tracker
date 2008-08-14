@@ -3,8 +3,8 @@ Tracker
 
 The tracker stores a list of tasks. Each task stores timelog entries.
 
->>> from xm.tracker.tracker import Tracker, Task, Entry
->>> import mx.DateTime
+    >>> from xm.tracker.tracker import Tracker, Task, Entry
+    >>> import mx.DateTime
 
 First create a tracker instance and add a few tasks.
 
