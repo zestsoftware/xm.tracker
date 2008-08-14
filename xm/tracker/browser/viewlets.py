@@ -2,11 +2,11 @@ from Acquisition import aq_inner
 from Acquisition import Explicit
 from zope.interface import implements
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
-from plone.app.layout.viewlets.common import ViewletBase
+from Products.Five.browser import BrowserView
 from zope.component import getMultiAdapter
 from zope.viewlet.interfaces import IViewlet
 
-from xm.tracker.browser.interfaces import ITaskViewlet
+#from xm.tracker.browser.interfaces import ITaskViewlet
 
 
 class TaskListManager(Explicit):
@@ -39,11 +39,21 @@ class TaskListManager(Explicit):
         return result
 
 
-class TaskViewlet(ViewletBase):
-    """
+class TaskViewlet(BrowserView):
+    """ Base class with common functions for link viewlets.
     """
     implements(IViewlet)
     render = ViewPageTemplateFile('task.pt')
+
+    def __init__(self, context, request, view, manager):
+        self.__parent__ = view
+        self.context = context
+        self.request = request
+        self.view = view
+        self.manager = manager
+
+    def update(self):
+        pass
 
     def total_time(self):
         return self.context.total_time().strftime('%M:%S')
