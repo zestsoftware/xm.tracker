@@ -14,32 +14,23 @@ us see all error messages in the error_log.
     >>> self.portal.error_log._ignored_exceptions = ()
 
 With that in place, we can go to the portal front page and log in. We will
-do this using the default user from PloneTestCase:
+do this using the portal owner from PloneTestCase:
 
     >>> from Products.PloneTestCase.setup import portal_owner, default_password
-
     >>> browser.open(portal_url)
 
-We have the login portlet, so let's use that.
+We have the login portlet, so let's use that and check that we are
+really logged in.
 
     >>> browser.getControl(name='__ac_name').value = portal_owner
     >>> browser.getControl(name='__ac_password').value = default_password
     >>> browser.getControl(name='submit').click()
-
-Here, we set the value of the fields on the login form and then simulate a
-submit click.
-
-We then test that we are still on the portal front page:
-
     >>> browser.url == portal_url
     True
-
-And we ensure that we get the friendly logged-in message:
-
     >>> "You are now logged in" in browser.contents
     True
 
-Now we go to the tracker view and start the timer.
+Now we go to the tracker view.
 
     >>> browser.open(portal_url + '/@@tracker')
     >>> "Time Tracker" in browser.contents
@@ -49,15 +40,16 @@ Now we go to the tracker view and start the timer.
     >>> "00:00:00" in browser.contents
     True
 
+We start the timer.
+
     >>> browser.getControl(name='start').click()
     >>> "Started the timer" in browser.contents
     True
-
     >>> "Stop and reset" in browser.contents
     True
 
-After reloading the page the time should not be 00:00 anymore.  We
-will wait one second before reloading.
+After reloading the page the time should not be zero seconds anymore.
+We will wait one second before reloading.
 
     >>> import time
     >>> time.sleep(1)
@@ -77,6 +69,5 @@ We can now type a description for one of the tasks and click the track button
     >>> browser.getControl(name='track', index=2).click()
     >>> "Added entry" in browser.contents
     True
-
     >>> "Wrote my functional test" in browser.contents
     True
