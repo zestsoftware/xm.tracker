@@ -1,0 +1,16 @@
+<form tal:condition="not: view/is_started"
+      method="post"
+      action="@@tracker_start">
+  <input type="submit"
+         name="start"
+         id="start-timer"
+         value="Start working" />
+</form>
+<form tal:condition="view/is_started"
+      method="post"
+      action="@@tracker_stop">
+  <input type="submit"
+         name="stop"
+         id="stop-timer"
+         value="Stop and reset" />
+</form>
