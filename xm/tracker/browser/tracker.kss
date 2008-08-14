@@ -1,4 +1,16 @@
-/*
+
+#start-timer:click {
+    action-server: kss_start_timer;
+    evt-click-preventdefault: True;    
+}
+
+#stop-timer:click {
+    action-server: kss_stop_timer;
+    evt-click-preventdefault: True;
+}
+
+
+/* Client side timer
 
 #start-timer:timer-start(mytimer) {
     evt-timer-start-displayformat_nohours: '%0M:%0S';

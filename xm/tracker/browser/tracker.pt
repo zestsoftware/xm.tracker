@@ -4,6 +4,24 @@
 
   <head>
     <title i18n:translate="head_timetracker">Time Tracker</title>
+    
+    <script type="text/javascript"
+            src="jquery.js">
+    </script>
+    
+    <script type="text/javascript"
+                  src="jquery-integration.js">
+    </script>
+  
+    <script type="text/javascript"
+            src="++resource++base2-dom-fp.js">
+    </script>
+
+    <script type="text/javascript" src="++resource++kukit.js">
+    </script>
+    
+    <link rel="kinetic-stylesheet" type="text/css"
+          href="++resource++tracker.kss" />
   </head>
   <body>
   <div tal:define="tracker view/tracker;
@@ -21,7 +39,7 @@
     <h1 class="documentFirstHeading"
         i18n:translate="head_timetracker">Time Tracker</h1>
     
-    <div tal:content="structure provider:xm.tracker.startstop" />
+    <div tal:replace="structure provider:xm.tracker.startstop" />
     <!-- XXX Remove demo button before releasing. -->
     <form method="post"
           action="@@tracker_demo">

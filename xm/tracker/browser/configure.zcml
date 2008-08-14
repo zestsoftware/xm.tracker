@@ -42,6 +42,23 @@
         permission="xm.ViewTracker"
         />
 
+    <!-- KSS Server actions -->
+    <page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".ksstracker.KSSStart"
+        attribute="start_timer"
+        name="kss_start_timer"
+        permission="xm.ViewTracker"
+        />
+
+    <page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".ksstracker.KSSStop"
+        attribute="stop_timer"
+        name="kss_stop_timer"
+        permission="xm.ViewTracker"
+        />
+
     <zope:adapter
         name="xm.tracker.startstop"
         provides="zope.contentprovider.interfaces.IContentProvider"
