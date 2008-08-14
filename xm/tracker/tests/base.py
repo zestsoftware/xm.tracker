@@ -4,7 +4,6 @@ from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import PloneSite
 import xm.tracker
 from Testing import ZopeTestCase as ztc
-from Products.PloneTestCase import PloneTestCase as ptc
 from Products.PloneTestCase.layer import onsetup
 
 ztc.installProduct('Poi')
@@ -39,3 +38,8 @@ class TestCase(ptc.PloneTestCase):
         @classmethod
         def tearDown(cls):
             pass
+
+
+class FunctionalTestCase(ptc.FunctionalTestCase, TestCase):
+    """Test case for functional (browser) tests.
+    """

@@ -14,8 +14,8 @@ def test_suite():
 
         ztc.FunctionalDocFileSuite(
             'browser.txt', package='xm.tracker.tests',
-            optionflags=doctest.ELLIPSIS,
-            test_class=base.TestCase),
+            optionflags=(doctest.ELLIPSIS|doctest.NORMALIZE_WHITESPACE),
+            test_class=base.FunctionalTestCase),
 
         ])
 
