@@ -8,6 +8,7 @@
       tal:attributes="class string:task-title kssattr-tasktitle-taskdetails-${task/uid}" />
   <form
       method="post"
+      class="track_form"
       tal:define="disabled python:not view.tracker_has_started() and 'disabled' or '';"
       action="@@track_time">
     <input type="hidden"

@@ -1,12 +1,22 @@
 
+/* Note: setting the disabled attribute to an empty string has no
+effect: it stays disabled. */
 #start-timer:click {
     action-server: kss_start_timer;
     evt-click-preventdefault: True;    
+    action-client: setAttribute;
+    setAttribute-kssSelector: css('.track_form input');
+    setAttribute-name: 'disabled';
+    setAttribute-value: '';
 }
 
 #stop-timer:click {
     action-server: kss_stop_timer;
     evt-click-preventdefault: True;
+    action-client: setAttribute;
+    setAttribute-kssSelector: css('.track_form input');
+    setAttribute-name: 'disabled';
+    setAttribute-value: 'disabled';
 }
 
 /* when 3.0 support will be dropped, the new way to provide form vars will
