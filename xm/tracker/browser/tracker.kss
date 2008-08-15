@@ -39,8 +39,6 @@ effect: it stays disabled. */
 }
 
 #stop-timer:timer-stop(mytimer) {
-    action-client: alert;
-    alert-message: pass(seconds);
 }
 
 #timer:timer-update(mytimer) {
