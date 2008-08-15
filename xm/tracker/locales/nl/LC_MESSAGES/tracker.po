@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xm.tracker 0.1\n"
-"POT-Creation-Date: 2008-08-15 07:30+0000\n"
+"POT-Creation-Date: 2008-08-15 19:42+0000\n"
 "PO-Revision-Date: 2008-08-15 07:24+0000\n"
 "Last-Translator: Jean-Paul Ladage <j.ladage@zestsoftware.nl>\n"
 "Language-Team: Zest <xm@lists.zestsoftware.nl>\n"
@@ -12,7 +12,32 @@ msgstr ""
 "Language-Code: nl\n"
 "Language-Name: Nederlands\n"
 "Preferred-Encodings: utf-8 latin1\n"
-"Domain: xm.tracker\n"
+"Domain: tracker\n"
+
+#. Default: "Time Tracker"
+#: ./browser/tracker.pt:6
+msgid "head_timetracker"
+msgstr "Tijdregistratie"
+
+#. Default: "Book"
+#: ./browser/task.pt:69
+msgid "label_book"
+msgstr "Boeken"
+
+#. Default: "Book and close"
+#: ./browser/task.pt:74
+msgid "label_close"
+msgstr "Boeken en afronden"
+
+#. Default: "Remove"
+#: ./browser/task.pt:52
+msgid "label_remove"
+msgstr "Verwijderen"
+
+#. Default: "Unassigned entries"
+#: ./tracker.py:36
+msgid "label_unassigned_entries"
+msgstr "Diversen entries"
 
 #. Default: "Added booking to task"
 #: ./browser/tracker.py:268
@@ -20,14 +45,14 @@ msgid "msg_added_booking"
 msgstr "Boeking toegevoegd aan de taak"
 
 #. Default: "Added entry"
-#: ./browser/ksstracker.py:58
+#: ./browser/ksstracker.py:63
 msgid "msg_added_entry"
 msgstr "Entry toegevoegd"
 
 #. Default: "Closing of task failed."
 #: ./browser/tracker.py:298
 msgid "msg_close_task_failed"
-msgstr ""
+msgstr "Afronden van de taak is mislukt"
 
 #. Default: "Task has been closed."
 #: ./browser/tracker.py:308
@@ -40,7 +65,7 @@ msgid "msg_failed_add_booking"
 msgstr ""
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:182
+#: ./browser/tracker.py:168
 msgid "msg_missing_description"
 msgstr ""
 
@@ -50,12 +75,12 @@ msgid "msg_no_entries_found"
 msgstr ""
 
 #. Default: "No task found with this UID"
-#: ./browser/tracker.py:169
+#: ./browser/tracker.py:202
 msgid "msg_no_task_found"
 msgstr ""
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:175
+#: ./browser/tracker.py:176
 msgid "msg_no_tracking_without_starttime"
 msgstr ""
 
@@ -70,12 +95,17 @@ msgid "msg_remove_entry_success"
 msgstr "Entry verwijderd"
 
 #. Default: "Started the timer"
-#: ./browser/ksstracker.py:24
+#: ./browser/ksstracker.py:25
 msgid "msg_started_timer"
 msgstr "Timer gestart"
 
 #. Default: "Stopped the timer"
-#: ./browser/ksstracker.py:38
+#: ./browser/ksstracker.py:40
 msgid "msg_stopped_timer"
 msgstr "Timer gestopt"
+
+#. Default: "Track"
+#: ./browser/task.pt:21
+msgid "track_button"
+msgstr "Registreren"
 

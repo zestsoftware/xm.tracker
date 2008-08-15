@@ -1,6 +1,6 @@
 #!/bin/sh
 PRODUCTNAME=tracker
-I18NDOMAIN=xm.tracker
+I18NDOMAIN=tracker
 
 # Synchronise the .pot with the templates.
 # Also merge it with generated.pot, which includes the items

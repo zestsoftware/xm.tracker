@@ -1,9 +1,10 @@
 <configure
     xmlns="http://namespaces.zope.org/zope"
+    xmlns:i18n="http://namespaces.zope.org/i18n"
     xmlns:five="http://namespaces.zope.org/five"
-    i18n_domain="xm.tracker">
+    i18n_domain="tracker">
 
-  <five:registerPackage package="." initialize=".initialize" />
+  <i18n:registerTranslations directory="locales" />
 
   <permission
       id="xm.ViewTracker"

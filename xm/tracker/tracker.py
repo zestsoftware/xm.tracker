@@ -21,6 +21,8 @@ from mx.DateTime import DateTimeDeltaFromSeconds
 from Products.CMFCore.utils import getToolByName
 
 from xm.tracker.interfaces import ITracker, ITask, IEntry
+from xm.tracker import XMTrackerMessageFactory as _
+
 
 
 class Tracker(Persistent):
@@ -31,7 +33,9 @@ class Tracker(Persistent):
     def __init__(self):
         self.starttime = None
         self.tasks = PersistentList()
-        self.queue = PersistentList()
+        self.unassigned = Task(_(u'label_unassigned_entries',
+                            default = u'Unassigned entries'))
+                            
 
     def get_task(self, uid):
         for task in self.tasks:
@@ -51,7 +55,7 @@ class Task(Persistent):
         self.project = project
         self.estimate = estimate
         self.entries = PersistentList()
-        
+
     def total_time(self):
         total = sum([entry.time for entry in self.entries])
         if total == 0:

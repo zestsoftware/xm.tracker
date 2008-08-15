@@ -21,13 +21,15 @@
            name="track"
            tal:attributes="class string:track-time kssattr-uid-${task/uid};
                            disabled disabled;"
+           i18n:attributes="value track_button"
            value="Track" />
   </form>
   <div class="hidden"
        tal:attributes="id string:taskdetails-${task/uid}">
-    <div class="storyline">
-      [<span tal:content="task/project|nothing" />
-      | <span tal:content="task/story|nothing" />]
+    <div class="storyline"
+         tal:condition="task/project">
+      <span tal:content="task/project|nothing" />
+      | <span tal:content="task/story|nothing" />
     </div>
     <table
         class="entry_table">
@@ -50,7 +52,8 @@
                    name="remove"
                    src="delete_icon.gif"
                    class="remove-entry"
-                   value="Remove" />
+                   value="Remove"
+                   i18n:attributes="value label_remove" />
           </form>        
         </td>
       </tr>
@@ -65,11 +68,13 @@
         <input type="submit"
                name="book"
                class="book-time"
-               value="Book" />
+               value="Book"
+               i18n:attributes="value label_book" />
         <input type="submit"
                name="book_and_close"
                class="book-time"
-               value="Book and close" />
+               value="Book and close"
+               i18n:attributes="value label_close" />
       </form>
     </tal:book>
   </div>

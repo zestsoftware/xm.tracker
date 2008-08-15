@@ -5,7 +5,8 @@
     <input type="submit"
            name="start"
            id="start-timer"
-           value="Start working" />
+           value="Start working"
+           i18n:attributes="value label_start" />
   </form>
   <form tal:condition="view/is_started"
         method="post"
@@ -13,6 +14,7 @@
     <input type="submit"
            name="stop"
            id="stop-timer"
-           value="Stop and reset" />
+           value="Stop and reset"
+           i18n:attributes="value label_start" />
   </form>
 </div>

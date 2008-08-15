@@ -9,7 +9,7 @@ class ITracker(Interface):
 
     starttime = Attribute("Start Time")
     tasks = Attribute("Tracked Tasks")
-    queue = Attribute("Queue of unassigned entries")
+    unassigned = Attribute("A Task for unassigned entries")
 
     def get_task(uid):
         """ Get a task by providing a uid

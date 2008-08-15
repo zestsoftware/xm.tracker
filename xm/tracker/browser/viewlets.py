@@ -1,7 +1,7 @@
 from Acquisition import aq_inner
 from Acquisition import Explicit
 from zope.interface import implements
-from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
+from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from Products.Five.browser import BrowserView
 from zope.component import getMultiAdapter
 from zope.viewlet.interfaces import IViewlet
@@ -24,7 +24,10 @@ class TaskListManager(Explicit):
         self.tracker = tracker_view.tracker()
 
         rows = []
-        for task in self.tracker.tasks:
+        tasks = self.tracker.tasks[:]
+                
+        tasks.append(self.tracker.unassigned)
+        for task in tasks: 
             viewlet = getMultiAdapter(
                 (task, self.request, self.__parent__, self),
                 IViewlet, name=u'xm.tracker.task')
@@ -43,7 +46,7 @@ class TaskViewlet(BrowserView):
     """ Base class with common functions for link viewlets.
     """
     implements(IViewlet)
-    render = ViewPageTemplateFile('task.pt')
+    render = ZopeTwoPageTemplateFile('task.pt')
     
     # Apparently this is needed to give access to the 'allowed'
     # attribute in case this viewlet gets rendered within a KSS view

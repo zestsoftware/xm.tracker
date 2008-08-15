@@ -51,7 +51,7 @@ class TrackerView(BrowserView):
         member = portal_state.member()
         annotations = IAnnotations(member)
         tracker = annotations.get(TRACKER_KEY, None)
-        if tracker is None:
+        if tracker is None or not hasattr(tracker, 'unassigned'):
             tracker = Tracker()
             annotations[TRACKER_KEY] = tracker
 
@@ -164,14 +164,14 @@ class TrackTime(TrackerView):
     def __call__(self):
         uid = self.request.get('uid')
         text = self.request.get('text')
-        tracker = self.tracker()
-        task = tracker.get_task(uid)
-        if task is None:
-            msg = _(u'msg_no_task_found',
-                    default=u'No task found with this UID')
+        if not text:
+            msg = _(u'msg_missing_description',
+                    default='Entry not added. Please provide a description.')
             IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
+
+        tracker = self.tracker()
         if tracker.starttime is None:
             msg = _(u'msg_no_tracking_without_starttime',
                     default=u'Cannot track time when the tracker has not '
@@ -179,12 +179,11 @@ class TrackTime(TrackerView):
             IStatusMessage(self.request).addStatusMessage(msg, type="error")
             self.request.response.redirect('@@tracker')
             return
-        if not text:
-            msg = _(u'msg_missing_description',
-                    default='Entry not added. Please provide a description.')
-            IStatusMessage(self.request).addStatusMessage(msg, type="error")
-            self.request.response.redirect('@@tracker')
-            return
+
+        task = tracker.get_task(uid)
+        if task is None:
+            # We are dealing with an unassigned entry
+            task = tracker.unassigned
         add_entry(tracker, task, text)
         msg = _(u'msg_added_entry', default=u'Added entry')
         IStatusMessage(self.request).addStatusMessage(msg, type="info")
