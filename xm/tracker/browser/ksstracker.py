@@ -61,5 +61,3 @@ class KSSTrackTime(PloneKSSView):
         message = translate(_(u'msg_added_entry', default=u'Added entry'))
         plone = self.getCommandSet("plone")
         plone.issuePortalMessage(message)
-    
-        
