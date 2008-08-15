@@ -5,7 +5,6 @@
 
 /* Set different positioning on the portal status message. */
 .portalMessage { 
-  background-color: orange;
   position: absolute;
   left: 400px;
   top: 60px;
