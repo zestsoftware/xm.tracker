@@ -4,19 +4,18 @@ effect: it stays disabled. */
 #start-timer:click {
     action-server: kss_start_timer;
     evt-click-preventdefault: True;    
-    action-client: setAttribute;
-    setAttribute-kssSelector: css('.track_form input');
-    setAttribute-name: 'disabled';
-    setAttribute-value: '';
+    action-client: removeAttribute;
+    removeAttribute-kssSelector: css('.track_form input.track-time');
+    removeAttribute-name: disabled;
 }
 
 #stop-timer:click {
     action-server: kss_stop_timer;
     evt-click-preventdefault: True;
     action-client: setAttribute;
-    setAttribute-kssSelector: css('.track_form input');
-    setAttribute-name: 'disabled';
-    setAttribute-value: 'disabled';
+    setAttribute-kssSelector: css('.track_form input.track-time');
+    setAttribute-name: disabled;
+    setAttribute-value: disabled;
 }
 
 /* when 3.0 support will be dropped, the new way to provide form vars will
