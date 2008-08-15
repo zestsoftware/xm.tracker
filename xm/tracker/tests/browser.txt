@@ -37,7 +37,7 @@ Now we go to the tracker view.
     True
     >>> "Start working" in browser.contents
     True
-    >>> "00:00:00" in browser.contents
+    >>> "00:00" in browser.contents
     True
 
 We start the timer.
@@ -54,7 +54,7 @@ We will wait one second before reloading.
     >>> import time
     >>> time.sleep(1)
     >>> browser.reload()
-    >>> "00:00:00" in browser.contents
+    >>> "00:00" in browser.contents
     False
 
 During development we provide a button to create demo content.
@@ -75,6 +75,5 @@ We can now type a description for one of the tasks and click the track button.
 A description is required.
 
     >>> browser.getControl(name='track', index=2).click()
-    >>> open('/tmp/test.html', 'w').write(browser.contents)
     >>> "Entry not added. Please provide a description." in browser.contents
     True
