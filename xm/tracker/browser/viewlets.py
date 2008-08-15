@@ -62,14 +62,14 @@ class TaskViewlet(BrowserView):
         pass
 
     def total_time(self):
-        return self.context.total_time().strftime('%M:%S')
+        return self.context.total_time().strftime('%H:%M')
 
     def entries(self):
         result = []
         for entry in self.context.entries:
             result.append(dict(text = entry.text,
-                               date = entry.date.strftime('%Y-%m-%d'),
-                               time = entry.time.strftime('%M:%S')))
+                               date = entry.date.strftime('%d-%m'),
+                               time = entry.time.strftime('%H:%M')))
         return result
 
     def tracker_has_started(self):

@@ -21,7 +21,7 @@
     evt-click-preventdefault: True;
 }
 
-/* Client side timer
+/* Client side timer */
 
 #start-timer:timer-start(mytimer) {
     evt-timer-start-displayformat_nohours: '%0M:%0S';
@@ -31,7 +31,6 @@
 #stop-timer:timer-stop(mytimer) {
     action-client: alert;
     alert-message: pass(seconds);
-    evt-timer-stop-reset: false;
 }
 
 #timer:timer-update(mytimer) {
@@ -39,4 +38,10 @@
     log-message: pass(seconds);
 }
 
-*/
+/* Collapse and expand task details */
+
+.task-title:click {    
+    action-client: toggleClass;
+    toggleClass-kssSelector: htmlid(kssAttr(tasktitle));
+    toggleClass-value: hidden;
+}

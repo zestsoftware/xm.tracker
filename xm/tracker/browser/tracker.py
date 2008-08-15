@@ -61,7 +61,11 @@ class TrackerView(BrowserView):
         now = mx.DateTime.now()
         previous = self.tracker().starttime or now
         time = now - previous
-        return time.strftime("%H:%M:%S")
+        fmt = "%M:%S"
+        if time.hours > 1.0:
+            fmt = "%H:%M:%S"
+        return time.strftime(fmt)
+        
 
 
 class AddTasks(TrackerView):

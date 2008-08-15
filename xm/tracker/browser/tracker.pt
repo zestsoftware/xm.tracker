@@ -20,6 +20,8 @@
     <script type="text/javascript" src="++resource++kukit.js">
     </script>
     
+    <link rel="stylesheet" type="text/css" href="++resource++tracker.css" />
+    
     <link rel="kinetic-stylesheet" type="text/css"
           href="++resource++tracker.kss" />
   </head>

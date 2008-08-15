@@ -4,37 +4,8 @@
 
   <hr />
   <h2 style="float:right" tal:content="view/total_time" />
-  <h2 tal:content="task/title" />
-  <div class="storyline">
-    [<span tal:content="task/project|nothing" />
-    | <span tal:content="task/story|nothing" />]
-  </div>
-  <table
-      class="entry_table">
-    <tr class="time_entry"
-        tal:repeat="entry view/entries">
-      <td tal:content="entry/date" />
-      <td tal:content="entry/text" />
-      <td tal:content="entry/time" />
-      <td>
-        <form
-            method="post"
-            action="@@remove_entry">
-          <input type="hidden"
-                 name="uid"
-                 tal:attributes="value task/uid" />
-          <input type="hidden"
-                 name="entry_number"
-                 tal:attributes="value repeat/entry/index" />
-          <input type="image"
-                 name="remove"
-                 src="delete_icon.gif"
-                 class="remove-entry"
-                 value="Remove" />
-        </form>        
-      </td>
-    </tr>
-  </table>
+  <h2 tal:content="task/title"
+      tal:attributes="class string:task-title kssattr-tasktitle-taskdetails-${task/uid}" />
   <form
       method="post"
       tal:condition="view/tracker_has_started"
@@ -43,27 +14,61 @@
            name="uid"
            tal:attributes="value task/uid" />
     <input type="text"
-           name="text" />
+           name="text"
+           size="80" />
     <input type="submit"
            name="track"
            tal:attributes="class string:track-time kssattr-uid-${task/uid}"
            value="Track" />
   </form>
-  <tal:book condition="view/entries">
-    <form
-        method="post"
-        action="@@tracker_book">
-      <input type="hidden"
-             name="uid"
-             tal:attributes="value task/uid" />
-      <input type="submit"
-             name="book"
-             class="book-time"
-             value="Book" />
-      <input type="submit"
-             name="book_and_close"
-             class="book-time"
-             value="Book and close" />
-    </form>
-  </tal:book>
+  <div class="hidden"
+       tal:attributes="id string:taskdetails-${task/uid}">
+    <div class="storyline">
+      [<span tal:content="task/project|nothing" />
+      | <span tal:content="task/story|nothing" />]
+    </div>
+    <table
+        class="entry_table">
+      <tr class="time_entry"
+          tal:repeat="entry view/entries">
+        <td tal:content="entry/date" />
+        <td tal:content="entry/text" />
+        <td tal:content="entry/time" />
+        <td>
+          <form
+              method="post"
+              action="@@remove_entry">
+            <input type="hidden"
+                   name="uid"
+                   tal:attributes="value task/uid" />
+            <input type="hidden"
+                   name="entry_number"
+                   tal:attributes="value repeat/entry/index" />
+            <input type="image"
+                   name="remove"
+                   src="delete_icon.gif"
+                   class="remove-entry"
+                   value="Remove" />
+          </form>        
+        </td>
+      </tr>
+    </table>
+    <tal:book condition="view/entries">
+      <form
+          method="post"
+          action="@@tracker_book">
+        <input type="hidden"
+               name="uid"
+               tal:attributes="value task/uid" />
+        <input type="submit"
+               name="book"
+               class="book-time"
+               value="Book" />
+        <input type="submit"
+               name="book_and_close"
+               class="book-time"
+               value="Book and close" />
+      </form>
+    </tal:book>
+  </div>
 </div>
