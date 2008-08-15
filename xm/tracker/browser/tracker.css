@@ -2,3 +2,41 @@
 .hidden {
     display: none;
 }
+
+/* Set different positioning on the portal status message. */
+.portalMessage { 
+  background-color: orange;
+  position: absolute;
+  left: 400px;
+  top: 60px;
+}
+
+/* Start portalMessage settings from standard Plone */
+
+dl.portalMessage {
+    font-size: &dtml-fontSmallSize;;
+}
+dl.portalMessage a {
+    color: black;
+    border: none;
+    text-decoration: underline;
+}
+dl.portalMessage dt {
+    background-color: #996; 
+    border: 1px solid #996;
+    font-weight: bold;
+    float: left;
+    margin: 0 0.5em 0 0;
+    padding: 0.5em 0.75em;
+    color: White;
+    line-height: 1.25em;
+}
+dl.portalMessage dd {
+    background-color: #ffffe3;
+    border: 1px solid #996;
+    padding: 0.5em 0.5em; 
+    margin: 0;
+    line-height: 1.25em;
+}
+
+/* End portalMessage settings from standard Plone */
