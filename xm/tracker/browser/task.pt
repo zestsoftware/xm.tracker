@@ -16,7 +16,6 @@
            tal:attributes="value task/uid" />
     <input type="text"
            name="text"
-           tal:attributes="disabled disabled;"
            size="80" />
     <input type="submit"
            name="track"
