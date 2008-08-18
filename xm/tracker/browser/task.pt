@@ -1,5 +1,6 @@
 <div class="task"
-     tal:define="task nocall:context"
+     tal:define="task nocall:view/task"
+     tal:condition="task"
      tal:attributes="id string:task-${task/uid}">
 
   <hr />

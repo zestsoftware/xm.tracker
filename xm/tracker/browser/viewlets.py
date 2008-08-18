@@ -37,8 +37,9 @@ class TaskListManager(Explicit):
             # 
             # http://pypi.python.org/pypi/zope.contentprovider#additional-data-from-tal
             # 
+            self.request['task_uid'] = task.uid
             viewlet = getMultiAdapter(
-                (task, self.request, self.__parent__, self),
+                (context, self.request, self.__parent__, self),
                 IViewlet, name=u'xm.tracker.task')
             viewlet.update()
             rows.append(viewlet)
@@ -71,14 +72,15 @@ class TaskViewlet(BrowserView):
         self.manager = manager
 
     def update(self):
-        pass
+        task_uid = self.request.get('task_uid', '')
+        self.task = self.view.tracker().get_task(task_uid)
 
     def total_time(self):
-        return self.context.total_time().strftime('%H:%M')
+        return self.task.total_time().strftime('%H:%M')
 
     def entries(self):
         result = []
-        for entry in self.context.entries:
+        for entry in self.task.entries:
             result.append(dict(text = entry.text,
                                date = entry.date.strftime('%d-%m'),
                                time = entry.time.strftime('%H:%M')))

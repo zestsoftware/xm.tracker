@@ -58,13 +58,8 @@
              id="select-tasks"
              value="Clear tracker and select tasks from the xm todo-tasks" />
     </form>
-    <p>Only showing bare bones task list for now, due to i18n issues.</p>
-    <ul>
-      <li tal:repeat="task tracker/tasks"
-          tal:content="task/title" />
-    </ul>
-    <!--div class="tracker-tasks"
-         tal:content="structure provider:xm.tracker.tasklist" /-->
+    <div class="tracker-tasks"
+         tal:content="structure provider:xm.tracker.tasklist" />
   </div>
   </body>
 </html>
