@@ -74,6 +74,8 @@ class AddTasks(TrackerView):
 
     def __call__(self):
         tracker = self.tracker()
+        # Remove tasks:
+        #tracker.tasks = PersistentList()
         selected_task_uids = self.request.get('selected_task_uids', [])
         # Currently, we only support adding tasks to the tracker that
         # are already in the todo-list of this user.
@@ -99,6 +101,10 @@ class AddTasks(TrackerView):
                         continue
                     # Remove the task.
                     tracker.tasks.remove(task)
+                    continue
+                task = tracker.get_task(task_uid)
+                if task is not None:
+                    # Task is already in the tracker.
                     continue
                 task = Task(xm_task['title'],
                             uid = xm_task['UID'],
