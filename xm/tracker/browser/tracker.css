@@ -39,3 +39,11 @@ dl.portalMessage dd {
 }
 
 /* End portalMessage settings from standard Plone */
+
+#task_selection_form { 
+  position: absolute;
+  left: 100px;
+  top: 60px;
+  padding: 10px;
+  background-color: #996;
+}

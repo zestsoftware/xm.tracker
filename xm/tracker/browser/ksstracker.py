@@ -64,3 +64,15 @@ class KSSTrackTime(PloneKSSView):
         message = translate(_(u'msg_added_entry', default=u'Added entry'))
         plone = self.getCommandSet("plone")
         plone.issuePortalMessage(message)
+
+
+class KSSSelectTasks(PloneKSSView):
+    """KSS view for selecting tasks"""
+    
+    @kssaction
+    def select_tasks(self):
+        context = aq_inner(self.context)
+        view = context.restrictedTraverse('@@tracker_select_tasks')
+        html = view()
+        core = self.getCommandSet("core")
+        core.insertHTMLBefore('.documentFirstHeading', html)

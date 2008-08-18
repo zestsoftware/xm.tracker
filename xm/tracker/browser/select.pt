@@ -1,4 +1,4 @@
-<div>
+<div id="task_selection_form">
   <h1>Select tasks</h1>
 
   <form

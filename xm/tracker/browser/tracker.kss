@@ -30,6 +30,11 @@ effect: it stays disabled. */
     evt-click-preventdefault: True;
 }
 
+#select-tasks:click {
+    action-server: kss_select_tasks;
+    evt-click-preventdefault: True;
+}
+
 /* Client side timer */
 
 #start-timer:timer-start(mytimer) {

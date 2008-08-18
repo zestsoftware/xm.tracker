@@ -73,6 +73,14 @@
         permission="xm.ViewTracker"
         />
 
+    <page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".ksstracker.KSSSelectTasks"
+        attribute="select_tasks"
+        name="kss_select_tasks"
+        permission="xm.ViewTracker"
+        />
+
     <zope:adapter
         name="xm.tracker.startstop"
         provides="zope.contentprovider.interfaces.IContentProvider"
