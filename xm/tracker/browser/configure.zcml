@@ -26,15 +26,6 @@
         permission="xm.ViewTracker"
         />
 
-    <!-- View for adding demo content.
-         XXX  Remove before releasing. -->
-    <page
-        name="tracker_demo"
-        class=".tracker.Demo"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        permission="xm.ViewTracker"
-        />
-
     <page
         name="tracker_add_tasks"
         class=".tracker.AddTasks"
