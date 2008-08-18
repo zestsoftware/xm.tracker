@@ -55,7 +55,8 @@ class KSSTrackTime(PloneKSSView):
             task = tracker.unassigned
         add_entry(tracker, task, text)
         view = context.restrictedTraverse('@@tracker')
-        viewlet = TaskViewlet(task, self.request, view, None)
+        self.request['task_uid'] = task.uid
+        viewlet = TaskViewlet(context, self.request, view, None)
         viewlet.update()
         html = viewlet.render()
         core = self.getCommandSet("core")
