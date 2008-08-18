@@ -125,28 +125,6 @@ class SelectTasks(AddTasks):
         return self.index()
 
 
-class Demo(TrackerView):
-    """ This view adds demo data.  Only for development.
-
-    XXX Remove before releasing.
-    """
-
-    def __call__(self):
-        tracker = self.tracker()
-        tracker.tasks = PersistentList()
-        for i in range(3):
-            task = Task("Task %d" % i,
-                        uid = "slk3aJKE@$SKDGAA%d" % i,
-                        story = "Story %d" % i,
-                        project = "Project %d" % i,
-                        estimate = round(random() * 10))
-            tracker.tasks.append(task)
-        tracker.tasks[0].entries.append(Entry('Did my homework', 86400))
-        tracker.tasks[0].entries.append(Entry('Did my thing', 3600))
-
-        self.request.response.redirect('@@tracker')
-
-
 class StartStopProvider(Explicit):
     """ This view renders the start/stop button of the timer
     """

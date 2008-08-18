@@ -122,7 +122,7 @@
     <viewletManager
         name="xm.tracker.tasklist"
         provides=".interfaces.ITaskListManager"
-        permission="zope2.View"
+        permission="xm.ViewTracker"
         class=".viewlets.TaskListManager"
         />
 
@@ -130,7 +130,7 @@
         name="xm.tracker.task"
         manager=".interfaces.ITaskListManager"
         class=".viewlets.TaskViewlet"
-        permission="zope.Public"
+        permission="xm.ViewTracker"
         />
 
 </configure>

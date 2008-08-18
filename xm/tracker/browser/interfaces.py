@@ -1,4 +1,5 @@
 from zope.publisher.interfaces.browser import IBrowserView
+from zope.interface import Attribute
 from zope.viewlet.interfaces import IViewletManager
 from zope.viewlet.interfaces import IViewlet
 
@@ -39,3 +40,18 @@ class ITaskListManager(IViewletManager):
 class ITaskViewlet(IViewlet):
     """Show a task.
     """
+    
+    task = Attribute("A task object")
+    
+    def total_time():
+        """ Returns the total time of all entries
+        """
+        
+    def entries():
+        """ Returns a list of entry objects
+        """
+        
+
+    def tracker_has_started():
+        """ Returns a boolean state for the timer
+        """

@@ -6,7 +6,7 @@ from Products.Five.browser import BrowserView
 from zope.component import getMultiAdapter
 from zope.viewlet.interfaces import IViewlet
 
-#from xm.tracker.browser.interfaces import ITaskViewlet
+from xm.tracker.browser.interfaces import ITaskViewlet
 
 
 class TaskListManager(Explicit):
@@ -46,7 +46,7 @@ class TaskListManager(Explicit):
 class TaskViewlet(BrowserView):
     """ Base class with common functions for link viewlets.
     """
-    implements(IViewlet)
+    implements(ITaskViewlet)
     render = ZopeTwoPageTemplateFile('task.pt')
     
     # Apparently this is needed to give access to the 'allowed'
@@ -61,6 +61,7 @@ class TaskViewlet(BrowserView):
         self.request = request
         self.view = view
         self.manager = manager
+        self.task = None
 
     def update(self):
         task_uid = self.request.get('task_uid', '')

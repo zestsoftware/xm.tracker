@@ -1,7 +1,8 @@
 <div class="task"
      tal:define="task nocall:view/task"
      tal:condition="task"
-     tal:attributes="id string:task-${task/uid}">
+     tal:attributes="id string:task-${task/uid}"
+     i18n:domain="tracker">
 
   <hr />
   <h2 style="float:right" tal:content="view/total_time" />
