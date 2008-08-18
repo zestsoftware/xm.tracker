@@ -28,15 +28,6 @@ class TaskListManager(Explicit):
                 
         tasks.append(self.tracker.unassigned)
         for task in tasks: 
-            # This way of calling a Viewlet is not so well support.
-            # e.g. translations don't work and we have to hack the security
-            # of the TaskViewlet, see below
-            # 
-            # I suggest we refactor this class to use a template again and
-            # provide the task as described in the following secrtion:
-            # 
-            # http://pypi.python.org/pypi/zope.contentprovider#additional-data-from-tal
-            # 
             self.request['task_uid'] = task.uid
             viewlet = getMultiAdapter(
                 (context, self.request, self.__parent__, self),
