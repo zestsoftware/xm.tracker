@@ -75,15 +75,30 @@ class AddTasks(TrackerView):
     def __call__(self):
         tracker = self.tracker()
         selected_task_uids = self.request.get('selected_task_uids', [])
-        # Clean the current tasks, for demoing.
-        tracker.tasks = PersistentList()
+        # Currently, we only support adding tasks to the tracker that
+        # are already in the todo-list of this user.
         for project_info in self.todo_tasks_per_project():
             projectbrain = project_info['project']
             xm_tasks = project_info['tasks']
             for xm_task in xm_tasks:
+                task_uid = xm_task['UID']
                 if len(selected_task_uids) > 0 \
-                        and xm_task['UID'] not in selected_task_uids:
+                        and task_uid not in selected_task_uids:
                     # XXX remove task if it was previously selected
+                    task = tracker.get_task(task_uid)
+                    if task is None:
+                        # We cannot remove it because it was already
+                        # removed.  No need to bother the user with
+                        # this.
+                        continue
+                    if task.total_time() > 0:
+                        # This task still has time that needs to be
+                        # booked.  So we do not close it.  The user
+                        # should not have been able to deselect it in
+                        # the first place.  We could add a warning.
+                        continue
+                    # Remove the task.
+                    tracker.tasks.remove(task)
                     continue
                 task = Task(xm_task['title'],
                             uid = xm_task['UID'],
