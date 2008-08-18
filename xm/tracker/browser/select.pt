@@ -10,12 +10,14 @@
       <table>
         <tr tal:repeat="task project_info/tasks"
             class="list-in-iteration">
-          <td>
+          <td
+              tal:define="tracker_task python:view.tracker().get_task(task['UID'])">
             <input
                 type="checkbox"
                 name="selected_task_uids"
                 tal:attributes="value task/UID;
-                                checked python:view.tracker().get_task(task['UID']) and 'checked' or ''" />
+                                checked python:tracker_task and 'checked' or '';
+                                disabled python:tracker_task and tracker_task.total_time() and 'disabled' or ''" />
           </td>
           <td class="td-story-title"
               tal:content="task/title" />
