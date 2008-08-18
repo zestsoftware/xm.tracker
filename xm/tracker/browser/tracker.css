@@ -42,8 +42,8 @@ dl.portalMessage dd {
 
 #task_selection_form { 
   position: absolute;
-  left: 100px;
-  top: 60px;
+  left: 5px;
+  top: 50px;
   padding: 10px;
   background-color: #996;
 }
