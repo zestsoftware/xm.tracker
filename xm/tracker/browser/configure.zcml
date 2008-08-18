@@ -43,6 +43,14 @@
         />
 
     <page
+        name="tracker_select_tasks"
+        class=".tracker.SelectTasks"
+        template="select.pt"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
+    <page
         name="tracker_start"
         class=".tracker.Start"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"

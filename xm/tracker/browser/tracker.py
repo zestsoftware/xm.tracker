@@ -74,12 +74,17 @@ class AddTasks(TrackerView):
 
     def __call__(self):
         tracker = self.tracker()
+        selected_task_uids = self.request.get('selected_task_uids', [])
         # Clean the current tasks, for demoing.
         tracker.tasks = PersistentList()
-        for project_info in self.selected_tasks_per_project():
+        for project_info in self.todo_tasks_per_project():
             projectbrain = project_info['project']
             xm_tasks = project_info['tasks']
             for xm_task in xm_tasks:
+                if len(selected_task_uids) > 0 \
+                        and xm_task['UID'] not in selected_task_uids:
+                    # XXX remove task if it was previously selected
+                    continue
                 task = Task(xm_task['title'],
                             uid = xm_task['UID'],
                             story = xm_task['story_title'],
@@ -88,13 +93,21 @@ class AddTasks(TrackerView):
                 tracker.tasks.append(task)
         self.request.response.redirect('@@tracker')
 
-    def selected_tasks_per_project(self):
+    def todo_tasks_per_project(self):
         """For now we just get all to-do tasks here.
         """
         context = aq_inner(self.context)
         mytask_details = getMultiAdapter(
             (context, self.request), name=u'mytask_details')
         return mytask_details.projects()
+
+
+class SelectTasks(AddTasks):
+    """Select real xm tasks for adding to the tracker.
+    """
+
+    def __call__(self):
+        return self.index()
 
 
 class Demo(TrackerView):
