@@ -38,19 +38,12 @@
     <div tal:replace="structure provider:xm.tracker.startstop" />
 
     <form method="post"
-          action="@@tracker_add_tasks">
-      <input type="submit"
-             name="select"
-             id="add-tasks"
-             value="Clear tracker and add all xm todo-tasks" />
-
-    </form>
-    <form method="post"
           action="@@tracker_select_tasks">
       <input type="submit"
              name="select"
              id="select-tasks"
-             value="Clear tracker and select tasks from the xm todo-tasks" />
+             value="Select Tasks"
+             i18n:attributes="value label_select_tasks" />
     </form>
     <div class="tracker-tasks"
          tal:content="structure provider:xm.tracker.tasklist" />
