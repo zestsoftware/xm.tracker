@@ -21,7 +21,7 @@
 
     <page
         name="remove_entry"
-        class=".tracker.RemoveEntry"
+        class=".entry.RemoveEntry"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
         />
