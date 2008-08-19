@@ -63,6 +63,7 @@ class KSSTrackTime(PloneKSSView):
         message = _(u'msg_added_entry', default=u'Added entry')
         plone = self.getCommandSet("plone")
         plone.issuePortalMessage(message)
+        tracker.starttime = mx.DateTime.now()
 
 
 class KSSSelectTasks(PloneKSSView):

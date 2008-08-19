@@ -66,6 +66,12 @@ class TrackerView(BrowserView):
             fmt = "%H:%M:%S"
         return time.strftime(fmt)
         
+    def seconds_spent(self):
+        now = mx.DateTime.now()
+        previous = self.tracker().starttime or now
+        time = now - previous
+        return round(time.seconds)
+        
 
 
 class AddTasks(TrackerView):
@@ -197,6 +203,7 @@ class TrackTime(TrackerView):
             # We are dealing with an unassigned entry
             task = tracker.unassigned
         add_entry(tracker, task, text)
+        tracker.starttime = mx.DateTime.now()
         msg = _(u'msg_added_entry', default=u'Added entry')
         IStatusMessage(self.request).addStatusMessage(msg, type="info")
         self.request.response.redirect('@@tracker')

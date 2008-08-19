@@ -1,38 +1,20 @@
 
-/* Note: setting the disabled attribute to an empty string has no
-effect: it stays disabled. */
-#start-timer:click {
-    action-server: kss_start_timer;
-    evt-click-preventdefault: True;    
-    action-client: removeAttribute;
-    removeAttribute-kssSelector: css('.track_form input.track-time');
-    removeAttribute-name: disabled;
-}
-
-#stop-timer:click {
-    action-server: kss_stop_timer;
-    evt-click-preventdefault: True;
-    action-client: setAttribute;
-    setAttribute-kssSelector: css('.track_form input.track-time');
-    setAttribute-name: disabled;
-    setAttribute-value: disabled;
-}
-
 /* when 3.0 support will be dropped, the new way to provide form vars will
      be one line, like this:
 
        action-server: kss_track_time currentForm();
 */
 
-.track-time:click {
+.track-time:timer-reset(mytimer) {
+    action-client: alert;
     action-server: kss_track_time;
     kss_track_time-kssSubmitForm: currentForm();
-    evt-click-preventdefault: True;
+    evt-timer-reset-preventdefault: true;
 }
 
 #select-tasks:click {
     action-server: kss_select_tasks;
-    evt-click-preventdefault: True;
+    evt-click-preventdefault: true;
 }
 
 /* Client side timer */
@@ -40,9 +22,21 @@ effect: it stays disabled. */
 #start-timer:timer-start(mytimer) {
     evt-timer-start-displayformat_nohours: '%0M:%0S';
     evt-timer-start-displayformat_hours: '%h:%0M:%0S';
+    evt-timer-start-preventdefault: true;
+    action-server: kss_start_timer;
+    action-client: removeAttribute;
+    removeAttribute-kssSelector: css('.track_form input.track-time');
+    removeAttribute-name: disabled;
 }
 
 #stop-timer:timer-stop(mytimer) {
+    action-client: alert;
+    action-server: kss_stop_timer;
+    evt-timer-stop-preventdefault: true;
+    action-client: setAttribute;
+    setAttribute-kssSelector: css('.track_form input.track-time');
+    setAttribute-name: disabled;
+    setAttribute-value: disabled;
 }
 
 #timer:timer-update(mytimer) {
