@@ -14,15 +14,15 @@ us see all error messages in the error_log.
     >>> self.portal.error_log._ignored_exceptions = ()
 
 With that in place, we can go to the portal front page and log in. We will
-do this using the portal owner from PloneTestCase:
+do this using the default user from PloneTestCase:
 
-    >>> from Products.PloneTestCase.setup import portal_owner, default_password
+    >>> from Products.PloneTestCase.setup import default_user, default_password
     >>> browser.open(portal_url)
 
 We have the login portlet, so let's use that and check that we are
 really logged in.
 
-    >>> browser.getControl(name='__ac_name').value = portal_owner
+    >>> browser.getControl(name='__ac_name').value = default_user
     >>> browser.getControl(name='__ac_password').value = default_password
     >>> browser.getControl(name='submit').click()
     >>> browser.url == portal_url
@@ -57,23 +57,45 @@ We will wait one second before reloading.
     >>> "00:00" in browser.contents
     False
 
-During development we provide a button to create demo content.
+We have a button to select tasks.  They must be in the to-do state, so
+we transition one first.
 
-    >>> browser.getControl(name='demo').click()
-    >>> "Task 1" in browser.contents
+    >>> task = self.portal.project.iteration.story.task
+    >>> browser.open(task.absolute_url())
+    >>> browser.getLink('activate').click()
+
+We go to the tracker again and select tasks.  We have a task with the
+title 'Make coffee'.
+
+    >>> browser.open(portal_url + '/@@tracker')
+    >>> 'Make coffee' in browser.contents
+    False
+    >>> browser.getControl(name='select').click()
+    >>> 'Make coffee' in browser.contents
     True
 
-We can now type a description for one of the tasks and click the track button.
+We select every task.
 
-    >>> browser.getControl(name='text', index=2).value = 'Wrote my functional test'
-    >>> browser.getControl(name='track', index=2).click()
+    >>> selection = browser.getControl(name='selected_task_uids')
+    >>> selection.value = selection.options
+
+Then we submit.
+
+    >>> browser.getControl(name='select').click()
+    >>> 'Make coffee' in browser.contents
+    True
+    
+We can now type a description for this task and click the track button.
+
+    >>> browser.getControl(name='text', index=0).value = 'Turned the coffee machine on.'
+    >>> browser.getControl(name='track', index=0).click()
     >>> "Added entry" in browser.contents
     True
-    >>> "Wrote my functional test" in browser.contents
+    >>> 'Turned the coffee machine on.' in browser.contents
     True
 
 A description is required.
 
-    >>> browser.getControl(name='track', index=2).click()
+    >>> browser.getControl(name='track', index=0).click()
     >>> "Entry not added. Please provide a description." in browser.contents
     True

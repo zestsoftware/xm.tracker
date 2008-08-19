@@ -5,6 +5,7 @@ from Products.PloneTestCase.layer import PloneSite
 import xm.tracker
 from Testing import ZopeTestCase as ztc
 from Products.PloneTestCase.layer import onsetup
+from Products.eXtremeManagement.tests.base import XMLayer
 
 ztc.installProduct('Poi')
 ztc.installProduct('eXtremeManagement')
@@ -21,25 +22,15 @@ def xm_setup():
     zcml.load_config('configure.zcml', xm.portlets)
     fiveconfigure.debug_mode = False
 
+xm_setup()
 ptc.setupPloneSite(products=['Products.eXtremeManagement'])
 
 
 class TestCase(ptc.PloneTestCase):
-
-    class layer(PloneSite):
-
-        @classmethod
-        def setUp(cls):
-            fiveconfigure.debug_mode = True
-            zcml.load_config('configure.zcml',
-                             xm.tracker)
-            fiveconfigure.debug_mode = False
-
-        @classmethod
-        def tearDown(cls):
-            pass
+    layer = XMLayer
 
 
 class FunctionalTestCase(ptc.FunctionalTestCase, TestCase):
     """Test case for functional (browser) tests.
     """
+    layer = XMLayer
