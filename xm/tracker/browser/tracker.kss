@@ -6,7 +6,6 @@
 */
 
 .track-time:timer-reset(mytimer) {
-    action-client: alert;
     action-server: kss_track_time;
     kss_track_time-kssSubmitForm: currentForm();
     evt-timer-reset-preventdefault: true;
@@ -30,7 +29,6 @@
 }
 
 #stop-timer:timer-stop(mytimer) {
-    action-client: alert;
     action-server: kss_stop_timer;
     evt-timer-stop-preventdefault: true;
     action-client: setAttribute;
