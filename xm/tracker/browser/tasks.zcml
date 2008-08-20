@@ -1,0 +1,51 @@
+<configure
+    xmlns="http://namespaces.zope.org/browser"
+    xmlns:zope="http://namespaces.zope.org/zope"
+    i18n_domain="tracker">
+
+    <!-- task related views -->
+    <viewletManager
+        name="xm.tracker.tasklist"
+        provides=".interfaces.ITaskListManager"
+        permission="xm.ViewTracker"
+        class=".viewlets.TaskListManager"
+        />
+
+    <viewlet
+        name="xm.tracker.task"
+        manager=".interfaces.ITaskListManager"
+        class=".viewlets.TaskViewlet"
+        permission="zope.Public"
+        />
+
+    <page
+        name="track_time"
+        class=".tracker.TrackTime"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
+    <page
+        name="tracker_book"
+        class=".tracker.Book"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
+    <page
+        name="close_task"
+        class=".tracker.CloseTask"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
+    <!-- KSS Server actions for Tasks-->
+    <page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".ksstracker.KSSTrackTime"
+        attribute="track_time"
+        name="kss_track_time"
+        permission="xm.ViewTracker"
+        />
+
+</configure>

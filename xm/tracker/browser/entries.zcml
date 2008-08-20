@@ -1,0 +1,26 @@
+<configure
+    xmlns="http://namespaces.zope.org/browser"
+    xmlns:zope="http://namespaces.zope.org/zope"
+    i18n_domain="tracker">
+
+    <page
+        name="remove_entry"
+        class=".entry.RemoveEntry"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
+    <page
+        name="edit_entries"
+        class=".entry.EditEntries"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
+    <zope:adapter
+        name="xm.tracker.entries"
+        provides="zope.contentprovider.interfaces.IContentProvider"
+        factory="xm.tracker.browser.entry.EntriesProvider"
+        />
+
+</configure>

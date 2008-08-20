@@ -2,7 +2,8 @@
        tal:define="task nocall:view/task">
   <tr class="time_entry"
       tal:repeat="entry task/entries">
-    <form method="post" action="">
+      <form method="post"
+            action="@@edit_entries">
       <td tal:content="entry/date" />
       <td>
         <input
