@@ -1,0 +1,40 @@
+<table class="entry_table"
+       tal:define="task nocall:view/task">
+  <tr class="time_entry"
+      tal:repeat="entry task/entries">
+      <td tal:content="entry/date" />
+      <td>
+        <input
+          type="text"
+          name="text"
+          size="40"
+          tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
+                          value entry/text" />
+      </td>
+      <td>
+        <input type="text"
+               name="time"
+               size="6"
+               tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
+                              value entry/time" />
+      </td>
+      <td>
+      <form
+          method="post"
+          action="@@remove_entry">
+        <input type="hidden"
+               name="uid"
+               tal:attributes="value task/uid" />
+        <input type="hidden"
+               name="entry_number"
+               tal:attributes="value repeat/entry/index" />
+        <input type="image"
+               name="remove"
+               src="delete_icon.gif"
+               class="remove-entry"
+               value="Remove"
+               i18n:attributes="value label_remove" />
+      </form>        
+    </td>
+  </tr>
+</table>

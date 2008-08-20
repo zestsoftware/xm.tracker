@@ -18,7 +18,7 @@
            tal:attributes="value task/uid" />
     <input type="text"
            name="text"
-           size="80" />
+           size="60" />
     <input type="submit"
            name="track"
            tal:attributes="class string:track-time kssattr-uid-${task/uid};
@@ -33,33 +33,9 @@
       <span tal:content="task/project|nothing" />
       | <span tal:content="task/story|nothing" />
     </div>
-    <table
-        class="entry_table">
-      <tr class="time_entry"
-          tal:repeat="entry view/entries">
-        <td tal:content="entry/date" />
-        <td tal:content="entry/text" />
-        <td tal:content="entry/time" />
-        <td>
-          <form
-              method="post"
-              action="@@remove_entry">
-            <input type="hidden"
-                   name="uid"
-                   tal:attributes="value task/uid" />
-            <input type="hidden"
-                   name="entry_number"
-                   tal:attributes="value repeat/entry/index" />
-            <input type="image"
-                   name="remove"
-                   src="delete_icon.gif"
-                   class="remove-entry"
-                   value="Remove"
-                   i18n:attributes="value label_remove" />
-          </form>        
-        </td>
-      </tr>
-    </table>
+    
+    <tal:block replace="structure provider:xm.tracker.entries" />
+    
     <tal:book condition="view/entries">
       <form
           method="post"

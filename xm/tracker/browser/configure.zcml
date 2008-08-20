@@ -9,7 +9,7 @@
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
         template="tracker.pt"
-        allowed_interface=".interfaces.ITrackerView"
+        allowed_interface="xm.tracker.browser.interfaces.ITrackerView"
         />
 
     <page
@@ -130,6 +130,12 @@
         manager=".interfaces.ITaskListManager"
         class=".viewlets.TaskViewlet"
         permission="zope.Public"
+        />
+
+    <zope:adapter
+        name="xm.tracker.entries"
+        provides="zope.contentprovider.interfaces.IContentProvider"
+        factory="xm.tracker.browser.entry.EntriesProvider"
         />
 
 </configure>

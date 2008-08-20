@@ -31,7 +31,8 @@
         type="submit"
         name="select"
         id="add-tasks"
-        value="Update tracker with these tasks" />
+        value="Save"
+        i18n:attributes="value save_button" />
   </form>
 
 </div>
