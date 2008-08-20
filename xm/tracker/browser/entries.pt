@@ -2,6 +2,7 @@
        tal:define="task nocall:view/task">
   <tr class="time_entry"
       tal:repeat="entry task/entries">
+    <form method="post" action="">
       <td tal:content="entry/date" />
       <td>
         <input
@@ -18,6 +19,7 @@
                tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
                               value entry/time" />
       </td>
+    </form>
       <td>
       <form
           method="post"
