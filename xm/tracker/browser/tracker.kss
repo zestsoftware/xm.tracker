@@ -5,10 +5,13 @@
        action-server: kss_track_time currentForm();
 */
 
-.track-time:timer-reset(mytimer) {
+.track-time:click {
     action-server: kss_track_time;
     kss_track_time-kssSubmitForm: currentForm();
-    evt-timer-reset-preventdefault: true;
+    evt-click-preventdefault: true;
+}
+
+.track-time:timer-reset(mytimer){
 }
 
 #select-tasks:click {
