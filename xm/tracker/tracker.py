@@ -43,7 +43,26 @@ class Tracker(Persistent):
                 return task
 
 
-class Task(Persistent):
+class BaseTask(Persistent):
+    """A basic task that is listed in the Time Tracker main screen.
+
+    Can be used for tracking entries that have no assigned task yet.
+    """
+    implements(ITask)
+    def __init__(self):
+        self.uid = 'unassigned'
+        self.title = 'Unassigned'
+        #....
+        self.entries = PersistentList()
+
+    def total_time(self):
+        total = sum([entry.time for entry in self.entries])
+        if total == 0:
+            return DateTimeDeltaFromSeconds(0)
+        return total
+
+
+class Task(BaseTask):
     """A task from the XM site that is listed in the Time Tracker main screen.
     """
     implements(ITask)
@@ -56,11 +75,6 @@ class Task(Persistent):
         self.estimate = estimate
         self.entries = PersistentList()
 
-    def total_time(self):
-        total = sum([entry.time for entry in self.entries])
-        if total == 0:
-            return DateTimeDeltaFromSeconds(0)
-        return total
 
 
 class Entry(Persistent):
