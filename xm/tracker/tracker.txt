@@ -77,11 +77,10 @@ Entries can get either a timedelta or a number of seconds as input.
     True
 
 A tracker also has ad hoc entries that are not yet associated with an
-xm task.  They are grouped in a BaseTask that is slightly simpler than
-a normal Task.
+xm task.  They are grouped in a special Task.
 
     >>> tracker.unassigned
-    <xm.tracker.tracker.BaseTask object at ...>
+    <xm.tracker.tracker.Task object at ...>
     >>> len(tracker.unassigned.entries)
     0
     >>> tracker.unassigned.total_time().strftime('%H:%M:%S')
@@ -94,4 +93,4 @@ We can get that special task by its hardcoded uid too:
 
     >>> from xm.tracker.config import UNASSIGNED
     >>> tracker.get_task(UNASSIGNED)
-    <xm.tracker.tracker.BaseTask object at ...>
+    <xm.tracker.tracker.Task object at ...>

@@ -19,7 +19,7 @@ from zope.interface import implements
 import mx.DateTime
 
 from xm.tracker.interfaces import ITracker, ITask, IEntry
-from xm.tracker import XMTrackerMessageFactory as _
+#from xm.tracker import XMTrackerMessageFactory as _
 from xm.tracker.config import UNASSIGNED
 
 
@@ -31,7 +31,7 @@ class Tracker(Persistent):
     def __init__(self):
         self.starttime = None
         self.tasks = PersistentList()
-        self.unassigned = BaseTask()
+        self.unassigned = Task(uid=UNASSIGNED, title=u'Unassigned')
 
     def get_task(self, uid):
         if uid == UNASSIGNED:
@@ -41,31 +41,12 @@ class Tracker(Persistent):
                 return task
 
 
-class BaseTask(Persistent):
-    """A basic task that is listed in the Time Tracker main screen.
-
-    Can be used for tracking entries that have no assigned task yet.
-    """
-    implements(ITask)
-
-    def __init__(self):
-        self.uid = UNASSIGNED
-        self.title = u'Unassigned'
-        self.entries = PersistentList()
-
-    def total_time(self):
-        total = sum([entry.time for entry in self.entries])
-        if total == 0:
-            return mx.DateTime.DateTimeDeltaFromSeconds(0)
-        return total
-
-
-class Task(BaseTask):
+class Task(Persistent):
     """A task from the XM site that is listed in the Time Tracker main screen.
     """
     implements(ITask)
 
-    def __init__(self, title, uid=None, story=None, project=None,
+    def __init__(self, title=None, uid=None, story=None, project=None,
                  estimate=None):
         self.uid = uid
         self.title = title
@@ -73,6 +54,12 @@ class Task(BaseTask):
         self.project = project
         self.estimate = estimate
         self.entries = PersistentList()
+
+    def total_time(self):
+        total = sum([entry.time for entry in self.entries])
+        if total == 0:
+            return mx.DateTime.DateTimeDeltaFromSeconds(0)
+        return total
 
 
 class Entry(Persistent):
