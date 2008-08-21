@@ -21,6 +21,22 @@
                                value entry/time" />
       </td>
     </form>
+    <td tal:condition="task/is_unassigned">
+      <form
+          method="post"
+          action="@@book_unassigned_entry">
+        <input type="hidden"
+               name="uid"
+               tal:attributes="value task/uid" />
+        <input type="hidden"
+               name="entry_number"
+               tal:attributes="value repeat/entry/index" />
+        <input type="submit"
+               name="book_to_task"
+               value="Book to task"
+               i18n:attributes="value label_book_to_task" />
+      </form>
+    </td>
     <td>
       <form
           method="post"
