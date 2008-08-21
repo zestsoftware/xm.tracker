@@ -2,26 +2,26 @@
        tal:define="task nocall:view/task">
   <tr class="time_entry"
       tal:repeat="entry task/entries">
-      <form method="post"
-            action="@@edit_entries">
+    <form method="post"
+          action="@@edit_entries">
       <td tal:content="entry/date" />
       <td>
         <input
-          type="text"
-          name="text"
-          size="40"
-          tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
-                          value entry/text" />
+            type="text"
+            name="text"
+            size="40"
+            tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
+                            value entry/text" />
       </td>
       <td>
         <input type="text"
                name="time"
                size="6"
                tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
-                              value entry/time" />
+                               value entry/time" />
       </td>
     </form>
-      <td>
+    <td>
       <form
           method="post"
           action="@@remove_entry">
