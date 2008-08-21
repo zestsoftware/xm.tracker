@@ -29,7 +29,7 @@
   <div class="hidden"
        tal:attributes="id string:taskdetails-${task/uid}">
     <div class="storyline"
-         tal:condition="task/project">
+         tal:condition="task/project|nothing">
       <span tal:content="task/project|nothing" />
       | <span tal:content="task/story|nothing" />
     </div>
