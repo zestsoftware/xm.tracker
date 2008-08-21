@@ -27,7 +27,8 @@
            value="Track" />
   </form>
   <div class="hidden"
-       tal:attributes="id string:taskdetails-${task/uid}">
+       tal:attributes="id string:taskdetails-${task/uid};
+                       class python:not task.is_unassigned() and 'hidden' or '';">
     <div class="storyline"
          tal:condition="task/project">
       <span tal:content="task/project" />
