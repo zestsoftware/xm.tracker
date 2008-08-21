@@ -36,7 +36,7 @@
     
     <tal:block replace="structure provider:xm.tracker.entries" />
     
-    <tal:book condition="view/entries">
+    <tal:book condition="python:view.entries and not task.is_unassigned()">
       <form
           method="post"
           action="@@tracker_book">

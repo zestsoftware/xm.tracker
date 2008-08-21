@@ -92,5 +92,13 @@ xm task.  They are grouped in a special Task.
 We can get that special task by its hardcoded uid too:
 
     >>> from xm.tracker.config import UNASSIGNED
-    >>> tracker.get_task(UNASSIGNED)
+    >>> adhoc = tracker.get_task(UNASSIGNED)
+    >>> adhoc
     <xm.tracker.tracker.Task object at ...>
+
+We can ask the task if it is the special unassigned task.
+
+    >>> adhoc.is_unassigned()
+    True
+    >>> Task().is_unassigned()
+    False

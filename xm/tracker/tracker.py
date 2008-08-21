@@ -24,8 +24,7 @@ from xm.tracker.config import UNASSIGNED
 
 
 class Tracker(Persistent):
-    """ A tracker that manages a list of tasks
-    """
+    """A tracker that manages a list of tasks"""
     implements(ITracker)
 
     def __init__(self):
@@ -61,10 +60,13 @@ class Task(Persistent):
             return mx.DateTime.DateTimeDeltaFromSeconds(0)
         return total
 
+    def is_unassigned(self):
+        """Is this the special unassigned task?"""
+        return self.uid == UNASSIGNED
+
 
 class Entry(Persistent):
-    """ An entry in the timelog
-    """
+    """An entry in the timelog"""
     implements(IEntry)
 
     def __init__(self, text, time):
