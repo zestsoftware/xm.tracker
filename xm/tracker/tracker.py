@@ -33,6 +33,8 @@ class Tracker(Persistent):
         self.unassigned = BaseTask()
 
     def get_task(self, uid):
+        if uid == 'unassigned':
+            return self.unassigned
         for task in self.tasks:
             if task.uid == uid:
                 return task

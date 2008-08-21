@@ -89,3 +89,8 @@ a normal Task.
     >>> tracker.unassigned.entries.append(Entry('Feed Reinout', 13))
     >>> tracker.unassigned.total_time().strftime('%H:%M:%S')
     '00:00:13'
+
+We can get that special task by its hardcoded uid too:
+
+    >>> tracker.get_task('unassigned')
+    <xm.tracker.tracker.BaseTask object at ...>
