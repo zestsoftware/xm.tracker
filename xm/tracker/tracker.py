@@ -1,13 +1,13 @@
 """
 XM site       The project management site Zest is using.
-Task          Task in the XM site
+XM Task       Task content type in the XM site, added within a Story.
 Booking       Booking for a task in the XM site.
 Time Tracker  Separate window that can be opened from the XM site
 Task          A task from the XM site that is listed in the Time Tracker main
               screen.
 Entry         An amount of time registered for a tracked task in the Time
               Tracker
-Ad-hoc Entry  An Entry which is not directly related to a Tracked task,
+Ad-hoc entry  An entry which is not directly related to an xm task,
               but can be booked as a Booking in the XM site
 Main timer    The running timer on the top right of the main tracker screen
 
