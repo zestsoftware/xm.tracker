@@ -4,14 +4,14 @@
       tal:repeat="entry task/entries">
     <form method="post"
           action="@@edit_entries">
-      <td tal:content="entry/date" />
       <td>
         <input
             type="text"
             name="text"
             size="40"
             tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
-                            value entry/text" />
+                            value entry/text;
+                            title entry/date;" />
       </td>
       <td>
         <input type="text"
