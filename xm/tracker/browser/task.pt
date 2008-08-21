@@ -29,9 +29,9 @@
   <div class="hidden"
        tal:attributes="id string:taskdetails-${task/uid}">
     <div class="storyline"
-         tal:condition="task/project|nothing">
-      <span tal:content="task/project|nothing" />
-      | <span tal:content="task/story|nothing" />
+         tal:condition="task/project">
+      <span tal:content="task/project" />
+      | <span tal:content="task/story" />
     </div>
     
     <tal:block replace="structure provider:xm.tracker.entries" />
