@@ -1,3 +1,5 @@
+.. -*- doctest -*-
+
 Time Tracker functional tests
 =============================
 
@@ -40,12 +42,21 @@ Now we go to the tracker view.
     >>> "00:00" in browser.contents
     True
 
-We start the timer.
+We start the timer.  
 
     >>> browser.getControl(name='start').click()
     >>> "Started the timer" in browser.contents
     True
     >>> "Stop and reset" in browser.contents
+    True
+
+The timer will be updated by KSS, which needs a specific class,
+specifying the number of seconds to start the timer with.  We will
+check this value, as checking for the presence or absence of the
+string '00:00' can give too many false positives or negatives, with
+all the counters shown on the page when a few tasks are available.
+
+    >>> "kssattr-timerstart-0.0" in browser.contents
     True
 
 After reloading the page the time should not be zero seconds anymore.
@@ -54,7 +65,7 @@ We will wait one second before reloading.
     >>> import time
     >>> time.sleep(1)
     >>> browser.reload()
-    >>> "00:00" in browser.contents
+    >>> "kssattr-timerstart-0.0" in browser.contents
     False
 
 We have a button to select tasks.  They must be in the to-do state, so
