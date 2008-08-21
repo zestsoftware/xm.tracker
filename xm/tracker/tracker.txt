@@ -1,3 +1,5 @@
+.. -*-Doctest-*-
+
 Trackers, tasks and entries
 ===========================
 
@@ -73,3 +75,17 @@ Entries can get either a timedelta or a number of seconds as input.
     True
     >>> Entry('dummy text', 60.0).time == minute
     True
+
+A tracker also has ad hoc entries that are not yet associated with an
+xm task.  They are grouped in a BaseTask that is slightly simpler than
+a normal Task.
+
+    >>> tracker.unassigned
+    <xm.tracker.tracker.BaseTask object at ...>
+    >>> len(tracker.unassigned.entries)
+    0
+    >>> tracker.unassigned.total_time().strftime('%H:%M:%S')
+    '00:00:00'
+    >>> tracker.unassigned.entries.append(Entry('Feed Reinout', 13))
+    >>> tracker.unassigned.total_time().strftime('%H:%M:%S')
+    '00:00:13'

@@ -30,8 +30,7 @@ class Tracker(Persistent):
     def __init__(self):
         self.starttime = None
         self.tasks = PersistentList()
-        self.unassigned = BaseTask(_(u'label_unassigned_entries',
-                                     default = u'Unassigned entries'))
+        self.unassigned = BaseTask()
 
     def get_task(self, uid):
         for task in self.tasks:
@@ -48,8 +47,7 @@ class BaseTask(Persistent):
 
     def __init__(self):
         self.uid = 'unassigned'
-        self.title = 'Unassigned'
-        #....
+        self.title = u'Unassigned'
         self.entries = PersistentList()
 
     def total_time(self):
