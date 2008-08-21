@@ -19,10 +19,8 @@
                                 checked python:tracker_task and 'checked' or '';
                                 disabled python:tracker_task and tracker_task.total_time() and 'disabled' or ''" />
           </td>
-          <td class="td-story-title"
-              tal:content="task/title" />
-          <td class="td-story-title"
-              tal:content="task/story_title" />
+          <td tal:content="task/title"
+              tal:attributes="title task/story_title" />
         </tr>
       </table>
 
