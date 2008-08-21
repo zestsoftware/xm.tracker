@@ -20,6 +20,7 @@ import mx.DateTime
 
 from xm.tracker.interfaces import ITracker, ITask, IEntry
 from xm.tracker import XMTrackerMessageFactory as _
+from xm.tracker.config import UNASSIGNED
 
 
 class Tracker(Persistent):
@@ -33,7 +34,7 @@ class Tracker(Persistent):
         self.unassigned = BaseTask()
 
     def get_task(self, uid):
-        if uid == 'unassigned':
+        if uid == UNASSIGNED:
             return self.unassigned
         for task in self.tasks:
             if task.uid == uid:
@@ -48,7 +49,7 @@ class BaseTask(Persistent):
     implements(ITask)
 
     def __init__(self):
-        self.uid = 'unassigned'
+        self.uid = UNASSIGNED
         self.title = u'Unassigned'
         self.entries = PersistentList()
 

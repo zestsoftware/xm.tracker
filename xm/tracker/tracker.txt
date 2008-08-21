@@ -92,5 +92,6 @@ a normal Task.
 
 We can get that special task by its hardcoded uid too:
 
-    >>> tracker.get_task('unassigned')
+    >>> from xm.tracker.config import UNASSIGNED
+    >>> tracker.get_task(UNASSIGNED)
     <xm.tracker.tracker.BaseTask object at ...>
