@@ -2,9 +2,9 @@
       action="@@edit_entries"
       tal:define="task nocall:view/task"
       tal:attributes="class string:edit-entries task-${task/uid}">
-<table class="entry_table">
-  <tr class="time_entry"
-      tal:repeat="entry view/entries">
+  <table class="entry_table">
+    <tr class="time_entry"
+        tal:repeat="entry view/entries">
       <td>
         <input
             type="text"
@@ -21,51 +21,51 @@
                tal:attributes="name string:time-${task/uid}-${repeat/entry/index};
                                value entry/time" />
       </td>
-    <td tal:condition="task/is_unassigned">
-      <form
-          method="post"
-          action="@@book_unassigned_entry">
-        <input type="hidden"
-               name="uid"
-               tal:attributes="value task/uid" />
-        <input type="hidden"
-               name="entry_number"
-               tal:attributes="value repeat/entry/index" />
-        <input type="submit"
-               name="book_to_task"
-               value="Book to task"
-               i18n:attributes="value label_book_to_task" />
-      </form>
-    </td>
-    <td>
-      <form
-          method="post"
-          action="@@remove_entry">
-        <input type="hidden"
-               name="uid"
-               tal:attributes="value task/uid" />
-        <input type="hidden"
-               name="entry_number"
-               tal:attributes="value repeat/entry/index" />
-        <input type="image"
-               name="remove"
-               src="delete_icon.gif"
-               class="remove-entry"
-               value="Remove"
-               i18n:attributes="value label_remove" />
-      </form>        
-    </td>
-  </tr>
-</table>
+      <td tal:condition="task/is_unassigned">
+        <form
+            method="post"
+            action="@@book_unassigned_entry">
+          <input type="hidden"
+                 name="uid"
+                 tal:attributes="value task/uid" />
+          <input type="hidden"
+                 name="entry_number"
+                 tal:attributes="value repeat/entry/index" />
+          <input type="submit"
+                 name="book_to_task"
+                 value="Book to task"
+                 i18n:attributes="value label_book_to_task" />
+        </form>
+      </td>
+      <td>
+        <form
+            method="post"
+            action="@@remove_entry">
+          <input type="hidden"
+                 name="uid"
+                 tal:attributes="value task/uid" />
+          <input type="hidden"
+                 name="entry_number"
+                 tal:attributes="value repeat/entry/index" />
+          <input type="image"
+                 name="remove"
+                 src="delete_icon.gif"
+                 class="remove-entry"
+                 value="Remove"
+                 i18n:attributes="value label_remove" />
+        </form>
+      </td>
+    </tr>
+  </table>
 
-<input type="submit"
-       name="submit"
-       class="edit-entries-button"
-       value="Save"
-       i18n:attributes="value button_save" />
+  <input type="submit"
+         name="submit"
+         class="edit-entries-button"
+         value="Save"
+         i18n:attributes="value button_save" />
 
-<input type="button"
-       name="cancel"
-       value="Cancel"
-       i18n:attributes="value button_cancel" />
+  <input type="button"
+         name="cancel"
+         value="Cancel"
+         i18n:attributes="value button_cancel" />
 </form>
