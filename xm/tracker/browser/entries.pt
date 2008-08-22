@@ -1,14 +1,15 @@
-<table class="entry_table"
-       tal:define="task nocall:view/task">
+<form method="post"
+      action="@@edit_entries"
+      tal:define="task nocall:view/task"
+      tal:attributes="class string:edit-entries task-${task/uid}">
+<table class="entry_table">
   <tr class="time_entry"
-      tal:repeat="entry task/entries">
-    <form method="post"
-          action="@@edit_entries">
+      tal:repeat="entry view/entries">
       <td>
         <input
             type="text"
             name="text"
-            size="40"
+            size="60"
             tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
                             value entry/text;
                             title entry/date;" />
@@ -16,11 +17,10 @@
       <td>
         <input type="text"
                name="time"
-               size="6"
-               tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
+               size="4"
+               tal:attributes="name string:time-${task/uid}-${repeat/entry/index};
                                value entry/time" />
       </td>
-    </form>
     <td tal:condition="task/is_unassigned">
       <form
           method="post"
@@ -57,3 +57,15 @@
     </td>
   </tr>
 </table>
+
+<input type="submit"
+       name="submit"
+       class="edit-entries-button"
+       value="Save"
+       i18n:attributes="value button_save" />
+
+<input type="button"
+       name="cancel"
+       value="Cancel"
+       i18n:attributes="value button_cancel" />
+</form>

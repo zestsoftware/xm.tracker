@@ -14,6 +14,12 @@
 .track-time:timer-reset(mytimer){
 }
 
+.edit-entries-button:click{
+    action-server: kss_edit_entries;
+    kss_edit_entries-kssSubmitForm: currentForm();
+    evt-click-preventdefault: true;
+}
+
 #select-tasks:click {
     action-server: kss_select_tasks;
     evt-click-preventdefault: true;

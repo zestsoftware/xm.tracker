@@ -11,8 +11,9 @@
         />
 
     <page
-        name="edit_entries"
+        name="kss_edit_entries"
         class=".entry.EditEntries"
+        attribute="edit_entries"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
         />
