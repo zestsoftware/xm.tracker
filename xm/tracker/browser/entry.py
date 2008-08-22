@@ -1,21 +1,19 @@
 import mx.DateTime
 
 from Acquisition import Explicit
+from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
+from Products.statusmessages.interfaces import IStatusMessage
+from kss.core import kssaction
+from plone.app.kss.plonekssview import PloneKSSView
 from zope.component import adapts
-from zope.contentprovider.interfaces import IContentProvider
 from zope.interface import Interface
 from zope.interface import implements
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-from kss.core import kssaction
-from plone.app.kss.plonekssview import PloneKSSView
-
-from Products.statusmessages.interfaces import IStatusMessage
-from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 
 from xm.tracker import XMTrackerMessageFactory as _
-from xm.tracker.browser.tracker import TrackerView
 from xm.tracker.browser.interfaces import ITaskEntries
 from xm.tracker.browser.ksstracker import get_tracker
+from xm.tracker.browser.tracker import TrackerView
 
 
 def time_to_seconds(time):
@@ -95,7 +93,7 @@ class EditEntries(PloneKSSView):
         tracker = get_tracker(self.context)
         textkeys = [k for k in self.request.keys() if k.startswith('text-')]
         timekeys = [k for k in self.request.keys() if k.startswith('time-')]
-        
+
         # We should have the same amount of keys of both
         assert len(textkeys) == len(timekeys)
         uid = None
@@ -110,7 +108,7 @@ class EditEntries(PloneKSSView):
             seconds = time_to_seconds(self.request.get(timekey))
             entry.time = mx.DateTime.DateTimeDeltaFrom(seconds=seconds)
             entry.text = self.request.get(textkey)
-            
+
         message = _(u'msg_update_entries', default=u'Entries updated')
         plone = self.getCommandSet("plone")
         plone.issuePortalMessage(message)
