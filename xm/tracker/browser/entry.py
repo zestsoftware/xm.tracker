@@ -16,20 +16,95 @@ from xm.tracker.browser.ksstracker import get_tracker
 from xm.tracker.browser.tracker import TrackerView
 
 
-def time_to_seconds(time):
-    """ This helper method convert a time string notation like:
-    '4:22' to an integer in seconds.
+class TimeformattingError(Exception):
 
-    >>> from xm.tracker.browser.entry import time_to_seconds
-    >>> time_to_seconds('4:22')
-    15720
+    def __str__(self):
+        return 'Invalid time format. Must be x:xx or xx:xx'
+
+
+def time_to_seconds(time):
+    """Convert a time string like '4:22' to an integer in seconds.
+
+    A rightly-formatted string is converted to seconds, treating it as
+    hour:minutes.
+
+      >>> from xm.tracker.browser.entry import time_to_seconds
+      >>> time_to_seconds('4:22')
+      15720
+
+    The format has to have the right format:
+
+      >>> time_to_seconds('4:4')
+      Traceback (most recent call last):
+      ...
+      TimeformattingError: Invalid time format. Must be x:xx or xx:xx
+      >>> time_to_seconds('4:444')
+      Traceback (most recent call last):
+      ...
+      TimeformattingError: Invalid time format. Must be x:xx or xx:xx
+      >>> time_to_seconds(':44')
+      Traceback (most recent call last):
+      ...
+      TimeformattingError: Invalid time format. Must be x:xx or xx:xx
+      >>> time_to_seconds('444:44')
+      Traceback (most recent call last):
+      ...
+      TimeformattingError: Invalid time format. Must be x:xx or xx:xx
+      >>> time_to_seconds('junk_without_semicolon')
+      Traceback (most recent call last):
+      ...
+      TimeformattingError: Invalid time format. Must be x:xx or xx:xx
+
+    Additionally, the hours and minutes have to be within the correct
+    range. We'll test the corner cases that should still be allowed:
+
+      >>> time_to_seconds('0:00')
+      0
+      >>> time_to_seconds('00:00')
+      0
+      >>> time_to_seconds('23:59') == 24 * 60 * 60 - 60
+      True
+
+    Now the unallowed ones.
+
+      >>> time_to_seconds('44:44') # More than 23 hours
+      Traceback (most recent call last):
+      ...
+      TimeformattingError: Invalid time format. Must be x:xx or xx:xx
+      >>> time_to_seconds('-2:44') # Negative hours
+      Traceback (most recent call last):
+      ...
+      TimeformattingError: Invalid time format. Must be x:xx or xx:xx
+      >>> time_to_seconds('0:-1') # Negative minutes
+      Traceback (most recent call last):
+      ...
+      TimeformattingError: Invalid time format. Must be x:xx or xx:xx
+      >>> time_to_seconds('0:60') # More than 59
+      Traceback (most recent call last):
+      ...
+      TimeformattingError: Invalid time format. Must be x:xx or xx:xx
+
 
     """
+    if not ':' in time:
+        raise TimeformattingError
     timelist = time.split(':')
-    timelist = [int(i) for i in timelist]
-    timelist.reverse()
-    minutes = timelist[0]
-    hours = timelist[1]
+    hours = timelist[0]
+    minutes = timelist[1]
+    # Check formatting
+    if len(minutes) != 2:
+        raise TimeformattingError
+    if len(hours) > 2 or len(hours) < 1:
+        raise TimeformattingError
+
+    hours = int(hours)
+    minutes = int(minutes)
+
+    # Check ranges
+    if hours > 23 or hours < 0:
+        raise TimeformattingError
+    if minutes > 59 or minutes < 0:
+        raise TimeformattingError
     return minutes * 60 + hours * 3600
 
 
