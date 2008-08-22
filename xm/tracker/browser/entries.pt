@@ -6,13 +6,12 @@
     <tr class="time_entry"
         tal:repeat="entry view/entries">
       <td>
-        <input
-            type="text"
-            name="text"
-            size="60"
-            tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
-                            value entry/text;
-                            title entry/date;" />
+        <input type="text"
+               name="text"
+               size="60"
+               tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
+                               value entry/text;
+                               title entry/date;" />
       </td>
       <td>
         <input type="text"
@@ -22,9 +21,8 @@
                                value entry/time" />
       </td>
       <td tal:condition="task/is_unassigned">
-        <form
-            method="post"
-            action="@@book_unassigned_entry">
+        <form method="post"
+              action="@@book_unassigned_entry">
           <input type="hidden"
                  name="uid"
                  tal:attributes="value task/uid" />
@@ -38,9 +36,8 @@
         </form>
       </td>
       <td>
-        <form
-            method="post"
-            action="@@remove_entry">
+        <form method="post"
+              action="@@remove_entry">
           <input type="hidden"
                  name="uid"
                  tal:attributes="value task/uid" />
