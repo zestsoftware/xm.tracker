@@ -1,30 +1,29 @@
 from random import random
 import math
 
-import mx.DateTime
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, Explicit
+from Products.CMFCore.WorkflowCore import WorkflowException
+from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
-from zope.annotation.interfaces import IAnnotations
-from zope.annotation.interfaces import IAttributeAnnotatable
-from zope.component import getMultiAdapter
-from zope.interface import Interface
-from zope.component import adapts
-from zope.interface import classImplements
-from zope.publisher.interfaces.browser import IDefaultBrowserLayer
-
-from persistent.list import PersistentList
 from Products.Five.browser.pagetemplatefile import ZopeTwoPageTemplateFile
 from Products.PlonePAS.tools.memberdata import MemberData
-from Products.CMFCore.utils import getToolByName
-from Products.CMFCore.WorkflowCore import WorkflowException
 from Products.statusmessages.interfaces import IStatusMessage
+from persistent.list import PersistentList
+from zope.annotation.interfaces import IAnnotations
+from zope.annotation.interfaces import IAttributeAnnotatable
+from zope.component import adapts
+from zope.component import getMultiAdapter
+from zope.interface import Interface
+from zope.interface import classImplements
+from zope.publisher.interfaces.browser import IDefaultBrowserLayer
+import mx.DateTime
 
-from xm.tracker.tracker import Tracker
-from xm.tracker.tracker import Task
-from xm.tracker.tracker import Entry
-from xm.tracker import XMTrackerMessageFactory as _
 from xm.booking.browser.add import create_booking
+from xm.tracker import XMTrackerMessageFactory as _
+from xm.tracker.tracker import Entry
+from xm.tracker.tracker import Task
+from xm.tracker.tracker import Tracker
 
 
 TRACKER_KEY = 'xm-timetracker'
@@ -65,13 +64,13 @@ class TrackerView(BrowserView):
         if time.hours > 1.0:
             fmt = "%H:%M:%S"
         return time.strftime(fmt)
-        
+
     def seconds_spent(self):
         now = mx.DateTime.now()
         previous = self.tracker().starttime or now
         time = now - previous
         return round(time.seconds)
-        
+
 
 
 class AddTasks(TrackerView):
