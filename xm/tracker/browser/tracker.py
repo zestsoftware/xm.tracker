@@ -18,6 +18,7 @@ from zope.interface import Interface
 from zope.interface import classImplements
 from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 import mx.DateTime
+from DateTime import DateTime
 
 from xm.booking.browser.add import create_booking
 from xm.tracker import XMTrackerMessageFactory as _
@@ -52,9 +53,9 @@ def split_entries(entries):
     Working with dates in unittests is hard, so we'll set it by hand.
 
       >>> today = mx.DateTime.now()
-      >>> today_str = today.strftime('%Y-%M-%d')
+      >>> today_str = today.strftime('%Y-%m-%d')
       >>> yesterday = today - 1
-      >>> yesterday_str = yesterday.strftime('%Y-%M-%d')
+      >>> yesterday_str = yesterday.strftime('%Y-%m-%d')
       >>> e1.date = today
       >>> res = split_entries([e1])
       >>> len(res)
@@ -95,7 +96,7 @@ def split_entries(entries):
     """
     result = {}
     for entry in entries:
-        day = entry.date.strftime('%Y-%M-%d')
+        day = entry.date.strftime('%Y-%m-%d')
         if day not in result:
             result[day] = {}
             result[day]['title'] = entry.text
@@ -305,29 +306,30 @@ class Book(TrackerView):
             return
 
         xmtask = brains[0].getObject()
-        hours = task.total_time().hours
-        minutes = task.total_time().minutes
-        # make quarters of this.
-        # XXX rounding up now to ease testing.
-        #minutes = int(round(minutes / 15.0) * 15)
-        minutes = int(math.ceil(minutes / 15.0) * 15)
-        # Using the title of the first entry as title of the complete
-        # booking.
-        title = task.entries[0].text
-        description = u''
-        if len(task.entries) > 1:
-            for entry in task.entries:
-                description += (entry.text + '\n')
-        try:
-            create_booking(xmtask, title=title, hours=hours,
-                           minutes=minutes, description=description)
-        except Unauthorized:
-            msg = _(u'msg_failed_add_booking',
-                    default=u'Not permitted to add booking to task. Check'
-                            u' if the task is in the correct state.')
-            IStatusMessage(self.request).addStatusMessage(msg, type="error")
-            self.request.response.redirect('@@tracker')
-            return
+        bookings_per_day = split_entries(task.entries)
+        for day, booking in bookings_per_day.items():
+            hours = booking['time'].hours
+            minutes = booking['time'].minutes
+            # make quarters of this.
+            # XXX rounding up now to ease testing.
+            #minutes = int(round(minutes / 15.0) * 15)
+            minutes = int(math.ceil(minutes / 15.0) * 15)
+            day = DateTime(day)
+            try:
+                create_booking(xmtask,
+                               title=booking['title'],
+                               hours=hours,
+                               minutes=minutes,
+                               description=booking['description'],
+                               day=day)
+            except Unauthorized:
+                msg = _(u'msg_failed_add_booking',
+                        default=u'Not permitted to add booking to task. Check'
+                        u' if the task is in the correct state.')
+                IStatusMessage(self.request).addStatusMessage(msg,
+                                                              type="error")
+                self.request.response.redirect('@@tracker')
+                return
 
         msg = _(u'msg_added_booking', default=u'Added booking to task')
         IStatusMessage(self.request).addStatusMessage(msg, type="info")
