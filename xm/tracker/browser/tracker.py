@@ -1,4 +1,3 @@
-from random import random
 import math
 
 from AccessControl import Unauthorized
@@ -28,6 +27,7 @@ from xm.tracker.tracker import Tracker
 
 TRACKER_KEY = 'xm-timetracker'
 classImplements(MemberData, IAttributeAnnotatable)
+
 
 def add_entry(tracker, task, text):
     current_time = mx.DateTime.now()
@@ -70,7 +70,6 @@ class TrackerView(BrowserView):
         previous = self.tracker().starttime or now
         time = now - previous
         return round(time.seconds)
-
 
 
 class AddTasks(TrackerView):
