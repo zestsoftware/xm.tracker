@@ -1,4 +1,5 @@
 import math
+from pprint import pprint
 
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, Explicit
@@ -35,6 +36,79 @@ def add_entry(tracker, task, text):
     task.entries.append(Entry(text, time))
     # Reset the timer's start time
     tracker.starttime = current_time
+
+
+def split_entries(entries):
+    """Split entries over their days and return totals+description.
+
+    We import the entry:
+
+      >>> from xm.tracker.tracker import Entry
+      >>> entries = []
+      >>> split_entries(entries)
+      {}
+      >>> e1 = Entry(u'Bla', 100)
+
+    Working with dates in unittests is hard, so we'll set it by hand.
+
+      >>> today = mx.DateTime.now()
+      >>> today_str = today.strftime('%Y-%M-%d')
+      >>> yesterday = today - 1
+      >>> yesterday_str = yesterday.strftime('%Y-%M-%d')
+      >>> e1.date = today
+      >>> res = split_entries([e1])
+      >>> len(res)
+      1
+      >>> pprint(res[today_str])
+      {'description': u'',
+       'time': <mx.DateTime.DateTimeDelta object for '00:01:40.00' ...
+       'title': u'Bla'}
+
+    We add a second entry for today.
+
+      >>> e2 = Entry(u'Boo', 120)
+      >>> e2.date = today
+      >>> res = split_entries([e1, e2])
+      >>> len(res)
+      1
+      >>> pprint(res[today_str])
+      {'description': u'Bla\\nBoo',
+       'time': <mx.DateTime.DateTimeDelta object for '00:03:40.00' ...
+       'title': u'Bla'}
+
+    An entry for yesterday is split into a second day.
+
+      >>> e3 = Entry(u'Burp', 60)
+      >>> e3.date = yesterday
+      >>> res = split_entries([e1, e2, e3])
+      >>> len(res)
+      2
+      >>> pprint(res[today_str])
+      {'description': u'Bla\\nBoo',
+       'time': <mx.DateTime.DateTimeDelta object for '00:03:40.00' ...
+       'title': u'Bla'}
+      >>> pprint(res[yesterday_str])
+      {'description': u'',
+       'time': <mx.DateTime.DateTimeDelta object for '00:01:00.00' ...
+       'title': u'Burp'}
+
+    """
+    result = {}
+    for entry in entries:
+        day = entry.date.strftime('%Y-%M-%d')
+        if day not in result:
+            result[day] = {}
+            result[day]['title'] = entry.text
+            result[day]['description'] = u''
+            result[day]['time'] = entry.time
+        else:
+            if not result[day]['description']:
+                # Also add the text of the first entry to the description.
+                result[day]['description'] = result[day]['title']
+            result[day]['description'] += u'\n%s' % entry.text
+            result[day]['time'] += entry.time
+
+    return result
 
 
 class TrackerView(BrowserView):

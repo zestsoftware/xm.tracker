@@ -14,9 +14,9 @@ def test_suite():
         doctestunit.DocFileSuite(
             'entry.py', package='xm.tracker.browser', optionflags=doctest.ELLIPSIS,
             setUp=testing.setUp, tearDown=testing.tearDown),
-        #doctestunit.DocTestSuite(
-        #    module='xm.tracker.mymodule',
-        #    setUp=testing.setUp, tearDown=testing.tearDown),
+        doctestunit.DocTestSuite(
+            module='xm.tracker.browser.tracker', optionflags=doctest.ELLIPSIS,
+            setUp=testing.setUp, tearDown=testing.tearDown),
 
         ])
 
