@@ -8,6 +8,11 @@
   <h2 style="float:right" tal:content="view/total_time" />
   <h2 tal:content="task/title"
       tal:attributes="class string:task-title kssattr-tasktitle-taskdetails-${task/uid}" />
+  <div class="remainingtime"
+       tal:condition="view/remaining_time">
+    Remaining time:
+    <span tal:content="view/remaining_time">1:23</span>
+  </div>
   <form
       method="post"
       class="track_form"
@@ -34,9 +39,9 @@
       <span tal:content="task/project" />
       | <span tal:content="task/story" />
     </div>
-    
+
     <tal:block replace="structure provider:xm.tracker.entries" />
-    
+
     <tal:book condition="python:view.entries and not task.is_unassigned()">
       <form
           method="post"

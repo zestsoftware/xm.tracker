@@ -1,3 +1,6 @@
+import logging
+
+import mx.DateTime
 from Acquisition import aq_inner
 from Acquisition import Explicit
 from zope.interface import implements
@@ -7,6 +10,9 @@ from zope.component import getMultiAdapter
 from zope.viewlet.interfaces import IViewlet
 
 from xm.tracker.browser.interfaces import ITaskViewlet
+from xm.tracker.config import UNASSIGNED
+
+logger = logging.getLogger('taskviewlets')
 
 
 class TaskListManager(Explicit):
@@ -25,9 +31,9 @@ class TaskListManager(Explicit):
 
         rows = []
         tasks = self.tracker.tasks[:]
-                
+
         tasks.append(self.tracker.unassigned)
-        for task in tasks: 
+        for task in tasks:
             self.request['task_uid'] = task.uid
             viewlet = getMultiAdapter(
                 (context, self.request, self.__parent__, self),
@@ -48,7 +54,7 @@ class TaskViewlet(BrowserView):
     """
     implements(ITaskViewlet)
     render = ZopeTwoPageTemplateFile('task.pt')
-    
+
     # Apparently this is needed to give access to the 'allowed'
     # attribute in case this viewlet gets rendered within a KSS view
     # (while adding a booking using this form), which messes up the
@@ -69,6 +75,29 @@ class TaskViewlet(BrowserView):
 
     def total_time(self):
         return self.task.total_time().strftime('%H:%M')
+
+    def remaining_time(self):
+        """Return time left for work.
+
+        Subtract both the already-booked hours and our ready-to-book
+        hours. Ignore not-yet-booked hours by others.
+
+        """
+        if self.task.uid == UNASSIGNED:
+            return None
+        tools = getMultiAdapter((self.context, self.request),
+                                name=u'plone_tools')
+        brains = tools.catalog()({'UID': self.task.uid})
+        xm_task = brains[0]
+
+        available = mx.DateTime.DateTimeDeltaFrom(hours=xm_task.estimate)
+        our_time = self.task.total_time()
+        already_booked = mx.DateTime.DateTimeDeltaFrom(
+            hours=xm_task.actual_time)
+        remaining = available - our_time - already_booked
+        if remaining < 0:
+            return '-' + remaining.strftime('%H:%M')
+        return remaining.strftime('%H:%M')
 
     def entries(self):
         result = []
