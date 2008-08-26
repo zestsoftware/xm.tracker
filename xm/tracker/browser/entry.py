@@ -19,7 +19,8 @@ from xm.tracker.browser.tracker import TrackerView
 class TimeformattingError(Exception):
 
     def __str__(self):
-        return 'Invalid time format. Must be x:xx or xx:xx'
+        return _(u'time_formatting_error',
+                 default='Invalid time format. Must be x:xx or xx:xx')
 
 
 def time_to_seconds(time):
@@ -180,7 +181,14 @@ class EditEntries(PloneKSSView):
             idx = int(elements[2])
             entry = task.entries[idx]
             timekey = 'time-' + uid + '-' + str(idx)
-            seconds = time_to_seconds(self.request.get(timekey))
+            time = self.request.get(timekey)
+            try:
+                seconds = time_to_seconds(time)
+            except TimeformattingError:
+                msg = _(u'Invalid time') + u' (0:00-23:59): ' + unicode(time)
+                plone = self.getCommandSet("plone")
+                plone.issuePortalMessage(msg, msgtype='error')
+                return
             entry.time = mx.DateTime.DateTimeDeltaFrom(seconds=seconds)
             entry.text = self.request.get(textkey)
 
