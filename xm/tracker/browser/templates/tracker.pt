@@ -14,14 +14,18 @@
     <script type="text/javascript" src="++resource++kukit-devel.js">
     </script>
     
-    <link rel="stylesheet" type="text/css" href="++resource++tracker.css" />
+    <link rel="stylesheet" type="text/css" href="++resource++xm.tracker.css/tracker.css" />
     
     <link rel="kinetic-stylesheet" type="text/css"
-          href="++resource++tracker.kss" />
+          href="++resource++xm.tracker.css/tracker.kss" />
   </head>
   <body>
-  <div tal:define="tracker view/tracker;
-                     putils context/plone_utils">  
+  <div id="overlay">
+    
+  <img src="++resource++xm.tracker.images/loading.gif" />
+  </div>
+  <div id="content" tal:define="tracker view/tracker;
+                   putils context/plone_utils">  
     <div id="homelink"
          i18n:domain="plone">
       <a tal:attributes="href context/absolute_url"

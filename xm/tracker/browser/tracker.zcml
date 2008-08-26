@@ -9,7 +9,7 @@
         class=".tracker.TrackerView"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
-        template="tracker.pt"
+        template="templates/tracker.pt"
         allowed_interface="xm.tracker.browser.interfaces.ITrackerView"
         />
 
@@ -36,7 +36,7 @@
     <page
         name="tracker_select_tasks"
         class=".tracker.SelectTasks"
-        template="select.pt"
+        template="templates/select.pt"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
         />
@@ -71,17 +71,6 @@
         attribute="select_tasks"
         name="kss_select_tasks"
         permission="xm.ViewTracker"
-        />
-
-    <!-- Tracker resources -->
-    <resource
-        file="tracker.kss"
-        name="tracker.kss"
-        />
-
-    <resource
-        file="tracker.css"
-        name="tracker.css"
         />
 
 </configure>

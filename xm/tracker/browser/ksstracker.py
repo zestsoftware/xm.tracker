@@ -75,4 +75,4 @@ class KSSSelectTasks(PloneKSSView):
         view = context.restrictedTraverse('@@tracker_select_tasks')
         html = view()
         core = self.getCommandSet("core")
-        core.insertHTMLBefore('.documentFirstHeading', html)
+        core.insertHTMLBefore('#content', html)

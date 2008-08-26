@@ -23,6 +23,10 @@
 }
 
 #select-tasks:click {
+    action-client: setStyle;
+    setStyle-kssSelector: css(div#overlay);  
+    setStyle-name: display;
+    setStyle-value: block;
     action-server: kss_select_tasks;
     evt-click-preventdefault: true;
 }

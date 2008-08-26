@@ -12,4 +12,16 @@
     <!-- All views related to entries go into entries.zcml -->
     <include file="entries.zcml" />
 
+
+    <!-- Tracker resources -->
+    <resourceDirectory
+        directory="stylesheets"
+        name="xm.tracker.css"
+        />
+
+    <resourceDirectory
+        directory="images"
+        name="xm.tracker.images"
+        />
+
 </configure>

@@ -53,7 +53,7 @@ class TaskViewlet(BrowserView):
     """ Base class with common functions for link viewlets.
     """
     implements(ITaskViewlet)
-    render = ZopeTwoPageTemplateFile('task.pt')
+    render = ZopeTwoPageTemplateFile('templates/task.pt')
 
     # Apparently this is needed to give access to the 'allowed'
     # attribute in case this viewlet gets rendered within a KSS view

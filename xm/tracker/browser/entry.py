@@ -141,7 +141,7 @@ class EntriesProvider(Explicit):
     implements(ITaskEntries)
     adapts(Interface, IDefaultBrowserLayer, Interface)
 
-    render = ZopeTwoPageTemplateFile('entries.pt')
+    render = ZopeTwoPageTemplateFile('templates/entries.pt')
 
     task = None
 

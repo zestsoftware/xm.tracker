@@ -215,7 +215,7 @@ class StartStopProvider(Explicit):
     """
     adapts(Interface, IDefaultBrowserLayer, Interface)
 
-    render = ZopeTwoPageTemplateFile('startstop.pt')
+    render = ZopeTwoPageTemplateFile('templates/startstop.pt')
 
     def __init__(self, context, request, view):
         self.context = context
