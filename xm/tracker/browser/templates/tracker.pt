@@ -21,8 +21,7 @@
   </head>
   <body>
   <div id="overlay">
-    
-  <img src="++resource++xm.tracker.images/loading.gif" />
+     <img src="++resource++xm.tracker.images/loading.gif" />
   </div>
   <div id="content" tal:define="tracker view/tracker;
                    putils context/plone_utils">  
