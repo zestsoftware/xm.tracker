@@ -47,21 +47,22 @@ dl.portalMessage dd {
     left: 0pt;
     width: 100%;
     height: 1000px;
-    z-index: 90;
     background-image: url(++resource++xm.tracker.images/overlay.png);
 }
 #overlay img {
-    position: absolute; z-index: 150; top: 350px; left: 300px;    
+    position: absolute;
+    top: 350px;
+    left: 300px;    
 }
 
 #task_selection_form {
   display: block;
   position: absolute;
-  left: 40px;
+  left: 50px;
   width: 600px;
   height: 600px;
   overflow: auto;
-  top: 40px;
+  top: 50px;
   padding: 20px;
   background-color: white;
   z-index: 500;
