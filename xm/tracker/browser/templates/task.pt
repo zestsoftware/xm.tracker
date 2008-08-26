@@ -5,14 +5,18 @@
      i18n:domain="tracker">
 
   <hr />
-  <h2 style="float:right" tal:content="view/total_time" />
+  
+  <h2 id="task-time" tal:content="view/total_time" />
+
   <h2 tal:content="task/title"
       tal:attributes="class string:task-title kssattr-tasktitle-taskdetails-${task/uid}" />
-  <div class="remainingtime"
+
+  <div class="discreet"
        tal:condition="view/remaining_time">
-    Remaining time:
+    Remaining:
     <span tal:content="view/remaining_time">1:23</span>
   </div>
+
   <form
       method="post"
       class="track_form"
@@ -34,7 +38,7 @@
   <div class="hidden"
        tal:attributes="id string:taskdetails-${task/uid};
                        class python:not task.is_unassigned() and 'hidden' or '';">
-    <div class="storyline"
+    <div class="discreet"
          tal:condition="task/project">
       <span tal:content="task/project" />
       | <span tal:content="task/story" />

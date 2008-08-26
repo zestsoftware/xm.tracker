@@ -1,6 +1,22 @@
 
+#content {
+    margin: 3em 5em;
+    padding: 3em 5em;
+}
+
+#timer, #task-time {
+    float:right;
+}
+#stop, #start {
+    float:left;
+}
+
 .hidden {
     display: none;
+}
+
+.discreet {
+    color:#76797c;
 }
 
 /* Set different positioning on the portal status message. */
@@ -66,4 +82,82 @@ dl.portalMessage dd {
   padding: 20px;
   background-color: white;
   z-index: 500;
+}
+
+
+#task-unassigned h2{
+    padding-top: 2em;
+}
+
+/* Base css currently copied from CMFPlone */
+
+body {
+    font: 69% "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
+    background-color: White;
+    color: Black;
+    margin: 0;
+    padding: 0;
+}
+table {
+    font-size: 100%;
+}
+a {
+    color: #436976;
+    background-color: transparent;
+}
+img {
+    border: none;
+    vertical-align: middle;
+}
+p {
+    margin: 0 0 0.75em 0;
+    line-height: 1.5em;
+}
+p img {
+    border: none;
+    margin: 0;
+}
+hr {
+    border: 0;
+    height: 1px;
+    color: #8cacbb;
+    background-color: #8cacbb;
+    margin: 0.5em 0 1em 0;
+}
+h1, h2, h3, h4, h5, h6 {
+    color: Black;
+    font-family: "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
+    margin: 0.75em 0 0.25em 0;
+}
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
+    color: Blac; ! important;
+    text-decoration: none;
+}
+h1 {
+    font-size: 160%;
+}
+h2 {
+    font-size: 150%;
+}
+h3 {
+    font-size: 125%;
+    border-bottom: none;
+    font-weight: bold;
+}
+
+ul {
+    line-height: 1.5em;
+    padding: 0;
+}
+ol {
+    line-height: 1.5em;
+    padding: 0;
+}
+li {
+    margin-bottom: 0.5em;
 }

@@ -25,12 +25,20 @@
       </table>
 
     </tal:loop>
-    <input
-        type="submit"
-        name="select"
-        id="add-tasks"
-        value="Save"
-        i18n:attributes="value save_button" />
+    <div id="form_buttons">
+      <input
+          type="submit"
+          name="select"
+          id="add-tasks"
+          value="Save"
+          i18n:attributes="value save_button" />
+      <input
+          type="button"
+          name="cancel"
+          id="cancel_add_tasks"
+          value="Cancel"
+          i18n:attributes="value cancel_button" />
+    </div>
   </form>
 
 </div>

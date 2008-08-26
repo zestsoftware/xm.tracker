@@ -30,6 +30,13 @@
     evt-click-preventdefault: true;
 }
 
+#cancel_add_tasks:click {
+    action-client: setStyle css(div#overlay);  
+    setStyle-name: display;
+    setStyle-value: none;
+    action-client: deleteNode css(div#task_selection_form);
+}
+
 .entry_text_time_edit:keypress,
 .entry_text_time_edit:keydown {
     evt-keypress-preventdefault: true;

@@ -32,7 +32,6 @@
     </div>
     <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
     <h1 id="timer"
-         style="float:right"
          tal:content="view/time_spent"
          tal:attributes="class python:'kssattr-timerstart-%s' % view.seconds_spent()" />
     
