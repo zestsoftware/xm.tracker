@@ -8,6 +8,7 @@
       <td>
         <input type="text"
                name="text"
+               class="entry_text_time_edit"
                size="60"
                tal:attributes="name string:text-${task/uid}-${repeat/entry/index};
                                value entry/text;
@@ -16,6 +17,7 @@
       <td>
         <input type="text"
                name="time"
+               class="entry_text_time_edit"
                size="4"
                tal:attributes="name string:time-${task/uid}-${repeat/entry/index};
                                value entry/time" />

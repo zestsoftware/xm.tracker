@@ -14,6 +14,8 @@
 .track-time:timer-reset(mytimer){
 }
 
+/* Edit entries (time and text) */
+
 .edit-entries-button:click{
     action-server: kss_edit_entries;
     kss_edit_entries-kssSubmitForm: currentForm();
@@ -23,6 +25,21 @@
 #select-tasks:click {
     action-server: kss_select_tasks;
     evt-click-preventdefault: true;
+}
+
+.entry_text_time_edit:keypress,
+.entry_text_time_edit:keydown {
+    evt-keypress-preventdefault: true;
+    evt-keypress-keycodes: 13;
+    evt-keydown-preventdefault: true;
+    evt-keydown-keycodes: 13;
+}
+
+.entry_text_time_edit:keyup {
+    evt-keyup-preventdefault: true;
+    evt-keyup-keycodes: 13;
+    action-server: kss_edit_entries;
+    kss_edit_entries-kssSubmitForm: currentForm();
 }
 
 /* Client side timer */
@@ -53,7 +70,7 @@
 
 /* Collapse and expand task details */
 
-.task-title:click {    
+.task-title:click {
     action-client: toggleClass;
     toggleClass-kssSelector: htmlid(kssAttr(tasktitle));
     toggleClass-value: hidden;
