@@ -26,6 +26,21 @@
 
 }
 
+
+.tracker-book {
+    text-align:right;
+    display:inline;
+}
+
+form {
+    display:inline;
+}
+
+.hidden-controls {
+    display:none;
+}
+
+
 .task-title {
     cursor: pointer;
 }

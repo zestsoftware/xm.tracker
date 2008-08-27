@@ -36,7 +36,6 @@
         <td tal:condition="task/is_unassigned">
           <form method="post"
                 action="">
-            <div>
               <input type="hidden"
                      name="uid"
                      tal:attributes="value task/uid" />
@@ -48,14 +47,11 @@
                      name="book_to_task"
                      value="Book to task"
                      i18n:attributes="value label_book_to_task" />
-            </div>
           </form>
         </td>
         <td>
-          <div>
           <form method="post"
                 action="@@remove_entry">
-            <div>
               <input type="hidden"
                      name="uid"
                      tal:attributes="value task/uid" />
@@ -68,15 +64,13 @@
                      class="remove-entry"
                      value="Remove"
                      i18n:attributes="value label_remove" />
-            </div>
           </form>
-          </div>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <div>
+  <div class="hidden-controls">
     <input type="submit"
            name="submit"
            class="edit-entries-button"
@@ -87,6 +81,7 @@
     <input type="button"
            name="cancel"
            value="Cancel"
+           class="edit-entries-cancel"
            i18n:domain="plone"
            i18n:attributes="value button_cancel" />
   </div>
