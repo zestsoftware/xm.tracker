@@ -4,7 +4,7 @@
       i18n:domain="tracker">
   <head>
     <title i18n:translate="head_timetracker">Time Tracker</title>
-    
+
     <script type="text/javascript" src="jquery.js">
     </script>
     <script type="text/javascript" src="jquery-integration.js">
@@ -13,43 +13,43 @@
     </script>
     <script type="text/javascript" src="++resource++kukit-devel.js">
     </script>
-    
+
     <link rel="stylesheet" type="text/css" href="++resource++xm.tracker.css/tracker.css" />
-    
+
     <link rel="kinetic-stylesheet" type="text/css"
           href="++resource++xm.tracker.css/tracker.kss" />
   </head>
   <body>
-  <div id="overlay">
-     <img src="++resource++xm.tracker.images/loading.gif" />
-  </div>
-  <div id="content" tal:define="tracker view/tracker;
-                   putils context/plone_utils">  
-    <div id="homelink"
-         i18n:domain="plone">
-      <a tal:attributes="href context/absolute_url"
-         i18n:translate="label_home">Home</a>
+    <div id="overlay">
+      <img src="++resource++xm.tracker.images/loading.gif" />
     </div>
-    <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
-    <h1 id="timer"
-         tal:content="view/time_spent"
-         tal:attributes="class python:'kssattr-timerstart-%s' % view.seconds_spent()" />
-    
-    <h1 class="documentFirstHeading"
-        i18n:translate="head_timetracker">Time Tracker</h1>
-    
-    <div tal:replace="structure provider:xm.tracker.startstop" />
+    <div id="content" tal:define="tracker view/tracker;
+                                  putils context/plone_utils">
+      <div id="homelink"
+           i18n:domain="plone">
+        <a tal:attributes="href context/absolute_url"
+           i18n:translate="label_home">Home</a>
+      </div>
+      <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
+      <h1 id="timer"
+          tal:content="view/time_spent"
+          tal:attributes="class python:'kssattr-timerstart-%s' % view.seconds_spent()" />
 
-    <form method="post"
-          action="@@tracker_select_tasks">
-      <input type="submit"
-             name="select"
-             id="select-tasks"
-             value="Select Tasks"
-             i18n:attributes="value label_select_tasks" />
-    </form>
-    <div class="tracker-tasks"
-         tal:content="structure provider:xm.tracker.tasklist" />
-  </div>
+      <h1 class="documentFirstHeading"
+          i18n:translate="head_timetracker">Time Tracker</h1>
+
+      <div tal:replace="structure provider:xm.tracker.startstop" />
+
+      <form method="post"
+            action="@@tracker_select_tasks">
+        <input type="submit"
+               name="select"
+               id="select-tasks"
+               value="Select Tasks"
+               i18n:attributes="value label_select_tasks" />
+      </form>
+      <div class="tracker-tasks"
+           tal:content="structure provider:xm.tracker.tasklist" />
+    </div>
   </body>
 </html>
