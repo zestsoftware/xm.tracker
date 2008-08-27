@@ -1,5 +1,6 @@
-<div id="task_selection_form">
-  <h1>Select tasks</h1>
+<div id="task_selection_form"
+     i18n:domain="tracker">
+  <h1 i18n:translate="label_select_tasks">Select Tasks</h1>
 
   <form
       method="post"
@@ -10,8 +11,7 @@
       <table>
         <tr tal:repeat="task project_info/tasks"
             class="list-in-iteration">
-          <td
-              tal:define="tracker_task python:view.tracker().get_task(task['UID'])">
+          <td tal:define="tracker_task python:view.tracker().get_task(task['UID'])">
             <input
                 type="checkbox"
                 name="selected_task_uids"
@@ -25,7 +25,8 @@
       </table>
 
     </tal:loop>
-    <div id="form_buttons">
+    <div id="form_buttons"
+         i18n:domain="plone">
       <input
           type="submit"
           name="select"
