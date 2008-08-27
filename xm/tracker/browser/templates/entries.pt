@@ -24,6 +24,14 @@
                  size="4"
                  tal:attributes="name string:time-${task/uid}-${repeat/entry/index};
                                  value entry/time" />
+          <form method="post"
+                action="dummy_for_firefox">
+            <div>
+              <input type="hidden"
+                     name="firefox_wants_to"
+                     value="delete_one_so_this_one_is_ok"/>
+            </div>
+          </form>
         </td>
         <td tal:condition="task/is_unassigned">
           <form method="post"
