@@ -4,7 +4,7 @@
     padding: 3em 5em;
 }
 
-#timer, #task-time {
+#timer, .task-time {
     float:right;
 }
 #stop, #start {
@@ -20,7 +20,7 @@
 }
 
 /* Set different positioning on the portal status message. */
-.portalMessage { 
+.portalMessage {
   align: center;
   top: 60px;
 
@@ -37,7 +37,7 @@ dl.portalMessage a {
     text-decoration: underline;
 }
 dl.portalMessage dt {
-    background-color: #996; 
+    background-color: #996;
     border: 1px solid #996;
     font-weight: bold;
     float: left;
@@ -49,7 +49,7 @@ dl.portalMessage dt {
 dl.portalMessage dd {
     background-color: #ffffe3;
     border: 1px solid #996;
-    padding: 0.5em 0.5em; 
+    padding: 0.5em 0.5em;
     margin: 0;
     line-height: 1.25em;
 }
@@ -68,7 +68,7 @@ dl.portalMessage dd {
 #overlay img {
     position: absolute;
     top: 350px;
-    left: 300px;    
+    left: 300px;
 }
 
 #task_selection_form {

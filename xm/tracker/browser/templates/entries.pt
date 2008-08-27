@@ -1,8 +1,10 @@
 <form method="post"
+      action=""
       tal:define="task nocall:view/task"
       tal:attributes="class string:edit-entries task-${task/uid}"
       i18n:domain="tracker">
-  <table class="entry_table">
+  <table class="entry_table"
+         tal:condition="view/entries">
     <tr class="time_entry"
         tal:repeat="entry view/entries">
       <td>
@@ -23,7 +25,8 @@
                                value entry/time" />
       </td>
       <td tal:condition="task/is_unassigned">
-        <form method="post">
+        <form method="post"
+              action="">
           <input type="hidden"
                  name="uid"
                  tal:attributes="value task/uid" />
