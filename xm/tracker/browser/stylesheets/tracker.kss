@@ -100,6 +100,7 @@
     action-client: setStyle css(div#overlay);
     setStyle-name: display;
     setStyle-value: block;
+    kss_select_tasks_for_unassigned-kssSubmitForm: currentForm();
     action-server: kss_select_tasks_for_unassigned;
     evt-click-preventdefault: true;
 }

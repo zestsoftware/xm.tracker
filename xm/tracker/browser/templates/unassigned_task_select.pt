@@ -6,7 +6,14 @@
 
   <form
       method="post"
-      action="tracker_TODO">
+      action="tracker_book_unassigned_entry">
+
+    <input type="hidden"
+           name="unassigned_task_id"
+           tal:attributes="value request/uid"/>
+    <input type="hidden"
+           name="entry_number"
+           tal:attributes="value request/entry_number"/>
 
     <tal:loop tal:repeat="project_info view/todo_tasks_per_project">
       <h2 tal:content="project_info/project/Title" />
@@ -16,7 +23,7 @@
           <td>
             <input
                 type="radio"
-                name="selected_task_uids"
+                name="selected_task_uid"
                 tal:attributes="value task/UID;"/>
           </td>
           <td tal:content="task/title"
@@ -25,19 +32,18 @@
       </table>
 
     </tal:loop>
-    <div id="form_buttons"
-         i18n:domain="plone">
+    <div id="form_buttons">
       <input
           type="submit"
           name="select"
-          id="add-tasks"
-          value="Save"
-          i18n:attributes="value save_button" />
+          value="Book"
+          i18n:attributes="value book_button" />
       <input
           type="button"
           name="cancel"
           id="cancel_add_tasks"
           value="Cancel"
+          i18n:domain="plone"
           i18n:attributes="value cancel_button" />
     </div>
   </form>

@@ -1,5 +1,4 @@
 import math
-from pprint import pprint
 
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, Explicit
@@ -44,6 +43,7 @@ def split_entries(entries):
 
     We import the entry:
 
+      >>> from pprint import pprint
       >>> from xm.tracker.tracker import Entry
       >>> entries = []
       >>> split_entries(entries)
@@ -203,7 +203,40 @@ class AddTasks(TrackerView):
 
 
 class BookUnassignedEntry(TrackerView):
-    pass
+
+    def __call__(self):
+        """Book unassigned entry on the selected task"""
+        selected_task_uid = self.request.get('selected_task_uid', None)
+        if selected_task_uid is None:
+            msg = _(u'msg_missing_task',
+                    default='No task selected, cannot book entry.')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
+            self.request.response.redirect('@@tracker')
+            return
+        uid_catalog = getToolByName(self.context, 'uid_catalog')
+        brains = uid_catalog({'UID': selected_task_uid})
+        if len(brains) == 0:
+            msg = _(u'msg_no_task_found',
+                    default=u'No task found with this UID')
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
+            self.request.response.redirect('@@tracker')
+            return
+        xmtask = brains[0].getObject()
+
+        unassigned_task_id = self.request.get('unassigned_task_id', None)
+        # ^^^ Not really needed.
+        entry_number = self.request.get('entry_number', None)
+        if entry_number is None or unassigned_task_id is None:
+            msg = u'Missing essential form parameters'
+            IStatusMessage(self.request).addStatusMessage(msg, type="error")
+            self.request.response.redirect('@@tracker')
+            return
+        tracker = self.tracker()
+        task = tracker.get_task(unassigned_task_id)
+        entry_number = int(entry_number)
+        entry = task.entries[entry_number]
+
+        return entry.text
 
 
 class StartStopProvider(Explicit):
