@@ -21,9 +21,9 @@
 
 /* Set different positioning on the portal status message. */
 .portalMessage { 
-  position: absolute;
-  left: 400px;
+  align: center;
   top: 60px;
+
 }
 
 /* Start portalMessage settings from standard Plone */
