@@ -37,6 +37,7 @@
              tal:attributes="value task/uid" />
       <input type="text"
              name="text"
+             tabindex="1"
              size="60" />
       <input type="submit"
              name="track"
