@@ -75,26 +75,8 @@ we transition one first.
     >>> browser.open(task.absolute_url())
     >>> browser.getLink('activate').click()
 
-We go to the tracker again and select tasks.  We have a task with the
-title 'Make coffee'.
-
-    >>> browser.open(portal_url + '/@@tracker')
-    >>> 'Make coffee' in browser.contents
-    False
-    >>> browser.getControl(name='select').click()
-    >>> 'Make coffee' in browser.contents
-    True
-
-We select every task.
-
-    >>> selection = browser.getControl(name='selected_task_uids')
-    >>> selection.value = selection.options
-
-Then we submit.
-
-    >>> browser.getControl(name='select').click()
-    >>> 'Make coffee' in browser.contents
-    True
+We cannot test the selecting of tasks anymore in the current way because we're
+using only kss now.
 
 We cannot test tracking an entry as that gives us nested forms which
 testbrowser severly dislikes...
