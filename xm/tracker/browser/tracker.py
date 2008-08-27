@@ -112,6 +112,37 @@ def split_entries(entries):
     return result
 
 
+def book(caller, xmtask, entries):
+    """Utility method for booking entries.
+
+    caller: 'self' of the calling view
+
+    """
+    bookings_per_day = split_entries(entries)
+    for day, booking in bookings_per_day.items():
+        hours = booking['time'].hours
+        minutes = booking['time'].minutes
+        # make quarters of this.
+        # XXX rounding up now to ease testing.
+        #minutes = int(round(minutes / 15.0) * 15)
+        minutes = int(math.ceil(minutes / 15.0) * 15)
+        day = DateTime(day)
+        try:
+            create_booking(xmtask,
+                           title=booking['title'],
+                           hours=hours,
+                           minutes=minutes,
+                           description=booking['description'],
+                           day=day)
+        except Unauthorized:
+            msg = _(u'msg_failed_add_booking',
+                    default=u'Not permitted to add booking to task. Check'
+                    u' if the task is in the correct state.')
+            IStatusMessage(caller.request).addStatusMessage(msg,
+                                                          type="error")
+            caller.request.response.redirect('@@tracker')
+
+
 class TrackerView(BrowserView):
     """View a tracker in the context of a Plone Site.
     """
@@ -236,7 +267,14 @@ class BookUnassignedEntry(TrackerView):
         entry_number = int(entry_number)
         entry = task.entries[entry_number]
 
-        return entry.text
+        # Now the actual booking.
+        book(self, xmtask, [entry])
+
+        msg = _(u'msg_added_booking', default=u'Added booking to task')
+        IStatusMessage(self.request).addStatusMessage(msg, type="info")
+        # Remove booked entry.
+        del task.entries[entry_number]
+        self.request.response.redirect('@@tracker')
 
 
 class StartStopProvider(Explicit):
@@ -335,30 +373,7 @@ class Book(TrackerView):
             return
 
         xmtask = brains[0].getObject()
-        bookings_per_day = split_entries(task.entries)
-        for day, booking in bookings_per_day.items():
-            hours = booking['time'].hours
-            minutes = booking['time'].minutes
-            # make quarters of this.
-            # XXX rounding up now to ease testing.
-            #minutes = int(round(minutes / 15.0) * 15)
-            minutes = int(math.ceil(minutes / 15.0) * 15)
-            day = DateTime(day)
-            try:
-                create_booking(xmtask,
-                               title=booking['title'],
-                               hours=hours,
-                               minutes=minutes,
-                               description=booking['description'],
-                               day=day)
-            except Unauthorized:
-                msg = _(u'msg_failed_add_booking',
-                        default=u'Not permitted to add booking to task. Check'
-                        u' if the task is in the correct state.')
-                IStatusMessage(self.request).addStatusMessage(msg,
-                                                              type="error")
-                self.request.response.redirect('@@tracker')
-                return
+        book(self, xmtask, task.entries)
 
         msg = _(u'msg_added_booking', default=u'Added booking to task')
         IStatusMessage(self.request).addStatusMessage(msg, type="info")
