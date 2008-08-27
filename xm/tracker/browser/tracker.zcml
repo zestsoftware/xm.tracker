@@ -68,7 +68,7 @@
     <page
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".ksstracker.KSSSelectTasks"
-        attribute="select_tasks"
+        template="templates/select.pt"
         name="kss_select_tasks"
         permission="xm.ViewTracker"
         />

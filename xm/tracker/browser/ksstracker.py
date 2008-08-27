@@ -74,18 +74,6 @@ class KSSTrackTime(PloneKSSView):
 class KSSSelectTasks(PloneKSSView):
     """KSS view for selecting tasks"""
 
-    @kssaction
-    def select_tasks(self):
-        context = aq_inner(self.context)
-        view = context.restrictedTraverse('@@tracker_select_tasks')
-        html = view()
-        core = self.getCommandSet("core")
-        core.insertHTMLBefore('#content', html)
-
-
-class KSSSelectTasksForUnassigned(PloneKSSView):
-    """KSS view for selecting tasks for unassigned entries"""
-
     def tracker(self):
         # Copied from tracker.TrackerView pending later refactoring.
         context = aq_inner(self.context)
@@ -103,7 +91,7 @@ class KSSSelectTasksForUnassigned(PloneKSSView):
         return tracker
 
     def todo_tasks_per_project(self):
-        """For now we just get all to-do tasks here.
+        """Return our own tasks using a helper method from xm itself.
         """
         # Copied from tracker.AddTasks
         context = aq_inner(self.context)
@@ -116,3 +104,23 @@ class KSSSelectTasksForUnassigned(PloneKSSView):
         html = self.index() # Uses templates/select.pt
         core = self.getCommandSet("core")
         core.insertHTMLBefore('#content', html)
+
+
+class KSSSelectTasksForUnassigned(KSSSelectTasks):
+    """KSS view for selecting tasks for unassigned entries"""
+
+    def todo_tasks_per_project(self):
+        """Return all available tasks using a helper method from xm itself.
+
+        The only modification regarding KSSSelectTasks' version is a hack to
+        select all tasks instead of just our own.
+
+        """
+        context = aq_inner(self.context)
+        mytask_details = getMultiAdapter(
+            (context, self.request), name=u'mytask_details')
+        # Small hack that depends on internals of
+        # Products.eXtremeManagement.browser.tasks.MyTasksDetailedView.
+        del mytask_details.filter['getAssignees'] # Don't filter on ourselves.
+        # End of hack.
+        return mytask_details.projects()
