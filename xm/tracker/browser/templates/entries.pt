@@ -1,7 +1,8 @@
 <form method="post"
       action="@@edit_entries"
       tal:define="task nocall:view/task"
-      tal:attributes="class string:edit-entries task-${task/uid}">
+      tal:attributes="class string:edit-entries task-${task/uid}"
+      i18n:domain="tracker">
   <table class="entry_table">
     <tr class="time_entry"
         tal:repeat="entry view/entries">
@@ -61,10 +62,12 @@
          name="submit"
          class="edit-entries-button"
          value="Save"
+         i18n:domain="plone"
          i18n:attributes="value button_save" />
 
   <input type="button"
          name="cancel"
          value="Cancel"
+         i18n:domain="plone"
          i18n:attributes="value button_cancel" />
 </form>

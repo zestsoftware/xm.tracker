@@ -1,8 +1,9 @@
-<div id="startstop">
+<div id="startstop"
+     i18n:domain="tracker">
   <form tal:condition="not: view/is_started"
-      method="post"
-      action="@@tracker_start"
-      id="start">
+        method="post"
+        action="@@tracker_start"
+        id="start">
     <input type="submit"
            name="start"
            id="start-timer"
@@ -17,6 +18,6 @@
            name="stop"
            id="stop-timer"
            value="Stop and reset"
-           i18n:attributes="value label_start" />
+           i18n:attributes="value label_stop" />
   </form>
 </div>

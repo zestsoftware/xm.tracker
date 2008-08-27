@@ -5,7 +5,7 @@
      i18n:domain="tracker">
 
   <hr />
-  
+
   <h2 id="task-time" tal:content="view/total_time" />
 
   <h2 tal:content="task/title"
@@ -13,7 +13,9 @@
 
   <div class="discreet"
        tal:condition="view/remaining_time">
-    Remaining:
+    <span i18n:translate="remaining">
+      Remaining:
+    </span>
     <span tal:content="view/remaining_time">1:23</span>
   </div>
 
