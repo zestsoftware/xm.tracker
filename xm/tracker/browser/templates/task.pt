@@ -24,18 +24,20 @@
       class="track_form"
       tal:define="disabled python:not view.tracker_has_started() and 'disabled' or '';"
       action="@@track_time">
-    <input type="hidden"
-           name="uid"
-           tal:attributes="value task/uid" />
-    <input type="text"
-           name="text"
-           size="60" />
-    <input type="submit"
-           name="track"
-           tal:attributes="class string:track-time kssattr-uid-${task/uid};
-                           disabled disabled;"
-           i18n:attributes="value track_button"
-           value="Track" />
+    <div>
+      <input type="hidden"
+             name="uid"
+             tal:attributes="value task/uid" />
+      <input type="text"
+             name="text"
+             size="60" />
+      <input type="submit"
+             name="track"
+             tal:attributes="class string:track-time kssattr-uid-${task/uid};
+                             disabled disabled;"
+             i18n:attributes="value track_button"
+             value="Track" />
+    </div>
   </form>
   <div class="hidden"
        tal:attributes="id string:taskdetails-${task/uid};
@@ -52,19 +54,21 @@
       <form
           method="post"
           action="@@tracker_book">
-        <input type="hidden"
-               name="uid"
-               tal:attributes="value task/uid" />
-        <input type="submit"
-               name="book"
-               class="book-time"
-               value="Book"
-               i18n:attributes="value label_book" />
-        <input type="submit"
-               name="book_and_close"
-               class="book-time"
-               value="Book and close"
-               i18n:attributes="value label_close" />
+        <div>
+          <input type="hidden"
+                 name="uid"
+                 tal:attributes="value task/uid" />
+          <input type="submit"
+                 name="book"
+                 class="book-time"
+                 value="Book"
+                 i18n:attributes="value label_book" />
+          <input type="submit"
+                 name="book_and_close"
+                 class="book-time"
+                 value="Book and close"
+                 i18n:attributes="value label_close" />
+        </div>
       </form>
     </tal:book>
   </div>

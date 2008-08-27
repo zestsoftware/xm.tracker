@@ -43,11 +43,13 @@
 
       <form method="post"
             action="">
-        <input type="submit"
-               name="select"
-               id="select-tasks"
-               value="Select Tasks"
-               i18n:attributes="value label_select_tasks" />
+        <div>
+          <input type="submit"
+                 name="select"
+                 id="select-tasks"
+                 value="Select Tasks"
+                 i18n:attributes="value label_select_tasks" />
+        </div>
       </form>
       <div class="tracker-tasks"
            tal:content="structure provider:xm.tracker.tasklist" />

@@ -4,20 +4,24 @@
         method="post"
         action="@@tracker_start"
         id="start">
-    <input type="submit"
-           name="start"
-           id="start-timer"
-           value="Start working"
-           i18n:attributes="value label_start" />
+    <div>
+      <input type="submit"
+             name="start"
+             id="start-timer"
+             value="Start working"
+             i18n:attributes="value label_start" />
+    </div>
   </form>
   <form tal:condition="view/is_started"
         method="post"
         action="@@tracker_stop"
         id="stop">
-    <input type="submit"
-           name="stop"
-           id="stop-timer"
-           value="Stop and reset"
-           i18n:attributes="value label_stop" />
+    <div>
+      <input type="submit"
+             name="stop"
+             id="stop-timer"
+             value="Stop and reset"
+             i18n:attributes="value label_stop" />
+    </div>
   </form>
 </div>

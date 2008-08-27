@@ -28,50 +28,58 @@
         <td tal:condition="task/is_unassigned">
           <form method="post"
                 action="">
-            <input type="hidden"
-                   name="uid"
-                   tal:attributes="value task/uid" />
-            <input type="hidden"
-                   name="entry_number"
-                   tal:attributes="value repeat/entry/index" />
-            <input type="submit"
-                   class="book_to_task_submit"
-                   name="book_to_task"
-                   value="Book to task"
-                   i18n:attributes="value label_book_to_task" />
+            <div>
+              <input type="hidden"
+                     name="uid"
+                     tal:attributes="value task/uid" />
+              <input type="hidden"
+                     name="entry_number"
+                     tal:attributes="value repeat/entry/index" />
+              <input type="submit"
+                     class="book_to_task_submit"
+                     name="book_to_task"
+                     value="Book to task"
+                     i18n:attributes="value label_book_to_task" />
+            </div>
           </form>
         </td>
         <td>
+          <div>
           <form method="post"
                 action="@@remove_entry">
-            <input type="hidden"
-                   name="uid"
-                   tal:attributes="value task/uid" />
-            <input type="hidden"
-                   name="entry_number"
-                   tal:attributes="value repeat/entry/index" />
-            <input type="image"
-                   name="remove"
-                   src="delete_icon.gif"
-                   class="remove-entry"
-                   value="Remove"
-                   i18n:attributes="value label_remove" />
+            <div>
+              <input type="hidden"
+                     name="uid"
+                     tal:attributes="value task/uid" />
+              <input type="hidden"
+                     name="entry_number"
+                     tal:attributes="value repeat/entry/index" />
+              <input type="image"
+                     name="remove"
+                     src="delete_icon.gif"
+                     class="remove-entry"
+                     value="Remove"
+                     i18n:attributes="value label_remove" />
+            </div>
           </form>
+          </div>
         </td>
       </tr>
     </tbody>
   </table>
 
-  <input type="submit"
-         name="submit"
-         class="edit-entries-button"
-         value="Save"
-         i18n:domain="plone"
-         i18n:attributes="value button_save" />
+  <div>
+    <input type="submit"
+           name="submit"
+           class="edit-entries-button"
+           value="Save"
+           i18n:domain="plone"
+           i18n:attributes="value button_save" />
 
-  <input type="button"
-         name="cancel"
-         value="Cancel"
-         i18n:domain="plone"
-         i18n:attributes="value button_cancel" />
+    <input type="button"
+           name="cancel"
+           value="Cancel"
+           i18n:domain="plone"
+           i18n:attributes="value button_cancel" />
+  </div>
 </form>
