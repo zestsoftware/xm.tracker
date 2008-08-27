@@ -76,7 +76,7 @@
     <page
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         class=".ksstracker.KSSSelectTasksForUnassigned"
-        template="templates/select.pt"
+        template="templates/unassigned_task_select.pt"
         name="kss_select_tasks_for_unassigned"
         permission="xm.ViewTracker"
         />

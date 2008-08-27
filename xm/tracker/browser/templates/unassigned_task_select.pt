@@ -1,0 +1,43 @@
+<div id="task_selection_form"
+     i18n:domain="tracker">
+  <h1 i18n:translate="label_select_tasks">Select Tasks</h1>
+
+  <form
+      method="post"
+      action="tracker_TODO">
+
+    <tal:loop tal:repeat="project_info view/todo_tasks_per_project">
+      <h2 tal:content="project_info/project/Title" />
+      <table>
+        <tr tal:repeat="task project_info/tasks"
+            class="list-in-iteration">
+          <td>
+            <input
+                type="radio"
+                name="selected_task_uids"
+                tal:attributes="value task/UID;"/>
+          </td>
+          <td tal:content="task/title"
+              tal:attributes="title task/story_title" />
+        </tr>
+      </table>
+
+    </tal:loop>
+    <div id="form_buttons"
+         i18n:domain="plone">
+      <input
+          type="submit"
+          name="select"
+          id="add-tasks"
+          value="Save"
+          i18n:attributes="value save_button" />
+      <input
+          type="button"
+          name="cancel"
+          id="cancel_add_tasks"
+          value="Cancel"
+          i18n:attributes="value cancel_button" />
+    </div>
+  </form>
+
+</div>
