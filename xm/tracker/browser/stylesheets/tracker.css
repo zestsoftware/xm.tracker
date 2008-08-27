@@ -165,3 +165,9 @@ ol {
 li {
     margin-bottom: 0.5em;
 }
+
+
+.track-form {
+    /* Separate visually from entry listing */
+    margin-bottom: 1em;
+}
