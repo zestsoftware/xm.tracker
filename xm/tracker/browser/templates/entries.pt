@@ -1,5 +1,4 @@
 <form method="post"
-      action=""
       tal:define="task nocall:view/task"
       tal:attributes="class string:edit-entries task-${task/uid}"
       i18n:domain="tracker">
@@ -24,8 +23,7 @@
                                value entry/time" />
       </td>
       <td tal:condition="task/is_unassigned">
-        <form method="post"
-              action="@@book_unassigned_entry">
+        <form method="post">
           <input type="hidden"
                  name="uid"
                  tal:attributes="value task/uid" />
@@ -33,6 +31,7 @@
                  name="entry_number"
                  tal:attributes="value repeat/entry/index" />
           <input type="submit"
+                 class="book_to_task_submit"
                  name="book_to_task"
                  value="Book to task"
                  i18n:attributes="value label_book_to_task" />
