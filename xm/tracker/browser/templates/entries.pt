@@ -1,5 +1,5 @@
 <form method="post"
-      action="@@edit_entries"
+      action=""
       tal:define="task nocall:view/task"
       tal:attributes="class string:edit-entries task-${task/uid}"
       i18n:domain="tracker">
