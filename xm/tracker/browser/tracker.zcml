@@ -34,19 +34,19 @@
         />
 
     <page
-        name="tracker_select_tasks"
-        class=".tracker.SelectTasks"
-        template="templates/select.pt"
-        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
-        permission="xm.ViewTracker"
-        />
-
-    <page
         name="tracker_add_tasks"
         class=".tracker.AddTasks"
         for="Products.CMFPlone.interfaces.IPloneSiteRoot"
         permission="xm.ViewTracker"
         />
+
+    <page
+        name="tracker_book_unassigned_entry"
+        class=".tracker.BookUnassignedEntry"
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        permission="xm.ViewTracker"
+        />
+
 
     <!-- KSS Server actions for tracker -->
     <page

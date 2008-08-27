@@ -40,8 +40,7 @@
 
       <div tal:replace="structure provider:xm.tracker.startstop" />
 
-      <form method="post"
-            action="@@tracker_select_tasks">
+      <form method="post">
         <input type="submit"
                name="select"
                id="select-tasks"

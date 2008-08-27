@@ -202,12 +202,8 @@ class AddTasks(TrackerView):
         return mytask_details.projects()
 
 
-class SelectTasks(AddTasks):
-    """Select real xm tasks for adding to the tracker.
-    """
-
-    def __call__(self):
-        return self.index()
+class BookUnassignedEntry(TrackerView):
+    pass
 
 
 class StartStopProvider(Explicit):

@@ -1,6 +1,8 @@
 <div id="task_selection_form"
      i18n:domain="tracker">
-  <h1 i18n:translate="label_select_tasks">Select Tasks</h1>
+  <h1 i18n:translate="label_select_tasks_for_unassigned">
+    Select task for the unassigned entry
+  </h1>
 
   <form
       method="post"
