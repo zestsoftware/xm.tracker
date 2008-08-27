@@ -1,3 +1,4 @@
+/* -*-kss-*- (starts file in kss mode) */
 
 /* when 3.0 support will be dropped, the new way to provide form vars will
      be one line, like this:
@@ -11,19 +12,14 @@
     evt-click-preventdefault: true;
 }
 
-.track-time:timer-reset(mytimer){
+.track-time:timer-reset(mytimer) {
 }
 
-/* Edit entries (time and text) */
 
-.edit-entries-button:click{
-    action-server: kss_edit_entries;
-    kss_edit_entries-kssSubmitForm: currentForm();
-    evt-click-preventdefault: true;
-}
+/* Selecting and adding tasks (=overlay) */
 
 #select-tasks:click {
-    action-client: setStyle css(div#overlay);  
+    action-client: setStyle css(div#overlay);
     setStyle-name: display;
     setStyle-value: block;
     action-server: kss_select_tasks;
@@ -31,10 +27,19 @@
 }
 
 #cancel_add_tasks:click {
-    action-client: setStyle css(div#overlay);  
+    action-client: setStyle css(div#overlay);
     setStyle-name: display;
     setStyle-value: none;
     action-client: deleteNode css(div#task_selection_form);
+}
+
+
+/* Edit entries (time and text) */
+
+.edit-entries-button:click{
+    action-server: kss_edit_entries;
+    kss_edit_entries-kssSubmitForm: currentForm();
+    evt-click-preventdefault: true;
 }
 
 .entry_text_time_edit:keypress,
@@ -51,6 +56,7 @@
     action-server: kss_edit_entries;
     kss_edit_entries-kssSubmitForm: currentForm();
 }
+
 
 /* Client side timer */
 
@@ -78,10 +84,22 @@
     log-message: pass(seconds);
 }
 
+
 /* Collapse and expand task details */
 
 .task-title:click {
     action-client: toggleClass;
     toggleClass-kssSelector: htmlid(kssAttr(tasktitle));
     toggleClass-value: hidden;
+}
+
+
+/* Book unassigned entries to tasks */
+
+.book_to_task_submit:click {
+    action-client: setStyle css(div#overlay);
+    setStyle-name: display;
+    setStyle-value: block;
+    action-server: kss_select_tasks;
+    evt-click-preventdefault: true;
 }
