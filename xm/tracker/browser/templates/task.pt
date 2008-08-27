@@ -8,8 +8,12 @@
 
   <h2 class="task-time" tal:content="view/total_time" />
 
-  <h2 tal:content="task/title"
-      tal:attributes="class string:task-title kssattr-tasktitle-taskdetails-${task/uid}" />
+  <h2 tal:attributes="class string:task-title kssattr-tasktitle-taskdetails-${task/uid}">
+    <tal:down tal:condition="not: task/is_unassigned">
+      [&darr;]
+    </tal:down>
+    <tal:title tal:content="task/title"/>
+  </h2>
 
   <div class="discreet"
        tal:condition="view/remaining_time">

@@ -26,6 +26,10 @@
 
 }
 
+.task-title {
+    cursor: pointer;
+}
+
 /* Start portalMessage settings from standard Plone */
 
 dl.portalMessage {
