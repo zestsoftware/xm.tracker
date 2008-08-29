@@ -44,7 +44,7 @@
           id="cancel_add_tasks"
           value="Cancel"
           i18n:domain="plone"
-          i18n:attributes="value cancel_button" />
+          i18n:attributes="value label_cancel" />
     </div>
   </form>
 

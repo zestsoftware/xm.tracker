@@ -32,13 +32,13 @@
           name="select"
           id="add-tasks"
           value="Save"
-          i18n:attributes="value save_button" />
+          i18n:attributes="value label_save" />
       <input
           type="button"
           name="cancel"
           id="cancel_add_tasks"
           value="Cancel"
-          i18n:attributes="value cancel_button" />
+          i18n:attributes="value label_cancel" />
     </div>
   </form>
 

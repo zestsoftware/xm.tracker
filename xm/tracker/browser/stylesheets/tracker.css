@@ -190,3 +190,9 @@ li {
     margin-bottom: 1em;
     padding-left: 0.2em;
 }
+
+/* Table mocked with divs as firefox makes a mockery out of our forms. */
+
+div.entry_table_cell {
+    display: inline;
+}
