@@ -37,8 +37,8 @@
 /* Edit entries (time and text) */
 
 .edit-entries-button:click{
-    action-server: kss_edit_entries;
-    kss_edit_entries-kssSubmitForm: currentForm();
+    action-server: kss_edit_entry;
+    kss_edit_entry-kssSubmitForm: currentForm();
     evt-click-preventdefault: true;
     action-client: setStyle css(.hidden-controls);
     setStyle-name: display;
@@ -69,8 +69,8 @@
 .entry_text_time_edit:keyup {
     evt-keyup-preventdefault: true;
     evt-keyup-keycodes: 13;
-    action-server: kss_edit_entries;
-    kss_edit_entries-kssSubmitForm: currentForm();
+    action-server: kss_edit_entry;
+    kss_edit_entry-kssSubmitForm: currentForm();
     action-client: setStyle css(.hidden-controls);
     setStyle-name: display;
     setStyle-value: none;
