@@ -22,7 +22,6 @@ from xm.tracker import XMTrackerMessageFactory as _
 from xm.tracker.tracker import Entry
 from xm.tracker.tracker import Task
 from xm.tracker.tracker import Tracker
-from xm.tracker.utils import round_time_to_quarter_hours
 
 
 TRACKER_KEY = 'xm-timetracker'
