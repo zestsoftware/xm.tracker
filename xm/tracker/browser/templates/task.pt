@@ -6,8 +6,6 @@
 
   <h2 class="task-time" tal:content="view/total_time" />
 
-  <h2 tal:content="task/title" />
-
   <h2 tal:define="title string:${task/project} | ${task/story};
                   title python:not task.is_unassigned() and title or '';"
       tal:attributes="class string:task-title kssattr-details-taskdetails-${task/uid} kssattr-taskdiv-task-${task/uid};
