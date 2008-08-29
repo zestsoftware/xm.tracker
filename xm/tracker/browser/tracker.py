@@ -1,5 +1,3 @@
-import math
-
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, Explicit
 from Products.CMFCore.WorkflowCore import WorkflowException
@@ -24,6 +22,7 @@ from xm.tracker import XMTrackerMessageFactory as _
 from xm.tracker.tracker import Entry
 from xm.tracker.tracker import Task
 from xm.tracker.tracker import Tracker
+from xm.tracker.utils import round_time_to_quarter_hours
 
 
 TRACKER_KEY = 'xm-timetracker'
@@ -123,9 +122,7 @@ def book(caller, xmtask, entries):
         hours = booking['time'].hours
         minutes = booking['time'].minutes
         # make quarters of this.
-        # XXX rounding up now to ease testing.
-        #minutes = int(round(minutes / 15.0) * 15)
-        minutes = int(math.ceil(minutes / 15.0) * 15)
+        minutes = int(round(minutes / 15.0) * 15)
         day = DateTime(day)
         try:
             create_booking(xmtask,
