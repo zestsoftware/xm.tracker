@@ -6,8 +6,9 @@ from zope.component import testing
 
 def test_suite():
     return unittest.TestSuite([
-
-        # Unit tests
+        doctestunit.DocTestSuite(
+            module='xm.tracker.utils', optionflags=doctest.ELLIPSIS,
+            setUp=testing.setUp, tearDown=testing.tearDown),
         doctestunit.DocFileSuite(
             'tracker.txt', package='xm.tracker', optionflags=doctest.ELLIPSIS,
             setUp=testing.setUp, tearDown=testing.tearDown),
