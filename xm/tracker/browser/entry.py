@@ -14,6 +14,7 @@ from xm.tracker import XMTrackerMessageFactory as _
 from xm.tracker.browser.interfaces import ITaskEntries
 from xm.tracker.browser.ksstracker import get_tracker
 from xm.tracker.browser.tracker import TrackerView
+from xm.tracker.utils import round_time_to_minutes
 
 
 class TimeformattingError(Exception):
@@ -153,9 +154,10 @@ class EntriesProvider(Explicit):
     def update(self):
         self.entries = []
         for entry in self.task.entries:
+            time = round_time_to_minutes(entry.time)
             item = dict(date = entry.date.strftime('%d-%m'),
                         text = entry.text,
-                        time = entry.time.strftime('%H:%M'))
+                        time = time.strftime('%H:%M'))
             self.entries.append(item)
 
 

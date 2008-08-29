@@ -11,6 +11,7 @@ from zope.viewlet.interfaces import IViewlet
 
 from xm.tracker.browser.interfaces import ITaskViewlet
 from xm.tracker.config import UNASSIGNED
+from xm.tracker.utils import round_time_to_minutes
 
 logger = logging.getLogger('taskviewlets')
 
@@ -74,7 +75,8 @@ class TaskViewlet(BrowserView):
         self.task = self.view.tracker().get_task(task_uid)
 
     def total_time(self):
-        return self.task.total_time().strftime('%H:%M')
+        time = round_time_to_minutes(self.task.total_time())
+        return time.strftime('%H:%M')
 
     def remaining_time(self):
         """Return time left for work.
@@ -95,6 +97,7 @@ class TaskViewlet(BrowserView):
         already_booked = mx.DateTime.DateTimeDeltaFrom(
             hours=xm_task.actual_time)
         remaining = available - our_time - already_booked
+        remaining = round_time_to_minutes(remaining)
         if remaining < 0:
             return '-' + remaining.strftime('%H:%M')
         return remaining.strftime('%H:%M')
@@ -102,9 +105,10 @@ class TaskViewlet(BrowserView):
     def entries(self):
         result = []
         for entry in self.task.entries:
+            time = round_time_to_minutes(entry.time)
             result.append(dict(text = entry.text,
                                date = entry.date.strftime('%d-%m'),
-                               time = entry.time.strftime('%H:%M')))
+                               time = time.strftime('%H:%M')))
         return result
 
     def tracker_has_started(self):

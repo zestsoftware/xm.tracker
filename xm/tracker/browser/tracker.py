@@ -22,6 +22,7 @@ from xm.tracker import XMTrackerMessageFactory as _
 from xm.tracker.tracker import Entry
 from xm.tracker.tracker import Task
 from xm.tracker.tracker import Tracker
+from xm.tracker.utils import round_time_to_quarter_hours
 
 
 TRACKER_KEY = 'xm-timetracker'
@@ -118,10 +119,10 @@ def book(caller, xmtask, entries):
     """
     bookings_per_day = split_entries(entries)
     for day, booking in bookings_per_day.items():
-        hours = booking['time'].hours
-        minutes = booking['time'].minutes
-        # make quarters of this.
-        minutes = int(round(minutes / 15.0) * 15)
+        # Round the time to the nearest quarter of an hour.
+        time = round_time_to_quarter_hours(booking['time'])
+        hours = time.hours
+        minutes = time.minutes
         day = DateTime(day)
         try:
             create_booking(xmtask,
