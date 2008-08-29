@@ -121,8 +121,8 @@
 
 .task-title:click {
     action-client: toggleClass;
-    toggleClass-kssSelector: htmlid(kssAttr(tasktitle));
-    toggleClass-value: hidden;
+    toggleClass-kssSelector: htmlid(kssAttr(taskdiv));
+    toggleClass-value: task-details-expanded;
 }
 
 

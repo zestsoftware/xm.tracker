@@ -2,6 +2,7 @@
 #content {
     margin: 3em 5em;
     padding: 3em 5em;
+    overflow: visible;
 }
 
 #timer, .task-time {
@@ -11,12 +12,38 @@
     float:left;
 }
 
-.hidden {
+.track_form {
+    clear:both;
+}
+
+.task-title {
+    clear: right;
+    float: left;
+    display: block;
+}
+
+.task {
+    padding: 2em;
+    border:1px solid black;
+}
+
+.task div.taskdetails {
     display: none;
+    width: 100%;
+}
+
+.task-details-expanded {
+    background-color: green;
+}
+
+.task-details-expanded div.taskdetails {
+    display: block !important;
+    width: 100%;
 }
 
 .discreet {
     color:#76797c;
+    clear: both;
 }
 
 /* Set different positioning on the portal status message. */
@@ -119,6 +146,7 @@ body {
     color: Black;
     margin: 0;
     padding: 0;
+    overflow-y: scroll;
 }
 table {
     font-size: 100%;

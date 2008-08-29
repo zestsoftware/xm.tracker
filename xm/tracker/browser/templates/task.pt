@@ -4,13 +4,13 @@
      tal:attributes="id string:task-${task/uid}"
      i18n:domain="tracker">
 
-  <hr />
-
   <h2 class="task-time" tal:content="view/total_time" />
+
+  <h2 tal:content="task/title"
 
   <h2 tal:define="title string:${task/project} | ${task/story};
                   title python:not task.is_unassigned() and title or '';"
-      tal:attributes="class string:task-title kssattr-tasktitle-taskdetails-${task/uid};
+      tal:attributes="class string:task-title kssattr-details-taskdetails-${task/uid} kssattr-taskdiv-task-${task/uid};
                       title title;">
     <tal:down tal:condition="not: task/is_unassigned">
       [&darr;]
@@ -47,9 +47,9 @@
   </form>
   <br/>
   <br/>
-  <div class="hidden"
+  <div class="taskdetails"
        tal:attributes="id string:taskdetails-${task/uid};
-                       class python:not task.is_unassigned() and 'hidden' or '';">
+                       class python:not task.is_unassigned() and 'taskdetails' or '';">
 
     <tal:block replace="structure provider:xm.tracker.entries" />
 
