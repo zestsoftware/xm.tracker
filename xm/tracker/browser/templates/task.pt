@@ -37,6 +37,7 @@
              size="60" />
       <input type="submit"
              name="track"
+             tabindex="1"
              tal:attributes="class string:track-time kssattr-uid-${task/uid};
                              disabled disabled;"
              i18n:attributes="value track_button"
