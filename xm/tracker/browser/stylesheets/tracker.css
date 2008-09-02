@@ -17,9 +17,6 @@
 }
 
 .task-title {
-    clear: right;
-    float: left;
-    display: block;
 }
 
 .task {
@@ -43,7 +40,6 @@
 
 .discreet {
     color:#76797c;
-    clear: both;
 }
 
 /* Set different positioning on the portal status message. */
