@@ -14,7 +14,7 @@
 
 .task {
     padding: 2em;
-    border:1px solid black;
+    border-top: 1px solid #333;
 }
 
 .task div.taskdetails {
@@ -43,7 +43,6 @@
   top: 60px;
 
 }
-
 
 .tracker-book {
     display: block;
@@ -125,10 +124,6 @@ dl.portalMessage dd {
     display:inline;
 }
 
-#task-unassigned h2{
-    padding-top: 1em;
-}
-
 /* Base css currently copied from CMFPlone */
 
 body {
@@ -208,7 +203,6 @@ li {
     /* Separate visually from entry listing */
     margin-top: 0.5em;
     margin-bottom: 0.5em;
-    padding-left: 0.2em;
     display: block;
 }
 
@@ -222,4 +216,9 @@ div.entry_table_cell {
 
 form.edit-in-progress .hidden-controls {
     display:inline;
+}
+
+/* Separate tasks from the start/stop stuff at the top. */
+.tracker-tasks {
+    margin-top: 1em;
 }
