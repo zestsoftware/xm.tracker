@@ -36,7 +36,7 @@
 
 /* Edit entries (time and text) */
 
-.edit-entries-button:click{
+.edit-entries-save:click{
     action-server: kss_edit_entry;
     kss_edit_entry-kssSubmitForm: currentForm();
     evt-click-preventdefault: true;
@@ -57,9 +57,8 @@
 }
 
 .entry_text_time_edit:focus {
-    action-client: setStyle css(.hidden-controls);
-    setStyle-name: display;
-    setStyle-value: inline;
+    action-client: addClass parentnode('form');
+    addClass-value: edit-in-progress;
     action-client: setAttribute;
     setAttribute-kssSelector: css('.book-button');
     setAttribute-name: disabled;
@@ -71,24 +70,18 @@
     evt-keyup-keycodes: 13;
     action-server: kss_edit_entry;
     kss_edit_entry-kssSubmitForm: currentForm();
-    action-client: setStyle css(.hidden-controls);
-    setStyle-name: display;
-    setStyle-value: none;
-    action-client: removeAttribute;
-    removeAttribute-kssSelector: css('.book-button');
-    removeAttribute-name: disabled;
+    action-client: removeClass parentnode('form');
+    removeClass-value: edit-in-progress;
 }
 
 .edit-entries-cancel:click {
     evt-click-preventdefault: true;
-    action-client: setStyle css(.hidden-controls);
-    setStyle-name: display;
-    setStyle-value: none;
+    action-client: removeClass parentnode('form');
+    removeClass-value: edit-in-progress;
     action-client: removeAttribute;
     removeAttribute-kssSelector: css('.book-button');
     removeAttribute-name: disabled;
 }
-
 
 /* Client side timer */
 

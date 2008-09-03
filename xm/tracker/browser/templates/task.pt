@@ -5,8 +5,9 @@
      i18n:domain="tracker">
 
   <h2 tal:define="title string:${task/project} | ${task/story};
-                  title python:not task.is_unassigned() and title or '';"
-      tal:attributes="class string:task-title kssattr-details-taskdetails-${task/uid} kssattr-taskdiv-task-${task/uid};
+                  title python:not task.is_unassigned() and title or '';
+                  title_class python:not task.is_unassigned() and 'task-title' or 'task-title-unassigned'"
+      tal:attributes="class string:${title_class} kssattr-details-taskdetails-${task/uid} kssattr-taskdiv-task-${task/uid};
                       title title;">
     <span class="task-time" tal:content="view/total_time" />
     <tal:down tal:condition="not: task/is_unassigned">

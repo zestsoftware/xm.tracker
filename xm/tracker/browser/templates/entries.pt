@@ -50,7 +50,7 @@
       <div class="entry_table_cell">
         <tal:book_unassigned_form tal:condition="task/is_unassigned">
           <input type="submit"
-                 class="book_to_task_submit"
+                 class="book-button book_to_task_submit"
                  name="book_to_task"
                  value="Book to task"
                  i18n:attributes="value label_book_to_task" />
@@ -58,7 +58,7 @@
         <div class="hidden-controls">
           <input type="submit"
                  name="submit"
-                 class="edit-entries-button"
+                 class="edit-entries-save"
                  value="Save"
                  i18n:domain="plone"
                  i18n:attributes="value label_save" />

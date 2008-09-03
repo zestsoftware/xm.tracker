@@ -16,9 +16,6 @@
     clear:both;
 }
 
-.task-title {
-}
-
 .task {
     padding: 2em;
     border:1px solid black;
@@ -225,8 +222,4 @@ div.entry_table_cell {
 
 form.edit-in-progress .hidden-controls {
     display:inline;
-}
-
-form.edit-in-progress .book_to_task_submit {
-    display: none;
 }
