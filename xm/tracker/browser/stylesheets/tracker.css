@@ -30,7 +30,7 @@
 }
 
 .task-details-expanded {
-    background-color: green;
+    background-color: #dddddd;
 }
 
 .task-details-expanded div.taskdetails {
@@ -219,4 +219,14 @@ li {
 
 div.entry_table_cell {
     display: inline;
+}
+
+/* Entry edit form: hide/show buttons */
+
+form.edit-in-progress .hidden-controls {
+    display:inline;
+}
+
+form.edit-in-progress .book_to_task_submit {
+    display: none;
 }
