@@ -12,10 +12,6 @@
     float:left;
 }
 
-.track_form {
-    clear:both;
-}
-
 .task {
     padding: 2em;
     border:1px solid black;
@@ -30,9 +26,11 @@
     background-color: #dddddd;
 }
 
-.task-details-expanded div.taskdetails {
+.task-details-expanded div.taskdetails,
+#taskdetails-unassigned {
     display: block !important;
     width: 100%;
+    margin-top: 1em;
 }
 
 .discreet {
@@ -48,8 +46,8 @@
 
 
 .tracker-book {
-    text-align:right;
-    display:inline;
+    display: block;
+    margin-top: 1em;
 }
 
 form {
@@ -208,8 +206,10 @@ li {
 
 .track-form {
     /* Separate visually from entry listing */
-    margin-bottom: 1em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     padding-left: 0.2em;
+    display: block;
 }
 
 /* Table mocked with divs as firefox makes a mockery out of our forms. */

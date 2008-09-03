@@ -50,8 +50,6 @@
              i18n:attributes="value track_button"
              value="Track" />
   </form>
-  <br/>
-  <br/>
   <div class="taskdetails"
        tal:attributes="id string:taskdetails-${task/uid};
                        class python:not task.is_unassigned() and 'taskdetails' or '';">
