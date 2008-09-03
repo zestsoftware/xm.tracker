@@ -46,13 +46,14 @@ class Task(Persistent):
     implements(ITask)
 
     def __init__(self, title=None, uid=None, story=None, project=None,
-                 estimate=None):
+                 estimate=None, task_url=None):
         self.uid = uid
         self.title = title
         self.story = story
         self.project = project
         self.estimate = estimate
         self.entries = PersistentList()
+        self.task_url = task_url
 
     def total_time(self):
         total = sum([entry.time for entry in self.entries])

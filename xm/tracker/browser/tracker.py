@@ -217,7 +217,8 @@ class AddTasks(TrackerView):
                             uid = xm_task['UID'],
                             story = xm_task['story_title'],
                             project = projectbrain.Title,
-                            estimate = xm_task['estimate'])
+                            estimate = xm_task['estimate'],
+                            task_url = xm_task['url'])
                 tracker.tasks.append(task)
         self.request.response.redirect('@@tracker')
 

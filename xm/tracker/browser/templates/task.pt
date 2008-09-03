@@ -18,6 +18,12 @@
 
   <div class="discreet"
        tal:condition="view/remaining_time">
+    <a href=""
+       tal:condition="task/task_url|nothing"
+       tal:attributes="href task/task_url"
+       i18n:translate="label_go_to_task">
+      Go to task
+    </a>
     <span i18n:translate="remaining">
       Remaining:
     </span>
