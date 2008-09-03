@@ -168,8 +168,14 @@ class EditEntry(PloneKSSView):
         """ In this call we handle a form which contains one entry.
         This entry has a text and time field which we expect to change.
         """
+        plone = self.getCommandSet("plone")
         tracker = get_tracker(self.context)
         text = self.request.get('text')
+        if not text:
+            message = _(u'msg_empty_text',
+                        default=u'Empty text, this is not allowed')
+            plone.issuePortalMessage(message, msgtype="error")
+            return
         time = self.request.get('time')
         uid = self.request.get('uid')
         idx = int(self.request.get('entry_number'))
@@ -185,7 +191,5 @@ class EditEntry(PloneKSSView):
             return
         entry.time = mx.DateTime.DateTimeDeltaFrom(seconds=seconds)
         entry.text = text
-
         message = _(u'msg_update_entry', default=u'Entry updated')
-        plone = self.getCommandSet("plone")
         plone.issuePortalMessage(message)
