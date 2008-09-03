@@ -40,9 +40,8 @@
     action-server: kss_edit_entry;
     kss_edit_entry-kssSubmitForm: currentForm();
     evt-click-preventdefault: true;
-    action-client: setStyle css(.hidden-controls);
-    setStyle-name: display;
-    setStyle-value: none;
+    action-client: removeClass parentnode('form');
+    removeClass-value: edit-in-progress;
     action-client: removeAttribute;
     removeAttribute-kssSelector: css('.book-button');
     removeAttribute-name: disabled;
@@ -72,6 +71,9 @@
     kss_edit_entry-kssSubmitForm: currentForm();
     action-client: removeClass parentnode('form');
     removeClass-value: edit-in-progress;
+    action-client: removeAttribute;
+    removeAttribute-kssSelector: css('.book-button');
+    removeAttribute-name: disabled;
 }
 
 .edit-entries-cancel:click {
