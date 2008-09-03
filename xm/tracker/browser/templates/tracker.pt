@@ -31,6 +31,10 @@
         <a tal:attributes="href context/absolute_url"
            i18n:translate="label_home">Home</a>
       </div>
+      <form style="display: none;">
+        <input name="just_for_defocussing_with_kss"
+               id="defocus_target"/>
+      </form>
       <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
       <h1 id="timer"
           tal:content="view/time_spent"
