@@ -76,8 +76,10 @@
     removeAttribute-name: disabled;
 }
 
-.edit-entries-cancel:click {
+.edit-entries-cancel:click,
+.edit-entries input:keypress(inlineescape) {
     evt-click-preventdefault: true;
+    evt-keypress-keycodes: 27;
     action-client: removeClass parentnode('form');
     removeClass-value: edit-in-progress;
     action-client: removeAttribute;
