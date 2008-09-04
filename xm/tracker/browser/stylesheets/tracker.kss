@@ -110,9 +110,11 @@
 }
 
 #timer:timer-update(mytimer) {
+}
+/*
     action-client: log;
     log-message: pass(seconds);
-}
+*/
 
 
 /* Collapse and expand task details */
