@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2008-08-27 08:41+0000\n"
+"POT-Creation-Date: 2008-09-04 08:51+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,29 +21,34 @@ msgstr ""
 msgid "Invalid time"
 msgstr ""
 
+#. Default: "Book"
+#: ./browser/templates/unassigned_task_select.pt:36
+msgid "book_button"
+msgstr ""
+
 #. Default: "Time Tracker"
 #: ./browser/templates/tracker.pt:6
 msgid "head_timetracker"
 msgstr ""
 
 #. Default: "Book"
-#: ./browser/templates/task.pt:58
+#: ./browser/templates/task.pt:67
 msgid "label_book"
 msgstr ""
 
 #. Default: "Book to task"
-#: ./browser/templates/entries.pt:35
+#: ./browser/templates/entries.pt:52
 msgid "label_book_to_task"
 msgstr ""
 
 #. Default: "Book and close"
-#: ./browser/templates/task.pt:63
+#: ./browser/templates/task.pt:72
 msgid "label_close"
 msgstr ""
 
-#. Default: "Remove"
-#: ./browser/templates/entries.pt:50
-msgid "label_remove"
+#. Default: "Go to task"
+#: ./browser/templates/task.pt:21
+msgid "label_go_to_task"
 msgstr ""
 
 #. Default: "Select Tasks"
@@ -51,98 +56,113 @@ msgstr ""
 msgid "label_select_tasks"
 msgstr ""
 
+#. Default: "Select task for the unassigned entry"
+#: ./browser/templates/unassigned_task_select.pt:3
+msgid "label_select_tasks_for_unassigned"
+msgstr ""
+
 #. Default: "Start working"
-#: ./browser/templates/startstop.pt:7
+#: ./browser/templates/startstop.pt:8
 msgid "label_start"
 msgstr ""
 
 #. Default: "Stop and reset"
-#: ./browser/templates/startstop.pt:17
+#: ./browser/templates/startstop.pt:20
 msgid "label_stop"
 msgstr ""
 
 #. Default: "Added booking to task"
-#: ./browser/tracker.py:334
+#: ./browser/tracker.py:271
 msgid "msg_added_booking"
 msgstr ""
 
 #. Default: "Added entry"
-#: ./browser/ksstracker.py:63
+#: ./browser/ksstracker.py:74
 msgid "msg_added_entry"
 msgstr ""
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:364
+#: ./browser/tracker.py:406
 msgid "msg_close_task_failed"
 msgstr ""
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:374
+#: ./browser/tracker.py:416
 msgid "msg_close_task_success"
 msgstr ""
 
+#. Default: "Empty text, this is not allowed"
+#: ./browser/entry.py:175
+msgid "msg_empty_text"
+msgstr ""
+
 #. Default: "Not permitted to add booking to task. Check if the task is in the correct state."
-#: ./browser/tracker.py:326
+#: ./browser/tracker.py:135
 msgid "msg_failed_add_booking"
 msgstr ""
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:259
+#: ./browser/tracker.py:324
 msgid "msg_missing_description"
 msgstr ""
 
+#. Default: "No task selected, cannot book entry."
+#: ./browser/tracker.py:240
+msgid "msg_missing_task"
+msgstr ""
+
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:293
+#: ./browser/tracker.py:358
 msgid "msg_no_entries_found"
 msgstr ""
 
 #. Default: "No task found with this UID"
-#: ./browser/entry.py:121
+#: ./browser/entry.py:122
 msgid "msg_no_task_found"
 msgstr ""
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:267
+#: ./browser/tracker.py:332
 msgid "msg_no_tracking_without_starttime"
 msgstr ""
 
 #. Default: "Failed to remove entry"
-#: ./browser/entry.py:130
+#: ./browser/entry.py:131
 msgid "msg_remove_entry_failed"
 msgstr ""
 
 #. Default: "Removed entry"
-#: ./browser/entry.py:134
+#: ./browser/entry.py:135
 msgid "msg_remove_entry_success"
 msgstr ""
 
 #. Default: "Started the timer"
-#: ./browser/ksstracker.py:24
+#: ./browser/ksstracker.py:29
 msgid "msg_started_timer"
 msgstr ""
 
 #. Default: "Stopped the timer"
-#: ./browser/ksstracker.py:39
+#: ./browser/ksstracker.py:44
 msgid "msg_stopped_timer"
 msgstr ""
 
-#. Default: "Entries updated"
-#: ./browser/entry.py:195
-msgid "msg_update_entries"
+#. Default: "Entry updated"
+#: ./browser/entry.py:194
+msgid "msg_update_entry"
 msgstr ""
 
 #. Default: "Remaining:"
-#: ./browser/templates/task.pt:16
+#: ./browser/templates/task.pt:27
 msgid "remaining"
 msgstr ""
 
 #. Default: "Invalid time format. Must be x:xx or xx:xx"
-#: ./browser/entry.py:22
+#: ./browser/entry.py:23
 msgid "time_formatting_error"
 msgstr ""
 
 #. Default: "Track"
-#: ./browser/templates/task.pt:33
+#: ./browser/templates/task.pt:45
 msgid "track_button"
 msgstr ""
 
