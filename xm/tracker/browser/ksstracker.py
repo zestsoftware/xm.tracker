@@ -52,6 +52,12 @@ class KSSTrackTime(PloneKSSView):
 
     @kssaction
     def track_time(self, uid, text):
+        plone = self.getCommandSet("plone")
+        if not text:
+            message = _(u'msg_empty_text',
+                        default=u'Empty text, this is not allowed')
+            plone.issuePortalMessage(message, msgtype='error')
+            return
         context = aq_inner(self.context)
         tracker = get_tracker(context)
         task = tracker.get_task(uid)
