@@ -13,6 +13,7 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from xm.tracker import XMTrackerMessageFactory as _
 from xm.tracker.browser.interfaces import ITaskEntries
 from xm.tracker.browser.ksstracker import get_tracker
+from xm.tracker.browser.viewlets import TaskViewlet
 from xm.tracker.browser.tracker import TrackerView
 from xm.tracker.utils import round_time_to_minutes
 
@@ -169,6 +170,7 @@ class EditEntry(PloneKSSView):
         This entry has a text and time field which we expect to change.
         """
         plone = self.getCommandSet("plone")
+        core = self.getCommandSet("core")
         tracker = get_tracker(self.context)
         text = self.request.get('text')
         if not text:
@@ -186,10 +188,18 @@ class EditEntry(PloneKSSView):
             seconds = time_to_seconds(time)
         except TimeformattingError:
             msg = _(u'Invalid time') + u' (0:00-23:59): ' + unicode(time)
-            plone = self.getCommandSet("plone")
             plone.issuePortalMessage(msg, msgtype='error')
             return
         entry.time = mx.DateTime.DateTimeDeltaFrom(seconds=seconds)
         entry.text = text
         message = _(u'msg_update_entry', default=u'Entry updated')
         plone.issuePortalMessage(message)
+
+        # Refresh entire task to also update the remaining time and so.
+        # Refresh task; TODO: almost identical in ksstracker.py
+        view = self.context.restrictedTraverse('@@tracker')
+        self.request['task_uid'] = uid
+        viewlet = TaskViewlet(self.context, self.request, view, None)
+        viewlet.update()
+        html = viewlet.render()
+        core.replaceHTML('#task-' + uid, html)

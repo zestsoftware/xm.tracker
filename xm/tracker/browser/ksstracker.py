@@ -65,12 +65,15 @@ class KSSTrackTime(PloneKSSView):
         if task is None:
             task = tracker.unassigned
         add_entry(tracker, task, text)
+
+        # Refresh task; TODO: identical in entry.py
         view = context.restrictedTraverse('@@tracker')
         self.request['task_uid'] = uid
         viewlet = TaskViewlet(context, self.request, view, None)
         viewlet.update()
         html = viewlet.render()
         core.replaceHTML('#task-' + uid, html)
+
         message = _(u'msg_added_entry', default=u'Added entry')
         plone.issuePortalMessage(message)
         tracker.starttime = mx.DateTime.now()
