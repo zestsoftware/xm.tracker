@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2008-09-04 08:51+0000\n"
+"POT-Creation-Date: 2008-09-08 14:39+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Preferred-Encodings: utf-8 latin1\n"
 "Domain: tracker\n"
 
-#: ./browser/entry.py:188
+#: ./browser/entry.py:191
 msgid "Invalid time"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgid "head_timetracker"
 msgstr ""
 
 #. Default: "Book"
-#: ./browser/templates/task.pt:67
+#: ./browser/templates/task.pt:68
 msgid "label_book"
 msgstr ""
 
@@ -42,12 +42,12 @@ msgid "label_book_to_task"
 msgstr ""
 
 #. Default: "Book and close"
-#: ./browser/templates/task.pt:72
+#: ./browser/templates/task.pt:73
 msgid "label_close"
 msgstr ""
 
 #. Default: "Go to task"
-#: ./browser/templates/task.pt:21
+#: ./browser/templates/task.pt:22
 msgid "label_go_to_task"
 msgstr ""
 
@@ -77,7 +77,7 @@ msgid "msg_added_booking"
 msgstr ""
 
 #. Default: "Added entry"
-#: ./browser/ksstracker.py:74
+#: ./browser/ksstracker.py:95
 msgid "msg_added_entry"
 msgstr ""
 
@@ -92,7 +92,7 @@ msgid "msg_close_task_success"
 msgstr ""
 
 #. Default: "Empty text, this is not allowed"
-#: ./browser/entry.py:175
+#: ./browser/entry.py:178
 msgid "msg_empty_text"
 msgstr ""
 
@@ -117,7 +117,7 @@ msgid "msg_no_entries_found"
 msgstr ""
 
 #. Default: "No task found with this UID"
-#: ./browser/entry.py:122
+#: ./browser/entry.py:124
 msgid "msg_no_task_found"
 msgstr ""
 
@@ -127,12 +127,12 @@ msgid "msg_no_tracking_without_starttime"
 msgstr ""
 
 #. Default: "Failed to remove entry"
-#: ./browser/entry.py:131
+#: ./browser/entry.py:133
 msgid "msg_remove_entry_failed"
 msgstr ""
 
 #. Default: "Removed entry"
-#: ./browser/entry.py:135
+#: ./browser/entry.py:137
 msgid "msg_remove_entry_success"
 msgstr ""
 
@@ -147,22 +147,22 @@ msgid "msg_stopped_timer"
 msgstr ""
 
 #. Default: "Entry updated"
-#: ./browser/entry.py:194
+#: ./browser/entry.py:196
 msgid "msg_update_entry"
 msgstr ""
 
 #. Default: "Remaining:"
-#: ./browser/templates/task.pt:27
+#: ./browser/templates/task.pt:28
 msgid "remaining"
 msgstr ""
 
 #. Default: "Invalid time format. Must be x:xx or xx:xx"
-#: ./browser/entry.py:23
+#: ./browser/entry.py:25
 msgid "time_formatting_error"
 msgstr ""
 
 #. Default: "Track"
-#: ./browser/templates/task.pt:45
+#: ./browser/templates/task.pt:46
 msgid "track_button"
 msgstr ""
 
