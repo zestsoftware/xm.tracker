@@ -12,4 +12,8 @@
 
   <include package=".browser" />
 
+  <!-- include zcml of dependencies -->
+  <include package="kss.plugin.timer" />
+  <include package="kss.plugin.cns" />
+
 </configure>
