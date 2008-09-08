@@ -100,7 +100,7 @@
     evt-timer-start-preventdefault: true;
     action-server: kss_start_timer;
     action-client: removeAttribute;
-    removeAttribute-kssSelector: css('.track_form input.track-time');
+    removeAttribute-kssSelector: css('.track-form input.track-time');
     removeAttribute-name: disabled;
 }
 
@@ -108,7 +108,7 @@
     action-server: kss_stop_timer;
     evt-timer-stop-preventdefault: true;
     action-client: setAttribute;
-    setAttribute-kssSelector: css('.track_form input.track-time');
+    setAttribute-kssSelector: css('.track-form input.track-time');
     setAttribute-name: disabled;
     setAttribute-value: disabled;
 }
