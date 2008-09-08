@@ -58,11 +58,13 @@ class KSSTaskRefresher(PloneKSSView):
     """
 
     @kssaction
-    def task_refresh(self, uid=None, **kw):
+    def task_refresh(self, uid=None, open_details=None, **kw):
         context = aq_inner(self.context)
         # Refresh task; TODO: identical in entry.py
         view = context.restrictedTraverse('@@tracker')
         self.request['task_uid'] = uid
+        if open_details:
+            self.request['open_details'] = True
         viewlet = TaskViewlet(context, self.request, view, None)
         viewlet.update()
         html = viewlet.render()

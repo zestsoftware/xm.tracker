@@ -1,7 +1,8 @@
 <div class="task"
      tal:define="task nocall:view/task"
      tal:condition="task"
-     tal:attributes="id string:task-${task/uid}"
+     tal:attributes="id string:task-${task/uid};
+                     class view/task_class;"
      i18n:domain="tracker">
 
   <h2 tal:define="title string:${task/project} | ${task/story};

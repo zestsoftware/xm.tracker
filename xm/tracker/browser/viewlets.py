@@ -114,3 +114,10 @@ class TaskViewlet(BrowserView):
     def tracker_has_started(self):
         tracker = self.view.tracker()
         return bool(tracker.starttime)
+
+    def task_class(self):
+        """Return class that is to be set on the task's details div."""
+        if self.request.get('open_details'):
+            # We want to expand this one.
+            return 'task task-details-expanded'
+        return 'task'

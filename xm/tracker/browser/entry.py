@@ -196,5 +196,6 @@ class EditEntry(KSSTaskRefresher):
         message = _(u'msg_update_entry', default=u'Entry updated')
         plone.issuePortalMessage(message)
 
-        # Refresh entire task to also update the remaining time and so.
-        self.task_refresh(uid=uid)
+        # Refresh entire task to also update the remaining time and so. Keep
+        # the details open.
+        self.task_refresh(uid=uid, open_details=True)
