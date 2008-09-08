@@ -53,6 +53,7 @@ class KSSTrackTime(PloneKSSView):
     @kssaction
     def track_time(self, uid, text):
         plone = self.getCommandSet("plone")
+        core = self.getCommandSet("core")
         if not text:
             message = _(u'msg_empty_text',
                         default=u'Empty text, this is not allowed')
@@ -69,10 +70,8 @@ class KSSTrackTime(PloneKSSView):
         viewlet = TaskViewlet(context, self.request, view, None)
         viewlet.update()
         html = viewlet.render()
-        core = self.getCommandSet("core")
         core.replaceHTML('#task-' + uid, html)
         message = _(u'msg_added_entry', default=u'Added entry')
-        plone = self.getCommandSet("plone")
         plone.issuePortalMessage(message)
         tracker.starttime = mx.DateTime.now()
 
