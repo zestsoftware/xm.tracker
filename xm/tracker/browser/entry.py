@@ -13,6 +13,7 @@ from zope.publisher.interfaces.browser import IDefaultBrowserLayer
 from xm.tracker import XMTrackerMessageFactory as _
 from xm.tracker.browser.interfaces import ITaskEntries
 from xm.tracker.browser.ksstracker import get_tracker
+from xm.tracker.browser.ksstracker import KSSTaskRefresher
 from xm.tracker.browser.viewlets import TaskViewlet
 from xm.tracker.browser.tracker import TrackerView
 from xm.tracker.utils import round_time_to_minutes
@@ -162,7 +163,7 @@ class EntriesProvider(Explicit):
             self.entries.append(item)
 
 
-class EditEntry(PloneKSSView):
+class EditEntry(KSSTaskRefresher):
 
     @kssaction
     def edit_entry(self, **kwargs):
@@ -196,10 +197,4 @@ class EditEntry(PloneKSSView):
         plone.issuePortalMessage(message)
 
         # Refresh entire task to also update the remaining time and so.
-        # Refresh task; TODO: almost identical in ksstracker.py
-        view = self.context.restrictedTraverse('@@tracker')
-        self.request['task_uid'] = uid
-        viewlet = TaskViewlet(self.context, self.request, view, None)
-        viewlet.update()
-        html = viewlet.render()
-        core.replaceHTML('#task-' + uid, html)
+        self.task_refresh(uid=uid)

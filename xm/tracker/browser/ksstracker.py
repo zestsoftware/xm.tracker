@@ -47,13 +47,35 @@ class KSSStop(PloneKSSView):
         plone.issuePortalMessage(message)
 
 
-class KSSTrackTime(PloneKSSView):
+class KSSTaskRefresher(PloneKSSView):
+    """kss view for refreshing a task's display.
+
+    Called by kss_track_time to refresh the remaining time and by the 'cancel'
+    button of the entry inline-edit to make sure the entries are reset to the
+    starting values. The cancel button is the reason for the uid= parameter as
+    that's a submitted browser form.
+
+    """
+
+    @kssaction
+    def task_refresh(self, uid=None, **kw):
+        context = aq_inner(self.context)
+        # Refresh task; TODO: identical in entry.py
+        view = context.restrictedTraverse('@@tracker')
+        self.request['task_uid'] = uid
+        viewlet = TaskViewlet(context, self.request, view, None)
+        viewlet.update()
+        html = viewlet.render()
+        core = self.getCommandSet("core")
+        core.replaceHTML('#task-' + uid, html)
+
+
+class KSSTrackTime(KSSTaskRefresher):
     """kss view for adding an entry to a task"""
 
     @kssaction
     def track_time(self, uid, text):
         plone = self.getCommandSet("plone")
-        core = self.getCommandSet("core")
         if not text:
             message = _(u'msg_empty_text',
                         default=u'Empty text, this is not allowed')
@@ -66,13 +88,7 @@ class KSSTrackTime(PloneKSSView):
             task = tracker.unassigned
         add_entry(tracker, task, text)
 
-        # Refresh task; TODO: identical in entry.py
-        view = context.restrictedTraverse('@@tracker')
-        self.request['task_uid'] = uid
-        viewlet = TaskViewlet(context, self.request, view, None)
-        viewlet.update()
-        html = viewlet.render()
-        core.replaceHTML('#task-' + uid, html)
+        self.task_refresh(uid=uid)
 
         message = _(u'msg_added_entry', default=u'Added entry')
         plone.issuePortalMessage(message)

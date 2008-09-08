@@ -48,4 +48,12 @@
         permission="xm.ViewTracker"
         />
 
+    <page
+        for="Products.CMFPlone.interfaces.IPloneSiteRoot"
+        class=".ksstracker.KSSTrackTime"
+        attribute="task_refresh"
+        name="kss_task_refresh"
+        permission="xm.ViewTracker"
+        />
+
 </configure>

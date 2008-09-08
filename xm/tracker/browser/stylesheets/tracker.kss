@@ -87,6 +87,8 @@
     removeAttribute-kssSelector: css('.book-button');
     removeAttribute-name: disabled;
     action-client: focus htmlid('defocus_target');
+    action-server: kss_task_refresh;
+    kss_task_refresh-kssSubmitForm: currentForm();
 }
 
 /* Client side timer */
