@@ -181,18 +181,16 @@ class AddTasks(TrackerView):
 
     def __call__(self):
         tracker = self.tracker()
-        # Remove tasks:
-        #tracker.tasks = PersistentList()
         selected_task_uids = self.request.get('selected_task_uids', [])
-        # Currently, we only support adding tasks to the tracker that
-        # are already in the todo-list of this user.
+        # Currently, we only support adding or removing tasks to the
+        # tracker that are already in the todo-list of this user,
+        # which makes sense.
         for project_info in self.todo_tasks_per_project():
             projectbrain = project_info['project']
             xm_tasks = project_info['tasks']
             for xm_task in xm_tasks:
                 task_uid = xm_task['UID']
-                if len(selected_task_uids) > 0 \
-                        and task_uid not in selected_task_uids:
+                if task_uid not in selected_task_uids:
                     # XXX remove task if it was previously selected
                     task = tracker.get_task(task_uid)
                     if task is None:
@@ -209,17 +207,18 @@ class AddTasks(TrackerView):
                     # Remove the task.
                     tracker.tasks.remove(task)
                     continue
-                task = tracker.get_task(task_uid)
-                if task is not None:
-                    # Task is already in the tracker.
-                    continue
-                task = Task(xm_task['title'],
-                            uid = xm_task['UID'],
-                            story = xm_task['story_title'],
-                            project = projectbrain.Title,
-                            estimate = xm_task['estimate'],
-                            task_url = xm_task['url'])
-                tracker.tasks.append(task)
+                if task_uid in selected_task_uids:
+                    task = tracker.get_task(task_uid)
+                    if task is not None:
+                        # Task is already in the tracker.
+                        continue
+                    task = Task(xm_task['title'],
+                                uid = xm_task['UID'],
+                                story = xm_task['story_title'],
+                                project = projectbrain.Title,
+                                estimate = xm_task['estimate'],
+                                task_url = xm_task['url'])
+                    tracker.tasks.append(task)
         self.request.response.redirect('@@tracker')
 
     def todo_tasks_per_project(self):
