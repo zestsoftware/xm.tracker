@@ -1,5 +1,6 @@
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, Explicit
+from zope.cachedescriptors.property import Lazy
 from Products.CMFCore.WorkflowCore import WorkflowException
 from Products.CMFCore.utils import getToolByName
 from Products.Five.browser import BrowserView
@@ -185,10 +186,18 @@ class AddTasks(TrackerView):
     def __call__(self):
         tracker = self.tracker()
         selected_task_uids = self.request.get('selected_task_uids', [])
-        # Currently, we only support adding or removing tasks to the
+        # Remove deselected orphaned tasks
+        for task in self.orphaned_tasks:
+            if task.uid not in selected_task_uids:
+                if task.total_time() > 0:
+                    # Should Not Happen (TM).
+                    continue
+                tracker.tasks.remove(task)
+
+        # Currently, we only support adding tasks to the
         # tracker that are already in the todo-list of this user,
         # which makes sense.
-        for project_info in self.todo_tasks_per_project():
+        for project_info in self.todo_tasks_per_project:
             projectbrain = project_info['project']
             xm_tasks = project_info['tasks']
             for xm_task in xm_tasks:
@@ -224,6 +233,7 @@ class AddTasks(TrackerView):
                     tracker.tasks.append(task)
         self.request.response.redirect('@@tracker')
 
+    @Lazy
     def todo_tasks_per_project(self):
         """For now we just get all to-do tasks here.
         """
@@ -231,6 +241,24 @@ class AddTasks(TrackerView):
         mytask_details = getMultiAdapter(
             (context, self.request), name=u'mytask_details')
         return mytask_details.projects()
+
+    @Lazy
+    def orphaned_tasks(self):
+        """Tasks that should not be in the tracker anymore, but still are.
+
+        Example: a task that is not in the to-do state anymore.
+        """
+        tracker = self.tracker()
+        good_tasks = {}
+        for project_info in self.todo_tasks_per_project:
+            xm_tasks = project_info['tasks']
+            for xm_task in xm_tasks:
+                good_tasks[xm_task['UID']] = xm_task
+        bad_tasks = []
+        for task in tracker.tasks:
+            if not good_tasks.has_key(task.uid):
+                bad_tasks.append(task)
+        return bad_tasks
 
 
 class BookUnassignedEntry(TrackerView):

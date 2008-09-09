@@ -1,4 +1,5 @@
 from Acquisition import aq_inner
+from zope.cachedescriptors.property import Lazy
 from kss.core import kssaction
 from plone.app.kss.plonekssview import PloneKSSView
 from zope.component import getMultiAdapter
@@ -108,6 +109,7 @@ class KSSSelectTasks(PloneKSSView, AddTasks):
 class KSSSelectTasksForUnassigned(KSSSelectTasks):
     """KSS view for selecting tasks for unassigned entries"""
 
+    @Lazy
     def todo_tasks_per_project(self):
         """Return all available tasks using a helper method from xm itself.
 

@@ -6,7 +6,7 @@
       method="post"
       action="tracker_add_tasks">
 
-    <tal:loop tal:repeat="project_info view/todo_tasks_per_project">
+    <tal:todo tal:repeat="project_info view/todo_tasks_per_project">
       <h2 tal:content="project_info/project/Title" />
       <table>
         <tr tal:repeat="task project_info/tasks"
@@ -23,8 +23,33 @@
               tal:attributes="title task/story_title" />
         </tr>
       </table>
+    </tal:todo>
 
-    </tal:loop>
+    <tal:orphaned tal:condition="view/orphaned_tasks">
+      <h2 i18n:translate="head_orphaned_tasks">Orphaned tasks</h2>
+      <p class="discreet">
+        These are tasks that are not in the to-do state but are still
+        in the tracker.  Please consider deselecting them here or
+        changing the state, otherwise you may not be able to book your
+        time on them.
+      </p>
+      <table>
+        <tr tal:repeat="task view/orphaned_tasks"
+            class="list-in-iteration">
+          <td>
+            <input
+                type="checkbox"
+                name="selected_task_uids"
+                checked="checked"
+                tal:attributes="value task/uid;
+                                disabled python:task.total_time() and 'disabled' or ''" />
+          </td>
+          <td tal:content="task/title"
+              tal:attributes="title string:${task/project} | ${task/story}" />
+        </tr>
+      </table>
+    </tal:orphaned>
+
     <div id="form_buttons"
          i18n:domain="plone">
       <input
