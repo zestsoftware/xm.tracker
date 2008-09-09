@@ -27,7 +27,8 @@
 
     <tal:orphaned tal:condition="view/orphaned_tasks">
       <h2 i18n:translate="head_orphaned_tasks">Orphaned tasks</h2>
-      <p class="discreet">
+      <p class="discreet"
+         i18n:translate="help_orphaned_tasks">
         These are tasks that are not in the to-do state but are still
         in the tracker.  Please consider deselecting them here or
         changing the state, otherwise you may not be able to book your
