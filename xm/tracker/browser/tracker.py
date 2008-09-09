@@ -137,7 +137,10 @@ def book(caller, xmtask, entries):
                     u' if the task is in the correct state.')
             IStatusMessage(caller.request).addStatusMessage(msg,
                                                           type="error")
-            caller.request.response.redirect('@@tracker')
+            # The caller needs to know that the booking has failed.
+            # So either we should return False (and return True
+            # otherwise) or raise an exception ourselves.
+            raise Unauthorized
 
 
 class TrackerView(BrowserView):
@@ -265,7 +268,13 @@ class BookUnassignedEntry(TrackerView):
         entry = task.entries[entry_number]
 
         # Now the actual booking.
-        book(self, xmtask, [entry])
+        try:
+            book(self, xmtask, [entry])
+        except Unauthorized:
+            # A message has already been added to the request.  We
+            # just need to redirect and return.
+            self.request.response.redirect('@@tracker')
+            return
 
         msg = _(u'msg_added_booking', default=u'Added booking to task')
         IStatusMessage(self.request).addStatusMessage(msg, type="info")
@@ -370,7 +379,13 @@ class Book(TrackerView):
             return
 
         xmtask = brains[0].getObject()
-        book(self, xmtask, task.entries)
+        try:
+            book(self, xmtask, task.entries)
+        except Unauthorized:
+            # A message has already been added to the request.  We
+            # just need to redirect and return.
+            self.request.response.redirect('@@tracker')
+            return
 
         msg = _(u'msg_added_booking', default=u'Added booking to task')
         IStatusMessage(self.request).addStatusMessage(msg, type="info")
