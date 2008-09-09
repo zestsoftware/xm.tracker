@@ -64,10 +64,6 @@ form {
 
 /* Start portalMessage settings from standard Plone */
 
-/* XXX this is no dtml so we cannot use dtml-fontSmallsize */
-dl.portalMessage {
-    font-size: &dtml-fontSmallSize;;
-}
 dl.portalMessage a {
     color: black;
     border: none;
