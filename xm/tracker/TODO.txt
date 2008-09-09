@@ -1,0 +1,9 @@
+* When an entry with empty text is tracked, an error is raised, but
+  the timer is still reset, at least in the browser.  Refreshing the
+  page restores the real time again.  Possible solutions:
+
+  - Somehow cancel the timer-reset event.
+
+  - Refresh the entire page.
+
+  - Prevent entering text when the track button is disabled.
