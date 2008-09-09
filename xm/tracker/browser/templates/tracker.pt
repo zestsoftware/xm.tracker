@@ -25,15 +25,15 @@
            alt="..."/>
     </div>
     <div id="xm-header">
-      <ul id="xm-siteactions"
-          i18n:domain="plone">
+      <ul id="xm-siteactions">
         <li>
           <a tal:attributes="href context/absolute_url"
+             i18n:domain="plone"
              i18n:translate="label_home">Home</a>
         </li>
         <li>
           <a tal:attributes="href string:${context/absolute_url}/@@tracker"
-             i18n:translate="label_time_tracker">Time tracker</a>
+             i18n:translate="head_timetracker">Time Tracker</a>
         </li>
       </ul>
     </div>
