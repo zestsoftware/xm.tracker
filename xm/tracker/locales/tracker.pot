@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2008-09-08 14:39+0000\n"
+"POT-Creation-Date: 2008-09-09 10:07+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -37,7 +37,7 @@ msgid "label_book"
 msgstr ""
 
 #. Default: "Book to task"
-#: ./browser/templates/entries.pt:52
+#: ./browser/templates/entries.pt:54
 msgid "label_book_to_task"
 msgstr ""
 
@@ -49,6 +49,11 @@ msgstr ""
 #. Default: "Go to task"
 #: ./browser/templates/task.pt:22
 msgid "label_go_to_task"
+msgstr ""
+
+#. Default: "Remove this entry"
+#: ./browser/templates/entries.pt:18
+msgid "label_remove_entry"
 msgstr ""
 
 #. Default: "Select Tasks"
@@ -72,7 +77,7 @@ msgid "label_stop"
 msgstr ""
 
 #. Default: "Added booking to task"
-#: ./browser/tracker.py:271
+#: ./browser/tracker.py:270
 msgid "msg_added_booking"
 msgstr ""
 
@@ -82,12 +87,12 @@ msgid "msg_added_entry"
 msgstr ""
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:406
+#: ./browser/tracker.py:405
 msgid "msg_close_task_failed"
 msgstr ""
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:416
+#: ./browser/tracker.py:415
 msgid "msg_close_task_success"
 msgstr ""
 
@@ -102,17 +107,17 @@ msgid "msg_failed_add_booking"
 msgstr ""
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:324
+#: ./browser/tracker.py:323
 msgid "msg_missing_description"
 msgstr ""
 
 #. Default: "No task selected, cannot book entry."
-#: ./browser/tracker.py:240
+#: ./browser/tracker.py:239
 msgid "msg_missing_task"
 msgstr ""
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:358
+#: ./browser/tracker.py:357
 msgid "msg_no_entries_found"
 msgstr ""
 
@@ -122,7 +127,7 @@ msgid "msg_no_task_found"
 msgstr ""
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:332
+#: ./browser/tracker.py:331
 msgid "msg_no_tracking_without_starttime"
 msgstr ""
 

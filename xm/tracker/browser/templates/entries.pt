@@ -1,4 +1,5 @@
 <div class="entry_table"
+     i18n:domain="tracker"
      tal:define="task nocall:view/task"
      tal:condition="view/entries">
 
@@ -26,8 +27,7 @@
     </div>
     <form method="post"
           action=""
-          tal:attributes="class string:edit-entries task-${task/uid}"
-          i18n:domain="tracker">
+          tal:attributes="class string:edit-entries task-${task/uid}">
       <div class="entry_table_cell">
         <input type="hidden"
                name="uid"
