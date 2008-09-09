@@ -18,8 +18,10 @@
                name="remove"
                src="delete_icon.gif"
                class="remove-entry"
-               value="Remove"
-               i18n:attributes="value label_remove" />
+               alt="Remove this entry"
+               title="Remove this entry"
+               i18n:attributes="alt label_remove_entry;
+                                title label_remove_entry" />
       </form>
     </div>
     <form method="post"
