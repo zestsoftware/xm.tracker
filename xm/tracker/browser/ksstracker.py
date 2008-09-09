@@ -8,7 +8,7 @@ import mx.DateTime
 from xm.tracker import XMTrackerMessageFactory as _
 from xm.tracker.tracker import Tracker
 from xm.tracker.browser.tracker import add_entry
-from xm.tracker.browser.tracker import TRACKER_KEY
+from xm.tracker.browser.tracker import AddTasks
 from xm.tracker.browser.viewlets import TaskViewlet
 
 
@@ -97,33 +97,8 @@ class KSSTrackTime(KSSTaskRefresher):
         tracker.starttime = mx.DateTime.now()
 
 
-class KSSSelectTasks(PloneKSSView):
+class KSSSelectTasks(PloneKSSView, AddTasks):
     """KSS view for selecting tasks"""
-
-    def tracker(self):
-        # Copied from tracker.TrackerView pending later refactoring.
-        context = aq_inner(self.context)
-        portal_state = getMultiAdapter(
-            (context, self.request), name=u'plone_portal_state')
-        if portal_state.anonymous():
-            return None
-        member = portal_state.member()
-        annotations = IAnnotations(member)
-        tracker = annotations.get(TRACKER_KEY, None)
-        if tracker is None or not hasattr(tracker, 'unassigned'):
-            tracker = Tracker()
-            annotations[TRACKER_KEY] = tracker
-
-        return tracker
-
-    def todo_tasks_per_project(self):
-        """Return our own tasks using a helper method from xm itself.
-        """
-        # Copied from tracker.AddTasks
-        context = aq_inner(self.context)
-        mytask_details = getMultiAdapter(
-            (context, self.request), name=u'mytask_details')
-        return mytask_details.projects()
 
     @kssaction
     def __call__(self):
