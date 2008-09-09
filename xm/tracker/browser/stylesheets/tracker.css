@@ -64,6 +64,7 @@ form {
 
 /* Start portalMessage settings from standard Plone */
 
+/* XXX this is no dtml so we cannot use dtml-fontSmallsize */
 dl.portalMessage {
     font-size: &dtml-fontSmallSize;;
 }
@@ -221,4 +222,38 @@ form.edit-in-progress .hidden-controls {
 /* Separate tasks from the start/stop stuff at the top. */
 .tracker-tasks {
     margin-top: 1em;
+}
+
+/* Site actions in the tracker area. */
+#xm-siteactions {
+  background-color:transparent;
+  float:right;
+  height:auto;
+  line-height:normal;
+  list-style-image:none;
+  list-style-type:none;
+  margin:1px 0pt 0pt;
+  padding:3px 2em 3px 0pt;
+  white-space:nowrap;
+}
+
+#xm-siteactions li {
+  display:inline;
+}
+
+#xm-siteactions li a {
+  background-color:transparent;
+  border:1px solid White;
+  color:#76797C;
+  height:auto;
+  margin-right:0.2em;
+  padding:0.2em;
+  text-decoration:none;
+  text-transform:none;
+  font-size: 95;
+}
+
+#xm-siteactions li a:hover {
+  background-color:#dee7ec;
+  border:1px solid #8cacbb;
 }
