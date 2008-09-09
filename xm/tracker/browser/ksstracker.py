@@ -1,12 +1,10 @@
 from Acquisition import aq_inner
 from kss.core import kssaction
 from plone.app.kss.plonekssview import PloneKSSView
-from zope.annotation.interfaces import IAnnotations
 from zope.component import getMultiAdapter
 import mx.DateTime
 
 from xm.tracker import XMTrackerMessageFactory as _
-from xm.tracker.tracker import Tracker
 from xm.tracker.browser.tracker import add_entry
 from xm.tracker.browser.tracker import AddTasks
 from xm.tracker.browser.viewlets import TaskViewlet
