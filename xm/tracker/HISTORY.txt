@@ -1,0 +1,7 @@
+Changelog for xm.tracker
+========================
+
+0.1 (unreleased)
+----------------
+
+- First version. [maurits, reinout, jldage, simon]
