@@ -129,6 +129,18 @@
     toggleClass-value: task-details-expanded;
 }
 
+/* Select task if register input field is selected. */
+
+.track-form input:focus {
+    action-client: addClass parentnode('.task');
+    addClass-value: 'task-selected';
+}
+
+.track-form input:blur {
+    action-client: removeClass parentnode('.task');
+    removeClass-value: 'task-selected';
+}
+
 
 /* Book unassigned entries to tasks */
 
