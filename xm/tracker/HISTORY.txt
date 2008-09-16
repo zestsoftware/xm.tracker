@@ -1,8 +1,8 @@
 Changelog for xm.tracker
 ========================
 
-0.2 (unreleased)
-----------------
+0.1.1 (2008-09-16)
+------------------
 
 - Removed egenix-mx-base from the install_requires of setup.py as it
   is not easy_installable.  Improved docs/INSTALL.txt to explain about
