@@ -9,6 +9,13 @@ using a traditional Zope 2 instance, you can do this:
    (and EasyInstall) here:
    http://peak.telecommunity.com/DevCenter/EasyInstall
 
+ * Install mxBase from Egenix; this is needed as we use mx.DateTime.
+   It is not easy_installable, so get it here:
+   http://www.egenix.com/products/python/mxBase/
+
+   Your operating system may have a package already that you can
+   install.  On Ubuntu it is python2.4-egenix-mxdatetime.
+
  * If you are using Zope 2.9 (not 2.10), get `pythonproducts`_ and install it 
    via::
 
@@ -44,6 +51,21 @@ recipe to manage your project, you can do this:
     zcml =
         xm.tracker
         
+ * Install mxBase from Egenix.  On Linux/Max you can use a buildout recipe:
+
+   [buildout]
+   # mx-base has to be the first part
+   parts = mx-base ...
+   ...
+   [mx-base]
+   recipe = collective.recipe.mxbase
+
+   On Windows we have seen this fail.  In that case, you can get an
+   installer here: http://www.egenix.com/products/python/mxBase/
+
+   Your operating system may have a package already that you can
+   install instead.  On Ubuntu it is python2.4-egenix-mxdatetime.
+
   * Re-run buildout, e.g. with:
   
     $ ./bin/buildout
