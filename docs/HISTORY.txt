@@ -1,8 +1,1 @@
-History
-=======
-
-0.1 - Unreleased
-----------------
-
-  - Get the initial view up and running [jladage]
-
+For history, see xm/tracker/HISTORY.txt.
