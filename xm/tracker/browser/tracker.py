@@ -122,8 +122,10 @@ def book(caller, xmtask, entries):
     for day, booking in bookings_per_day.items():
         # Round the time to the nearest quarter of an hour.
         time = round_time_to_quarter_hours(booking['time'])
-        hours = time.hours
-        minutes = time.minutes
+        # Watch out: time.minutes is the minutes you want *plus*
+        # time.hours times 60... So we use time.tuple() instead and we
+        # ignore days and seconds.
+        days, hours, minutes, seconds = time.tuple()
         day = DateTime(day)
         try:
             create_booking(xmtask,
