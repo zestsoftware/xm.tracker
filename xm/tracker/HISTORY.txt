@@ -1,7 +1,7 @@
 Changelog for xm.tracker
 ========================
 
-0.2 (unreleased)
+0.2 (2008-09-17)
 ----------------
 
 - Bug fix: a booking for 75 minutes would get stored as 1 hour and
