@@ -180,7 +180,13 @@ class TrackerView(BrowserView):
         time = now - previous
         return round(time.seconds)
 
+    def booked_today_string(self):
+        day_total = getMultiAdapter(
+            (self.context, self.request), name=u'daytotal')
+        return _(u'Total hours booked today: ${total}',
+                 mapping=dict(total=day_total.total()))
 
+        
 class AddTasks(TrackerView):
     """Make links to real xm tasks in the tracker.
     """

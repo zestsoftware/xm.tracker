@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xm.tracker 0.1\n"
-"POT-Creation-Date: 2008-09-09 14:28+0000\n"
-"PO-Revision-Date: 2008-09-09 16:31+0200\n"
+"POT-Creation-Date: 2008-09-18 16:10+0000\n"
+"PO-Revision-Date: 2008-09-18 18:10+0200\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Zest <xm@lists.zestsoftware.nl>\n"
 "MIME-Version: 1.0\n"
@@ -17,6 +17,10 @@ msgstr ""
 #: ./browser/entry.py:191
 msgid "Invalid time"
 msgstr "Tijd is niet in het goede formaat"
+
+#: ./browser/tracker.py:186
+msgid "Total hours booked today: ${total}"
+msgstr "Uren geboekt voor deze dag: ${total}"
 
 #. Default: "Book"
 #: ./browser/templates/unassigned_task_select.pt:36
@@ -44,7 +48,7 @@ msgid "help_time_tracked_task"
 msgstr "Tijd geregistreerd op deze taak (uren:minuten)"
 
 #. Default: "Book"
-#: ./browser/templates/task.pt:70
+#: ./browser/templates/task.pt:69
 msgid "label_book"
 msgstr "Boeken"
 
@@ -54,7 +58,7 @@ msgid "label_book_to_task"
 msgstr "Boek op taak"
 
 #. Default: "Book and close"
-#: ./browser/templates/task.pt:75
+#: ./browser/templates/task.pt:74
 msgid "label_close"
 msgstr "Boeken en afronden"
 
@@ -89,7 +93,7 @@ msgid "label_stop"
 msgstr "Stop en reset de klok"
 
 #. Default: "Added booking to task"
-#: ./browser/tracker.py:307
+#: ./browser/tracker.py:321
 msgid "msg_added_booking"
 msgstr "Boeking toegevoegd aan de taak"
 
@@ -99,12 +103,12 @@ msgid "msg_added_entry"
 msgstr "Entry toegevoegd"
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:448
+#: ./browser/tracker.py:462
 msgid "msg_close_task_failed"
 msgstr "Afronden van de taak is mislukt"
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:458
+#: ./browser/tracker.py:472
 msgid "msg_close_task_success"
 msgstr "Taak is afgesloten"
 
@@ -114,22 +118,22 @@ msgid "msg_empty_text"
 msgstr "Lege tekst, dit is niet toegestaan"
 
 #. Default: "Not permitted to add booking to task. Check if the task is in the correct state."
-#: ./browser/tracker.py:136
+#: ./browser/tracker.py:138
 msgid "msg_failed_add_booking"
 msgstr "Er kan niet geboekt worden op de daadwerkelijke taak. Controleer of de taak de correcte workflow staat heeft."
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:360
+#: ./browser/tracker.py:374
 msgid "msg_missing_description"
 msgstr "De entry is niet toegevoegd: voeg beschrijvende tekst toe."
 
 #. Default: "No task selected, cannot book entry."
-#: ./browser/tracker.py:270
+#: ./browser/tracker.py:284
 msgid "msg_missing_task"
 msgstr "Er is geen taak geselecteerd, boeken kan dus niet."
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:394
+#: ./browser/tracker.py:408
 msgid "msg_no_entries_found"
 msgstr "Deze taak is leeg"
 
@@ -139,7 +143,7 @@ msgid "msg_no_task_found"
 msgstr "Er is geen bijbehorende taak gevonden met het juiste UID"
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:368
+#: ./browser/tracker.py:382
 msgid "msg_no_tracking_without_starttime"
 msgstr "De tijd kan niet bijgehouden worden als de klok nog niet gestart is."
 

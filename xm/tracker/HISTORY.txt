@@ -4,6 +4,9 @@ Changelog for xm.tracker
 0.3 (unreleased)
 ----------------
 
+- Show the total hours booked today (real xm bookings) as a tooltip on
+  the timer.  [maurits+simon]
+
 - Do not store the portal_url in the task_url; copying a Data.fs from
   production to a development machine would give you a url to the
   tasks on the production site, which is not handy and can be
