@@ -4,6 +4,12 @@ Changelog for xm.tracker
 0.3 (unreleased)
 ----------------
 
+- Do not store the portal_url in the task_url; copying a Data.fs from
+  production to a development machine would give you a url to the
+  tasks on the production site, which is not handy and can be
+  dangerous.  After this change you need to remove existing tracker
+  tasks and add them again unfortunately.  [maurits+simon]
+
 - Bug fix: when the tracker pointed to a task with a Discussion Item
   (comment) in it you would get: 'TypeError: a float is required'.
   [maurits]

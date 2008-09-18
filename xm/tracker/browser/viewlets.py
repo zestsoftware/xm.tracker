@@ -70,6 +70,11 @@ class TaskViewlet(BrowserView):
         self.manager = manager
         self.task = None
 
+    def url(self):
+        portal_state = getMultiAdapter(
+            (self.context, self.request), name=u'plone_portal_state')
+        return portal_state.portal_url() + self.task.task_url
+
     def update(self):
         task_uid = self.request.get('task_uid', '')
         self.task = self.view.tracker().get_task(task_uid)

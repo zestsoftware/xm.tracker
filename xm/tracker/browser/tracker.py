@@ -196,6 +196,8 @@ class AddTasks(TrackerView):
                     continue
                 tracker.tasks.remove(task)
 
+        portal_state = getMultiAdapter(
+            (self.context, self.request), name=u'plone_portal_state')
         # Currently, we only support adding tasks to the
         # tracker that are already in the todo-list of this user,
         # which makes sense.
@@ -226,12 +228,16 @@ class AddTasks(TrackerView):
                     if task is not None:
                         # Task is already in the tracker.
                         continue
+                    # Strip off the portal_url from the url
+                    url = xm_task['url']
+                    url = url[len(portal_state.portal_url()):]
+
                     task = Task(xm_task['title'],
                                 uid = xm_task['UID'],
                                 story = xm_task['story_title'],
                                 project = projectbrain.Title,
                                 estimate = xm_task['estimate'],
-                                task_url = xm_task['url'])
+                                task_url = url)
                     tracker.tasks.append(task)
         self.request.response.redirect('@@tracker')
 
