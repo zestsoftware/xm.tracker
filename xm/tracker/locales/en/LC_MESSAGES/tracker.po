@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xm.tracker 0.1\n"
-"POT-Creation-Date: 2008-09-18 16:10+0000\n"
+"POT-Creation-Date: 2008-09-18 16:49+0000\n"
 "PO-Revision-Date: 2008-09-09 14:41 +0200\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
@@ -18,10 +18,6 @@ msgstr ""
 
 #: ./browser/entry.py:191
 msgid "Invalid time"
-msgstr ""
-
-#: ./browser/tracker.py:186
-msgid "Total hours booked today: ${total}"
 msgstr ""
 
 #. Default: "Book"
@@ -95,7 +91,7 @@ msgid "label_stop"
 msgstr ""
 
 #. Default: "Added booking to task"
-#: ./browser/tracker.py:321
+#: ./browser/tracker.py:326
 msgid "msg_added_booking"
 msgstr ""
 
@@ -105,12 +101,12 @@ msgid "msg_added_entry"
 msgstr ""
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:462
+#: ./browser/tracker.py:467
 msgid "msg_close_task_failed"
 msgstr ""
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:472
+#: ./browser/tracker.py:477
 msgid "msg_close_task_success"
 msgstr ""
 
@@ -125,17 +121,17 @@ msgid "msg_failed_add_booking"
 msgstr ""
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:374
+#: ./browser/tracker.py:379
 msgid "msg_missing_description"
 msgstr ""
 
 #. Default: "No task selected, cannot book entry."
-#: ./browser/tracker.py:284
+#: ./browser/tracker.py:289
 msgid "msg_missing_task"
 msgstr ""
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:408
+#: ./browser/tracker.py:413
 msgid "msg_no_entries_found"
 msgstr ""
 
@@ -145,7 +141,7 @@ msgid "msg_no_task_found"
 msgstr ""
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:382
+#: ./browser/tracker.py:387
 msgid "msg_no_tracking_without_starttime"
 msgstr ""
 
@@ -167,6 +163,11 @@ msgstr ""
 #. Default: "Stopped the timer"
 #: ./browser/ksstracker.py:43
 msgid "msg_stopped_timer"
+msgstr ""
+
+#. Default: "Total hours booked and tracked today: ${total}"
+#: ./browser/tracker.py:190
+msgid "msg_total_booked_tracked"
 msgstr ""
 
 #. Default: "Entry updated"

@@ -183,8 +183,13 @@ class TrackerView(BrowserView):
     def booked_today_string(self):
         day_total = getMultiAdapter(
             (self.context, self.request), name=u'daytotal')
-        return _(u'Total hours booked today: ${total}',
-                 mapping=dict(total=day_total.total()))
+        booked = day_total.raw_total()
+        tracked = sum([task.total_time() for task in self.tracker().tasks])
+        total = mx.DateTime.DateTimeDeltaFrom(hours=booked) + tracked
+        total = total.strftime('%H:%M')
+        return _(u'msg_total_booked_tracked',
+                 default=u'Total hours booked and tracked today: ${total}',
+                 mapping=dict(total=total))
 
         
 class AddTasks(TrackerView):
