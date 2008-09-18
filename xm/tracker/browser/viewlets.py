@@ -90,12 +90,20 @@ class TaskViewlet(BrowserView):
         tools = getMultiAdapter((self.context, self.request),
                                 name=u'plone_tools')
         brains = tools.catalog()({'UID': self.task.uid})
-        xm_task = brains[0]
+        
+        estimate = 0.0
+        actual = 0.0
+        for brain in brains:
+            # brain can be a Discussion Item on a Task...
+            if brain.estimate is not None:
+                estimate = brain.estimate
+                actual = brain.actual_time
+                break
 
-        available = mx.DateTime.DateTimeDeltaFrom(hours=xm_task.estimate)
+        available = mx.DateTime.DateTimeDeltaFrom(hours=estimate)
         our_time = self.task.total_time()
         already_booked = mx.DateTime.DateTimeDeltaFrom(
-            hours=xm_task.actual_time)
+            hours=actual)
         remaining = available - our_time - already_booked
         remaining = round_time_to_minutes(remaining)
         if remaining < 0:

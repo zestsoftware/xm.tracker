@@ -4,7 +4,9 @@ Changelog for xm.tracker
 0.3 (unreleased)
 ----------------
 
-- nothing yet
+- Bug fix: when the tracker pointed to a task with a Discussion Item
+  (comment) in it you would get: 'TypeError: a float is required'.
+  [maurits]
 
 
 0.2 (2008-09-17)
