@@ -45,10 +45,13 @@
       </form>
       <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
       <h1 id="timer"
-          tal:content="view/time_spent"
+          tal:define="time_spent view/time_spent"
           tal:attributes="class python:'kssattr-timerstart-%s' % view.seconds_spent();
                           title view/booked_today_string"
-          i18n:attributes="title" />
+          i18n:attributes="title">
+          <span tal:replace="string:${time_spent/hour}:${time_spent/minute}"/><span 
+                class="timer-second" tal:content="string::${time_spent/second}"/>
+      </h1>
 
       <h1 class="documentFirstHeading"
           i18n:translate="head_timetracker">Time Tracker</h1>

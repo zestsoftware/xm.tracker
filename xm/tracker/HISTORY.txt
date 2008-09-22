@@ -4,7 +4,9 @@ Changelog for xm.tracker
 0.4 (unreleased)
 ----------------
 
-- nothing yet
+- Added KSS and template changes to allow the 'seconds' part of the tracker 
+  timer to be individually styled. (This relates to kss.plugin.timer r72297.)
+  [simon]
 
 
 0.3 (2008-09-18)

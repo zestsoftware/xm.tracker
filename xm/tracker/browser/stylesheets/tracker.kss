@@ -95,8 +95,6 @@
 /* Client side timer */
 
 #start-timer:timer-start(mytimer) {
-    evt-timer-start-displayformat_nohours: '%0M:%0S';
-    evt-timer-start-displayformat_hours: '%h:%0M:%0S';
     evt-timer-start-preventdefault: true;
     action-server: kss_start_timer;
     action-client: removeAttribute;
@@ -114,11 +112,13 @@
 }
 
 #timer:timer-update(mytimer) {
-}
 /*
     action-client: log;
     log-message: pass(seconds);
 */
+    evt-timer-update-displayformat_nohours: '%0H:%0M<span class="timer-second">:%0S</span>';
+    evt-timer-update-displayformat_hours: '%0H:%0M<span class="timer-second">:%0S</span>';
+}
 
 
 /* Collapse and expand task details */

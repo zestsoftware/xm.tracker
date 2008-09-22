@@ -169,10 +169,13 @@ class TrackerView(BrowserView):
         now = mx.DateTime.now()
         previous = self.tracker().starttime or now
         time = now - previous
-        fmt = "%M:%S"
-        if time.hours > 1.0:
-            fmt = "%H:%M:%S"
-        return time.strftime(fmt)
+        # Zero-pad the strings
+        # fmt = "%H:%M:%S"
+        return {
+            'hour': time.strftime('%H'),
+            'minute': time.strftime('%M'),
+            'second': time.strftime('%S'),
+        }
 
     def seconds_spent(self):
         now = mx.DateTime.now()
