@@ -106,7 +106,8 @@ def split_entries(entries):
             if not result[day]['description']:
                 # Also add the text of the first entry to the description.
                 result[day]['description'] = result[day]['title']
-            result[day]['description'] += u'\n%s' % entry.text
+            result[day]['description'] += '\n%s' % entry.text
+            # ^^^ Note: no u'\n' above, as that gives unicodedecodeerrors.
             result[day]['time'] += entry.time
 
     return result
@@ -194,7 +195,7 @@ class TrackerView(BrowserView):
                  default=u'Total hours booked and tracked today: ${total}',
                  mapping=dict(total=total))
 
-        
+
 class AddTasks(TrackerView):
     """Make links to real xm tasks in the tracker.
     """
