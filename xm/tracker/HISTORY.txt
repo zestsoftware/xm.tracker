@@ -4,7 +4,10 @@ Changelog for xm.tracker
 0.4 (unreleased)
 ----------------
 
-- Added KSS and template changes to allow the 'seconds' part of the tracker 
+- Fixed http://plone.org/products/extreme-management-tool/issues/79 by
+  not using unicode in one small place. [reinout]
+
+- Added KSS and template changes to allow the 'seconds' part of the tracker
   timer to be individually styled. (This relates to kss.plugin.timer r72297.)
   [simon]
 
