@@ -4,6 +4,11 @@ Changelog for xm.tracker
 0.4 (unreleased)
 ----------------
 
+- Moved timer display to a separate viewlet. And added kss-refreshing of that
+  viewlet in two places so that the timer (and especially the tooltip showing
+  the booked hours) gets updated on stopping the timer, on editing the time of
+  an entry and on adding entries. [reinout]
+
 - Fixed http://plone.org/products/extreme-management-tool/issues/79 by
   not using unicode in one small place. [reinout]
 

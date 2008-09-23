@@ -40,6 +40,7 @@ class KSSStop(PloneKSSView):
         tracker.starttime = None
         zope = self.getCommandSet('zope')
         zope.refreshProvider('#startstop', 'xm.tracker.startstop')
+        zope.refreshProvider('#timer', 'xm.tracker.timer')
         message = _(u'msg_stopped_timer',
                     default=u'Stopped the timer')
         plone = self.getCommandSet("plone")
@@ -69,6 +70,8 @@ class KSSTaskRefresher(PloneKSSView):
         html = viewlet.render()
         core = self.getCommandSet("core")
         core.replaceHTML('#task-' + uid, html)
+        zope = self.getCommandSet('zope')
+        zope.refreshProvider('#timer', 'xm.tracker.timer')
 
 
 class KSSTrackTime(KSSTaskRefresher):

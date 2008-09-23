@@ -19,6 +19,12 @@
         factory="xm.tracker.browser.tracker.StartStopProvider"
         />
 
+    <zope:adapter
+        name="xm.tracker.timer"
+        provides="zope.contentprovider.interfaces.IContentProvider"
+        factory="xm.tracker.browser.tracker.TimerProvider"
+        />
+
     <page
         name="tracker_start"
         class=".tracker.Start"

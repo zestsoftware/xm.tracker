@@ -166,35 +166,6 @@ class TrackerView(BrowserView):
 
         return tracker
 
-    def time_spent(self):
-        now = mx.DateTime.now()
-        previous = self.tracker().starttime or now
-        time = now - previous
-        # Zero-pad the strings
-        # fmt = "%H:%M:%S"
-        return {
-            'hour': time.strftime('%H'),
-            'minute': time.strftime('%M'),
-            'second': time.strftime('%S'),
-        }
-
-    def seconds_spent(self):
-        now = mx.DateTime.now()
-        previous = self.tracker().starttime or now
-        time = now - previous
-        return round(time.seconds)
-
-    def booked_today_string(self):
-        day_total = getMultiAdapter(
-            (self.context, self.request), name=u'daytotal')
-        booked = day_total.raw_total()
-        tracked = sum([task.total_time() for task in self.tracker().tasks])
-        total = mx.DateTime.DateTimeDeltaFrom(hours=booked) + tracked
-        total = total.strftime('%H:%M')
-        return _(u'msg_total_booked_tracked',
-                 default=u'Total hours booked and tracked today: ${total}',
-                 mapping=dict(total=total))
-
 
 class AddTasks(TrackerView):
     """Make links to real xm tasks in the tracker.
@@ -279,7 +250,7 @@ class AddTasks(TrackerView):
                 good_tasks[xm_task['UID']] = xm_task
         bad_tasks = []
         for task in tracker.tasks:
-            if not good_tasks.has_key(task.uid):
+            if not task.uid in good_tasks:
                 bad_tasks.append(task)
         return bad_tasks
 
@@ -349,6 +320,51 @@ class StartStopProvider(Explicit):
     def update(self):
         tracker = self.context.restrictedTraverse('@@tracker').tracker()
         self.is_started = bool(tracker.starttime)
+
+
+class TimerProvider(Explicit):
+    """ This view renders the timer
+    """
+    adapts(Interface, IDefaultBrowserLayer, Interface)
+
+    render = ZopeTwoPageTemplateFile('templates/timer.pt')
+
+    def __init__(self, context, request, view):
+        self.context = context
+        self.request = request
+        self.__parent__ = view
+
+    def update(self):
+        self.tracker = self.context.restrictedTraverse('@@tracker').tracker()
+
+    def time_spent(self):
+        now = mx.DateTime.now()
+        previous = self.tracker.starttime or now
+        time = now - previous
+        # Zero-pad the strings
+        # fmt = "%H:%M:%S"
+        return {
+            'hour': time.strftime('%H'),
+            'minute': time.strftime('%M'),
+            'second': time.strftime('%S'),
+        }
+
+    def seconds_spent(self):
+        now = mx.DateTime.now()
+        previous = self.tracker.starttime or now
+        time = now - previous
+        return round(time.seconds)
+
+    def booked_today_string(self):
+        day_total = getMultiAdapter(
+            (self.context, self.request), name=u'daytotal')
+        booked = day_total.raw_total()
+        tracked = sum([task.total_time() for task in self.tracker.tasks])
+        total = mx.DateTime.DateTimeDeltaFrom(hours=booked) + tracked
+        total = total.strftime('%H:%M')
+        return _(u'msg_total_booked_tracked',
+                 default=u'Total hours booked and tracked today: ${total}',
+                 mapping=dict(total=total))
 
 
 class Stop(TrackerView):
