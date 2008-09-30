@@ -44,15 +44,16 @@
                id="defocus_target"/>
       </form>
       <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
-      <div tal:replace="structure provider:xm.tracker.timer" />
 
-      <h1 class="documentFirstHeading"
+       <h1 id="TimeTrackerHeader" class="documentFirstHeading"
           i18n:translate="head_timetracker">Time Tracker</h1>
+      <div class="TrackTimer">
+       <div tal:replace="structure provider:xm.tracker.startstop" />
 
-      <div tal:replace="structure provider:xm.tracker.startstop" />
 
       <form method="post"
-            action="">
+            action=""
+            class="SelectTasks">
         <div>
           <input type="submit"
                  name="select"
@@ -61,6 +62,9 @@
                  i18n:attributes="value label_select_tasks" />
         </div>
       </form>
+
+       <div tal:replace="structure provider:xm.tracker.timer" />
+     </div>
       <div class="tracker-tasks"
            tal:content="structure provider:xm.tracker.tasklist" />
     </div>

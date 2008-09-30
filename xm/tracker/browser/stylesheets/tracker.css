@@ -1,12 +1,32 @@
 
+.SelectTasks {
+    float:left;
+}
+
+.TrackTimer {
+    background-image: url(++resource++xm.tracker.images/backgroundheader.gif);
+    height: 30px;
+    border: 1px solid #bbb;
+    padding-top: 5px;
+}
+
+#TimeTrackerHeader {
+    background-color: #25a0ca;
+    color: white;
+    margin: 0px;
+    border: 1px solid #b2b9bc;
+}
+
 #content {
     margin: 3em 5em;
     padding: 3em 5em;
     overflow: visible;
+    background-color: #f1efe8;
 }
 
 #timer, .task-time {
-    float:right;
+    text-align: right;
+    margin: 0px;
 }
 #stop, #start {
     float:left;
