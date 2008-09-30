@@ -3,6 +3,13 @@
     float:left;
 }
 
+.TimerText {
+    font-size:12px;
+    padding-right: 2px;
+    vertical-align: middle;
+    font-weight: normal;
+}
+
 .TrackTimer {
     background-image: url(++resource++xm.tracker.images/backgroundheader.gif);
     height: 30px;
@@ -27,6 +34,12 @@
 #timer, .task-time {
     text-align: right;
     margin: 0px;
+    background-color: #fefefe;
+    float: right;
+    border-top: 1px solid #b2b2b2;
+    border-bottom:1px solid #b2b2b2;
+    height: 24px;
+    color: #535353;
 }
 #stop, #start {
     float:left;
