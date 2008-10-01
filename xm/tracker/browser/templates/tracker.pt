@@ -54,14 +54,13 @@
       <form method="post"
             action=""
             class="SelectTasks">
-        <div>
-					<span class="side-left"></span>
+        <div class="select-button">
           <input type="submit"
                  name="select"
                  id="select-tasks"
                  value="Select Tasks"
                  i18n:attributes="value label_select_tasks" />
-					<span class="side-right"></span>
+					<span></span>
         </div>
       </form>
 

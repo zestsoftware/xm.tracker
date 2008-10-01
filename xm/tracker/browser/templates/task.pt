@@ -50,7 +50,7 @@
              name="text"
              tabindex="1"
              size="60" />
-		<span class="side-left-grey"></span>
+		<div class="register">
       <input id="track-time"
 						 type="submit"
              name="track"
@@ -58,7 +58,8 @@
                              disabled disabled;"
              i18n:attributes="value track_button"
              value="Track" />
-		<span class="side-right-grey"></span>
+		<span></span>
+		</div>
   </form>
   <div class="taskdetails"
        tal:attributes="id string:taskdetails-${task/uid};
@@ -71,24 +72,28 @@
       <form
           method="post"
           action="@@tracker_book">
-					<div class="book-button">
-								<span class="side-left-grey"></span>
-					<input id="book-button"
+					<input id="book-form"
 								 type="hidden"
                  name="uid"
                  tal:attributes="value task/uid" />
-								<span class="side-right-grey"></span>
-					</div>
-					<input type="submit"
+					<div class="book">
+					<input id="book-button"
+								 type="submit"
                  name="book"
                  class="book-button"
                  value="Book"
                  i18n:attributes="value label_book" />
-          <input type="submit"
+						<span></span>
+					</div>
+					<div class="book">
+					<input id="book-button"
+								 type="submit"
                  name="book_and_close"
                  class="book-button"
                  value="Book and close"
                  i18n:attributes="value label_close" />
+						<span></span>
+					</div>
       </form>
     </div>
     </tal:book>

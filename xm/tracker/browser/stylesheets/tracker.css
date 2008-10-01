@@ -72,9 +72,8 @@ h2, .discreet, .track-form, .tracker-book {
     overflow: visible;
 }
 
-#stop, #start, #select-tasks, #start-timer, #stop-timer, #track-time, #input-task, #book-button,
-.SelectTasks, .side-left , .side-right, .side-left-grey , .side-right-grey, .entry_table, .remove-entry,
-.tracker-book{
+#stop, #start, #select-tasks, #start-timer, #stop-timer, #track-time, #input-task, 
+.book-button, .SelectTasks, .entry_table, .remove-entry, .tracker-book{
   float: left;
 }
 
@@ -85,16 +84,15 @@ h2, .discreet, .track-form, .tracker-book {
 
 #input-task{
 	margin: 0 0 20px 0;
+	padding: 6px 0 0 0;
 }
 
 /* begin start-timer button */
-.start-button .side-left {
-  margin: 0;
-  height: 26px;
-  width: 4px;
-  height: 26px;
-  display: block;
-  background: url(++resource++xm.tracker.images/side-left-green.gif) transparent;
+.start-button {
+	float: left;
+  background: url(++resource++xm.tracker.images/side-left-green.gif) no-repeat transparent;
+	margin-left: 4px;
+	padding: 0 0 0 4px;
 }
 
 #start-timer{
@@ -107,22 +105,20 @@ h2, .discreet, .track-form, .tracker-book {
   cursor: pointer;
 }
 
-.start-button .side-right {
-  margin: 0 8px 0 0;
-  height: 26px;
-  width: 4px;
-  display: block;
-  background: url(++resource++xm.tracker.images/side-right-green.gif) transparent;
+.start-button span{
+  background: url(++resource++xm.tracker.images/side-right-green.gif) no-repeat transparent;
+	float: left;
+	width: 10px;
+	height: 40px;
 }
  /* end start-timer button */
  
  /* begin stop-timer button */
-.stop-button .side-left {
-  margin: 0;
-  height: 26px;
-  width: 4px;
-  display: block;
-  background: url(++resource++xm.tracker.images/side-left-red.gif) transparent;
+.stop-button {
+	float: left;
+  background: url(++resource++xm.tracker.images/side-left-red.gif) no-repeat transparent;
+	margin-left: 4px;
+	padding: 0 0 0 4px;
 }
 
 #stop-timer{
@@ -135,22 +131,20 @@ h2, .discreet, .track-form, .tracker-book {
   cursor: pointer;
 }
 
-.stop-button .side-right {
-  margin: 0 8px 0 0;
-  height: 26px;
-  width: 4px;
-  display: block;
-  background: url(++resource++xm.tracker.images/side-right-red.gif) transparent;
+.stop-button span{
+  background: url(++resource++xm.tracker.images/side-right-red.gif) no-repeat transparent;
+	float: left;
+	width: 10px;
+	height: 40px;
 }
  /* end stop-timer button */
 
 /* begin select-task button */
-.SelectTasks .side-left {
-  margin: 0 0 0 8px;
-  height: 26px;
-  width: 4px;
-  display: block;
-  background: url(++resource++xm.tracker.images/side-left-blue.gif) transparent;
+.select-button{
+	float: left;
+  background: url(++resource++xm.tracker.images/side-left-blue.gif) no-repeat transparent;
+	margin-left: 4px;
+	padding: 0 0 0 4px;
 }
 
 #select-tasks{
@@ -163,22 +157,20 @@ h2, .discreet, .track-form, .tracker-book {
   cursor: pointer;
   }
 
-.SelectTasks .side-right {
-  margin: 0 8px 0 0;
-  height: 26px;
-  width: 4px;
-  display: block;
-  background: url(++resource++xm.tracker.images/side-right-blue.gif) transparent;
+.select-button span{
+  background: url(++resource++xm.tracker.images/side-right-blue.gif) no-repeat transparent;
+	float: left;
+	width: 10px;
+	height: 40px;
 }
  /* end select-task button */
 
- /* begin grey button */
-.side-left-grey {
-  margin: 0 0 0 8px;
-  height: 26px;
-  width: 4px;
-  display: block;
-  background: url(++resource++xm.tracker.images/side-left-grey.gif) transparent;
+ /* begin register button */
+.register {
+	float: left;
+  background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent;
+	margin-left: 4px;
+	padding: 0 0 0 4px;
 }
 
 #track-time{
@@ -191,22 +183,11 @@ h2, .discreet, .track-form, .tracker-book {
   cursor: pointer;
   }
 
-#book-button{
-  margin: 0;
-  padding: 4px 6px;
-  height: 26px;
-  color: #535353;
-  background: url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x #d8d6cf;
-  border: 0;
-  cursor: pointer;
-  }
-
-.side-right-grey {
-  margin: 0 8px 0 0;
-  height: 26px;
-  width: 4px;
-  display: block;
-  background: url(++resource++xm.tracker.images/side-right-grey.gif) transparent;
+.register span {
+  background: url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat transparent;
+	float: left;
+	width: 10px;
+	height: 40px;
 }
  /* end grey button */
  
@@ -227,53 +208,56 @@ h2, .discreet, .track-form, .tracker-book {
 .task .bcontent, .task .b1, .task .b2, .task .b3, 
 .task .b4, .task .b1b, .task .b2b, .task .b3b, 
 .task .b4b {
-  display:block; 
-  overflow:hidden; 
+  display: block; 
+  overflow: hidden; 
 }
 
 .task .b1, .task .b2, .task .b3, .task .b1b, 
 .task .b2b, .task .b3b {
-  height:1px;
+  height: 1px;
 }
 
-.task .bcontent, .task .b2, .task .b3, .task .b4 {
-  background:#fff;
-  border-left:1px solid #999;
-  border-right:1px solid #999;
+.task .b2, .task .b3, .task .b4 {
+  background-color: #fff;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
 }
 
 .task .bcontent {
   height: 100%;
+	background: transparant;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
 }
 
 .task .b4b, .task .b3b, .task .b2b {
-  background:#ccc;
-  border-left:1px solid #999;
-  border-right:1px solid #999;
+  background: #ccc;
+  border-left: 1px solid #999;
+  border-right: 1px solid #999;
 }
 
 .task .b1 {
-  margin:0 5px;
-  background:#999;
+  margin: 0 5px;
+  background: #999;
 }
  
 .task .b2, .task .b2b {
-  margin:0 3px;
-  border-width:0 2px;
+  margin: 0 3px;
+  border-width: 0 2px;
 }
 
 .task .b3, .task .b3b {
-  margin:0 2px;
+  margin: 0 2px;
 }
 
 .task .b4, .task .b4b {
-  height:2px;
-  margin:0 1px;
+  height: 2px;
+  margin: 0 1px;
 }
 
 .task .b1b {
-  margin:0 5px;
-  background:#999;
+  margin: 0 5px;
+  background: #999;
 }
 
 /*  end task rounded borders  */ 
@@ -284,8 +268,8 @@ h2, .discreet, .track-form, .tracker-book {
     width: 100%;
 }
 
-.task-selected {
-    background-color: #dddddd;
+.tracker-tasks .task-selected {
+    background-color: #e3e1da;
 }
 
 .task-details-expanded div.taskdetails,
