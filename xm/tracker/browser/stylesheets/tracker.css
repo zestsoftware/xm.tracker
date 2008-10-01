@@ -1,8 +1,4 @@
-
-.SelectTasks {
-    float:left;
-}
-
+/* start - Tom CSS */
 .TimerText {
     font-size:12px;
     padding-right: 2px;
@@ -11,7 +7,7 @@
 }
 
 .TrackTimer {
-    background-image: url(++resource++xm.tracker.images/backgroundheader.gif);
+    background: #f1efe8 url(++resource++xm.tracker.images/backgroundheader.gif) repeat-x ;
     height: 30px;
     border: 1px solid #bbb;
     padding-top: 5px;
@@ -28,7 +24,7 @@
     margin: 3em 5em;
     padding: 3em 5em;
     overflow: visible;
-    background-color: #f1efe8;
+    background-color: #fff;
 }
 
 #timer, .task-time {
@@ -41,14 +37,247 @@
     height: 24px;
     color: #535353;
 }
-#stop, #start {
-    float:left;
-}
 
 .task {
     padding: 2em;
-    border-top: 1px solid #333;
 }
+
+/* end- Tom CSS */
+
+h2, .discreet, .track-form, .tracker-book {
+ padding: 0 34px;
+}
+
+.task-title {
+  display: block;
+  cursor: pointer;
+  background: url(++resource++xm.tracker.images/select_inactive.gif)  no-repeat scroll 38px center; 
+  padding: 3px 20px 3px 70px;
+  margin-top: 10px;
+}
+
+.task-title-unassigned {
+  display: block;
+  cursor: pointer;
+  padding: 0 20px 0 34px;
+}
+
+.time_entry {
+  padding: 0 16px;
+}
+
+#content {
+    margin: 20 5em;
+    padding: 3em 5em;
+    overflow: visible;
+}
+
+#stop, #start, #select-tasks, #start-timer, #stop-timer, #track-time, #input-task, #book-button,
+.SelectTasks, .side-left , .side-right, .side-left-grey , .side-right-grey, .entry_table, .remove-entry,
+.tracker-book{
+  float: left;
+}
+
+.tracker-book {
+	clear: both;
+	display: block;
+}
+
+#input-task{
+	margin: 0 0 20px 0;
+}
+
+/* begin start-timer button */
+.start-button .side-left {
+  margin: 0;
+  height: 26px;
+  width: 4px;
+  height: 26px;
+  display: block;
+  background: url(++resource++xm.tracker.images/side-left-green.gif) transparent;
+}
+
+#start-timer{
+  margin: 0;
+  padding: 4px;
+  height: 26px;
+  color: #255c04;
+  background: url(++resource++xm.tracker.images/gradient-green.gif) repeat-x #bafc51;
+  border: 0;
+  cursor: pointer;
+}
+
+.start-button .side-right {
+  margin: 0 8px 0 0;
+  height: 26px;
+  width: 4px;
+  display: block;
+  background: url(++resource++xm.tracker.images/side-right-green.gif) transparent;
+}
+ /* end start-timer button */
+ 
+ /* begin stop-timer button */
+.stop-button .side-left {
+  margin: 0;
+  height: 26px;
+  width: 4px;
+  display: block;
+  background: url(++resource++xm.tracker.images/side-left-red.gif) transparent;
+}
+
+#stop-timer{
+  margin: 0;
+  padding: 4px;
+  height: 26px;
+  color: #580404;
+  background: url(++resource++xm.tracker.images/gradient-red.gif) repeat-x #ff956c;
+  border: 0;
+  cursor: pointer;
+}
+
+.stop-button .side-right {
+  margin: 0 8px 0 0;
+  height: 26px;
+  width: 4px;
+  display: block;
+  background: url(++resource++xm.tracker.images/side-right-red.gif) transparent;
+}
+ /* end stop-timer button */
+
+/* begin select-task button */
+.SelectTasks .side-left {
+  margin: 0 0 0 8px;
+  height: 26px;
+  width: 4px;
+  display: block;
+  background: url(++resource++xm.tracker.images/side-left-blue.gif) transparent;
+}
+
+#select-tasks{
+  margin: 0;
+  padding: 4px 6px;
+  height: 26px;
+  color: #04515c;
+  background: url(++resource++xm.tracker.images/gradient-blue.gif) repeat-x #a4e8ff;
+  border: 0;
+  cursor: pointer;
+  }
+
+.SelectTasks .side-right {
+  margin: 0 8px 0 0;
+  height: 26px;
+  width: 4px;
+  display: block;
+  background: url(++resource++xm.tracker.images/side-right-blue.gif) transparent;
+}
+ /* end select-task button */
+
+ /* begin grey button */
+.side-left-grey {
+  margin: 0 0 0 8px;
+  height: 26px;
+  width: 4px;
+  display: block;
+  background: url(++resource++xm.tracker.images/side-left-grey.gif) transparent;
+}
+
+#track-time{
+  margin: 0;
+  padding: 4px 6px;
+  height: 26px;
+  color: #535353;
+  background: url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x #d8d6cf;
+  border: 0;
+  cursor: pointer;
+  }
+
+#book-button{
+  margin: 0;
+  padding: 4px 6px;
+  height: 26px;
+  color: #535353;
+  background: url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x #d8d6cf;
+  border: 0;
+  cursor: pointer;
+  }
+
+.side-right-grey {
+  margin: 0 8px 0 0;
+  height: 26px;
+  width: 4px;
+  display: block;
+  background: url(++resource++xm.tracker.images/side-right-grey.gif) transparent;
+}
+ /* end grey button */
+ 
+ /*  begin task rounded borders */
+.task {
+  clear: both;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 1.4em;
+  min-width: 620px;
+/* begin - IE6 NICE min-max workaround */
+  max-width: 800px;
+  width: auto !important;
+  width: 800px;
+/* end - IE6 NICE min-max workaround */  
+  }
+
+.task .bcontent, .task .b1, .task .b2, .task .b3, 
+.task .b4, .task .b1b, .task .b2b, .task .b3b, 
+.task .b4b {
+  display:block; 
+  overflow:hidden; 
+}
+
+.task .b1, .task .b2, .task .b3, .task .b1b, 
+.task .b2b, .task .b3b {
+  height:1px;
+}
+
+.task .bcontent, .task .b2, .task .b3, .task .b4 {
+  background:#fff;
+  border-left:1px solid #999;
+  border-right:1px solid #999;
+}
+
+.task .bcontent {
+  height: 100%;
+}
+
+.task .b4b, .task .b3b, .task .b2b {
+  background:#ccc;
+  border-left:1px solid #999;
+  border-right:1px solid #999;
+}
+
+.task .b1 {
+  margin:0 5px;
+  background:#999;
+}
+ 
+.task .b2, .task .b2b {
+  margin:0 3px;
+  border-width:0 2px;
+}
+
+.task .b3, .task .b3b {
+  margin:0 2px;
+}
+
+.task .b4, .task .b4b {
+  height:2px;
+  margin:0 1px;
+}
+
+.task .b1b {
+  margin:0 5px;
+  background:#999;
+}
+
+/*  end task rounded borders  */ 
+
 
 .task div.taskdetails {
     display: none;
@@ -90,6 +319,13 @@ form {
     display:none;
 }
 
+.remove-entry {
+  margin: 0;
+  padding: 0;
+  position: relative;
+  top: 4px;
+  right: 4px;
+}
 
 .task-title {
     cursor: pointer;

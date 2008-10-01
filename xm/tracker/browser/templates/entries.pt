@@ -17,7 +17,7 @@
                tal:attributes="value repeat/entry/index" />
         <input type="image"
                name="remove"
-               src="delete_icon.gif"
+	       src="++resource++xm.tracker.images/trash.gif"
                class="remove-entry"
                alt="Remove this entry"
                title="Remove this entry"
