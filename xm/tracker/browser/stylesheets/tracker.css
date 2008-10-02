@@ -6,45 +6,87 @@
     font-weight: normal;
 }
 
-.TrackTimer {
+#TrackTimer {
     background: #f1efe8 url(++resource++xm.tracker.images/backgroundheader.gif) repeat-x ;
     height: 30px;
-    border: 1px solid #bbb;
-    padding-top: 5px;
+    border-top: 1px solid #fff;
+    border-right: 1px solid #bbb;
+		border-bottom: 1px solid #fff;
+		border-left: 1px solid #bbb;
+    padding: 5px 0 0 5px;
 }
 
 #TimeTrackerHeader {
-    background-color: #25a0ca;
+    background: #25a0ca url(++resource++xm.tracker.images/clock_ico_white.gif) no-repeat 4px center;
+		border-top: 1px solid #cfcfcf;
+    border-bottom: 1px solid #b2b9bc;
     color: white;
-    margin: 0px;
-    border: 1px solid #b2b9bc;
+		font-size: 12pt;
+		font: center;
+    margin: 0;
+		padding: 4px 0 4px 37px;
 }
 
 #content {
-    margin: 3em 5em;
-    padding: 3em 5em;
     overflow: visible;
-    background-color: #fff;
 }
 
-#timer, .task-time {
+.timer-container{
+	min-width: 620px;
+/* begin - IE6 NICE min-max workaround */
+  max-width: 893px;
+  width: auto !important;
+  width: 893px;
+/* end - IE6 NICE min-max workaround */  
+}
+
+#timer{
+		float: right;
+		display: block;	
     text-align: right;
-    margin: 0px;
     background-color: #fefefe;
-    float: right;
-    border-top: 1px solid #b2b2b2;
+		border-top: 1px solid #b2b2b2;
     border-bottom:1px solid #b2b2b2;
-    height: 24px;
+		height: 24px;
     color: #535353;
+		margin: 0;
+		padding: 0 18px;
 }
-
-.task {
-    padding: 2em;
-}
-
+	
 /* end- Tom CSS */
 
-h2, .discreet, .track-form, .tracker-book {
+#project-header{
+	padding-top: 13px;
+}
+
+#project-header a{
+	color:#2091b8;
+	font-size:200%;
+	font-weight:bold;
+	padding: 0 0.5em 0 1em;
+}
+
+#xm-header{
+	height: 72px;
+	background: #fff;
+}
+
+.seperator{
+ 	background: url(++resource++xm.tracker.images/seperator.gif) no-repeat;
+	float: left;
+	width: 3px;
+	height: 28px;
+	margin: 0 1px;
+}
+
+.detail-lines{
+	display: block;
+	background: blue;
+	border-bottom: 1px solid red;
+	height: 1px;
+}
+
+.discreet, .track-form, .tracker-book {
  padding: 0 34px;
 }
 
@@ -66,12 +108,6 @@ h2, .discreet, .track-form, .tracker-book {
   padding: 0 16px;
 }
 
-#content {
-    margin: 20 5em;
-    padding: 3em 5em;
-    overflow: visible;
-}
-
 #stop, #start, #select-tasks, #start-timer, #stop-timer, #track-time, #input-task, 
 .book-button, .SelectTasks, .entry_table, .remove-entry, .tracker-book{
   float: left;
@@ -88,6 +124,11 @@ h2, .discreet, .track-form, .tracker-book {
 }
 
 /* begin start-timer button */
+
+#startstop{
+	padding: 0 0 0 87px;
+}
+
 .start-button {
 	float: left;
   background: url(++resource++xm.tracker.images/side-left-green.gif) no-repeat transparent;
@@ -193,10 +234,9 @@ h2, .discreet, .track-form, .tracker-book {
  
  /*  begin task rounded borders */
 .task {
+	background: #fff;
   clear: both;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 1.4em;
+  margin: 0 0 10px;
   min-width: 620px;
 /* begin - IE6 NICE min-max workaround */
   max-width: 800px;
@@ -205,19 +245,19 @@ h2, .discreet, .track-form, .tracker-book {
 /* end - IE6 NICE min-max workaround */  
   }
 
-.task .bcontent, .task .b1, .task .b2, .task .b3, 
-.task .b4, .task .b1b, .task .b2b, .task .b3b, 
+.bcontent, .b1, .b2, .b3, 
+.b4, .b1b, .b2b, .b3b, 
 .task .b4b {
   display: block; 
   overflow: hidden; 
 }
 
-.task .b1, .task .b2, .task .b3, .task .b1b, 
-.task .b2b, .task .b3b {
+.b1, .b2, .b3, .b1b, 
+.b2b, .b3b {
   height: 1px;
 }
 
-.task .b2, .task .b3, .task .b4 {
+.b2, .b3, .b4 {
   background-color: #fff;
   border-left: 1px solid #999;
   border-right: 1px solid #999;
@@ -230,32 +270,32 @@ h2, .discreet, .track-form, .tracker-book {
   border-right: 1px solid #999;
 }
 
-.task .b4b, .task .b3b, .task .b2b {
+.b4b, .b3b, .b2b {
   background: #ccc;
   border-left: 1px solid #999;
   border-right: 1px solid #999;
 }
 
-.task .b1 {
+.b1 {
   margin: 0 5px;
   background: #999;
 }
  
-.task .b2, .task .b2b {
+.b2, .b2b {
   margin: 0 3px;
   border-width: 0 2px;
 }
 
-.task .b3, .task .b3b {
+.b3, .b3b {
   margin: 0 2px;
 }
 
-.task .b4, .task .b4b {
+.b4, .b4b {
   height: 2px;
   margin: 0 1px;
 }
 
-.task .b1b {
+.b1b {
   margin: 0 5px;
   background: #999;
 }
@@ -403,7 +443,7 @@ dl.error dd {
 
 body {
     font: 69% "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
-    background-color: White;
+		background: #f1efe8;
     color: Black;
     margin: 0;
     padding: 0;
@@ -435,11 +475,15 @@ hr {
     background-color: #8cacbb;
     margin: 0.5em 0 1em 0;
 }
+#project-header, h1, h2, h3, h4, h5, h6 {
+    font-family: "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
+
+}
 h1, h2, h3, h4, h5, h6 {
     color: Black;
-    font-family: "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
     margin: 0.75em 0 0.25em 0;
 }
+#project-header a,
 h1 a,
 h2 a,
 h3 a,
@@ -449,7 +493,7 @@ h6 a {
     color: Blac; ! important;
     text-decoration: none;
 }
-h1 {
+#project-header , h1 {
     font-size: 160%;
 }
 h2 {
@@ -483,19 +527,13 @@ li {
 
 /* Table mocked with divs as firefox makes a mockery out of our forms. */
 
-div.entry_table_cell {
+div.entry_table_cell, form.edit-in-progress .hidden-controls  {
     display: inline;
-}
-
-/* Entry edit form: hide/show buttons */
-
-form.edit-in-progress .hidden-controls {
-    display:inline;
 }
 
 /* Separate tasks from the start/stop stuff at the top. */
 .tracker-tasks {
-    margin-top: 1em;
+	padding: 0 0 0 100px;
 }
 
 /* Site actions in the tracker area. */
@@ -506,8 +544,8 @@ form.edit-in-progress .hidden-controls {
   line-height:normal;
   list-style-image:none;
   list-style-type:none;
-  margin:1px 0pt 0pt;
-  padding:3px 2em 3px 0pt;
+  margin:1px 0 0;
+  padding:3px 2em 3px 0;
   white-space:nowrap;
 }
 
