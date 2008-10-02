@@ -77,8 +77,7 @@
                  name="uid"
                  tal:attributes="value task/uid" />
 					<div class="book">
-					<input id="book-button"
-								 type="submit"
+					<input type="submit"
                  name="book"
                  class="book-button"
                  value="Book"
@@ -86,8 +85,7 @@
 						<span></span>
 					</div>
 					<div class="book">
-					<input id="book-button"
-								 type="submit"
+					<input type="submit"
                  name="book_and_close"
                  class="book-button"
                  value="Book and close"

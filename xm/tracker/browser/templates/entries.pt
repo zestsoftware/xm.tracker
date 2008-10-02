@@ -58,19 +58,24 @@
                  i18n:attributes="value label_book_to_task" />
         </tal:book_unassigned_form>
         <div class="hidden-controls">
+					<div class="savers">
           <input type="submit"
                  name="submit"
                  class="edit-entries-save"
                  value="Save"
                  i18n:domain="plone"
                  i18n:attributes="value label_save" />
-
+						<span></span>
+					</div>
+				<div class="savers">
           <input type="button"
                  name="cancel"
                  value="Cancel"
                  class="edit-entries-cancel"
                  i18n:domain="plone"
                  i18n:attributes="value label_cancel" />
+						<span></span>
+					</div>
         </div>
       </div>
     </form>
