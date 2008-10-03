@@ -55,8 +55,15 @@ recipe to manage your project, you can do this:
 
      [buildout]
      # mx-base has to be the first part
-     parts = mx-base ...
+     parts =
+         mx-base
+         ...
+
+     eggs =
+         egenix-mx-base
+         ...
      ...
+
      [mx-base]
      recipe = collective.recipe.mxbase
 
