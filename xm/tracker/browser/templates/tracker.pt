@@ -36,8 +36,8 @@
              i18n:translate="head_timetracker">Time Tracker</a>
         </li>
       </ul>
-			<div id="project-header"><a tal:attributes="href context/absolute_url">
-			Extreme management?</a></div>
+			<div id="project-header"><a tal:attributes="href context/absolute_url"
+			tal:content="context/portal_url/Title"></a></div>
     </div>
     <div id="content" tal:define="tracker view/tracker;
                                   putils context/plone_utils">

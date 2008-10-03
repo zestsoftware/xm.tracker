@@ -1,9 +1,12 @@
-/* start - Tom CSS */
 .TimerText {
-    font-size:12px;
-    padding-right: 2px;
+	  font-size:12px;
+    padding-right: 8px;
     vertical-align: middle;
     font-weight: normal;
+}
+
+.timer-second{
+		color: #969696;
 }
 
 #TrackTimer {
@@ -12,18 +15,21 @@
     border-top: 1px solid #fff;
     border-right: 1px solid #bbb;
 		border-bottom: 1px solid #fff;
-		border-left: 1px solid #bbb;
+		border-left: 1px solid #fff;
     padding: 5px 0 0 5px;
 }
 
 #TimeTrackerHeader {
-    background: #25a0ca url(++resource++xm.tracker.images/clock_ico_white.gif) no-repeat 4px center;
-    border-bottom: 1px solid #b2b9bc;
+    background: #35b4e0 url(++resource++xm.tracker.images/clock_ico_white.gif) no-repeat 43px center;
+		border-right: 1px solid #43a0c1;
+		border-top: 1px solid #31a9d2;
+		border-bottom: 1px solid #b2b9bc;
+    border-left: 1px solid #43a0c1;
     color: white;
 		font-size: 12pt;
 		font: center;
     margin: 0;
-		padding: 4px 0 4px 37px;
+		padding: 4px 0 4px 96px;
 }
 
 #content {
@@ -33,40 +39,47 @@
 .timer-container{
 	min-width: 620px;
 /* begin - IE6 NICE min-max workaround */
-  max-width: 893px;
+  max-width: 892px;
   width: auto !important;
-  width: 893px;
+  width: 892px;
 /* end - IE6 NICE min-max workaround */  
 }
 
-#timer{
+#timer, .task-time{
 		float: right;
 		display: block;	
     text-align: right;
-    background-color: #fefefe;
+    background-color: #fff;
 		border-top: 1px solid #b2b2b2;
     border-bottom:1px solid #b2b2b2;
 		height: 24px;
-    color: #535353;
 		margin: 0;
-		padding: 0 18px;
+}
+
+#timer{
+		padding-right: 19px;
+		padding-left: 18px;
 }
 	
-/* end- Tom CSS */
+.task-time{
+		float: right;
+		padding-right: 11px;
+		padding-left: 10px;
+}
 
 #project-header{
 	padding-top: 13px;
 }
 
 #project-header a{
-	color:#2091b8;
+	color:#43a0c1;
 	font-size:200%;
 	font-weight:bold;
 	padding: 0 0.5em 0 1em;
 }
 
 .header-container{
-	background: #fff;
+	background: #fefefe;
 	height: 72px;
 }
 
@@ -96,11 +109,16 @@
  padding: 0 34px;
 }
 
+
+#timer, .task-title , .task-title-unassigned {
+	color: #3e3e3e;
+}
+
 .task-title {
-  display: block;
+	display: block;
   cursor: pointer;
   background: url(++resource++xm.tracker.images/select_inactive.gif)  no-repeat scroll 38px center; 
-  padding: 3px 20px 3px 70px;
+  padding: 3px 12px 3px 70px;
   margin-top: 10px;
 }
 
@@ -136,7 +154,7 @@ form, #book-form, .hidden-controls, .savers, .book-button, .SelectTasks, .entry_
 /* begin start-timer button */
 
 #startstop{
-	padding: 0 0 0 87px;
+	padding: 0 0 0 82px;
 }
 
 .start-button {
@@ -248,7 +266,7 @@ form, #book-form, .hidden-controls, .savers, .book-button, .SelectTasks, .entry_
  
  /*  begin task rounded borders */
 .task {
-	background: #fff;
+	background: #fefefe;
   clear: both;
   margin: 0 0 10px;
   min-width: 620px;
@@ -358,10 +376,6 @@ form {
   position: relative;
   top: 4px;
   right: 4px;
-}
-
-.task-title {
-    cursor: pointer;
 }
 
 /* Start portalMessage settings from standard Plone */
