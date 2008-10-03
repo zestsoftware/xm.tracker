@@ -1,8 +1,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en-US"
-      lang="en-US"
-      i18n:domain="tracker">
-  <head>
+    lang="en-US"
+    i18n:domain="tracker">
+<head>
     <title i18n:translate="head_timetracker">Time Tracker</title>
 
     <script type="text/javascript" src="jquery.js">
@@ -17,60 +17,58 @@
     <link rel="stylesheet" type="text/css" href="++resource++xm.tracker.css/tracker.css" />
 
     <link rel="kinetic-stylesheet" type="text/css"
-          href="++resource++xm.tracker.css/tracker.kss" />
-  </head>
-  <body>
+        href="++resource++xm.tracker.css/tracker.kss" />
+</head>
+<body>
     <div id="overlay">
-      <img src="++resource++xm.tracker.images/loading.gif"
-           alt="..."/>
+    <img src="++resource++xm.tracker.images/loading.gif"
+        alt="..."/>
     </div>
     <div class="header-container">
-      <ul id="xm-siteactions">
+    <ul id="xm-siteactions">
         <li>
-          <a tal:attributes="href context/absolute_url"
-             i18n:domain="plone"
-             i18n:translate="label_home">Home</a>
+        <a tal:attributes="href context/absolute_url"
+            i18n:domain="plone"
+            i18n:translate="label_home">Home</a>
         </li>
         <li>
-          <a tal:attributes="href string:${context/absolute_url}/@@tracker"
-             i18n:translate="head_timetracker">Time Tracker</a>
+        <a tal:attributes="href string:${context/absolute_url}/@@tracker"
+            i18n:translate="head_timetracker">Time Tracker</a>
         </li>
-      </ul>
-			<div id="project-header"><a tal:attributes="href context/absolute_url"
-			tal:content="context/portal_url/Title"></a></div>
+    </ul>
+            <div id="project-header"><a tal:attributes="href context/absolute_url"
+            tal:content="context/portal_url/Title"></a></div>
     </div>
     <div id="content" tal:define="tracker view/tracker;
-                                  putils context/plone_utils">
-      <form style="display: none;">
+                                putils context/plone_utils">
+    <form style="display: none;">
         <input name="just_for_defocussing_with_kss"
-               id="defocus_target"/>
-      </form>
-      <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
-       					 	<span class="detail-lines-top"></span>
-			 <h1 id="TimeTrackerHeader" class="documentFirstHeading"
-          i18n:translate="head_timetracker">Time Tracker</h1>
-      <div id="TrackTimer">
-					<span class="seperator"></span>
-			<div tal:replace="structure provider:xm.tracker.startstop" />
-					<span class="seperator"></span><span class="seperator"></span>
-			<form method="post"
-            action=""
-            class="SelectTasks">
-        <div class="select-button">
-          <input type="submit"
-                 name="select"
-                 id="select-tasks"
-                 value="Select Tasks"
-                 i18n:attributes="value label_select_tasks" />
-					<span></span>
+            id="defocus_target"/>
+    </form>
+    <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
+        <span class="detail-lines-top"></span>
+        <h1 id="TimeTrackerHeader" class="documentFirstHeading"
+            i18n:translate="head_timetracker">Time Tracker</h1>
+        <div id="TrackTimer">
+            <span class="seperator"></span>
+            <div tal:replace="structure provider:xm.tracker.startstop" />
+            <span class="seperator"></span><span class="seperator"></span>
+            <form method="post"
+                action=""
+                class="SelectTasks">
+                <div class="select-button">
+                    <input type="submit"
+                        name="select"
+                        id="select-tasks"
+                        value="Select Tasks"
+                        i18n:attributes="value label_select_tasks" />
+                </div>
+            </form>
+            <div tal:replace="structure provider:xm.tracker.timer" />
         </div>
-      </form>
-       <div tal:replace="structure provider:xm.tracker.timer" />
-     </div>
-		 	<span class="detail-lines-bottom"></span>
-      <div class="tracker-tasks"
-
-           tal:content="structure provider:xm.tracker.tasklist" />
+        <span class="detail-lines-bottom" />
+    <div class="tracker-tasks"
+        tal:content="structure provider:xm.tracker.tasklist" />
     </div>
-  </body>
+</body>
 </html>

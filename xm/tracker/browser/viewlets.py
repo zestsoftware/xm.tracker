@@ -17,6 +17,9 @@ logger = logging.getLogger('taskviewlets')
 
 
 class TaskListManager(Explicit):
+    """ Viewlet manager - renders each task grouped by project
+    """
+    render = ZopeTwoPageTemplateFile('templates/tasklist.pt')
 
     def __init__(self, context, request, view):
         self.context = context
@@ -30,7 +33,7 @@ class TaskListManager(Explicit):
         # XXX make a separate function instead of doing this in update()?
         self.tracker = tracker_view.tracker()
 
-        rows = []
+        projects = {}
         tasks = self.tracker.tasks[:]
 
         tasks.append(self.tracker.unassigned)
@@ -40,14 +43,17 @@ class TaskListManager(Explicit):
                 (context, self.request, self.__parent__, self),
                 IViewlet, name=u'xm.tracker.task')
             viewlet.update()
-            rows.append(viewlet)
-        self.rows = rows
+            key = task.project
+            if key not in projects:
+                projects[key] = []
+            projects[key].append(viewlet)
 
-    def render(self, *args, **kw):
-        result = u''
-        for row in self.rows:
-            result += row.render()
-        return result
+        # Compile a TAL-friendly list of dicts - {project name: task list}
+        self.projects = [dict(name=n, tasks=t) for n, t in projects.items()]
+        # Reverse sort the list so that the unassigned task (project name is 
+        # None) is at the bottom...
+        self.projects.sort()
+        self.projects.reverse()
 
 
 class TaskViewlet(BrowserView):

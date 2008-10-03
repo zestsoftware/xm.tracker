@@ -4,6 +4,8 @@ Changelog for xm.tracker
 0.4 (unreleased)
 ----------------
 
+- Added project-grouping of tasks in the tracker view. [simon]
+
 - Moved timer display to a separate viewlet. And added kss-refreshing of that
   viewlet in two places so that the timer (and especially the tooltip showing
   the booked hours) gets updated on stopping the timer, on editing the time of

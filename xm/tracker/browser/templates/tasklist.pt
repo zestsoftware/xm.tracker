@@ -1,0 +1,5 @@
+<div tal:repeat="project view/projects" style="border: 1px dashed gray"
+     tal:attributes="class python: project['name'] and 'tracker-project' or 'unassigned-project'" >
+    <h1 tal:content="project/name" />
+    <tal:tasks repeat="task project/tasks" replace="structure task/render" />
+</div>
