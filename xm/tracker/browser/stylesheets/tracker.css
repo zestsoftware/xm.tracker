@@ -1,12 +1,14 @@
-.TimerText {
-	  font-size:12px;
-    padding-right: 8px;
-    vertical-align: middle;
-    font-weight: normal;
+.tracker-project, .unassigned-project{
+    padding-left: 100px;
+    border-bottom: 1px solid #fff;
+}
+
+h1.tracker-project{
+    color: red !important;
 }
 
 .timer-second{
-		color: #969696;
+    color: #969696;
 }
 
 #TrackTimer {
@@ -14,22 +16,22 @@
     height: 30px;
     border-top: 1px solid #fff;
     border-right: 1px solid #bbb;
-		border-bottom: 1px solid #fff;
-		border-left: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    border-left: 1px solid #fff;
     padding: 5px 0 0 5px;
 }
 
 #TimeTrackerHeader {
-    background: #35b4e0 url(++resource++xm.tracker.images/clock_ico_white.gif) no-repeat 43px center;
-		border-right: 1px solid #43a0c1;
-		border-top: 1px solid #31a9d2;
-		border-bottom: 1px solid #b2b9bc;
+    background: #35b4e0 url(++resource++xm.tracker.images/clock_ico_white.gif) no-repeat 16px center;
+    border-right: 1px solid #43a0c1;
+    border-top: 1px solid #31a9d2;
+    border-bottom: 1px solid #b2b9bc;
     border-left: 1px solid #43a0c1;
     color: white;
-		font-size: 12pt;
-		font: center;
+    font-size: 12pt;
+    font: center;
     margin: 0;
-		padding: 4px 0 4px 96px;
+    padding: 4px 0 4px 40px;
 }
 
 #content {
@@ -37,7 +39,7 @@
 }
 
 .timer-container{
-	min-width: 620px;
+    min-width: 620px;
 /* begin - IE6 NICE min-max workaround */
   max-width: 892px;
   width: auto !important;
@@ -46,290 +48,283 @@
 }
 
 #timer, .task-time{
-		float: right;
-		display: block;	
+    float: right;
+    display: block;
     text-align: right;
-    background-color: #fff;
-		border-top: 1px solid #b2b2b2;
-    border-bottom:1px solid #b2b2b2;
-		height: 24px;
-		margin: 0;
+    background-color: #fefefe;
+    border-top: 1px solid #e4e3de;
+    border-right: 1px solid #fefefe;
+    border-bottom: 1px solid #d1d2d2;
+    border-left: 1px solid #fff;
+    height: 24px;
+    margin: 0;
 }
 
 #timer{
-		padding-right: 19px;
-		padding-left: 18px;
+    padding-right: 29px;
+    padding-left: 28px;
 }
-	
+
 .task-time{
-		float: right;
-		padding-right: 11px;
-		padding-left: 10px;
+    float: right;
+    padding-right: 31px;
+    padding-left: 30px;
 }
 
 #project-header{
-	padding-top: 13px;
+    padding-top: 13px;
 }
 
 #project-header a{
-	color:#43a0c1;
-	font-size:200%;
-	font-weight:bold;
-	padding: 0 0.5em 0 1em;
+    color:#43a0c1;
+    font-size:200%;
+    font-weight:bold;
+    padding: 0 0.5em 0 1em;
 }
 
 .header-container{
-	background: #fefefe;
-	height: 72px;
-}
-
-.seperator{
- 	background: url(++resource++xm.tracker.images/seperator.gif) no-repeat;
-	float: left;
-	width: 3px;
-	height: 28px;
-	margin: 0 1px;
+    background: #fefefe;
+    height: 72px;
 }
 
 .detail-lines-top{
-	display: block;
-	border-top: 1px solid #f1efe8;
-	background: #cfcfcf;
-	height: 1px;
+    display: block;
+    border-top: 1px solid #f1efe8;
+    background: #cfcfcf;
+    height: 1px;
 }
 
 .detail-lines-bottom{
-	display: block;
-	background: #bebebe;
-	border-bottom: 1px solid #e3e1da;
-	height: 1px;
+    display: block;
+    background: #bebebe;
+    border-bottom: 1px solid #e3e1da;
+    height: 1px;
 }
 
 .discreet, .track-form, .tracker-book {
  padding: 0 34px;
 }
 
-
-#timer, .task-title , .task-title-unassigned {
-	color: #3e3e3e;
-}
-
 .task-title {
-	display: block;
-  cursor: pointer;
-  background: url(++resource++xm.tracker.images/select_inactive.gif)  no-repeat scroll 38px center; 
-  padding: 3px 12px 3px 70px;
-  margin-top: 10px;
+    display: block;
+    cursor: pointer;
+    background: url(++resource++xm.tracker.images/select_inactive.gif)  no-repeat scroll 38px center; 
+    padding: 3px 12px 3px 70px;
+    margin-top: 10px;
 }
 
 .task-title-unassigned {
-  display: block;
-  cursor: pointer;
-  padding: 0 20px 0 34px;
+    display: block;
+    cursor: pointer;
+    padding: 0 20px 0 34px;
 }
 
 .time_entry {
-  padding: 0 16px;
+    padding: 0 16px;
 }
 
-#stop, #start, #select-tasks, #start-timer, #stop-timer, #track-time, #input-task, 
-form, #book-form, .hidden-controls, .savers, .book-button, .SelectTasks, .entry_table, .remove-entry, .tracker-book{
-  float: left;
+#stop, #start, #select-tasks, 
+#start-timer, #stop-timer, #track-time, #input-task, 
+form, #book-form, .hidden-controls, .savers, 
+.book-button, .SelectTasks, .entry_table, .remove-entry, 
+.tracker-book{
+    float: left;
 }
 
 #book-form{
-	clear: both;
+    clear: both;
 }
 
 .tracker-book {
-	clear: both;
-	margin: 4px 0;
+    clear: both;
+    margin: 4px 0;
 }
 
 #input-task{
-	margin: 0 0 20px 0;
-	padding: 6px 0 0 0;
+    margin: 0 0 20px 0;
+    padding: 6px 0 0 0;
 }
 
 /* begin start-timer button */
 
 #startstop{
-	padding: 0 0 0 82px;
+    float: right;
+    padding-right: 12px;
 }
 
 .start-button {
-	float: left;
-  background: url(++resource++xm.tracker.images/side-left-green.gif) no-repeat transparent;
-	margin-left: 4px;
-	padding: 0 0 0 4px;
+    float: left;
+    background: url(++resource++xm.tracker.images/side-left-green.gif) no-repeat transparent;
+    margin-left: 4px;
+    padding: 0 0 0 4px;
 }
 
 #start-timer{
-  float: left;
-  margin: 0;
-  padding: 4px;
-  height: 26px;
-  color: #255c04;
-  background: url(++resource++xm.tracker.images/gradient-green.gif) repeat-x #bafc51;
-  border: 0;
-  cursor: pointer;
+    float: left;
+    margin: 0;
+    padding: 4px;
+    height: 26px;
+    color: #255c04;
+    background: url(++resource++xm.tracker.images/gradient-green.gif) repeat-x #bafc51;
+    border: 0;
+    cursor: pointer;
 }
 
 .start-button span{
-  background: url(++resource++xm.tracker.images/side-right-green.gif) no-repeat transparent;
-	float: left;
-	width: 10px;
-	height: 40px;
+    background: url(++resource++xm.tracker.images/side-right-green.gif) no-repeat transparent;
+    float: left;
+    width: 10px;
+    height: 40px;
 }
  /* end start-timer button */
- 
- /* begin stop-timer button */
-.stop-button {
-	float: left;
-  background: url(++resource++xm.tracker.images/side-left-red.gif) no-repeat transparent;
-	margin-left: 4px;
-	padding: 0 0 0 4px;
-}
-
-#stop-timer{
-  float: left;
-  margin: 0;
-  padding: 4px;
-  height: 26px;
-  color: #580404;
-  background: url(++resource++xm.tracker.images/gradient-red.gif) repeat-x #ff956c;
-  border: 0;
-  cursor: pointer;
-}
-
-.stop-button span{
-  background: url(++resource++xm.tracker.images/side-right-red.gif) no-repeat transparent;
-	float: left;
-	width: 10px;
-	height: 40px;
-}
- /* end stop-timer button */
 
 /* begin select-task button */
 .select-button{
-	float: left;
-  background: url(++resource++xm.tracker.images/side-left-blue.gif) no-repeat transparent;
-	margin-left: 4px;
-	padding: 0 0 0 4px;
+    float: left;
+    background: url(++resource++xm.tracker.images/side-left-blue.gif) no-repeat transparent;
+    margin-left: 81px;
+    padding: 0 0 0 4px;
 }
 
 #select-tasks{
-  float: left;
-  margin: 0;
-  padding: 4px 6px;
-  height: 26px;
-  color: #04515c;
-  background: url(++resource++xm.tracker.images/gradient-blue.gif) repeat-x #a4e8ff;
-	border: 0;
-  cursor: pointer;
+    float: left;
+    margin: 0;
+    padding: 4px 6px;
+    height: 26px;
+    color: #04515c;
+    background: url(++resource++xm.tracker.images/gradient-blue.gif) repeat-x #a4e8ff;
+    border: 0;
+    cursor: pointer;
   }
 
 .select-button span{
-  background: url(++resource++xm.tracker.images/side-right-blue.gif) no-repeat transparent;
-	float: left;
-	width: 10px;
-	height: 40px;
+    background: url(++resource++xm.tracker.images/side-right-blue.gif) no-repeat transparent;
+    float: left;
+    width: 10px;
+    height: 40px;
 }
  /* end select-task button */
+ 
+ /* begin stop-timer button */
+.stop-button {
+    float: left;
+    background: url(++resource++xm.tracker.images/side-left-red.gif) no-repeat transparent;
+    margin-left: 4px;
+    padding: 0 0 0 4px;
+}
+
+#stop-timer{
+    float: left;
+    margin: 0;
+    padding: 4px;
+    height: 26px;
+    color: #580404;
+    background: url(++resource++xm.tracker.images/gradient-red.gif) repeat-x #ff956c;
+    border: 0;
+    cursor: pointer;
+}
+
+.stop-button span{
+    background: url(++resource++xm.tracker.images/side-right-red.gif) no-repeat transparent;
+    float: left;
+    width: 10px;
+    height: 40px;
+}
+ /* end stop-timer button */
 
  /* begin grey buttons */
 .register, .book, .savers{
-	float: left;
-  background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent;
-	margin-left: 4px;
-	padding: 0 0 0 4px;
+    float: left;
+    background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent;
+    margin-left: 4px;
+    padding: 0 0 0 4px;
 }
 
 #track-time, .book-button, .edit-entries-save, .edit-entries-cancel{
-  float: left;
-	margin: 0;
-  padding: 4px 6px;
-  height: 26px;
-  background: url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x #d8d6cf;
-  border: 0;
-  cursor: pointer;
+    float: left;
+    margin: 0;
+    padding: 4px 6px;
+    height: 26px;
+    background: url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x #d8d6cf;
+    border: 0;
+    cursor: pointer;
   }
 
 .register span, .book span, .savers span, .savers span{
-  background: url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat transparent;
-	float: left;
-	width: 10px;
-	height: 40px;
+    background: url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat transparent;
+    float: left;
+    width: 10px;
+    height: 40px;
 }
 
  /* end grey buttons*/
  
  /*  begin task rounded borders */
 .task {
-	background: #fefefe;
-  clear: both;
-  margin: 0 0 10px;
-  min-width: 620px;
+    background: #fefefe;
+    clear: both;
+    margin: 0 0 10px;
+    min-width: 620px;
 /* begin - IE6 NICE min-max workaround */
-  max-width: 800px;
-  width: auto !important;
-  width: 800px;
+    max-width: 800px;
+    width: auto !important;
+    width: 800px;
 /* end - IE6 NICE min-max workaround */  
-  }
+}
 
 .bcontent, .b1, .b2, .b3, 
 .b4, .b1b, .b2b, .b3b, 
 .task .b4b {
-  display: block; 
-  overflow: hidden; 
+    display: block; 
+    overflow: hidden; 
 }
 
 .b1, .b2, .b3, .b1b, 
 .b2b, .b3b {
-  height: 1px;
+    height: 1px;
 }
 
 .b2, .b3, .b4 {
-  background-color: #fff;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+    background-color: #fff;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 .task .bcontent {
-  height: 100%;
-	background: transparant;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+    height: 100%;
+    background: transparant;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 .b4b, .b3b, .b2b {
-  background: #ccc;
-  border-left: 1px solid #ccc;
-  border-right: 1px solid #ccc;
+    background: #ccc;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
 }
 
 .b1 {
-  margin: 0 5px;
-  background: #ccc;
+    margin: 0 5px;
+    background: #ccc;
 }
  
 .b2, .b2b {
-  margin: 0 3px;
-  border-width: 0 2px;
+    margin: 0 3px;
+    border-width: 0 2px;
 }
 
 .b3, .b3b {
-  margin: 0 2px;
+    margin: 0 2px;
 }
 
 .b4, .b4b {
-  height: 2px;
-  margin: 0 1px;
+    height: 2px;
+    margin: 0 1px;
 }
 
 .b1b {
-  margin: 0 5px;
-  background: #ccc;
+    margin: 0 5px;
+    background: #ccc;
 }
 
 /*  end task rounded borders  */ 
@@ -342,6 +337,10 @@ form, #book-form, .hidden-controls, .savers, .book-button, .SelectTasks, .entry_
 
 .tracker-tasks .task-selected {
     background-color: #e3e1da;
+}
+
+.tracker-tasks{
+    padding-top: 2px;
 }
 
 .task-details-expanded div.taskdetails,
@@ -359,7 +358,6 @@ form, #book-form, .hidden-controls, .savers, .book-button, .SelectTasks, .entry_
 .portalMessage {
   align: center;
   top: 60px;
-
 }
 
 form {
@@ -498,13 +496,13 @@ hr {
     background-color: #8cacbb;
     margin: 0.5em 0 1em 0;
 }
-#project-header, h1, h2, h3, h4, h5, h6 {
+ h1, h2, h3, h4, h5, h6 {
     font-family: "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
-
-}
-h1, h2, h3, h4, h5, h6 {
-    color: Black;
     margin: 0.75em 0 0.25em 0;
+}
+#timer, .task-title , .task-title-unassigned,
+h1, h2, h3, h4, h5, h6 {
+    color: #3E3E3E;
 }
 #project-header a,
 h1 a,
@@ -519,6 +517,10 @@ h6 a {
 #project-header , h1 {
     font-size: 160%;
 }
+#project-header {
+    white-space: nowrap;
+}
+
 h2 {
     font-size: 150%;
 }
@@ -552,12 +554,7 @@ li {
 
 div.entry_table_cell, form.edit-in-progress .hidden-controls  {
     display: inline;
-		float: left;
-}
-
-/* Separate tasks from the start/stop stuff at the top. */
-.tracker-tasks {
-	padding-left: 100px;
+    float: left;
 }
 
 /* Site actions in the tracker area. */
