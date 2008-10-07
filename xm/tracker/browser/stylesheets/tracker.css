@@ -1,10 +1,44 @@
-.tracker-project, .unassigned-project{
-    padding-left: 100px;
-    border-bottom: 1px solid #fff;
+.unassigned-project {
+    margin: 0;
+    padding: 0;
 }
 
-h1.tracker-project{
-    color: red !important;
+#visual-wrapper {
+    padding: 0;
+    margin: 0 auto;
+    background-color: #faf9f4;
+    width: 999px;
+}
+
+.project-bottom-border {
+    bottom: 1px;
+    display: block;
+    height: 1px;
+    background: #a1a1a1;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #e3e3e3 #a1a1a1 #ccc #a1a1a1; 
+    margin-top: 24px;
+}
+
+.tracker-project h1{
+    width: 802px;
+    padding-bottom: 6px;
+}
+
+.tracker-project h1, #task_selection_form  h2 {
+    color: #808080 !important;
+}
+
+.tracker-project {
+    background-color: transparent;
+    padding-bottom: 10px;
+}
+
+.detail-line-project {
+    display: block;
+    height: 10px;
+    background: blue;
 }
 
 .timer-second{
@@ -12,39 +46,24 @@ h1.tracker-project{
 }
 
 #TrackTimer {
-    background: #f1efe8 url(++resource++xm.tracker.images/backgroundheader.gif) repeat-x ;
+    background: #f1efe8 url(++resource++xm.tracker.images/backgroundheader.gif) repeat-x;
+    border-color: #fff #d6d4d4 #fff #fff;
+    border-style:solid;
+    border-width:1px;
     height: 30px;
-    border-top: 1px solid #fff;
-    border-right: 1px solid #bbb;
-    border-bottom: 1px solid #fff;
-    border-left: 1px solid #fff;
-    padding: 5px 0 0 5px;
+    padding: 5px 84px 0 85px;
 }
 
 #TimeTrackerHeader {
-    background: #35b4e0 url(++resource++xm.tracker.images/clock_ico_white.gif) no-repeat 16px center;
-    border-right: 1px solid #43a0c1;
-    border-top: 1px solid #31a9d2;
-    border-bottom: 1px solid #b2b9bc;
-    border-left: 1px solid #43a0c1;
-    color: white;
+    background: #35b4e0;
+    border-color: #2797bd #75dbff #cfcfcf #2797bd;
+    border-style: solid;
+    border-width: 1px;
+    color: #fff;
     font-size: 12pt;
     font: center;
     margin: 0;
-    padding: 4px 0 4px 40px;
-}
-
-#content {
-    overflow: visible;
-}
-
-.timer-container{
-    min-width: 620px;
-/* begin - IE6 NICE min-max workaround */
-  max-width: 892px;
-  width: auto !important;
-  width: 892px;
-/* end - IE6 NICE min-max workaround */  
+    padding: 4px 0 4px 39px;
 }
 
 #timer, .task-time{
@@ -58,6 +77,7 @@ h1.tracker-project{
     border-left: 1px solid #fff;
     height: 24px;
     margin: 0;
+    padding:0;
 }
 
 #timer{
@@ -66,13 +86,13 @@ h1.tracker-project{
 }
 
 .task-time{
-    float: right;
     padding-right: 31px;
     padding-left: 30px;
 }
 
 #project-header{
     padding-top: 13px;
+    padding-bottom: 18px;
 }
 
 #project-header a{
@@ -80,11 +100,12 @@ h1.tracker-project{
     font-size:200%;
     font-weight:bold;
     padding: 0 0.5em 0 1em;
+    white-space: nowrap;
 }
 
 .header-container{
     background: #fefefe;
-    height: 72px;
+
 }
 
 .detail-lines-top{
@@ -146,16 +167,14 @@ form, #book-form, .hidden-controls, .savers,
 }
 
 /* begin start-timer button */
-
 #startstop{
-    float: right;
-    padding-right: 12px;
+    float: left;
 }
 
 .start-button {
+    clear: both;
     float: left;
     background: url(++resource++xm.tracker.images/side-left-green.gif) no-repeat transparent;
-    margin-left: 4px;
     padding: 0 0 0 4px;
 }
 
@@ -180,16 +199,16 @@ form, #book-form, .hidden-controls, .savers,
 
 /* begin select-task button */
 .select-button{
+    clear: both;
     float: left;
     background: url(++resource++xm.tracker.images/side-left-blue.gif) no-repeat transparent;
-    margin-left: 81px;
     padding: 0 0 0 4px;
 }
 
 #select-tasks{
     float: left;
     margin: 0;
-    padding: 4px 6px;
+    padding: 4px;
     height: 26px;
     color: #04515c;
     background: url(++resource++xm.tracker.images/gradient-blue.gif) repeat-x #a4e8ff;
@@ -209,7 +228,6 @@ form, #book-form, .hidden-controls, .savers,
 .stop-button {
     float: left;
     background: url(++resource++xm.tracker.images/side-left-red.gif) no-repeat transparent;
-    margin-left: 4px;
     padding: 0 0 0 4px;
 }
 
@@ -233,17 +251,16 @@ form, #book-form, .hidden-controls, .savers,
  /* end stop-timer button */
 
  /* begin grey buttons */
-.register, .book, .savers{
+#add-tasks, #cancel_add_tasks, .register, .book, .savers{
     float: left;
     background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent;
-    margin-left: 4px;
     padding: 0 0 0 4px;
 }
 
-#track-time, .book-button, .edit-entries-save, .edit-entries-cancel{
+#add-tasks, #cancel_add_tasks, #track-time, .book-button, .edit-entries-save, .edit-entries-cancel{
     float: left;
     margin: 0;
-    padding: 4px 6px;
+    padding: 4px;
     height: 26px;
     background: url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x #d8d6cf;
     border: 0;
@@ -261,15 +278,11 @@ form, #book-form, .hidden-controls, .savers,
  
  /*  begin task rounded borders */
 .task {
-    background: #fefefe;
+    display: block;
+    background-color: #fefefe;
     clear: both;
-    margin: 0 0 10px;
-    min-width: 620px;
-/* begin - IE6 NICE min-max workaround */
-    max-width: 800px;
-    width: auto !important;
+    margin-bottom: 10px;
     width: 800px;
-/* end - IE6 NICE min-max workaround */  
 }
 
 .bcontent, .b1, .b2, .b3, 
@@ -335,12 +348,10 @@ form, #book-form, .hidden-controls, .savers,
     width: 100%;
 }
 
-.tracker-tasks .task-selected {
-    background-color: #e3e1da;
-}
-
 .tracker-tasks{
-    padding-top: 2px;
+    background-color: transparent;
+    margin: 0;
+    padding: 2px 0;
 }
 
 .task-details-expanded div.taskdetails,
@@ -350,8 +361,14 @@ form, #book-form, .hidden-controls, .savers,
     margin-top: 1em;
 }
 
+
 .discreet {
     color:#76797c;
+}
+
+.tracker-project h1, .task {
+    margin-left: auto !important;
+    margin-right: auto !important;
 }
 
 /* Set different positioning on the portal status message. */
@@ -369,6 +386,7 @@ form {
 }
 
 .remove-entry {
+  clear: both;
   margin: 0;
   padding: 0;
   position: relative;
@@ -429,31 +447,32 @@ dl.error dd {
 /* End portalMessage settings from standard Plone */
 
 #overlay {
-    display: none;
-    position: absolute;
-    top: 0pt;
-    left: 0pt;
-    width: 100%;
-    height: 1000px;
     background-image: url(++resource++xm.tracker.images/overlay.png);
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
+
 #overlay img {
     position: absolute;
-    top: 350px;
-    left: 300px;
+    top: 160px;
+    left: 20%;
 }
 
 #task_selection_form {
-  display: block;
-  position: absolute;
-  left: 50px;
-  width: 600px;
-  height: 600px;
-  overflow: auto;
-  top: 50px;
-  padding: 20px;
-  background-color: white;
-  z-index: 500;
+    background-color: white;
+    display: block;
+    height: 600px;
+    left: 20%;
+    overflow: auto;
+    padding: 20px;
+    position: absolute;
+    top: 50px;
+    width: 600px;
+    z-index: 500;
 }
 
 .inline {
@@ -464,11 +483,10 @@ dl.error dd {
 
 body {
     font: 69% "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
-		background: #f1efe8;
+    background: #f3f2ec;
     color: Black;
     margin: 0;
     padding: 0;
-    overflow-y: scroll;
 }
 table {
     font-size: 100%;
@@ -516,9 +534,6 @@ h6 a {
 }
 #project-header , h1 {
     font-size: 160%;
-}
-#project-header {
-    white-space: nowrap;
 }
 
 h2 {

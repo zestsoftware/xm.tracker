@@ -46,20 +46,20 @@
              name="uid"
              tal:attributes="value task/uid" />
       <input id="input-task"
-						 type="text"
+             type="text"
              name="text"
              tabindex="1"
              size="60" />
-		<div class="register">
+        <div class="register">
       <input id="track-time"
-						 type="submit"
+            type="submit"
              name="track"
              tal:attributes="class string:track-time kssattr-uid-${task/uid};
                              disabled disabled;"
              i18n:attributes="value track_button"
              value="Track" />
-		<span></span>
-		</div>
+        <span></span>
+        </div>
   </form>
   <div class="taskdetails"
        tal:attributes="id string:taskdetails-${task/uid};
@@ -72,12 +72,12 @@
       <form
           method="post"
           action="@@tracker_book">
-					<input id="book-form"
-								 type="hidden"
+                <input id="book-form"
+                type="hidden"
                  name="uid"
                  tal:attributes="value task/uid" />
-					<div class="book">
-					<input type="submit"
+                    <div class="book">
+                    <input type="submit"
                  name="book"
                  class="book-button"
                  value="Book"
@@ -100,5 +100,5 @@
   <span class="b4b"></span>
 	<span class="b3b"></span>
 	<span class="b2b"></span>
-	<span class="b1b"></span>	
+	<span class="b1b"></span>
 </div>
