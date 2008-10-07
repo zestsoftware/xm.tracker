@@ -141,7 +141,7 @@
 }
 
 .time_entry {
-    padding: 0 16px;
+    padding: 0 16px 40px;
 }
 
 #stop, #start, #select-tasks, 
@@ -271,7 +271,7 @@ form, #book-form, .hidden-controls, .savers,
     background: url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat transparent;
     float: left;
     width: 10px;
-    height: 40px;
+    height: 25px;
 }
 
  /* end grey buttons*/
@@ -570,6 +570,7 @@ li {
 div.entry_table_cell, form.edit-in-progress .hidden-controls  {
     display: inline;
     float: left;
+    padding-bottom: 5px;
 }
 
 /* Site actions in the tracker area. */
