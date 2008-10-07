@@ -1,7 +1,23 @@
-div.task-details-expanded > .b2, div.task-details-expanded > .b3, div.task-details-expanded > .b4, div.task-details-expanded > .bcontent, div.task-selected > .b2, div.task-selected > .b3, div.task-selected > .b4, div.task-selected > .bcontent {
-    background-color: green;
+div.task-details-expanded > .b2, 
+div.task-details-expanded > .b3, 
+div.task-details-expanded > .b4, 
+div.task-details-expanded > .bcontent, 
+div.task-details-expanded > .b4b, 
+div.task-details-expanded > .b3b, 
+div.task-details-expanded > .b2b, 
+div.task-selected > .b2, 
+div.task-selected > .b3, 
+div.task-selected > .b4, 
+div.task-selected > .bcontent,
+div.task-selected > .b4b, 
+div.task-selected > .b3b, 
+div.task-selected > .b2b{
+    background-color: #e3e1da;
 }
 
+.edit-entries {
+    background-color: transparent;
+}
 
 .unassigned-project {
     margin: 0;
@@ -16,9 +32,6 @@ div.task-details-expanded > .b2, div.task-details-expanded > .b3, div.task-detai
 }
 
 .project-bottom-border {
-    bottom: 1px;
-    display: block;
-    height: 1px;
     background: #a1a1a1;
     border-style: solid;
     border-width: 1px;
@@ -110,21 +123,22 @@ div.task-details-expanded > .b2, div.task-details-expanded > .b3, div.task-detai
 
 .header-container{
     background: #fefefe;
+}
 
+.detail-lines-top, .detail-lines-bottom, .project-bottom-border{
+    display: block;
+    overflow: hidden; 
+    height: 1px;
 }
 
 .detail-lines-top{
-    display: block;
     border-top: 1px solid #f1efe8;
     background: #cfcfcf;
-    height: 1px;
 }
-
+    
 .detail-lines-bottom{
-    display: block;
     background: #bebebe;
     border-bottom: 1px solid #e3e1da;
-    height: 1px;
 }
 
 .discreet, .track-form, .tracker-book {
@@ -146,7 +160,8 @@ div.task-details-expanded > .b2, div.task-details-expanded > .b3, div.task-detai
 }
 
 .time_entry {
-    padding: 0 16px 40px;
+    padding: 0 0 0 40px;
+    clear
 }
 
 #stop, #start, #select-tasks, 
@@ -157,18 +172,9 @@ form, #book-form, .hidden-controls, .savers,
     float: left;
 }
 
-#book-form{
-    clear: both;
-}
-
 .tracker-book {
     clear: both;
     margin: 4px 0;
-}
-
-#input-task{
-    margin: 0 0 20px 0;
-    padding: 6px 0 0 0;
 }
 
 /* begin start-timer button */
@@ -197,7 +203,7 @@ form, #book-form, .hidden-controls, .savers,
 .start-button span{
     background: url(++resource++xm.tracker.images/side-right-green.gif) no-repeat transparent;
     float: left;
-    width: 10px;
+    width: 4px;
     height: 25px;
 }
  /* end start-timer button */
@@ -250,16 +256,23 @@ form, #book-form, .hidden-controls, .savers,
 .stop-button span{
     background: url(++resource++xm.tracker.images/side-right-red.gif) no-repeat transparent;
     float: left;
-    width: 10px;
+    width: 4px;
     height: 25px;
 }
  /* end stop-timer button */
 
- /* begin grey buttons */
+ .tracker-book {
+    display: block !important;
+    /* don't forget -this width COULD give problems :) */
+    width: 100%;
+    white-space: nowrap;
+}
+ 
+  /* begin grey buttons */
 .task-buttons, .register, .book, .savers{
     float: left;
-    background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent;
-    padding: 0 0 0 4px;
+    background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent 6px 0;
+    padding: 0 0 0 10px;
 }
 
 #add-tasks, #cancel_add_tasks, #track-time, .book-button, .edit-entries-save, .edit-entries-cancel{
@@ -275,7 +288,7 @@ form, #book-form, .hidden-controls, .savers,
 .task-buttons span, .register span, .book span, .savers span, .savers span{
     background: url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat transparent;
     float: left;
-    width: 10px;
+    width: 4px;
     height: 25px;
 }
 
@@ -284,7 +297,7 @@ form, #book-form, .hidden-controls, .savers,
  /*  begin task rounded borders */
 .task {
     display: block;
-    background-color: #fefefe;
+    background-color: transparent;
     clear: both;
     margin-bottom: 10px;
     width: 800px;
@@ -310,20 +323,19 @@ form, #book-form, .hidden-controls, .savers,
 
 .task .bcontent {
     height: 100%;
-    background: transparant;
+    background-color: #fefefe;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
 }
 
 .b4b, .b3b, .b2b {
-    background: #ccc;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
 }
 
 .b1 {
     margin: 0 5px;
-    background: #ccc;
+    background-color: #ccc;
 }
  
 .b2, .b2b {
@@ -343,6 +355,18 @@ form, #book-form, .hidden-controls, .savers,
 .b1b {
     margin: 0 5px;
     background: #ccc;
+}
+
+.b2b {
+    background: #e5e2e2;
+}
+
+.b3b {
+    background: #f4f3f3;
+}
+
+.b4b {
+    background: #fff;
 }
 
 /*  end task rounded borders  */ 
@@ -575,7 +599,6 @@ li {
 div.entry_table_cell, form.edit-in-progress .hidden-controls  {
     display: inline;
     float: left;
-    padding-bottom: 5px;
 }
 
 /* Site actions in the tracker area. */
