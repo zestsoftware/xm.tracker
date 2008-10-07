@@ -1,3 +1,8 @@
+div.task-details-expanded > .b2, div.task-details-expanded > .b3, div.task-details-expanded > .b4, div.task-details-expanded > .bcontent, div.task-selected > .b2, div.task-selected > .b3, div.task-selected > .b4, div.task-selected > .bcontent {
+    background-color: green;
+}
+
+
 .unassigned-project {
     margin: 0;
     padding: 0;
@@ -193,7 +198,7 @@ form, #book-form, .hidden-controls, .savers,
     background: url(++resource++xm.tracker.images/side-right-green.gif) no-repeat transparent;
     float: left;
     width: 10px;
-    height: 40px;
+    height: 25px;
 }
  /* end start-timer button */
 
@@ -220,7 +225,7 @@ form, #book-form, .hidden-controls, .savers,
     background: url(++resource++xm.tracker.images/side-right-blue.gif) no-repeat transparent;
     float: left;
     width: 10px;
-    height: 40px;
+    height: 25px;
 }
  /* end select-task button */
  
@@ -246,7 +251,7 @@ form, #book-form, .hidden-controls, .savers,
     background: url(++resource++xm.tracker.images/side-right-red.gif) no-repeat transparent;
     float: left;
     width: 10px;
-    height: 40px;
+    height: 25px;
 }
  /* end stop-timer button */
 
