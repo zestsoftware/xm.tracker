@@ -251,7 +251,7 @@ form, #book-form, .hidden-controls, .savers,
  /* end stop-timer button */
 
  /* begin grey buttons */
-#add-tasks, #cancel_add_tasks, .register, .book, .savers{
+.task-buttons, .register, .book, .savers{
     float: left;
     background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent;
     padding: 0 0 0 4px;
@@ -267,7 +267,7 @@ form, #book-form, .hidden-controls, .savers,
     cursor: pointer;
   }
 
-.register span, .book span, .savers span, .savers span{
+.task-buttons span, .register span, .book span, .savers span, .savers span{
     background: url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat transparent;
     float: left;
     width: 10px;
@@ -459,7 +459,7 @@ dl.error dd {
 #overlay img {
     position: absolute;
     top: 160px;
-    left: 20%;
+    left: 45%;
 }
 
 #task_selection_form {

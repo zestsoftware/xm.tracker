@@ -82,23 +82,23 @@
                  class="book-button"
                  value="Book"
                  i18n:attributes="value label_book" />
-						<span></span>
-					</div>
-					<div class="book">
-					<input type="submit"
+                      <span></span>
+                    </div>
+                    <div class="book">
+                    <input type="submit"
                  name="book_and_close"
                  class="book-button"
                  value="Book and close"
                  i18n:attributes="value label_close" />
-						<span></span>
-					</div>
+                        <span></span>
+                 </div>
       </form>
     </div>
     </tal:book>
   </div>
   </div>
-  <span class="b4b"></span>
-	<span class="b3b"></span>
-	<span class="b2b"></span>
-	<span class="b1b"></span>
+    <span class="b4b"></span>
+    <span class="b3b"></span>
+    <span class="b2b"></span>
+    <span class="b1b"></span>
 </div>

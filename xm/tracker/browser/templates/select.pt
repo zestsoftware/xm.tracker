@@ -53,18 +53,24 @@
 
     <div id="form_buttons"
          i18n:domain="plone">
+      <div class="task-buttons">
       <input
           type="submit"
           name="select"
           id="add-tasks"
           value="Save"
           i18n:attributes="value label_save" />
+          <span></span>
+      </div>
+      <div class="task-buttons">
       <input
           type="button"
           name="cancel"
           id="cancel_add_tasks"
           value="Cancel"
           i18n:attributes="value label_cancel" />
+          <span></span>
+      </div>
     </div>
   </form>
 
