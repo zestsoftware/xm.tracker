@@ -7,6 +7,10 @@
     -portalMessage - in Header?
 */
     
+.timer-container {
+    padding: 0;
+    margin: 0;
+}
     
 #input-task, .entry_text_time_edit {
     margin: 4px 0 0 0;
@@ -25,24 +29,27 @@
     margin-left: 6px;
 }
     
-/* bcontent  task-select/expanded color changer*/
-div.task-details-expanded > .b2, 
-div.task-details-expanded > .b3, 
-div.task-details-expanded > .b4, 
-div.task-details-expanded > .bcontent, 
-div.task-details-expanded > .b4b, 
-div.task-details-expanded > .b3b, 
-div.task-details-expanded > .b2b, 
-div.task-selected > .b2, 
-div.task-selected > .b3, 
-div.task-selected > .b4, 
-div.task-selected > .bcontent,
-div.task-selected > .b4b, 
-div.task-selected > .b3b, 
-div.task-selected > .b2b
-{
-    background-color: #e3e1da;
+/* task  task-select/expanded color changer*/
+.task-details-expanded .b2, .task-details-expanded .b3, 
+.task-details-expanded .b4, .task-details-expanded .bcontent, 
+.task-details-expanded .b4b, .task-details-expanded .b3b, 
+.task-details-expanded .b2b, .task-selected .b2, 
+.task-selected .b3, .task-selected .b4, 
+.task-selected .bcontent,.task-selected .b4b, 
+.task-selected .b3b, .task-selected .b2b{
+    background-color: #efede6;
 }
+
+
+/* task task-expanded image changer*/
+.task .task-title {
+    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 8px center; 
+}
+
+.task-details-expanded .task-title {
+    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll -10px 40px; 
+}
+
 
 .unassigned-project {
     margin: 0;
@@ -95,6 +102,7 @@ div.task-selected > .b2b
     border-width:1px;
     height: 30px;
     padding: 5px 82px 0 28px;
+    position: relative;
 }
 
 #TimeTrackerHeader {
@@ -173,7 +181,6 @@ div.task-selected > .b2b
 .task-title {
     display: block;
     cursor: pointer;
-    background: url(++resource++xm.tracker.images/select_inactive.gif)  no-repeat scroll 8px center; 
     padding: 3px 12px 3px 41px;
     margin-top: 4px;
 }
@@ -206,7 +213,8 @@ form, #book-form, .hidden-controls, .savers,
 /* begin start-timer button */
 #startstop {
     float: left;
-    margin: 0 0 0 492px;
+    position: absolute;
+    right: 242px;
 }
 
 .start-button {
