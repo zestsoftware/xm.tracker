@@ -1,4 +1,5 @@
 /* 2DO note
+    -button -pulldown  image; change (Thom?)
     -button select: IE bigger
     
     -timer - fix?
@@ -23,7 +24,7 @@
 #time-change {
     margin-left: 6px;
 }
-
+    
 /* bcontent  task-select/expanded color changer*/
 div.task-details-expanded > .b2, 
 div.task-details-expanded > .b3, 
@@ -38,7 +39,8 @@ div.task-selected > .b4,
 div.task-selected > .bcontent,
 div.task-selected > .b4b, 
 div.task-selected > .b3b, 
-div.task-selected > .b2b{
+div.task-selected > .b2b
+{
     background-color: #e3e1da;
 }
 
@@ -164,7 +166,7 @@ div.task-selected > .b2b{
     border-bottom: 1px solid #e3e1da;
 }
 
-.discreet, .track-form {
+.discreet {
  padding: 0 42px;
 }
 
@@ -198,7 +200,7 @@ form, #book-form, .hidden-controls, .savers,
 
 .tracker-book {
     clear: both;
-    margin: 4px 0;
+    padding: 4px 0;
 }
 
 /* begin start-timer button */
@@ -351,7 +353,7 @@ form, #book-form, .hidden-controls, .savers,
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
     height: 100%;
-    padding: 0 0 8px 0;
+    padding: 0 0 2px 0;
 }
 
 .b4b, .b3b, .b2b {
@@ -415,6 +417,7 @@ form, #book-form, .hidden-controls, .savers,
 
 .discreet {
     color:#76797c;
+    background-color: transparent;
 }
 
 .tracker-project h1, .task {
@@ -612,7 +615,7 @@ li {
 
 .track-form {
     /* Separate visually from entry listing */
-    margin: 5px 0 0 0;
+    padding: 5px 0 18px 42px;
     display: block;
 }
 
