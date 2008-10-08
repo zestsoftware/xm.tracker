@@ -4,7 +4,7 @@
      tal:condition="view/entries">
 
 
-  <div class="time_entry entry_table_row"
+  <div class="time_entry_entry_table_row"
        tal:repeat="entry view/entries">
     <div class="entry_table_cell">
       <form method="post"
@@ -17,7 +17,7 @@
                tal:attributes="value repeat/entry/index" />
         <input type="image"
                name="remove"
-	       src="++resource++xm.tracker.images/trash.gif"
+              src="++resource++xm.tracker.images/trash.gif"
                class="remove-entry"
                alt="Remove this entry"
                title="Remove this entry"
@@ -43,7 +43,8 @@
                                title entry/date;" />
       </div>
       <div class="entry_table_cell">
-        <input type="text"
+        <input id="time-change"
+               type="text"
                name="time"
                class="entry_text_time_edit"
                size="4"
@@ -58,24 +59,24 @@
                  i18n:attributes="value label_book_to_task" />
         </tal:book_unassigned_form>
         <div class="hidden-controls">
-					<div class="savers">
+                <div class="savers">
           <input type="submit"
                  name="submit"
                  class="edit-entries-save"
                  value="Save"
                  i18n:domain="plone"
                  i18n:attributes="value label_save" />
-						<span></span>
-					</div>
-				<div class="savers">
+                <span></span>
+                </div>
+                <div class="savers">
           <input type="button"
                  name="cancel"
                  value="Cancel"
                  class="edit-entries-cancel"
                  i18n:domain="plone"
                  i18n:attributes="value label_cancel" />
-						<span></span>
-					</div>
+                    <span></span>
+                </div>
         </div>
       </div>
     </form>

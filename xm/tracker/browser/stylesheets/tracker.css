@@ -1,3 +1,30 @@
+/* 2DO note
+    -button select: IE bigger
+    
+    -timer - fix?
+    -book buttons - are not disabled in IE
+    -portalMessage - in Header?
+*/
+    
+    
+#input-task, .entry_text_time_edit {
+    margin: 4px 0 0 0;
+}
+
+.edit-entries {
+    height: 32px;
+}
+
+.time_entry_entry_table_row {
+    clear: both;
+    padding: 0 0 0 24px;
+}
+
+#time-change {
+    margin-left: 6px;
+}
+
+/* bcontent  task-select/expanded color changer*/
 div.task-details-expanded > .b2, 
 div.task-details-expanded > .b3, 
 div.task-details-expanded > .b4, 
@@ -13,10 +40,6 @@ div.task-selected > .b4b,
 div.task-selected > .b3b, 
 div.task-selected > .b2b{
     background-color: #e3e1da;
-}
-
-.edit-entries {
-    background-color: transparent;
 }
 
 .unassigned-project {
@@ -69,7 +92,7 @@ div.task-selected > .b2b{
     border-style:solid;
     border-width:1px;
     height: 30px;
-    padding: 5px 84px 0 85px;
+    padding: 5px 82px 0 28px;
 }
 
 #TimeTrackerHeader {
@@ -141,26 +164,27 @@ div.task-selected > .b2b{
     border-bottom: 1px solid #e3e1da;
 }
 
-.discreet, .track-form, .tracker-book {
- padding: 0 34px;
+.discreet, .track-form {
+ padding: 0 42px;
 }
 
 .task-title {
     display: block;
     cursor: pointer;
-    background: url(++resource++xm.tracker.images/select_inactive.gif)  no-repeat scroll 38px center; 
-    padding: 3px 12px 3px 70px;
-    margin-top: 10px;
+    background: url(++resource++xm.tracker.images/select_inactive.gif)  no-repeat scroll 8px center; 
+    padding: 3px 12px 3px 41px;
+    margin-top: 4px;
 }
 
 .task-title-unassigned {
     display: block;
     cursor: pointer;
     padding: 0 20px 0 34px;
+        margin-top: 4px;
 }
 
 .time_entry {
-    padding: 0 0 0 40px;
+    padding: 0 0 0 24px;
     clear
 }
 
@@ -178,8 +202,9 @@ form, #book-form, .hidden-controls, .savers,
 }
 
 /* begin start-timer button */
-#startstop{
+#startstop {
     float: left;
+    margin: 0 0 0 492px;
 }
 
 .start-button {
@@ -230,7 +255,7 @@ form, #book-form, .hidden-controls, .savers,
 .select-button span{
     background: url(++resource++xm.tracker.images/side-right-blue.gif) no-repeat transparent;
     float: left;
-    width: 10px;
+    width: 4px;
     height: 25px;
 }
  /* end select-task button */
@@ -265,14 +290,14 @@ form, #book-form, .hidden-controls, .savers,
     display: block !important;
     /* don't forget -this width COULD give problems :) */
     width: 100%;
-    white-space: nowrap;
+    padding: 0 0 0 24px;
 }
  
   /* begin grey buttons */
 .task-buttons, .register, .book, .savers{
     float: left;
-    background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent 6px 0;
-    padding: 0 0 0 10px;
+    background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent 4px 0;
+    padding: 0 0 0 8px;
 }
 
 #add-tasks, #cancel_add_tasks, #track-time, .book-button, .edit-entries-save, .edit-entries-cancel{
@@ -321,11 +346,12 @@ form, #book-form, .hidden-controls, .savers,
     border-right: 1px solid #ccc;
 }
 
-.task .bcontent {
-    height: 100%;
+.bcontent {
     background-color: #fefefe;
     border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
+    height: 100%;
+    padding: 0 0 8px 0;
 }
 
 .b4b, .b3b, .b2b {
@@ -368,7 +394,6 @@ form, #book-form, .hidden-controls, .savers,
 .b4b {
     background: #fff;
 }
-
 /*  end task rounded borders  */ 
 
 
@@ -383,13 +408,10 @@ form, #book-form, .hidden-controls, .savers,
     padding: 2px 0;
 }
 
-.task-details-expanded div.taskdetails,
-#taskdetails-unassigned {
+.task-details-expanded div.taskdetails  {
     display: block !important;
     width: 100%;
-    margin-top: 1em;
 }
-
 
 .discreet {
     color:#76797c;
@@ -419,8 +441,8 @@ form {
   margin: 0;
   padding: 0;
   position: relative;
+  right: 8px;
   top: 4px;
-  right: 4px;
 }
 
 /* Start portalMessage settings from standard Plone */
@@ -431,21 +453,22 @@ dl.portalMessage a {
     text-decoration: underline;
 }
 dl.portalMessage dt {
-    background-color: #996;
-    border: 1px solid #996;
+    background-color: #35b4e0;
+    border: 1px solid #2797BD;
     font-weight: bold;
     float: left;
-    margin: 0 0.5em 0 0;
-    padding: 0.5em 0.75em;
-    color: White;
+    margin: 0 5px 0 0;
+    padding: 5px 7px;
+    color: #fff;
     line-height: 1.25em;
 }
 dl.portalMessage dd {
-    background-color: #ffffe3;
-    border: 1px solid #996;
-    padding: 0.5em 0.5em;
+    background-color: #fffddb;
+    border: 1px solid #ccc;
+    padding: 5px;
     margin: 0;
     line-height: 1.25em;
+    width: 25%;
 }
 
 dl.warning {
@@ -589,8 +612,7 @@ li {
 
 .track-form {
     /* Separate visually from entry listing */
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin: 5px 0 0 0;
     display: block;
 }
 
