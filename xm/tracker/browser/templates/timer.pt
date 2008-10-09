@@ -1,4 +1,3 @@
-<div class="timer-container">
   <h1 id="timer"
   i18n:domain="tracker"
   tal:define="time_spent view/time_spent"
@@ -8,4 +7,3 @@
       <span tal:replace="string:${time_spent/hour}:${time_spent/minute}"/><span 
       class="timer-second" tal:content="string::${time_spent/second}"/>
   </h1>
-</div>

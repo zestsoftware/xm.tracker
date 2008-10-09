@@ -1,17 +1,13 @@
 /* 2DO note
-    -button -pulldown  image; change (Thom?)
-    -button select: IE bigger
-    
-    -timer - fix?
+      -timer - fix?
     -book buttons - are not disabled in IE
-    -portalMessage - in Header?
 */
     
-.timer-container {
-    padding: 0;
-    margin: 0;
+.SelectTasks {
+    float: left;
+    padding: 0 0 0 58px;
 }
-    
+
 #input-task, .entry_text_time_edit {
     margin: 4px 0 0 0;
 }
@@ -43,11 +39,11 @@
 
 /* task task-expanded image changer*/
 .task .task-title {
-    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 8px center; 
+    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 10px 0px; 
 }
 
 .task-details-expanded .task-title {
-    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll -10px 40px; 
+    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 10px -28px; 
 }
 
 
@@ -72,7 +68,7 @@
 }
 
 .tracker-project h1{
-    width: 802px;
+    width: 798px;
     padding-bottom: 6px;
 }
 
@@ -100,9 +96,8 @@
     border-color: #fff #d6d4d4 #fff #fff;
     border-style:solid;
     border-width:1px;
-    height: 30px;
-    padding: 5px 82px 0 28px;
-    position: relative;
+    height: 26px;
+    padding: 4px 82px 4px 28px;
 }
 
 #TimeTrackerHeader {
@@ -111,10 +106,10 @@
     border-style: solid;
     border-width: 1px;
     color: #fff;
-    font-size: 12pt;
+    font-size: 10pt;
     font: center;
     margin: 0;
-    padding: 4px 0 4px 39px;
+    padding: 1px 0 3px 39px;
 }
 
 #timer, .task-time{
@@ -128,10 +123,10 @@
     border-left: 1px solid #fff;
     height: 24px;
     margin: 0;
-    padding:0;
 }
 
 #timer{
+    margin: 0 0 0 10px;
     padding-right: 29px;
     padding-left: 28px;
 }
@@ -143,7 +138,7 @@
 
 #project-header{
     padding-top: 13px;
-    padding-bottom: 18px;
+    padding-bottom: 14px;
 }
 
 #project-header a{
@@ -189,7 +184,7 @@
     display: block;
     cursor: pointer;
     padding: 0 20px 0 34px;
-        margin-top: 4px;
+    margin-top: 4px;
 }
 
 .time_entry {
@@ -197,11 +192,9 @@
     clear
 }
 
-#stop, #start, #select-tasks, 
-#start-timer, #stop-timer, #track-time, #input-task, 
-form, #book-form, .hidden-controls, .savers, 
-.book-button, .SelectTasks, .entry_table, .remove-entry, 
-.tracker-book{
+form, #input-task, #book-form, .hidden-controls, 
+.savers, .book-button, .entry_table, 
+.remove-entry, .tracker-book{
     float: left;
 }
 
@@ -212,9 +205,7 @@ form, #book-form, .hidden-controls, .savers,
 
 /* begin start-timer button */
 #startstop {
-    float: left;
-    position: absolute;
-    right: 242px;
+    float: right;
 }
 
 .start-button {
@@ -415,7 +406,7 @@ form, #book-form, .hidden-controls, .savers,
 .tracker-tasks{
     background-color: transparent;
     margin: 0;
-    padding: 2px 0;
+    padding: 10px 0 0 0;
 }
 
 .task-details-expanded div.taskdetails  {
@@ -435,8 +426,11 @@ form, #book-form, .hidden-controls, .savers,
 
 /* Set different positioning on the portal status message. */
 .portalMessage {
-  align: center;
+  display: block;
+  float: right;
   top: 60px;
+  margin-right: 82px;
+
 }
 
 form {
@@ -479,7 +473,7 @@ dl.portalMessage dd {
     padding: 5px;
     margin: 0;
     line-height: 1.25em;
-    width: 25%;
+    width: 290px;
 }
 
 dl.warning {
@@ -536,6 +530,13 @@ dl.error dd {
     top: 50px;
     width: 600px;
     z-index: 500;
+}
+
+#task_selection_form  h1{
+    background-color: #43A0C1;
+    color: #fff;
+    padding: 2px 0 2px 10px;
+    width: 100%;
 }
 
 .inline {
