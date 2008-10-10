@@ -137,15 +137,17 @@
 }
 
 #project-header{
-    padding-top: 13px;
-    padding-bottom: 14px;
+    background: url(++resource++xm.tracker.images/logo-XM.gif) no-repeat transparent 28px 8px; 
+    height: 70px;
 }
 
 #project-header a{
-    color:#43a0c1;
-    font-size:200%;
-    font-weight:bold;
-    padding: 0 0.5em 0 1em;
+    color: #21bee8;
+    font-size: 16pt;
+    font-weight: bold;
+    position: relative;
+    top: 16px;
+    left: 98px; 
     white-space: nowrap;
 }
 
