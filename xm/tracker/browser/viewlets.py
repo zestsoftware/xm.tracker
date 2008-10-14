@@ -136,7 +136,13 @@ class TaskViewlet(BrowserView):
 
     def task_class(self):
         """Return class that is to be set on the task's details div."""
+        cls = 'task'
+        if self.entries():
+            cls += ' task-with-entries'
+        else:
+            cls += ' task-without-entries'
         if self.request.get('open_details'):
             # We want to expand this one.
-            return 'task task-details-expanded'
-        return 'task'
+            cls += ' task-details-expanded'
+        return cls
+

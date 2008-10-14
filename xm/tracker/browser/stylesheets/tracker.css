@@ -591,9 +591,12 @@ hr {
     font-family: "Lucida Grande", Verdana, Lucida, Helvetica, Arial, sans-serif;
     margin: 0.75em 0 0.25em 0;
 }
-#timer, .task-title , .task-title-unassigned,
+#timer, .task-with-entries .task-title, .task-title-unassigned,
 h1, h2, h3, h4, h5, h6 {
     color: #3E3E3E;
+}
+.task-without-entries .task-title {
+    color: #9E9E9E;
 }
 #project-header a,
 h1 a,
