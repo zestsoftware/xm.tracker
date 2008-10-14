@@ -34,7 +34,7 @@
 .task-selected .b3, .task-selected .b4, 
 .task-selected .bcontent,.task-selected .b4b, 
 .task-selected .b3b, .task-selected .b2b{
-    background-color: #efede6;
+    background-color: #e9f6f8;
 }
 
 
@@ -104,8 +104,8 @@
 #TrackTimer {
     background: #f9f7f0 url(++resource++xm.tracker.images/backgroundheader.gif) repeat-x;
     border-color: #fff #d6d4d4 #fff #fff;
-    border-style:solid;
-    border-width:1px;
+    border-style: solid;
+    border-width: 1px;
     height: 26px;
     padding: 3px 0;
 }
