@@ -3,12 +3,6 @@
     -book buttons - are not disabled in IE
 */
     
-.SelectTasks {
-    float: left;
-    position: relative;
-    left: 10px;
-}
-
 #input-task, .entry_text_time_edit {
     margin: 4px 0 0 0;
 }
@@ -32,9 +26,18 @@
 .task-details-expanded .b4b, .task-details-expanded .b3b, 
 .task-details-expanded .b2b, .task-selected .b2, 
 .task-selected .b3, .task-selected .b4, 
-.task-selected .bcontent,.task-selected .b4b, 
+.task-selected .bcontent, .task-selected .b4b, 
 .task-selected .b3b, .task-selected .b2b{
     background-color: #e9f6f8;
+    border-left-color: #94c1cc;
+    border-right-color: #94c1cc;
+}
+
+.task-details-expanded .b1, .task-details-expanded .b1b,
+.task-selected .b1, .task-selected .b1b {
+    background-color: #94c1cc;
+    border-left-color: #94c1cc;
+    border-right-color: #94c1cc;
 }
 
 
@@ -57,21 +60,13 @@
     padding: 0;
     margin: 0 auto;
     background-color: #faf9f4;
-    width: 999px;
-}
-
-.project-bottom-border {
-    background: #a1a1a1;
-    border-style: solid;
-    border-width: 1px;
-    border-color: #e3e3e3 #a1a1a1 #ccc #a1a1a1; 
-    margin-top: 20px;
+    width: 957px;
 }
 
 .tracker-project h1, .unassigned-project h1 {
     font-size: 140%;
     width: 798px;
-    padding: 8px 0 8px 100px;
+    padding: 8px 0 8px 80px;
 }
 
 .tracker-project h1, #task_selection_form  h2 {
@@ -83,18 +78,12 @@
 }
 
 .tracker-project h1 {
-    background: url(++resource++xm.tracker.images/project_active.gif) no-repeat scroll 77px 14px; 
+    background: url(++resource++xm.tracker.images/project_active.gif) no-repeat scroll 56px 14px; 
 }
 
 .tracker-project {
     background-color: transparent;
     clear: both;
-}
-
-.detail-line-project {
-    display: block;
-    height: 10px;
-    background: blue;
 }
 
 .timer-second{
@@ -119,32 +108,26 @@
     font-size: 120%;
     font: center;
     margin: 0;
-    padding: 1px 0 3px 35px;
+    padding: 1px 0 3px 43px;
 }
 
 #timer, .task-time{
     float: right;
     display: block;
     text-align: right;
-    background-color: #fefefe;
-    border-top: 1px solid #e4e3de;
-    border-right: 1px solid #fefefe;
-    border-bottom: 1px solid #d1d2d2;
-    border-left: 1px solid #fff;
     margin: 0;
     padding: 2px 0;
 }
-
+    
 #timer{
-    font-size: 140%;
+    font-size: 160%;
     position: relative;
     right: 126px;
-    padding: 3px 29px 3px 28px;
 }
 
 .task-time{
-    padding-right: 31px;
-    padding-left: 30px;
+    position: relative;
+    right: 35px;
 }
 
 #project-header a{
@@ -153,7 +136,7 @@
     font-weight: bold;
     position: relative;
     top: 28px;
-    left: 34px; 
+    left: 40px; 
     white-space: nowrap;
 }
 
@@ -162,20 +145,40 @@
     height: 60px;
 }
 
-.detail-lines-top, .detail-lines-bottom, .project-bottom-border{
+.detail-lines-top, .detail-lines-top, .project-bottom-border{
     display: block;
     overflow: hidden; 
     height: 1px;
 }
 
-.detail-lines-top{
-    border-top: 1px solid #f1efe8;
+.detail-lines-top {
+    height: 1px;
     background: #cfcfcf;
+    border-top: 1px solid #f1efe8;
 }
     
-.detail-lines-bottom{
-    background: #bebebe;
-    border-bottom: 2px solid #e3e1da;
+.detail-lines-bottom {
+    display: block;
+    overflow: hidden;
+    height: 2px;
+    background: #ebeae6;
+    border-top: 1px solid #bebebe;
+    border-bottom: 1px solid #d8d5ca;
+}
+
+.project-bottom-border {
+    height: 1px;
+    background: #e3e3e3;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #FAF9F4 #e3e3e3 #ccc #e3e3e3; 
+    margin-top: 20px;
+}
+
+.detail-line-project {
+    display: block;
+    height: 10px;
+    background: blue;
 }
 
 .discreet {
@@ -194,7 +197,7 @@
     font-size: 140%;
     display: block;
     cursor: pointer;
-    padding: 0 20px 0 34px;
+    padding: 0 8px 0 40px;
     margin-top: 8px;
 }
 
@@ -218,7 +221,7 @@ form, #input-task, #book-form, .hidden-controls,
 #startstop {
     float: right;
     position: relative;
-    right: 136px;
+    right: 145px;
 }
 
 .start-button {
@@ -243,35 +246,33 @@ form, #input-task, #book-form, .hidden-controls,
     background: url(++resource++xm.tracker.images/side-right-green.gif) no-repeat transparent;
     float: left;
     width: 4px;
-    height: 25px;
+    height: 24px;
 }
  /* end start-timer button */
 
 /* begin select-task button */
-.select-button{
-    clear: both;
-    float: left;
-    background: url(++resource++xm.tracker.images/side-left-blue.gif) no-repeat transparent;
-    padding: 0 0 0 4px;
+.SelectTasks {
+    position: relative;
+    float: right;
+    height: 25px; 
+    bottom: 3px;
+    z-index: 20;
+    border-right: 1px solid #d8d5ca;
 }
 
 #select-tasks{
-    float: left;
-    margin: 0;
-    padding: 4px;
-    height: 26px;
-    color: #04515c;
-    background: url(++resource++xm.tracker.images/gradient-blue.gif) repeat-x #a4e8ff;
+    padding: 0;
+    float: right;
+    height: 25px;
+    padding: 0 0 2px 0;
+    width: 160px;
+    color: #3d3d3b;
+    background: url(++resource++xm.tracker.images/select-tasks-bg.gif) no-repeat #ebeae6 0 0;
     border: 0;
     cursor: pointer;
-  }
-
-.select-button span{
-    background: url(++resource++xm.tracker.images/side-right-blue.gif) no-repeat transparent;
-    float: left;
-    width: 4px;
-    height: 25px;
+    clear: right;
 }
+
  /* end select-task button */
  
  /* begin stop-timer button */
@@ -336,7 +337,7 @@ form, #input-task, #book-form, .hidden-controls,
  /*  begin task rounded borders */
 .task {
     position: relative;
-    left: 60px;
+    left: 40px;
     display: block;
     background-color: transparent;
     clear: both;
@@ -437,7 +438,7 @@ form, #input-task, #book-form, .hidden-controls,
     clear: both;
     display: block;
     float: left;
-    margin: 10px 0 0 30px;
+    margin: 10px 0 0 10px;
 
 }
 
@@ -476,9 +477,10 @@ dl.portalMessage dt {
     line-height: 1.25em;
 }
 dl.portalMessage dd {
-    background-color: #fffddb;
+    background-color: #F9F7F0;
     border: 1px solid #ccc;
-    padding: 5px;
+    color: #808080;
+    padding: 5px 6px;
     line-height: 1.25em;
     width: 760px;
 }
@@ -643,7 +645,7 @@ div.entry_table_cell, form.edit-in-progress .hidden-controls  {
   list-style-image:none;
   list-style-type:none;
   margin:1px 0 0;
-  padding:3px 2em 3px 0;
+  padding:3px 20px 3px 0;
   white-space:nowrap;
 }
 

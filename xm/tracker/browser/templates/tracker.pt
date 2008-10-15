@@ -52,21 +52,18 @@
         <div id="TrackTimer">
              <div tal:replace="structure provider:xm.tracker.timer" />
                 <div tal:replace="structure provider:xm.tracker.startstop" />
+          </div>
+        <span class="detail-lines-bottom"></span>
             <form method="post"
                 action=""
                 class="SelectTasks">
-                <div class="select-button">
                     <input type="submit"
                         name="select"
                         id="select-tasks"
                         value="Select Tasks"
                         i18n:attributes="value label_select_tasks" />
-                    <span></span>
-                </div>
             </form>
-          </div>
-        <span class="detail-lines-bottom"></span>
-    <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
+        <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
     <div class="tracker-tasks"
         tal:content="structure provider:xm.tracker.tasklist" />
     </div>
