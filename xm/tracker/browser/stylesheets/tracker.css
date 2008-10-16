@@ -13,7 +13,7 @@
 
 .time_entry_entry_table_row {
     clear: both;
-    padding: 0 0 0 24px;
+    padding: 0 0 0 20px;
 }
 
 #time-change {
@@ -28,26 +28,26 @@
 .task-selected .b3, .task-selected .b4, 
 .task-selected .bcontent, .task-selected .b4b, 
 .task-selected .b3b, .task-selected .b2b{
-    background-color: #e9f6f8;
-    border-left-color: #94c1cc;
-    border-right-color: #94c1cc;
+    background-color: #ebf5f9;
+    border-left-color: #a6b3b8;
+    border-right-color: #a6b3b8;
 }
 
 .task-details-expanded .b1, .task-details-expanded .b1b,
 .task-selected .b1, .task-selected .b1b {
-    background-color: #94c1cc;
-    border-left-color: #94c1cc;
-    border-right-color: #94c1cc;
+    background-color: #a6b3b8;
+    border-left-color: #a6b3b8;
+    border-right-color: #a6b3b8;
 }
 
 
 /* task task-expanded image changer*/
 .task .task-title {
-    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 10px 0px; 
+    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 9px 4px; 
 }
 
 .task-details-expanded .task-title {
-    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 10px -38px; 
+    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 9px -26px; 
 }
 
 
@@ -70,7 +70,7 @@
 }
 
 .tracker-project h1, #task_selection_form  h2 {
-    color: #808080 !important;
+    color: #767676 !important;
 }
 
 #task_selection_form  h2 {
@@ -122,7 +122,7 @@
 #timer{
     font-size: 160%;
     position: relative;
-    right: 126px;
+    right: 128px;
 }
 
 .task-time{
@@ -141,7 +141,7 @@
 }
 
 .header-container{
-    background: #fefefe;
+    background: #fefefe url(++resource++xm.tracker.images/background_top.gif) no-repeat 0 0;
     height: 60px;
 }
 
@@ -182,15 +182,15 @@
 }
 
 .discreet {
- padding: 0 42px;
+ padding: 0 38px;
 }
 
 .task-title {
     font-size: 140%;
     display: block;
     cursor: pointer;
-    padding: 4px 12px 4px 41px;
-    margin-top: 4px;
+    padding: 4px 12px 4px 38px;
+    margin-top: 0;
 }
 
 .task-title-unassigned {
@@ -221,13 +221,13 @@ form, #input-task, #book-form, .hidden-controls,
 #startstop {
     float: right;
     position: relative;
-    right: 145px;
+    right: 138px;
 }
 
 .start-button {
     clear: both;
     float: left;
-    background: url(++resource++xm.tracker.images/side-left-green.gif) no-repeat transparent;
+    background: transparent url(++resource++xm.tracker.images/side-left-green.gif) no-repeat ;
     padding: 0 0 0 4px;
 }
 
@@ -237,21 +237,22 @@ form, #input-task, #book-form, .hidden-controls,
     padding: 4px;
     height: 26px;
     color: #255c04;
-    background: url(++resource++xm.tracker.images/gradient-green.gif) repeat-x #bafc51;
+    background: #bafc51 url(++resource++xm.tracker.images/gradient-green.gif) repeat-x;
     border: 0;
     cursor: pointer;
 }
 
 .start-button span{
-    background: url(++resource++xm.tracker.images/side-right-green.gif) no-repeat transparent;
+    background: transparent url(++resource++xm.tracker.images/side-right-green.gif) no-repeat;
     float: left;
     width: 4px;
-    height: 24px;
+    height: 25px;
 }
  /* end start-timer button */
 
 /* begin select-task button */
 .SelectTasks {
+    clear: both;
     position: relative;
     float: right;
     height: 25px; 
@@ -261,13 +262,14 @@ form, #input-task, #book-form, .hidden-controls,
 }
 
 #select-tasks{
+    text-align: left;
     padding: 0;
     float: right;
     height: 25px;
-    padding: 0 0 2px 0;
+    padding: 2px 0 2px 30px;
     width: 160px;
     color: #3d3d3b;
-    background: url(++resource++xm.tracker.images/select-tasks-bg.gif) no-repeat #ebeae6 0 0;
+    background: #ebeae6 url(++resource++xm.tracker.images/select-tasks-bg.gif) no-repeat 0 0;
     border: 0;
     cursor: pointer;
     clear: right;
@@ -288,13 +290,13 @@ form, #input-task, #book-form, .hidden-controls,
     padding: 4px;
     height: 26px;
     color: #580404;
-    background: url(++resource++xm.tracker.images/gradient-red.gif) repeat-x #ff956c;
+    background: #ff956c url(++resource++xm.tracker.images/gradient-red.gif) repeat-x;
     border: 0;
     cursor: pointer;
 }
 
 .stop-button span{
-    background: url(++resource++xm.tracker.images/side-right-red.gif) no-repeat transparent;
+    background: transparent url(++resource++xm.tracker.images/side-right-red.gif) no-repeat;
     float: left;
     width: 4px;
     height: 25px;
@@ -305,13 +307,13 @@ form, #input-task, #book-form, .hidden-controls,
     display: block !important;
     /* don't forget -this width COULD give problems :) */
     width: 100%;
-    padding: 0 0 0 24px;
+    padding: 0 0 14px 24px;
 }
  
   /* begin grey buttons */
 .task-buttons, .register, .book, .savers{
     float: left;
-    background: url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat transparent 4px 0;
+    background: transparent url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat 4px 0;
     padding: 0 0 0 8px;
 }
 
@@ -320,13 +322,13 @@ form, #input-task, #book-form, .hidden-controls,
     margin: 0;
     padding: 4px;
     height: 26px;
-    background: url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x #d8d6cf;
+    background: #d8d6cf url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x;
     border: 0;
     cursor: pointer;
   }
 
 .task-buttons span, .register span, .book span, .savers span, .savers span{
-    background: url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat transparent;
+    background: transparent url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat;
     float: left;
     width: 4px;
     height: 25px;
@@ -435,11 +437,9 @@ form, #input-task, #book-form, .hidden-controls,
 
 /* Set different positioning on the portal status message. */
 .portalMessage {
-    clear: both;
-    display: block;
     float: left;
-    margin: 10px 0 0 10px;
-
+    margin: 10px 0 0 40px;
+    padding: 0 !important;
 }
 
 form {
@@ -456,7 +456,7 @@ form {
   padding: 0;
   position: relative;
   right: 8px;
-  top: 4px;
+  top: 5px;
 }
 
 /* Start portalMessage settings from standard Plone */
@@ -467,22 +467,22 @@ dl.portalMessage a {
     text-decoration: underline;
 }
 dl.portalMessage dt {
+    float: left;
     background-color: #35b4e0;
     border: 1px solid #2797BD;
     font-weight: bold;
-    float: left;
     margin: 0;
     padding: 5px 7px;
     color: #fff;
     line-height: 1.25em;
 }
 dl.portalMessage dd {
-    background-color: #F9F7F0;
+    background-color: #fdfcf8;
     border: 1px solid #ccc;
     color: #808080;
     padding: 5px 6px;
     line-height: 1.25em;
-    width: 760px;
+    width: 745px;
 }
 
 dl.warning {
@@ -527,7 +527,7 @@ dl.error dd {
     position: absolute;
     top: 160px;
     left: 45%;
-    z-index: 101;
+    z-index: 102;
 }
 
 #task_selection_form {
@@ -566,10 +566,17 @@ body {
 table {
     font-size: 100%;
 }
-a {
-    color: #436976;
+a:link{
+    color: #017096;
     background-color: transparent;
+    text-decoration: none;
 }
+
+a:hover {
+    color: #2797bd;
+    text-decoration: underline;
+}
+
 img {
     border: none;
     vertical-align: middle;
@@ -598,7 +605,8 @@ h1, h2, h3, h4, h5, h6 {
     color: #3E3E3E;
 }
 .task-without-entries .task-title {
-    color: #9E9E9E;
+    color: #808080;
+    font-weight: normal;
 }
 #project-header a,
 h1 a,
@@ -625,7 +633,7 @@ li {
 
 .track-form {
     /* Separate visually from entry listing */
-    padding: 5px 0 18px 42px;
+    padding: 5px 0 18px 38px;
     display: block;
 }
 
