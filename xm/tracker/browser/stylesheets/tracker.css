@@ -2,7 +2,11 @@
       -timer - fix?
     -book buttons - are not disabled in IE
 */
-    
+
+input {
+    overflow: visibile;
+}
+
 #input-task, .entry_text_time_edit {
     margin: 4px 0 0 0;
 }
@@ -64,9 +68,10 @@
 }
 
 .tracker-project h1, .unassigned-project h1 {
+    clear: both;
     font-size: 140%;
     width: 798px;
-    padding: 8px 0 8px 80px;
+    padding: 8px 0 8px 78px;
 }
 
 .tracker-project h1, #task_selection_form  h2 {
@@ -78,7 +83,7 @@
 }
 
 .tracker-project h1 {
-    background: url(++resource++xm.tracker.images/project_active.gif) no-repeat scroll 56px 14px; 
+    background: url(++resource++xm.tracker.images/project_active.gif) no-repeat scroll 52px 14px; 
 }
 
 .tracker-project {
@@ -197,7 +202,7 @@
     font-size: 140%;
     display: block;
     cursor: pointer;
-    padding: 0 8px 0 40px;
+    padding: 0 8px 0 38px;
     margin-top: 8px;
 }
 
@@ -252,7 +257,6 @@ form, #input-task, #book-form, .hidden-controls,
 
 /* begin select-task button */
 .SelectTasks {
-    clear: both;
     position: relative;
     float: right;
     height: 25px; 
@@ -285,6 +289,7 @@ form, #input-task, #book-form, .hidden-controls,
 }
 
 #stop-timer{
+    display: inline;
     float: left;
     margin: 0;
     padding: 4px;
@@ -436,14 +441,8 @@ form, #input-task, #book-form, .hidden-controls,
 }
 
 /* Set different positioning on the portal status message. */
-.portalMessage {
-    float: left;
-    margin: 10px 0 0 40px;
-    padding: 0 !important;
-}
-
 form {
-    display:inline;
+    display: inline;
 }
 
 .hidden-controls {
@@ -461,7 +460,15 @@ form {
 
 /* Start portalMessage settings from standard Plone */
 
+.portalMessage {
+    clear: both;
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+}
+
 dl.portalMessage a {
+    display: inline;
     color: black;
     border: none;
     text-decoration: underline;
@@ -469,20 +476,18 @@ dl.portalMessage a {
 dl.portalMessage dt {
     float: left;
     background-color: #35b4e0;
-    border: 1px solid #2797BD;
+    border: 1px solid #35b4e0;
     font-weight: bold;
     margin: 0;
-    padding: 5px 7px;
+    padding: 0 5px ;
     color: #fff;
-    line-height: 1.25em;
 }
 dl.portalMessage dd {
-    background-color: #fdfcf8;
-    border: 1px solid #ccc;
-    color: #808080;
-    padding: 5px 6px;
-    line-height: 1.25em;
-    width: 745px;
+    background-color: #fff;
+    border: 1px solid #fff  ;
+    color: #767676;
+    margin: 0;
+    padding: 0 0 0 50px;
 }
 
 dl.warning {

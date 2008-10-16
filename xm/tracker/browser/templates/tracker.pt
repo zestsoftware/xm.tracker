@@ -63,7 +63,7 @@
                         value="Select Tasks"
                         i18n:attributes="value label_select_tasks" />
             </form>
-        <div metal:use-macro="here/global_statusmessage/macros/portal_message" />
+        <div metal:use-macro="here/global_statusmessage/macros/portal_message" />   
     <div class="tracker-tasks"
         tal:content="structure provider:xm.tracker.tasklist" />
     </div>
