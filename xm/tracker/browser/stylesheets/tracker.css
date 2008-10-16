@@ -32,7 +32,7 @@ input {
 .task-selected .b3, .task-selected .b4, 
 .task-selected .bcontent, .task-selected .b4b, 
 .task-selected .b3b, .task-selected .b2b{
-    background-color: #f4fafc;
+    background-color: #eef8fc;
     border-left-color: #a6b3b8;
     border-right-color: #a6b3b8;
 }
