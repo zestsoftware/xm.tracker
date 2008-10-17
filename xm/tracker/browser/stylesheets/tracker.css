@@ -33,15 +33,15 @@ input {
 .task-selected .bcontent, .task-selected .b4b, 
 .task-selected .b3b, .task-selected .b2b{
     background-color: #eef8fc;
-    border-left-color: #a6b3b8;
-    border-right-color: #a6b3b8;
+    border-left-color: #c9e5ee;
+    border-right-color: #c9e5ee;
 }
 
 .task-details-expanded .b1, .task-details-expanded .b1b,
 .task-selected .b1, .task-selected .b1b {
-    background-color: #a6b3b8;
-    border-left-color: #a6b3b8;
-    border-right-color: #a6b3b8;
+    background-color: #c9e5ee;
+    border-left-color: #c9e5ee;
+    border-right-color: #c9e5ee;
 }
 
 
@@ -136,12 +136,14 @@ input {
 }
 
 #project-header a{
+    background: url(++resource++xm.tracker.images/logo-xm.gif) no-repeat scroll 9px 4px; 
     color: #21bee8;
     font-size: 190%;
     font-weight: bold;
+    padding-left: 40px;
     position: relative;
-    top: 28px;
-    left: 40px; 
+    top: 30px;
+    left: 2px; 
     white-space: nowrap;
 }
 
@@ -681,6 +683,6 @@ div.entry_table_cell, form.edit-in-progress .hidden-controls  {
 }
 
 #xm-siteactions li a:hover {
-  background-color:#dee7ec;
-  border:1px solid #8cacbb;
+  background-color:#eef8fc;
+  border:1px solid #c9e5ee;
 }
