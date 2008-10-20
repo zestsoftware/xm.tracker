@@ -71,7 +71,7 @@ input {
     clear: both;
     font-size: 140%;
     width: 798px;
-    padding: 8px 0 8px 78px;
+    padding: 8px 0 4px 78px;
 }
 
 .tracker-project h1, #task_selection_form  h2 {
@@ -80,10 +80,6 @@ input {
 
 #task_selection_form  h2 {
     font-size: 130%;
-}
-
-.tracker-project h1 {
-    background: url(++resource++xm.tracker.images/project_active.gif) no-repeat scroll 52px 14px; 
 }
 
 .tracker-project {
