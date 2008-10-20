@@ -109,6 +109,8 @@
     setAttribute-kssSelector: css('.track-form input.track-time');
     setAttribute-name: disabled;
     setAttribute-value: disabled;
+    evt-timer-update-displayformat_nohours: '%0H:%0M<span class="timer-second">:%0S</span>';
+    evt-timer-update-displayformat_hours: '%0H:%0M<span class="timer-second">:%0S</span>';
 }
 
 #timer:timer-update(mytimer) {
