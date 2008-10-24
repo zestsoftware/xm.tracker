@@ -477,12 +477,12 @@ dl.portalMessage dt {
     border: 1px solid #35b4e0;
     font-weight: bold;
     margin: 0;
-    padding: 0 5px ;
+    padding: 0 5px;
     color: #fff;
 }
 dl.portalMessage dd {
     background-color: #fff;
-    border: 1px solid #fff  ;
+    border: 1px solid #fff;
     color: #767676;
     margin: 0;
     padding: 0 0 0 50px;
