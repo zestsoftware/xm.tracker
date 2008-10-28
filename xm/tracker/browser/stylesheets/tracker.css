@@ -132,7 +132,8 @@ input {
 }
 
 #project-header a{
-    background: url(++resource++xm.theme.images/logo-xm.gif) no-repeat scroll 9px 4px; 
+    background-color: transparent;
+/*    background: url(++resource++xm.theme.images/logo-xm.gif) no-repeat scroll 9px 4px; */
     color: #21bee8;
     font-size: 190%;
     font-weight: bold;

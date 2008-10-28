@@ -51,13 +51,14 @@
                tal:attributes="value entry/time" />
       </div>
       <div class="entry_table_cell">
-        <tal:book_unassigned_form tal:condition="task/is_unassigned">
+      <div class="book galore" tal:condition="task/is_unassigned">
           <input type="submit"
-                 class="book-button book_to_task_submit"
+                 class="book-button"
                  name="book_to_task"
                  value="Book to task"
                  i18n:attributes="value label_book_to_task" />
-        </tal:book_unassigned_form>
+          <span></span>
+      </div>
         <div class="hidden-controls">
                 <div class="savers">
           <input type="submit"
