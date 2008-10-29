@@ -3,6 +3,10 @@
     -book buttons - are not disabled in IE
 */
 
+a:hover {
+    font-weight: bold;
+}
+
 input {
     overflow: visibile;
 }
@@ -101,8 +105,8 @@ input {
 }
 
 #TimeTrackerHeader {
-    background: #35b4e0;
-    border-color: #2797bd #75dbff #cfcfcf #2797bd;
+    background: #35B4E0 url(++resource++xm.theme.images/breadcrumbs_bg.gif) repeat-x scroll 0 0;
+    border-color: #4AABCB #75DBFF #CFCFCF #4AABCB;
     border-style: solid;
     border-width: 1px;
     color: #fff;
@@ -678,8 +682,9 @@ div.entry_table_cell, form.edit-in-progress .hidden-controls  {
   text-transform:none;
   font-size: 95;
 }
-
+/*LS - no hover background
 #xm-siteactions li a:hover {
   background-color:#eef8fc;
   border:1px solid #c9e5ee;
 }
+*/
