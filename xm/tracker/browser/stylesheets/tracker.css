@@ -3,10 +3,6 @@
     -book buttons - are not disabled in IE
 */
 
-a:hover {
-    font-weight: bold;
-}
-
 input {
     overflow: visibile;
 }
@@ -682,9 +678,8 @@ div.entry_table_cell, form.edit-in-progress .hidden-controls  {
   text-transform:none;
   font-size: 95;
 }
-/*LS - no hover background
 #xm-siteactions li a:hover {
-  background-color:#eef8fc;
-  border:1px solid #c9e5ee;
+    color: #fff;
+    background-color: #4bb6de;
+    text-decoration: underline;
 }
-*/
