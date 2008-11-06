@@ -15,6 +15,9 @@
                   title_class python:not task.is_unassigned() and 'task-title' or 'task-title-unassigned'"
       tal:attributes="class string:${title_class} kssattr-details-taskdetails-${task/uid} kssattr-taskdiv-task-${task/uid};
                       title title;">
+      <span id="default_arrow">
+        [ &darr; ]&nbsp;
+      </span>
     <span class="task-time" tal:content="view/total_time"
           title="Time tracked on this task (hours:minutes)"
           i18n:attributes="title help_time_tracked_task"/>

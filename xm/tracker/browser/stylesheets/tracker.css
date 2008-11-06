@@ -82,6 +82,11 @@ input {
     font-size: 130%;
 }
 
+/*LS- this disables the default arrow in the tasks h2*/
+#default_arrow {
+    display: none;
+}
+ 
 .tracker-project {
     background-color: transparent;
     clear: both;
