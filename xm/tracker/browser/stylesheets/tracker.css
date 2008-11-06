@@ -32,16 +32,16 @@ input {
 .task-selected .b3, .task-selected .b4, 
 .task-selected .bcontent, .task-selected .b4b, 
 .task-selected .b3b, .task-selected .b2b{
-    background-color: #FBFDFE;
-    border-left-color: #BFE1EB;
-    border-right-color: #BFE1EB;
+    background-color: #F1FBFF;
+    border-left-color: #8cd2ec;
+    border-right-color: #8cd2ec;
 }
 
 .task-details-expanded .b1, .task-details-expanded .b1b,
 .task-selected .b1, .task-selected .b1b {
-    background-color: #BFE1EB;
-    border-left-color: #BFE1EB;
-    border-right-color: #BFE1EB;
+    background-color: #8cd2ec;
+    border-left-color: #8cd2ec;
+    border-right-color: #8cd2ec;
 }
 
 
