@@ -47,11 +47,11 @@ input {
 
 /* task task-expanded image changer*/
 .task .task-title {
-    background: url(++resource++xm.theme.images/select_active.gif) no-repeat scroll 9px 4px; 
+    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 9px 4px; 
 }
 
 .task-details-expanded .task-title {
-    background: url(++resource++xm.theme.images/select_active.gif) no-repeat scroll 9px -26px; 
+    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 9px -26px; 
 }
 
 
@@ -97,7 +97,7 @@ input {
 }
 
 #TrackTimer {
-    background: #f9f7f0 url(++resource++xm.theme.images/backgroundheader.gif) repeat-x;
+    background: #f9f7f0 url(++resource++xm.tracker.images/backgroundheader.gif) repeat-x;
     border-color: #fff #d6d4d4 #fff #fff;
     border-style: solid;
     border-width: 1px;
@@ -106,7 +106,7 @@ input {
 }
 
 #TimeTrackerHeader {
-    background: #35B4E0 url(++resource++xm.theme.images/breadcrumbs_bg.gif) repeat-x scroll 0 0;
+    background: #35B4E0 url(++resource++xm.tracker.images/breadcrumbs_bg.gif) repeat-x scroll 0 0;
     border-color: #4AABCB #75DBFF #CFCFCF #4AABCB;
     border-style: solid;
     border-width: 1px;
@@ -138,7 +138,6 @@ input {
 
 #project-header a{
     background-color: transparent;
-/*    background: url(++resource++xm.theme.images/logo-xm.gif) no-repeat scroll 9px 4px; */
     color: #21bee8;
     font-size: 190%;
     font-weight: bold;
@@ -150,7 +149,7 @@ input {
 }
 
 .header-container{
-    background: #fefefe url(++resource++xm.theme.images/background_top.gif) no-repeat 0 0;
+    background: #fefefe url(++resource++xm.tracker.images/background_top.gif) no-repeat 0 0;
     height: 60px;
 }
 
@@ -236,7 +235,7 @@ form, #input-task, #book-form, .hidden-controls,
 .start-button {
     clear: both;
     float: left;
-    background: transparent url(++resource++xm.theme.images/side-left-green.gif) no-repeat ;
+    background: transparent url(++resource++xm.tracker.images/side-left-green.gif) no-repeat ;
     padding: 0 0 0 4px;
 }
 
@@ -246,13 +245,13 @@ form, #input-task, #book-form, .hidden-controls,
     padding: 4px;
     height: 26px;
     color: #255c04;
-    background: #bafc51 url(++resource++xm.theme.images/gradient-green.gif) repeat-x;
+    background: #bafc51 url(++resource++xm.tracker.images/gradient-green.gif) repeat-x;
     border: 0;
     cursor: pointer;
 }
 
 .start-button span{
-    background: transparent url(++resource++xm.theme.images/side-right-green.gif) no-repeat;
+    background: transparent url(++resource++xm.tracker.images/side-right-green.gif) no-repeat;
     float: left;
     width: 4px;
     height: 25px;
@@ -288,7 +287,7 @@ form, #input-task, #book-form, .hidden-controls,
  /* begin stop-timer button */
 .stop-button {
     float: left;
-    background: url(++resource++xm.theme.images/side-left-red.gif) no-repeat transparent;
+    background: url(++resource++xm.tracker.images/side-left-red.gif) no-repeat transparent;
     padding: 0 0 0 4px;
 }
 
@@ -299,13 +298,13 @@ form, #input-task, #book-form, .hidden-controls,
     padding: 4px;
     height: 26px;
     color: #580404;
-    background: #ff956c url(++resource++xm.theme.images/gradient-red.gif) repeat-x;
+    background: #ff956c url(++resource++xm.tracker.images/gradient-red.gif) repeat-x;
     border: 0;
     cursor: pointer;
 }
 
 .stop-button span{
-    background: transparent url(++resource++xm.theme.images/side-right-red.gif) no-repeat;
+    background: transparent url(++resource++xm.tracker.images/side-right-red.gif) no-repeat;
     float: left;
     width: 4px;
     height: 25px;
@@ -322,7 +321,7 @@ form, #input-task, #book-form, .hidden-controls,
   /* begin grey buttons */
 .task-buttons, .register, .book, .savers{
     float: left;
-    background: transparent url(++resource++xm.theme.images/side-left-grey.gif) no-repeat 4px 0;
+    background: transparent url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat 4px 0;
     padding: 0 0 0 8px;
 }
 
@@ -331,13 +330,13 @@ form, #input-task, #book-form, .hidden-controls,
     margin: 0;
     padding: 4px;
     height: 26px;
-    background: #d8d6cf url(++resource++xm.theme.images/gradient-grey.gif) repeat-x;
+    background: #d8d6cf url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x;
     border: 0;
     cursor: pointer;
   }
 
 .task-buttons span, .register span, .book span, .savers span, .savers span{
-    background: transparent url(++resource++xm.theme.images/side-right-grey.gif) no-repeat;
+    background: transparent url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat;
     float: left;
     width: 4px;
     height: 25px;
