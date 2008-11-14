@@ -114,7 +114,7 @@ input {
     font-size: 120%;
     font: center;
     margin: 0;
-    padding: 1px 0 3px 43px;
+    padding: 0 0 4px 43px;
 }
 
 #timer, .task-time{
