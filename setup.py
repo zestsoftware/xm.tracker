@@ -42,9 +42,7 @@ setup(name='xm.tracker',
       zip_safe=False,
       install_requires=[
           'setuptools',
-          #'egenix-mx-base',  # commented out as it is not easy_installable
           'kss.plugin.timer',
-          'kss.plugin.cns',
       ],
       entry_points="""
       # -*- Entry points: -*-
