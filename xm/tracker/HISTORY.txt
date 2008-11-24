@@ -4,6 +4,9 @@ Changelog for xm.tracker
 0.4 (unreleased)
 ----------------
 
+- Display a warning in a task when it is orphaned (removed, in the
+  wrong state).  [maurits]
+
 - CSS changes to the tracker interface to visually distinguish tasks with and 
   without bookings. [simon]
 

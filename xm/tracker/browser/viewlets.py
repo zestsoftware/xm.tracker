@@ -50,7 +50,7 @@ class TaskListManager(Explicit):
 
         # Compile a TAL-friendly list of dicts - {project name: task list}
         self.projects = [dict(name=n, tasks=t) for n, t in projects.items()]
-        # Reverse sort the list so that the unassigned task (project name is 
+        # Reverse sort the list so that the unassigned task (project name is
         # None) is at the bottom...
         self.projects.sort()
         self.projects.reverse()
@@ -85,6 +85,27 @@ class TaskViewlet(BrowserView):
         task_uid = self.request.get('task_uid', '')
         self.task = self.view.tracker().get_task(task_uid)
 
+    @property
+    def is_orphaned(self):
+        """Has the task been removed or is it in the wrong state?"""
+        if self.task.uid == UNASSIGNED:
+            return False
+        brain = self.task_brain
+        if not brain:
+            return True
+        return brain.review_state != 'to-do'
+
+    @property
+    def task_brain(self):
+        """Get the task brain from the catalog."""
+        tools = getMultiAdapter((self.context, self.request),
+                                name=u'plone_tools')
+        brains = tools.catalog()({'UID': self.task.uid})
+        for brain in brains:
+            # brain can be a Discussion Item on a Task...
+            if brain.estimate is not None:
+                return brain
+
     def total_time(self):
         time = round_time_to_minutes(self.task.total_time())
         return time.strftime('%H:%M')
@@ -100,16 +121,12 @@ class TaskViewlet(BrowserView):
             return None
         tools = getMultiAdapter((self.context, self.request),
                                 name=u'plone_tools')
-        brains = tools.catalog()({'UID': self.task.uid})
-        
         estimate = 0.0
         actual = 0.0
-        for brain in brains:
-            # brain can be a Discussion Item on a Task...
-            if brain.estimate is not None:
-                estimate = brain.estimate
-                actual = brain.actual_time
-                break
+        brain = self.task_brain
+        if brain:
+            estimate = brain.estimate
+            actual = brain.actual_time
 
         available = mx.DateTime.DateTimeDeltaFrom(hours=estimate)
         our_time = self.task.total_time()
@@ -145,4 +162,3 @@ class TaskViewlet(BrowserView):
             # We want to expand this one.
             cls += ' task-details-expanded'
         return cls
-

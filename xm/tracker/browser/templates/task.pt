@@ -25,6 +25,12 @@
     </tal:down>
     <tal:title tal:content="task/title"/>
   </h2>
+  <div class="orphaned-task" tal:condition="view/is_orphaned"
+       i18n:translate="msg_orphaned_task_warning">
+    This tracker task has been orphaned: the corresponding xm task has
+    been removed or it is in the wrong state.  You cannot book your
+    hours.  Please investigate.
+  </div>
 
   <div class="discreet"
        tal:condition="view/remaining_time">

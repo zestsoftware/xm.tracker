@@ -686,3 +686,5 @@ div.entry_table_cell, form.edit-in-progress .hidden-controls  {
     background-color: #4bb6de;
     text-decoration: underline;
 }
+
+.orphaned-task { background-color: #f60; }
