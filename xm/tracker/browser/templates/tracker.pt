@@ -29,11 +29,11 @@
         <li>
         <a tal:attributes="href context/absolute_url"
             i18n:domain="plone"
-            i18n:translate="label_home">Home</a>
+            i18n:translate="label_projects">projects</a>
         </li>
         <li>
         <a tal:attributes="href string:${context/absolute_url}/@@tracker"
-            i18n:translate="head_timetracker">Time Tracker</a>
+            i18n:translate="head_timetracker">time tracker</a>
         </li>
     </ul>
              <div id="project-header"><a tal:attributes="href context/absolute_url" 
