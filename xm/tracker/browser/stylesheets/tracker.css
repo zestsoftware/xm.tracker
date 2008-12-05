@@ -32,7 +32,7 @@ input {
 .task-selected .b3, .task-selected .b4, 
 .task-selected .bcontent, .task-selected .b4b, 
 .task-selected .b3b, .task-selected .b2b{
-    background-color: #F1FBFF;
+    background-color: #eff8fb;
     border-left-color: #8cd2ec;
     border-right-color: #8cd2ec;
 }
@@ -465,8 +465,7 @@ form {
 .portalMessage {
     clear: both;
     padding: 0;
-    margin: 0;
-    overflow: hidden;
+    margin: 0 2px 0 14px;
 }
 
 dl.portalMessage a {
@@ -476,20 +475,22 @@ dl.portalMessage a {
     text-decoration: underline;
 }
 dl.portalMessage dt {
-    float: left;
-    background-color: #35b4e0;
-    border: 1px solid #35b4e0;
-    font-weight: bold;
-    margin: 0;
-    padding: 0 5px;
-    color: #fff;
+background-color: #35B4E0;
+border: 1px solid #35B4E0;
+color: White;
+float: left;
+font-weight: bold;
+line-height: 1.25em;
+margin: 0 0.5em 0 0;
+padding: 0 5px 2px;
 }
 dl.portalMessage dd {
-    background-color: #fff;
-    border: 1px solid #fff;
-    color: #767676;
-    margin: 0;
-    padding: 0 0 0 50px;
+	background-color: #FBFDFE;
+	border: 1px solid #BFE1EB;
+	color: #1C718E;
+	margin: 0;
+	padding: 0 0 0 50px;
+	line-height: 1.5em;
 }
 
 dl.warning {
