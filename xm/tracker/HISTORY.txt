@@ -4,6 +4,10 @@ Changelog for xm.tracker
 0.4 (unreleased)
 ----------------
 
+- Moved "eXtremeManagement: View Tracker" permission to
+  Products.eXtremeManagement as we do not actually use that permission
+  in the xm.tracker package.  [maurits]
+
 - Display a warning in a task when it is orphaned (removed, in the
   wrong state).  [maurits]
 

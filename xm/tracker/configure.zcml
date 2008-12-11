@@ -6,10 +6,6 @@
 
   <i18n:registerTranslations directory="locales" />
 
-  <permission
-      id="xm.ViewTracker"
-      title="eXtremeManagement: View Tracker" />
-
   <include package=".browser" />
 
   <!-- include zcml of dependencies -->
