@@ -22,10 +22,14 @@ do this using the default user from PloneTestCase:
     >>> browser.open(portal_url)
 
 We have the login portlet, so let's use that and check that we are
-really logged in.
+really logged in.  We could login as the default_user from
+PloneTestCase, but he is just a normal Member; depending on what we
+set in the rolemap.xml in Products.eXtremeManagement the Member role
+may not have the View Tracker permission.  So we use a different user
+that has the Employee role.
 
-    >>> browser.getControl(name='__ac_name').value = default_user
-    >>> browser.getControl(name='__ac_password').value = default_password
+    >>> browser.getControl(name='__ac_name').value = 'employee'
+    >>> browser.getControl(name='__ac_password').value = 'secret'
     >>> browser.getControl(name='submit').click()
     >>> browser.url == portal_url
     True

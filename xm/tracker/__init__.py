@@ -5,7 +5,7 @@ from Products.CMFCore.permissions import setDefaultRoles
 XMTrackerMessageFactory = MessageFactory('tracker')
 
 setDefaultRoles("eXtremeManagement: View Tracker",
-                ('Projectmanager', 'Employee', 'Manager', 'Member'))
+                ('Projectmanager', 'Employee', 'Manager'))
 
 
 def initialize(context):
