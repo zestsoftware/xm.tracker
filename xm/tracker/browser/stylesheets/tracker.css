@@ -467,7 +467,8 @@ form {
 .portalMessage {
     clear: both;
     padding: 0;
-    margin: 0 2px 0 18px;
+    margin: 0 2px 0 10px;
+    font-size: 90%;
 }
 
 dl.portalMessage a {
@@ -484,7 +485,7 @@ dl.portalMessage dt {
 	color: White;
 	float: left;
 	font-weight: bold;
-	line-height: 1.25em;
+	line-height: 1.26em;
 	margin: 0 0.5em 0 0;
 	padding: 0 5px 2px;
 }
