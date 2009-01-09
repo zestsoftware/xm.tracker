@@ -9,6 +9,11 @@ input {
 
 #input-task, .entry_text_time_edit {
     margin: 4px 0 0 0;
+	width: 27em; /*this width fixes a bug in some browser*/ 
+}
+
+.time {
+	width: 3em; /*this width fixes a bug in some browser*/
 }
 
 .edit-entries {

@@ -46,7 +46,7 @@
         <input id="time-change"
                type="text"
                name="time"
-               class="entry_text_time_edit"
+               class="entry_text_time_edit time"
                size="4"
                tal:attributes="value entry/time" />
       </div>
