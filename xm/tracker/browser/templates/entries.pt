@@ -53,7 +53,7 @@
       <div class="entry_table_cell">
       <div class="book galore" tal:condition="task/is_unassigned">
           <input type="submit"
-                 class="book-button"
+                 class="book-button book_to_task_submit"
                  name="book_to_task"
                  value="Book to task"
                  i18n:attributes="value label_book_to_task" />

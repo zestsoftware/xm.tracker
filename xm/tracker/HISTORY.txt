@@ -4,7 +4,8 @@ Changelog for xm.tracker
 0.5 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- Reinstate class on 'book to task' button which triggers the
+  KSS. [reinout, mark]
 
 
 0.4 (2009-01-07)
@@ -17,7 +18,7 @@ Changelog for xm.tracker
 - Display a warning in a task when it is orphaned (removed, in the
   wrong state).  [maurits]
 
-- CSS changes to the tracker interface to visually distinguish tasks with and 
+- CSS changes to the tracker interface to visually distinguish tasks with and
   without bookings. [simon]
 
 - Added project-grouping of tasks in the tracker view. [simon]
