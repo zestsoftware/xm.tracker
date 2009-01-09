@@ -1,7 +1,7 @@
 Changelog for xm.tracker
 ========================
 
-0.5 (unreleased)
+0.5 (2009-01-09)
 ----------------
 
 - Fix buttons on the 'select task for unassigned entry' form. [mark]
