@@ -4,6 +4,8 @@ Changelog for xm.tracker
 0.5 (unreleased)
 ----------------
 
+- Fix buttons on the 'select task for unassigned entry' form. [mark]
+
 - Reinstate class on 'book to task' button which triggers the
   KSS. [reinout, mark]
 

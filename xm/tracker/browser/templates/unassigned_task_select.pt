@@ -33,18 +33,25 @@
 
     </tal:loop>
     <div id="form_buttons">
-      <input
-          type="submit"
-          name="select"
-          value="Book"
-          i18n:attributes="value book_button" />
-      <input
-          type="button"
-          name="cancel"
-          id="cancel_add_tasks"
-          value="Cancel"
-          i18n:domain="plone"
-          i18n:attributes="value label_cancel" />
+      <div class="task-buttons">
+        <input
+            type="submit"
+            name="select"
+            value="Book"
+            class="book-button"
+            i18n:attributes="value book_button" />
+        <span />
+      </div>
+      <div class="task-buttons">
+        <input
+            type="button"
+            name="cancel"
+            id="cancel_add_tasks"
+            value="Cancel"
+            i18n:domain="plone"
+            i18n:attributes="value label_cancel" />
+        <span />
+      </div>
     </div>
   </form>
 
