@@ -3,7 +3,7 @@
     -book buttons - are not disabled in IE
 */
 
-#input-task, .entry_text_time_edit {
+.input-task, .entry_text_time_edit {
     margin: 4px 0 0 0;
 	width: 27em; /*this width fixes a bug in some browser*/ 
 }
@@ -21,7 +21,7 @@
     padding: 0 0 0 20px;
 }
 
-#time-change {
+.time-change {
     margin-left: 6px;
 }
     
@@ -214,7 +214,7 @@
     padding: 0 0 0 24px;
 }
 
-form, #input-task, #book-form, .hidden-controls, 
+form, .input-task, .book-form, .hidden-controls, 
 .savers, .book-button, .entry_table, 
 .remove-entry, .tracker-book{
     float: left;
@@ -325,7 +325,7 @@ form, #input-task, #book-form, .hidden-controls,
     padding: 0 0 0 8px;
 }
 
-#add-tasks, #cancel_add_tasks, #track-time, .book-button, .edit-entries-save, .edit-entries-cancel{
+#add-tasks, #cancel_add_tasks, .track-time, .book-button, .edit-entries-save, .edit-entries-cancel{
     float: left;
     margin: 0;
     padding: 4px;

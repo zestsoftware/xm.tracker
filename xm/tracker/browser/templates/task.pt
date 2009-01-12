@@ -54,13 +54,13 @@
       <input type="hidden"
              name="uid"
              tal:attributes="value task/uid" />
-      <input id="input-task"
+      <input class="input-task"
              type="text"
              name="text"
              tabindex="1"
              size="60" />
         <div class="register">
-      <input id="track-time"
+      <input class="track-time"
             type="submit"
              name="track"
              tal:attributes="class string:track-time kssattr-uid-${task/uid};
@@ -81,7 +81,7 @@
       <form
           method="post"
           action="@@tracker_book">
-                <input id="book-form"
+                <input class="book-form"
                 type="hidden"
                  name="uid"
                  tal:attributes="value task/uid" />

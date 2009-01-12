@@ -3,6 +3,7 @@
     lang="en-US"
     i18n:domain="tracker">
 <head>
+	<meta content="text/html;charset=utf-8" http-equiv="Content-Type" />
     <title i18n:translate="head_timetracker">Time Tracker</title>
     <script type="text/javascript" src="jquery.js">
     </script>
@@ -43,7 +44,7 @@
     <div id="content" tal:define="tracker view/tracker;
                                 putils context/plone_utils">
     <!-- XXX Remove this form when kss.blur becomes available -->
-    <form style="display: none;">
+    <form action="" style="display: none;">
         <input name="just_for_defocussing_with_kss"
             id="defocus_target"/>
     </form>
