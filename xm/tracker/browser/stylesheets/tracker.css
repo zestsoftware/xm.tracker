@@ -48,11 +48,11 @@
 
 /* task task-expanded image changer*/
 .task .task-title {
-    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 9px 4px; 
+    background: url(++resource++xm.tracker.images/select_inactive.gif) no-repeat scroll 10px 4px; 
 }
 
 .task-details-expanded .task-title {
-    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 9px -26px; 
+    background: url(++resource++xm.tracker.images/select_active.gif) no-repeat scroll 10px 4px; 
 }
 
 
