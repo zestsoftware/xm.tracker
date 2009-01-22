@@ -4,7 +4,7 @@ Changelog for xm.tracker
 0.7 (unreleased)
 ----------------
 
-- Nothing changed yet.
+- tooptip now displays total booked and total tracked. [jladage]
 
 
 0.6 (2009-01-15)

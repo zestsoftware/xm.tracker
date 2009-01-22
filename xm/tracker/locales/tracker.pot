@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2008-11-24 13:24+0000\n"
+"POT-Creation-Date: 2009-01-22 16:25+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,7 +22,7 @@ msgid "Invalid time"
 msgstr ""
 
 #. Default: "Book"
-#: ./browser/templates/unassigned_task_select.pt:36
+#: ./browser/templates/unassigned_task_select.pt:37
 msgid "book_button"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgid "head_orphaned_tasks"
 msgstr ""
 
 #. Default: "Time Tracker"
-#: ./browser/templates/tracker.pt:6
+#: ./browser/templates/tracker.pt:7
 msgid "head_timetracker"
 msgstr ""
 
@@ -52,7 +52,7 @@ msgid "label_book"
 msgstr ""
 
 #. Default: "Book to task"
-#: ./browser/templates/entries.pt:55
+#: ./browser/templates/entries.pt:54
 msgid "label_book_to_task"
 msgstr ""
 
@@ -102,12 +102,12 @@ msgid "msg_added_entry"
 msgstr ""
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:487
+#: ./browser/tracker.py:488
 msgid "msg_close_task_failed"
 msgstr ""
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:497
+#: ./browser/tracker.py:498
 msgid "msg_close_task_success"
 msgstr ""
 
@@ -122,7 +122,7 @@ msgid "msg_failed_add_booking"
 msgstr ""
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:399
+#: ./browser/tracker.py:400
 msgid "msg_missing_description"
 msgstr ""
 
@@ -132,7 +132,7 @@ msgid "msg_missing_task"
 msgstr ""
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:433
+#: ./browser/tracker.py:434
 msgid "msg_no_entries_found"
 msgstr ""
 
@@ -142,7 +142,7 @@ msgid "msg_no_task_found"
 msgstr ""
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:407
+#: ./browser/tracker.py:408
 msgid "msg_no_tracking_without_starttime"
 msgstr ""
 
@@ -171,8 +171,8 @@ msgstr ""
 msgid "msg_stopped_timer"
 msgstr ""
 
-#. Default: "Total hours booked and tracked today: ${total}"
-#: ./browser/tracker.py:365
+#. Default: "Booked: $booked | Tracked: $tracked"
+#: ./browser/tracker.py:366
 msgid "msg_total_booked_tracked"
 msgstr ""
 

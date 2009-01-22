@@ -359,12 +359,15 @@ class TimerProvider(Explicit):
         day_total = getMultiAdapter(
             (self.context, self.request), name=u'daytotal')
         booked = day_total.raw_total()
-        tracked = sum([task.total_time() for task in self.tracker.tasks])
-        total = mx.DateTime.DateTimeDeltaFrom(hours=booked) + tracked
-        total = total.strftime('%H:%M')
+        booked = mx.DateTime.DateTimeDeltaFrom(hours=booked)
+        tasks = sum([task.total_time() for task in self.tracker.tasks])
+        unassigned = self.tracker.unassigned.total_time()
+        tracked = tasks + unassigned
+        booked = booked.strftime('%H:%M')
+        tracked = tracked.strftime('%H:%M')
         return _(u'msg_total_booked_tracked',
-                 default=u'Total hours booked and tracked today: ${total}',
-                 mapping=dict(total=total))
+                 default=u'Booked: $booked | Tracked: $tracked',
+                 mapping=dict(booked=booked,tracked=tracked))
 
 
 class Stop(TrackerView):
