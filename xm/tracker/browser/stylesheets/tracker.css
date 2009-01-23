@@ -17,8 +17,8 @@
 }
 
 .time_entry_entry_table_row {
-    clear: both;
     padding: 0 0 0 20px;
+	clear: left;
 }
 
 .time-change {
@@ -319,25 +319,29 @@ form, .input-task, .book-form, .hidden-controls,
 }
  
   /* begin grey buttons */
+.task-buttons, .register, .book, .savers,
+#add-tasks, #cancel_add_tasks, .track-time, 
+.book-button, .edit-entries-save, .edit-entries-cancel,
+.task-buttons span, .register span, .book span, .savers span, .savers span {
+	float: left;
+}
+  
 .task-buttons, .register, .book, .savers{
-    float: left;
+
     background: transparent url(++resource++xm.tracker.images/side-left-grey.gif) no-repeat 4px 0;
     padding: 0 0 0 8px;
 }
 
 #add-tasks, #cancel_add_tasks, .track-time, .book-button, .edit-entries-save, .edit-entries-cancel{
-    float: left;
-    margin: 0;
     padding: 4px;
     height: 26px;
     background: #d8d6cf url(++resource++xm.tracker.images/gradient-grey.gif) repeat-x;
-    border: 0;
+    border: 0 !important;
     cursor: pointer;
   }
 
 .task-buttons span, .register span, .book span, .savers span, .savers span{
     background: transparent url(++resource++xm.tracker.images/side-right-grey.gif) no-repeat;
-    float: left;
     width: 4px;
     height: 25px;
 }
@@ -346,12 +350,7 @@ form, .input-task, .book-form, .hidden-controls,
  
  /*  begin task rounded borders */
 .task {
-    position: relative;
-    left: 40px;
-    display: block;
-    background-color: transparent;
-    clear: both;
-    margin: 0 0 10px 0;
+    margin: 0 0 10px 40px;
     width: 800px;
 }
 
@@ -645,7 +644,7 @@ li {
 /* Table mocked with divs as firefox makes a mockery out of our forms. */
 
 div.entry_table_cell, form.edit-in-progress .hidden-controls  {
-    display: inline;
+    display: block;
     float: left;
 }
 
