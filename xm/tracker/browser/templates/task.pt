@@ -10,11 +10,8 @@
      <span class="b3"></span>
      <span class="b4"></span>
      <div class="bcontent">
-  <h2 tal:define="title string:${task/project} | ${task/story};
-                  title python:not task.is_unassigned() and title or '';
-                  title_class python:not task.is_unassigned() and 'task-title' or 'task-title-unassigned'"
-      tal:attributes="class string:${title_class} kssattr-details-taskdetails-${task/uid} kssattr-taskdiv-task-${task/uid};
-                      title title;">
+  <h2 tal:define="title_class python:not task.is_unassigned() and 'task-title' or 'task-title-unassigned'"
+      tal:attributes="class string:${title_class} kssattr-details-taskdetails-${task/uid} kssattr-taskdiv-task-${task/uid};">
       <span class="default_arrow">
         [ &darr; ]&nbsp;
       </span>
