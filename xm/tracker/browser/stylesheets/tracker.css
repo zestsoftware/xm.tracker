@@ -517,7 +517,8 @@ dl.error dt {
 /* End portalMessage settings from standard Plone */
 
 #overlay {
-    background-image: url(++resource++xm.tracker.images/overlay.png);
+    /* background-image: url(++resource++xm.tracker.images/overlay.png); */
+    /* the overlay background is now used on task_selection_form */
     display: none;
     position: absolute;
     top: 0;
@@ -535,15 +536,23 @@ dl.error dt {
 }
 
 #task_selection_form {
+    background-image: url(++resource++xm.tracker.images/overlay.png);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    padding-bottom: 200px;
+}
+
+#task_selection_form_content {
     background-color: white;
-    border: 4px outset #CCCCCC;
-    display: block;
-    height: 600px;
+    border: 2px solid #CCCCCC;
     margin-left: auto;
     margin-right: auto;
-    overflow-y: scroll;
+    overflow: auto;
     padding: 10px 0 20px 20px;
-    position: absolute;
+    position: relative;
     top: 50px;
     width: 800px;
     z-index: 500;
