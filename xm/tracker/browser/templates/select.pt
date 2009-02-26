@@ -1,5 +1,6 @@
 <div id="task_selection_form"
      i18n:domain="tracker">
+ <div id="task_selection_form_content">
   <h1 i18n:translate="label_select_tasks">Select Tasks</h1>
 
   <form
@@ -74,4 +75,5 @@
     </div>
   </form>
 
+ </div>
 </div>
