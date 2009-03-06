@@ -1,7 +1,7 @@
 1.0rc1 (2009-01-25)
 -------------------
 
-- Tooptip now displays total booked and total tracked. [jladage]
+- Tooltip now displays total booked and total tracked. [jladage]
 
 
 0.6 (2009-01-15)
