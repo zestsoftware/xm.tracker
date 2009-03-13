@@ -1,6 +1,16 @@
+History of xm.tracker
+=====================
+
+
+1.0rc2 (unreleased)
+-------------------
+
+- select tasks button is now placed inside track time toolbar [laurens]
+
+
 1.0rc1 (2009-01-25)
 -------------------
-- select tasks button is now placed inside track time toolbar [laurens]
+
 - Tooltip now displays total booked and total tracked. [jladage]
 
 
@@ -15,7 +25,8 @@
 
 - Fix buttons on the 'select task for unassigned entry' form. [mark]
 
-- Reinstate class on 'book to task' button which triggers the KSS. [reinout, mark]
+- Reinstate class on 'book to task' button which triggers the
+  KSS. [reinout, mark]
 
 
 0.4 (2009-01-07)
