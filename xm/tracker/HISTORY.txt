@@ -1,6 +1,7 @@
 1.0rc1 (2009-01-25)
 -------------------
 
+- select tasks button is now placed inside track time toolbar [laurens]
 - Tooltip now displays total booked and total tracked. [jladage]
 
 

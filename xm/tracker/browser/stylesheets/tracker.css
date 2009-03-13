@@ -260,26 +260,17 @@ form, .input-task, .book-form, .hidden-controls,
 
 /* begin select-task button */
 .SelectTasks {
-    position: relative;
-    float: right;
-    height: 25px; 
-    bottom: 3px;
-    z-index: 20;
-    border-right: 1px solid #d8d5ca;
+    margin-left: 27px;
 }
 
 #select-tasks{
     text-align: left;
     padding: 0;
-    float: right;
-    height: 25px;
-    padding: 2px 0 2px 30px;
-    width: 160px;
-    color: #3d3d3b;
-    background: #ebeae6 url(++resource++xm.tracker.images/select-tasks-bg.gif) no-repeat 0 0;
+    padding: 2px 0 2px 14px;
+    color: #436976;
+    background: url(++resource++xm.tracker.images/arrow_green_inactive.gif) no-repeat 0 center;
     border: 0;
     cursor: pointer;
-    clear: right;
 }
 
  /* end select-task button */
@@ -493,7 +484,7 @@ dl.portalMessage dd {
 	border-style: solid;
 	border-color: #BFE1EB;
 	color: #1C718E;
-	margin: 0;
+	margin: 10px 0;
 	padding: 0 0 0 50px;
 	line-height: 1.5em;
 }
