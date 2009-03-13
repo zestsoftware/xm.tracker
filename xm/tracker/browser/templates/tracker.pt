@@ -61,12 +61,6 @@
 			    value="select tasks"
 			    i18n:attributes="value label_select_tasks" />
 		</form>
-		<input type="submit"
-		    name="expand"
-		    id="expand-tasks"
-		    value="expand all"
-		    i18n:attributes="value label_expand_tasks" />
-
              <div tal:replace="structure provider:xm.tracker.timer" />
                 <div tal:replace="structure provider:xm.tracker.startstop" />
           </div>
