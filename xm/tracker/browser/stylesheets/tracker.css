@@ -263,7 +263,7 @@ form, .input-task, .book-form, .hidden-controls,
     margin-left: 27px;
 }
 
-#select-tasks{
+#select-tasks, #expand-tasks {
     text-align: left;
     padding: 0;
     padding: 2px 0 2px 14px;
@@ -272,9 +272,15 @@ form, .input-task, .book-form, .hidden-controls,
     border: 0;
     cursor: pointer;
 }
-
  /* end select-task button */
- 
+
+ /* start expand all tasks button */
+#expand-tasks {
+    background: url(++resource++xm.tracker.images/arrow_blue_inactive.gif) no-repeat 0 center;
+    margin-left: 18px;
+}
+/* end expand all tasks button */
+
  /* begin stop-timer button */
 .stop-button {
     float: left;
