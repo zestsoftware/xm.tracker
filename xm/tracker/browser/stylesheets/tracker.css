@@ -216,7 +216,7 @@
 
 form, .input-task, .book-form, .hidden-controls, 
 .savers, .book-button, .entry_table, 
-.remove-entry, .tracker-book{
+.remove-entry, .tracker-book, #expand-tasks{
     float: left;
 }
 
