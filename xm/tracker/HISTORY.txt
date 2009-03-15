@@ -2,8 +2,8 @@ History of xm.tracker
 =====================
 
 
-1.0rc2 (unreleased)
--------------------
+1.0 (2009-03-15)
+----------------
 
 - select tasks button is now placed inside track time toolbar [laurens]
 
