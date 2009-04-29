@@ -520,7 +520,7 @@ dl.error dt {
 
 #overlay img {
     position: absolute;
-    top: 160px;
+    top: 125px;
     left: 45%;
     z-index: 102;
 }
