@@ -5,7 +5,8 @@ History of xm.tracker
 1.0.1 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Added div #task_selection_form_content to unassigned_task_select.pt
+  to provide styling for the unassigned tasks form. [laurens]
 
 
 1.0 (2009-03-15)
