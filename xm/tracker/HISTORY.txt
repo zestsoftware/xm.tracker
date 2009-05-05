@@ -2,7 +2,7 @@ History of xm.tracker
 =====================
 
 
-1.0.1 (unreleased)
+1.0.1 (2009-05-05)
 ------------------
 
 - Added div #task_selection_form_content to unassigned_task_select.pt
