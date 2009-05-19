@@ -2,6 +2,11 @@ History of xm.tracker
 =====================
 
 
+1.0.3 (unreleased)
+------------------
+
+- added german translation. [jensens]
+
 1.0.2 (2009-05-05)
 ------------------
 
