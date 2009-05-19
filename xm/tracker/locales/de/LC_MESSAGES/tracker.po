@@ -175,7 +175,7 @@ msgstr "Uhr gestoppt"
 #. Default: "Booked: $booked | Tracked: $tracked"
 #: ./browser/tracker.py:366
 msgid "msg_total_booked_tracked"
-msgstr "Gebucht: $booked | Erfasst: tracked"
+msgstr "Gebucht: $booked | Erfasst: $tracked"
 
 #. Default: "Entry updated"
 #: ./browser/entry.py:196
