@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xm.tracker 0.1\n"
-"POT-Creation-Date: 2009-01-22 16:25+0000\n"
+"POT-Creation-Date: 2009-05-19 22:08+0000\n"
 "PO-Revision-Date: 2008-11-24 14:23+0100\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Zest <xm@lists.zestsoftware.nl>\n"
@@ -19,12 +19,12 @@ msgid "Invalid time"
 msgstr "Tijd is niet in het goede formaat"
 
 #. Default: "Book"
-#: ./browser/templates/unassigned_task_select.pt:37
+#: ./browser/templates/unassigned_task_select.pt:38
 msgid "book_button"
 msgstr "Boek"
 
 #. Default: "Orphaned tasks"
-#: ./browser/templates/select.pt:29
+#: ./browser/templates/select.pt:30
 msgid "head_orphaned_tasks"
 msgstr "Afgesloten taken"
 
@@ -34,17 +34,17 @@ msgid "head_timetracker"
 msgstr "Tijdregistratie"
 
 #. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker.  Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
-#: ./browser/templates/select.pt:30
+#: ./browser/templates/select.pt:31
 msgid "help_orphaned_tasks"
 msgstr "Dit zijn taken die verwijderd zijn of niet de 'Te doen' status hebben, maar nog wel in de tracker zitten.  Overweeg alstublieft om ze hier te deselecteren of om de status aan te passen, anders kunt u wellicht niet uw tijd boeken."
 
 #. Default: "Time tracked on this task (hours:minutes)"
-#: ./browser/templates/task.pt:21
+#: ./browser/templates/task.pt:18
 msgid "help_time_tracked_task"
 msgstr "Tijd geregistreerd op deze taak (uren:minuten)"
 
 #. Default: "Book"
-#: ./browser/templates/task.pt:89
+#: ./browser/templates/task.pt:86
 msgid "label_book"
 msgstr "Boeken"
 
@@ -54,12 +54,12 @@ msgid "label_book_to_task"
 msgstr "Boek op taak"
 
 #. Default: "Book and close"
-#: ./browser/templates/task.pt:97
+#: ./browser/templates/task.pt:94
 msgid "label_close"
 msgstr "Boeken en afronden"
 
 #. Default: "Go to task"
-#: ./browser/templates/task.pt:37
+#: ./browser/templates/task.pt:34
 msgid "label_go_to_task"
 msgstr "Ga naar de taak"
 
@@ -69,12 +69,12 @@ msgid "label_remove_entry"
 msgstr "Verwijder deze entry"
 
 #. Default: "Select Tasks"
-#: ./browser/templates/select.pt:3
+#: ./browser/templates/select.pt:4
 msgid "label_select_tasks"
 msgstr "Selecteer taken"
 
 #. Default: "Select task for the unassigned entry"
-#: ./browser/templates/unassigned_task_select.pt:3
+#: ./browser/templates/unassigned_task_select.pt:4
 msgid "label_select_tasks_for_unassigned"
 msgstr "Selecteer een taak voor de niet-toegedeelde boeking"
 
@@ -99,12 +99,12 @@ msgid "msg_added_entry"
 msgstr "Entry toegevoegd"
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:488
+#: ./browser/tracker.py:490
 msgid "msg_close_task_failed"
 msgstr "Afronden van de taak is mislukt"
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:498
+#: ./browser/tracker.py:500
 msgid "msg_close_task_success"
 msgstr "Taak is afgesloten"
 
@@ -119,7 +119,7 @@ msgid "msg_failed_add_booking"
 msgstr "Er kan niet geboekt worden op de daadwerkelijke taak. Controleer of de taak de correcte workflow staat heeft."
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:400
+#: ./browser/tracker.py:402
 msgid "msg_missing_description"
 msgstr "De entry is niet toegevoegd: voeg beschrijvende tekst toe."
 
@@ -129,7 +129,7 @@ msgid "msg_missing_task"
 msgstr "Er is geen taak geselecteerd, boeken kan dus niet."
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:434
+#: ./browser/tracker.py:436
 msgid "msg_no_entries_found"
 msgstr "Deze taak is leeg"
 
@@ -139,12 +139,12 @@ msgid "msg_no_task_found"
 msgstr "Er is geen bijbehorende taak gevonden met het juiste UID"
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:408
+#: ./browser/tracker.py:410
 msgid "msg_no_tracking_without_starttime"
 msgstr "De tijd kan niet bijgehouden worden als de klok nog niet gestart is."
 
 #. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state.  You cannot book your hours.  Please investigate."
-#: ./browser/templates/task.pt:28
+#: ./browser/templates/task.pt:25
 msgid "msg_orphaned_task_warning"
 msgstr "Deze tracker taak is 'afgerond' of verwijderd. U kunt uw uren niet boeken.  Onderzoek dit alstublieft."
 
@@ -169,7 +169,7 @@ msgid "msg_stopped_timer"
 msgstr "Timer gestopt"
 
 #. Default: "Booked: $booked | Tracked: $tracked"
-#: ./browser/tracker.py:366
+#: ./browser/tracker.py:368
 msgid "msg_total_booked_tracked"
 msgstr "Geboekt: ${booked} | Geregistreerd: ${tracked}"
 
@@ -179,7 +179,7 @@ msgid "msg_update_entry"
 msgstr "Entry geupdated"
 
 #. Default: "Remaining:"
-#: ./browser/templates/task.pt:43
+#: ./browser/templates/task.pt:40
 msgid "remaining"
 msgstr "Resterend:"
 
@@ -189,7 +189,7 @@ msgid "time_formatting_error"
 msgstr "Het tijdformaat is verkeerd, het moet x:xx danwel xx:xx zijn"
 
 #. Default: "Track"
-#: ./browser/templates/task.pt:63
+#: ./browser/templates/task.pt:60
 msgid "track_button"
 msgstr "Registreren"
 

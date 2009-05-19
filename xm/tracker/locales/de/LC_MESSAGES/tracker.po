@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: eXtremeManagement tracker\n"
-"POT-Creation-Date: 2009-01-22 16:25+0000\n"
+"POT-Creation-Date: 2009-05-19 22:08+0000\n"
 "PO-Revision-Date: 2009-05-19 21:07+0100\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: BlueDynamics Alliance <dev@bluedynamics.com>\n"
@@ -17,18 +17,17 @@ msgstr ""
 "Domain: plone\n"
 "X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
 
-
 #: ./browser/entry.py:191
 msgid "Invalid time"
 msgstr "Ungültige Zeit"
 
 #. Default: "Book"
-#: ./browser/templates/unassigned_task_select.pt:37
+#: ./browser/templates/unassigned_task_select.pt:38
 msgid "book_button"
 msgstr "Buchen"
 
 #. Default: "Orphaned tasks"
-#: ./browser/templates/select.pt:29
+#: ./browser/templates/select.pt:30
 msgid "head_orphaned_tasks"
 msgstr "Verweiste Aufgaben"
 
@@ -38,17 +37,17 @@ msgid "head_timetracker"
 msgstr "Zeiterfassung"
 
 #. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker.  Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
-#: ./browser/templates/select.pt:30
+#: ./browser/templates/select.pt:31
 msgid "help_orphaned_tasks"
 msgstr "Dies sind Aufgaben die entfernt wurden oder nicht im zu-erledigem Stadium sind, jedoch noch in der Erfassung sind. Bitte erwägen Sie diese hier zu entferne oder ihren Status zu ändern. Wenn nicht, sind Sie nicht in der Lage Ihre Zeit auf sie zu buchen."
 
 #. Default: "Time tracked on this task (hours:minutes)"
-#: ./browser/templates/task.pt:21
+#: ./browser/templates/task.pt:18
 msgid "help_time_tracked_task"
 msgstr "Erfasste Zeit für diese Aufgabe (Stunden:Minuten)"
 
 #. Default: "Book"
-#: ./browser/templates/task.pt:89
+#: ./browser/templates/task.pt:86
 msgid "label_book"
 msgstr "Buchen"
 
@@ -58,12 +57,12 @@ msgid "label_book_to_task"
 msgstr "mit Aufgabe verbuchen"
 
 #. Default: "Book and close"
-#: ./browser/templates/task.pt:97
+#: ./browser/templates/task.pt:94
 msgid "label_close"
 msgstr "Buchen und schließen"
 
 #. Default: "Go to task"
-#: ./browser/templates/task.pt:37
+#: ./browser/templates/task.pt:34
 msgid "label_go_to_task"
 msgstr "Gehe zu Aufgabe"
 
@@ -73,12 +72,12 @@ msgid "label_remove_entry"
 msgstr "Diesen Eintrag entfernen"
 
 #. Default: "Select Tasks"
-#: ./browser/templates/select.pt:3
+#: ./browser/templates/select.pt:4
 msgid "label_select_tasks"
 msgstr "Wähle Aufgaben"
 
 #. Default: "Select task for the unassigned entry"
-#: ./browser/templates/unassigned_task_select.pt:3
+#: ./browser/templates/unassigned_task_select.pt:4
 msgid "label_select_tasks_for_unassigned"
 msgstr "Wähle Aufgabe für den nicht zugewiesenen Eintrag"
 
@@ -103,12 +102,12 @@ msgid "msg_added_entry"
 msgstr "Eintrag hinzugefügt"
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:488
+#: ./browser/tracker.py:490
 msgid "msg_close_task_failed"
 msgstr "Schließen der Aufgabe fehlgeschlagen"
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:498
+#: ./browser/tracker.py:500
 msgid "msg_close_task_success"
 msgstr "Aufgabe wurde abgeschlossen"
 
@@ -123,7 +122,7 @@ msgid "msg_failed_add_booking"
 msgstr "Keine Erlaubnis eine Buchung zur Aufgabe hinzuzufügen. Prüfen Sie, ob die Aufgabe im richtigen Stadium ist."
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:400
+#: ./browser/tracker.py:402
 msgid "msg_missing_description"
 msgstr "Eintrag nicht hinzugefügt. Bitte eine Beschreibung bereitstellen."
 
@@ -133,7 +132,7 @@ msgid "msg_missing_task"
 msgstr "Keine Aufgabe ausgewählt. Eintrag kann nicht gebucht werden."
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:434
+#: ./browser/tracker.py:436
 msgid "msg_no_entries_found"
 msgstr "Keine Einträge zu dieser Aufgabe gefunden"
 
@@ -143,12 +142,12 @@ msgid "msg_no_task_found"
 msgstr "Kein Task mit dieser UID gefunden"
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:408
+#: ./browser/tracker.py:410
 msgid "msg_no_tracking_without_starttime"
 msgstr "Zeiterfassung ist nicht möglich, solange die Erfassung nicht gestarted wurde."
 
 #. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state.  You cannot book your hours.  Please investigate."
-#: ./browser/templates/task.pt:28
+#: ./browser/templates/task.pt:25
 msgid "msg_orphaned_task_warning"
 msgstr ""
 
@@ -173,7 +172,7 @@ msgid "msg_stopped_timer"
 msgstr "Uhr gestoppt"
 
 #. Default: "Booked: $booked | Tracked: $tracked"
-#: ./browser/tracker.py:366
+#: ./browser/tracker.py:368
 msgid "msg_total_booked_tracked"
 msgstr "Gebucht: $booked | Erfasst: $tracked"
 
@@ -183,7 +182,7 @@ msgid "msg_update_entry"
 msgstr "Eintrag aktualisiert"
 
 #. Default: "Remaining:"
-#: ./browser/templates/task.pt:43
+#: ./browser/templates/task.pt:40
 msgid "remaining"
 msgstr "Verbleibend:"
 
@@ -193,7 +192,7 @@ msgid "time_formatting_error"
 msgstr "Falsches Zeitformat: Es muss s:mm or ss:mm sein"
 
 #. Default: "Track"
-#: ./browser/templates/task.pt:63
+#: ./browser/templates/task.pt:60
 msgid "track_button"
 msgstr "Erfassen"
 

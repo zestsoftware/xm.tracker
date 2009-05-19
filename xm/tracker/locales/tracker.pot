@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: 2009-01-22 16:25+0000\n"
+"POT-Creation-Date: 2009-05-19 22:08+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI +ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -22,12 +22,12 @@ msgid "Invalid time"
 msgstr ""
 
 #. Default: "Book"
-#: ./browser/templates/unassigned_task_select.pt:37
+#: ./browser/templates/unassigned_task_select.pt:38
 msgid "book_button"
 msgstr ""
 
 #. Default: "Orphaned tasks"
-#: ./browser/templates/select.pt:29
+#: ./browser/templates/select.pt:30
 msgid "head_orphaned_tasks"
 msgstr ""
 
@@ -37,17 +37,17 @@ msgid "head_timetracker"
 msgstr ""
 
 #. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker.  Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
-#: ./browser/templates/select.pt:30
+#: ./browser/templates/select.pt:31
 msgid "help_orphaned_tasks"
 msgstr ""
 
 #. Default: "Time tracked on this task (hours:minutes)"
-#: ./browser/templates/task.pt:21
+#: ./browser/templates/task.pt:18
 msgid "help_time_tracked_task"
 msgstr ""
 
 #. Default: "Book"
-#: ./browser/templates/task.pt:89
+#: ./browser/templates/task.pt:86
 msgid "label_book"
 msgstr ""
 
@@ -57,12 +57,12 @@ msgid "label_book_to_task"
 msgstr ""
 
 #. Default: "Book and close"
-#: ./browser/templates/task.pt:97
+#: ./browser/templates/task.pt:94
 msgid "label_close"
 msgstr ""
 
 #. Default: "Go to task"
-#: ./browser/templates/task.pt:37
+#: ./browser/templates/task.pt:34
 msgid "label_go_to_task"
 msgstr ""
 
@@ -72,12 +72,12 @@ msgid "label_remove_entry"
 msgstr ""
 
 #. Default: "Select Tasks"
-#: ./browser/templates/select.pt:3
+#: ./browser/templates/select.pt:4
 msgid "label_select_tasks"
 msgstr ""
 
 #. Default: "Select task for the unassigned entry"
-#: ./browser/templates/unassigned_task_select.pt:3
+#: ./browser/templates/unassigned_task_select.pt:4
 msgid "label_select_tasks_for_unassigned"
 msgstr ""
 
@@ -102,12 +102,12 @@ msgid "msg_added_entry"
 msgstr ""
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:488
+#: ./browser/tracker.py:490
 msgid "msg_close_task_failed"
 msgstr ""
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:498
+#: ./browser/tracker.py:500
 msgid "msg_close_task_success"
 msgstr ""
 
@@ -122,7 +122,7 @@ msgid "msg_failed_add_booking"
 msgstr ""
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:400
+#: ./browser/tracker.py:402
 msgid "msg_missing_description"
 msgstr ""
 
@@ -132,7 +132,7 @@ msgid "msg_missing_task"
 msgstr ""
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:434
+#: ./browser/tracker.py:436
 msgid "msg_no_entries_found"
 msgstr ""
 
@@ -142,12 +142,12 @@ msgid "msg_no_task_found"
 msgstr ""
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:408
+#: ./browser/tracker.py:410
 msgid "msg_no_tracking_without_starttime"
 msgstr ""
 
 #. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state.  You cannot book your hours.  Please investigate."
-#: ./browser/templates/task.pt:28
+#: ./browser/templates/task.pt:25
 msgid "msg_orphaned_task_warning"
 msgstr ""
 
@@ -172,7 +172,7 @@ msgid "msg_stopped_timer"
 msgstr ""
 
 #. Default: "Booked: $booked | Tracked: $tracked"
-#: ./browser/tracker.py:366
+#: ./browser/tracker.py:368
 msgid "msg_total_booked_tracked"
 msgstr ""
 
@@ -182,7 +182,7 @@ msgid "msg_update_entry"
 msgstr ""
 
 #. Default: "Remaining:"
-#: ./browser/templates/task.pt:43
+#: ./browser/templates/task.pt:40
 msgid "remaining"
 msgstr ""
 
@@ -192,7 +192,7 @@ msgid "time_formatting_error"
 msgstr ""
 
 #. Default: "Track"
-#: ./browser/templates/task.pt:63
+#: ./browser/templates/task.pt:60
 msgid "track_button"
 msgstr ""
 
