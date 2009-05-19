@@ -1,0 +1,199 @@
+# Translation of xm.tracker to German
+# Jens Klein <jens@bluedynamics.com>, 2009
+msgid ""
+msgstr ""
+"Project-Id-Version: eXtremeManagement tracker\n"
+"POT-Creation-Date: 2009-01-22 16:25+0000\n"
+"PO-Revision-Date: 2009-05-19 21:07+0100\n"
+"Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
+"Language-Team: BlueDynamics Alliance <dev@bluedynamics.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0\n"
+"Language-Code: de\n"
+"Language-Name: German\n"
+"Preferred-Encodings: utf-8 latin2\n"
+"Domain: plone\n"
+"X-Is-Fallback-For: de-at de-li de-lu de-ch de-de\n"
+
+
+#: ./browser/entry.py:191
+msgid "Invalid time"
+msgstr "Ungültige Zeit"
+
+#. Default: "Book"
+#: ./browser/templates/unassigned_task_select.pt:37
+msgid "book_button"
+msgstr "Buchen"
+
+#. Default: "Orphaned tasks"
+#: ./browser/templates/select.pt:29
+msgid "head_orphaned_tasks"
+msgstr "Verweiste Aufgaben"
+
+#. Default: "Time Tracker"
+#: ./browser/templates/tracker.pt:7
+msgid "head_timetracker"
+msgstr "Zeiterfassung"
+
+#. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker.  Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
+#: ./browser/templates/select.pt:30
+msgid "help_orphaned_tasks"
+msgstr "Dies sind Aufgaben die entfernt wurden oder nicht im zu-erledigem Stadium sind, jedoch noch in der Erfassung sind. Bitte erwägen Sie diese hier zu entferne oder ihren Status zu ändern. Wenn nicht, sind Sie nicht in der Lage Ihre Zeit auf sie zu buchen."
+
+#. Default: "Time tracked on this task (hours:minutes)"
+#: ./browser/templates/task.pt:21
+msgid "help_time_tracked_task"
+msgstr "Erfasste Zeit für diese Aufgabe (Stunden:Minuten)"
+
+#. Default: "Book"
+#: ./browser/templates/task.pt:89
+msgid "label_book"
+msgstr "Buchen"
+
+#. Default: "Book to task"
+#: ./browser/templates/entries.pt:54
+msgid "label_book_to_task"
+msgstr "mit Aufgabe verbuchen"
+
+#. Default: "Book and close"
+#: ./browser/templates/task.pt:97
+msgid "label_close"
+msgstr "Buchen und schließen"
+
+#. Default: "Go to task"
+#: ./browser/templates/task.pt:37
+msgid "label_go_to_task"
+msgstr "Gehe zu Aufgabe"
+
+#. Default: "Remove this entry"
+#: ./browser/templates/entries.pt:18
+msgid "label_remove_entry"
+msgstr "Diesen Eintrag entfernen"
+
+#. Default: "Select Tasks"
+#: ./browser/templates/select.pt:3
+msgid "label_select_tasks"
+msgstr "Wähle Aufgaben"
+
+#. Default: "Select task for the unassigned entry"
+#: ./browser/templates/unassigned_task_select.pt:3
+msgid "label_select_tasks_for_unassigned"
+msgstr "Wähle Aufgabe für den nicht zugewiesenen Eintrag"
+
+#. Default: "Start working"
+#: ./browser/templates/startstop.pt:8
+msgid "label_start"
+msgstr "Starte Arbeit"
+
+#. Default: "Stop and reset"
+#: ./browser/templates/startstop.pt:21
+msgid "label_stop"
+msgstr "Stopp und zurücksetzen"
+
+#. Default: "Added booking to task"
+#: ./browser/tracker.py:301
+msgid "msg_added_booking"
+msgstr "Buchung zu Aufgabe hinzugefügt"
+
+#. Default: "Added entry"
+#: ./browser/ksstracker.py:97
+msgid "msg_added_entry"
+msgstr "Eintrag hinzugefügt"
+
+#. Default: "Closing of task failed."
+#: ./browser/tracker.py:488
+msgid "msg_close_task_failed"
+msgstr "Schließen der Aufgabe fehlgeschlagen"
+
+#. Default: "Task has been closed."
+#: ./browser/tracker.py:498
+msgid "msg_close_task_success"
+msgstr "Aufgabe wurde abgeschlossen"
+
+#. Default: "Empty text, this is not allowed"
+#: ./browser/entry.py:178
+msgid "msg_empty_text"
+msgstr "Leerer Text ist nicht erlaubt"
+
+#. Default: "Not permitted to add booking to task. Check if the task is in the correct state."
+#: ./browser/tracker.py:139
+msgid "msg_failed_add_booking"
+msgstr "Keine Erlaubnis eine Buchung zur Aufgabe hinzuzufügen. Prüfen Sie, ob die Aufgabe im richtigen Stadium ist."
+
+#. Default: "Entry not added. Please provide a description."
+#: ./browser/tracker.py:400
+msgid "msg_missing_description"
+msgstr "Eintrag nicht hinzugefügt. Bitte eine Beschreibung bereitstellen."
+
+#. Default: "No task selected, cannot book entry."
+#: ./browser/tracker.py:264
+msgid "msg_missing_task"
+msgstr "Keine Aufgabe ausgewählt. Eintrag kann nicht gebucht werden."
+
+#. Default: "No entries found for this task"
+#: ./browser/tracker.py:434
+msgid "msg_no_entries_found"
+msgstr "Keine Einträge zu dieser Aufgabe gefunden"
+
+#. Default: "No task found with this UID"
+#: ./browser/entry.py:124
+msgid "msg_no_task_found"
+msgstr "Kein Task mit dieser UID gefunden"
+
+#. Default: "Cannot track time when the tracker has not started."
+#: ./browser/tracker.py:408
+msgid "msg_no_tracking_without_starttime"
+msgstr "Zeiterfassung ist nicht möglich, solange die Erfassung nicht gestarted wurde."
+
+#. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state.  You cannot book your hours.  Please investigate."
+#: ./browser/templates/task.pt:28
+msgid "msg_orphaned_task_warning"
+msgstr ""
+
+#. Default: "Failed to remove entry"
+#: ./browser/entry.py:133
+msgid "msg_remove_entry_failed"
+msgstr "Entfernen des Eintrags fehlgeschlagen"
+
+#. Default: "Removed entry"
+#: ./browser/entry.py:137
+msgid "msg_remove_entry_success"
+msgstr "Eintrag entfernt"
+
+#. Default: "Started the timer"
+#: ./browser/ksstracker.py:28
+msgid "msg_started_timer"
+msgstr "Uhr gestartet"
+
+#. Default: "Stopped the timer"
+#: ./browser/ksstracker.py:44
+msgid "msg_stopped_timer"
+msgstr "Uhr gestoppt"
+
+#. Default: "Booked: $booked | Tracked: $tracked"
+#: ./browser/tracker.py:366
+msgid "msg_total_booked_tracked"
+msgstr "Gebucht: $booked | Erfasst: tracked"
+
+#. Default: "Entry updated"
+#: ./browser/entry.py:196
+msgid "msg_update_entry"
+msgstr "Eintrag aktualisiert"
+
+#. Default: "Remaining:"
+#: ./browser/templates/task.pt:43
+msgid "remaining"
+msgstr "Verbleibend:"
+
+#. Default: "Invalid time format. Must be x:xx or xx:xx"
+#: ./browser/entry.py:25
+msgid "time_formatting_error"
+msgstr "Falsches Zeitformat: Es muss s:mm or ss:mm sein"
+
+#. Default: "Track"
+#: ./browser/templates/task.pt:63
+msgid "track_button"
+msgstr "Erfassen"
+
