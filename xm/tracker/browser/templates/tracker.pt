@@ -29,8 +29,8 @@
     <ul id="xm-siteactions">
         <li>
         <a tal:attributes="href context/absolute_url"
-            i18n:domain="plone"
-            i18n:translate="label_projects">projects</a>
+            i18n:domain="eXtremeManagement"
+            i18n:translate="">Projects</a>
         </li>
         <li>
         <a tal:attributes="href string:${context/absolute_url}/@@tracker"
