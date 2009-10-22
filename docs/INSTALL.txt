@@ -9,8 +9,10 @@ using a traditional Zope 2 instance, you can do this:
    (and EasyInstall) here:
    http://peak.telecommunity.com/DevCenter/EasyInstall
 
- * Install mxBase from Egenix; this is needed as we use mx.DateTime.
-   It is not easy_installable, so get it here:
+ * You may need to manually install mxBase from Egenix; this is needed
+   as we use mx.DateTime.  It was previously not easy_installable, but
+   now this works fine so we have install it automatically as we have
+   specified it in the install_requires.  Alternatively, get it here:
    http://www.egenix.com/products/python/mxBase/
 
    Your operating system may have a package already that you can
@@ -51,7 +53,9 @@ recipe to manage your project, you can do this:
      zcml =
          xm.tracker
 
- * Install mxBase from Egenix.  On Linux/Max you can use a buildout recipe::
+ * You may need to install mxBase from Egenix manually if the
+   dependency fails to install automatically.  On Linux/Max you can
+   use a buildout recipe::
 
      [buildout]
      # mx-base has to be the first part
@@ -59,9 +63,6 @@ recipe to manage your project, you can do this:
          mx-base
          ...
 
-     eggs =
-         egenix-mx-base
-         ...
      ...
 
      [mx-base]
