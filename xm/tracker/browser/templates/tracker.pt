@@ -43,7 +43,8 @@
     </div>
     <div id="content" tal:define="tracker view/tracker;
                                 putils context/plone_utils">
-    <!-- XXX Remove this form when kss.blur becomes available -->
+    <!-- XXX Remove this form when kss.blur becomes available,
+         which is now in kss.core 1.4.5 -->
     <form action="" style="display: none;">
         <input name="just_for_defocussing_with_kss"
             id="defocus_target"/>

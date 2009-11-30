@@ -11,7 +11,7 @@
     action-client: focus htmlid('defocus_target');
     ...to...
     action-client: blur samenode(); 
-    ...when kss.blur is released.
+    ...when kss.blur is released, which is now in kss.core 1.4.5.
 */
 
 .track-time:click {
