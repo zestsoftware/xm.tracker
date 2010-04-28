@@ -5,6 +5,9 @@ History of xm.tracker
 1.0.3 (unreleased)
 ------------------
 
+- Round booked time up to multiple of 15 minutes.
+  [maurits]
+
 - Specify egenix-mx-base as dependency in setup.py.  It is
   easy_installable now.  When this is not pulled in automatically you
   can run into seemingly unrelated problems, certainly when you do not
