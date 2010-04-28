@@ -5,7 +5,9 @@ History of xm.tracker
 1.0.3 (unreleased)
 ------------------
 
-- Round booked time up to multiple of 15 minutes.
+- Round booked time up to multiple of 15 minutes.  Round tracked time
+  up to complete minutes.
+  Fixes http://plone.org/products/extreme-management-tool/issues/175
   [maurits]
 
 - Specify egenix-mx-base as dependency in setup.py.  It is
@@ -35,7 +37,8 @@ History of xm.tracker
 1.0 (2009-03-15)
 ----------------
 
-- select tasks button is now placed inside track time toolbar [laurens]
+- select tasks button is now placed inside track time toolbar
+  [laurens]
 
 
 1.0rc1 (2009-01-25)

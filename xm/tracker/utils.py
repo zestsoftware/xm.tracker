@@ -3,7 +3,7 @@ from mx.DateTime import DateTimeDeltaFrom
 
 
 def round_time_to_minutes(time):
-    """Show the time, rounded up/down to minutes.
+    """Show the time, rounded up to minutes.
 
     The argument must be an mx.DateTimeDelta:
 
@@ -16,10 +16,10 @@ def round_time_to_minutes(time):
     using hours, minutes and seconds:
 
       >>> fmt = '%H:%M:%S'
-      >>> time = DateTimeDeltaFrom(hours=1, minutes=37, seconds=29)
+      >>> time = DateTimeDeltaFrom(hours=1, minutes=37, seconds=0)
       >>> round_time_to_minutes(time).strftime(fmt)
       '01:37:00'
-      >>> time = DateTimeDeltaFrom(hours=1, minutes=37, seconds=30)
+      >>> time = DateTimeDeltaFrom(hours=1, minutes=37, seconds=1)
       >>> round_time_to_minutes(time).strftime(fmt)
       '01:38:00'
 
@@ -27,11 +27,11 @@ def round_time_to_minutes(time):
     if not hasattr(time, 'absvalues'):
         raise Exception('time must be an mx.DateTimeDelta')
 
-    return DateTimeDeltaFrom(minutes=round(time.minutes))
+    return DateTimeDeltaFrom(minutes=math.ceil(time.minutes))
 
 
 def round_time_to_quarter_hours(time):
-    """Show the time, rounded up/down to quarter hours.
+    """Show the time, rounded up to quarter hours.
 
     The argument must be an mx.DateTimeDelta:
 
