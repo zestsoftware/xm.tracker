@@ -1,3 +1,4 @@
+import math
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, Explicit
 from zope.cachedescriptors.property import Lazy
@@ -33,7 +34,9 @@ classImplements(MemberData, IAttributeAnnotatable)
 def add_entry(tracker, task, text):
     current_time = mx.DateTime.now()
     time = current_time - tracker.starttime
-    task.entries.append(Entry(text, time))
+    rounded_time = mx.DateTime.DateTimeDelta(
+        time.day, time.hour, math.ceil(time.minutes))
+    task.entries.append(Entry(text, rounded_time))
     # Reset the timer's start time
     tracker.starttime = current_time
 
@@ -367,7 +370,7 @@ class TimerProvider(Explicit):
         tracked = tracked.strftime('%H:%M')
         return _(u'msg_total_booked_tracked',
                  default=u'Booked: $booked | Tracked: $tracked',
-                 mapping=dict(booked=booked,tracked=tracked))
+                 mapping=dict(booked=booked, tracked=tracked))
 
 
 class Stop(TrackerView):
