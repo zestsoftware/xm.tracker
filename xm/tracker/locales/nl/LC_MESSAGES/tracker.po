@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xm.tracker 0.1\n"
-"POT-Creation-Date: 2009-05-19 22:08+0000\n"
+"POT-Creation-Date: 2010-04-30 23:16+0000\n"
 "PO-Revision-Date: 2008-11-24 14:23+0100\n"
 "Last-Translator: Maurits van Rees <m.van.rees@zestsoftware.nl>\n"
 "Language-Team: Zest <xm@lists.zestsoftware.nl>\n"
@@ -33,7 +33,7 @@ msgstr "Afgesloten taken"
 msgid "head_timetracker"
 msgstr "Tijdregistratie"
 
-#. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker.  Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
+#. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker. Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
 #: ./browser/templates/select.pt:31
 msgid "help_orphaned_tasks"
 msgstr "Dit zijn taken die verwijderd zijn of niet de 'Te doen' status hebben, maar nog wel in de tracker zitten.  Overweeg alstublieft om ze hier te deselecteren of om de status aan te passen, anders kunt u wellicht niet uw tijd boeken."
@@ -70,6 +70,7 @@ msgstr "Verwijder deze entry"
 
 #. Default: "Select Tasks"
 #: ./browser/templates/select.pt:4
+#: ./browser/templates/tracker.pt:59
 msgid "label_select_tasks"
 msgstr "Selecteer taken"
 
@@ -89,61 +90,64 @@ msgid "label_stop"
 msgstr "Stop en reset de klok"
 
 #. Default: "Added booking to task"
-#: ./browser/tracker.py:301
+#: ./browser/tracker.py:304
 msgid "msg_added_booking"
 msgstr "Boeking toegevoegd aan de taak"
 
 #. Default: "Added entry"
 #: ./browser/ksstracker.py:97
+#: ./browser/tracker.py:426
 msgid "msg_added_entry"
 msgstr "Entry toegevoegd"
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:490
+#: ./browser/tracker.py:493
 msgid "msg_close_task_failed"
 msgstr "Afronden van de taak is mislukt"
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:500
+#: ./browser/tracker.py:503
 msgid "msg_close_task_success"
 msgstr "Taak is afgesloten"
 
 #. Default: "Empty text, this is not allowed"
 #: ./browser/entry.py:178
+#: ./browser/ksstracker.py:84
 msgid "msg_empty_text"
 msgstr "Lege tekst, dit is niet toegestaan"
 
 #. Default: "Not permitted to add booking to task. Check if the task is in the correct state."
-#: ./browser/tracker.py:139
+#: ./browser/tracker.py:142
 msgid "msg_failed_add_booking"
 msgstr "Er kan niet geboekt worden op de daadwerkelijke taak. Controleer of de taak de correcte workflow staat heeft."
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:402
+#: ./browser/tracker.py:405
 msgid "msg_missing_description"
 msgstr "De entry is niet toegevoegd: voeg beschrijvende tekst toe."
 
 #. Default: "No task selected, cannot book entry."
-#: ./browser/tracker.py:264
+#: ./browser/tracker.py:267
 msgid "msg_missing_task"
 msgstr "Er is geen taak geselecteerd, boeken kan dus niet."
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:436
+#: ./browser/tracker.py:439
 msgid "msg_no_entries_found"
 msgstr "Deze taak is leeg"
 
 #. Default: "No task found with this UID"
 #: ./browser/entry.py:124
+#: ./browser/tracker.py:275
 msgid "msg_no_task_found"
 msgstr "Er is geen bijbehorende taak gevonden met het juiste UID"
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:410
+#: ./browser/tracker.py:413
 msgid "msg_no_tracking_without_starttime"
 msgstr "De tijd kan niet bijgehouden worden als de klok nog niet gestart is."
 
-#. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state.  You cannot book your hours.  Please investigate."
+#. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state. You cannot book your hours. Please investigate."
 #: ./browser/templates/task.pt:25
 msgid "msg_orphaned_task_warning"
 msgstr "Deze tracker taak is 'afgerond' of verwijderd. U kunt uw uren niet boeken.  Onderzoek dit alstublieft."
@@ -160,16 +164,18 @@ msgstr "Entry verwijderd"
 
 #. Default: "Started the timer"
 #: ./browser/ksstracker.py:28
+#: ./browser/tracker.py:393
 msgid "msg_started_timer"
 msgstr "Timer gestart"
 
 #. Default: "Stopped the timer"
 #: ./browser/ksstracker.py:44
+#: ./browser/tracker.py:382
 msgid "msg_stopped_timer"
 msgstr "Timer gestopt"
 
 #. Default: "Booked: $booked | Tracked: $tracked"
-#: ./browser/tracker.py:368
+#: ./browser/tracker.py:371
 msgid "msg_total_booked_tracked"
 msgstr "Geboekt: ${booked} | Geregistreerd: ${tracked}"
 

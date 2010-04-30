@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: eXtremeManagement tracker\n"
-"POT-Creation-Date: 2009-05-19 22:08+0000\n"
+"POT-Creation-Date: 2010-04-30 23:16+0000\n"
 "PO-Revision-Date: 2009-05-19 21:07+0100\n"
 "Last-Translator: Jens Klein <jens@bluedynamics.com>\n"
 "Language-Team: BlueDynamics Alliance <dev@bluedynamics.com>\n"
@@ -36,7 +36,7 @@ msgstr "Verweiste Aufgaben"
 msgid "head_timetracker"
 msgstr "Zeiterfassung"
 
-#. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker.  Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
+#. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker. Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
 #: ./browser/templates/select.pt:31
 msgid "help_orphaned_tasks"
 msgstr "Dies sind Aufgaben die entfernt wurden oder nicht im zu-erledigem Stadium sind, jedoch noch in der Erfassung sind. Bitte erwägen Sie diese hier zu entferne oder ihren Status zu ändern. Wenn nicht, sind Sie nicht in der Lage Ihre Zeit auf sie zu buchen."
@@ -73,6 +73,7 @@ msgstr "Diesen Eintrag entfernen"
 
 #. Default: "Select Tasks"
 #: ./browser/templates/select.pt:4
+#: ./browser/templates/tracker.pt:59
 msgid "label_select_tasks"
 msgstr "Wähle Aufgaben"
 
@@ -92,61 +93,64 @@ msgid "label_stop"
 msgstr "Stopp und zurücksetzen"
 
 #. Default: "Added booking to task"
-#: ./browser/tracker.py:301
+#: ./browser/tracker.py:304
 msgid "msg_added_booking"
 msgstr "Buchung zu Aufgabe hinzugefügt"
 
 #. Default: "Added entry"
 #: ./browser/ksstracker.py:97
+#: ./browser/tracker.py:426
 msgid "msg_added_entry"
 msgstr "Eintrag hinzugefügt"
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:490
+#: ./browser/tracker.py:493
 msgid "msg_close_task_failed"
 msgstr "Schließen der Aufgabe fehlgeschlagen"
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:500
+#: ./browser/tracker.py:503
 msgid "msg_close_task_success"
 msgstr "Aufgabe wurde abgeschlossen"
 
 #. Default: "Empty text, this is not allowed"
 #: ./browser/entry.py:178
+#: ./browser/ksstracker.py:84
 msgid "msg_empty_text"
 msgstr "Leerer Text ist nicht erlaubt"
 
 #. Default: "Not permitted to add booking to task. Check if the task is in the correct state."
-#: ./browser/tracker.py:139
+#: ./browser/tracker.py:142
 msgid "msg_failed_add_booking"
 msgstr "Keine Erlaubnis eine Buchung zur Aufgabe hinzuzufügen. Prüfen Sie, ob die Aufgabe im richtigen Stadium ist."
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:402
+#: ./browser/tracker.py:405
 msgid "msg_missing_description"
 msgstr "Eintrag nicht hinzugefügt. Bitte eine Beschreibung bereitstellen."
 
 #. Default: "No task selected, cannot book entry."
-#: ./browser/tracker.py:264
+#: ./browser/tracker.py:267
 msgid "msg_missing_task"
 msgstr "Keine Aufgabe ausgewählt. Eintrag kann nicht gebucht werden."
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:436
+#: ./browser/tracker.py:439
 msgid "msg_no_entries_found"
 msgstr "Keine Einträge zu dieser Aufgabe gefunden"
 
 #. Default: "No task found with this UID"
 #: ./browser/entry.py:124
+#: ./browser/tracker.py:275
 msgid "msg_no_task_found"
 msgstr "Kein Task mit dieser UID gefunden"
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:410
+#: ./browser/tracker.py:413
 msgid "msg_no_tracking_without_starttime"
 msgstr "Zeiterfassung ist nicht möglich, solange die Erfassung nicht gestarted wurde."
 
-#. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state.  You cannot book your hours.  Please investigate."
+#. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state. You cannot book your hours. Please investigate."
 #: ./browser/templates/task.pt:25
 msgid "msg_orphaned_task_warning"
 msgstr ""
@@ -163,16 +167,18 @@ msgstr "Eintrag entfernt"
 
 #. Default: "Started the timer"
 #: ./browser/ksstracker.py:28
+#: ./browser/tracker.py:393
 msgid "msg_started_timer"
 msgstr "Uhr gestartet"
 
 #. Default: "Stopped the timer"
 #: ./browser/ksstracker.py:44
+#: ./browser/tracker.py:382
 msgid "msg_stopped_timer"
 msgstr "Uhr gestoppt"
 
 #. Default: "Booked: $booked | Tracked: $tracked"
-#: ./browser/tracker.py:368
+#: ./browser/tracker.py:371
 msgid "msg_total_booked_tracked"
 msgstr "Gebucht: $booked | Erfasst: $tracked"
 

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xm.tracker\n"
-"POT-Creation-Date: 2009-05-19 22:08+0000\n"
+"POT-Creation-Date: 2010-04-30 23:16+0000\n"
 "PO-Revision-Date: 2010-04-05 20:02+0100\n"
 "Last-Translator: Simone Deponti <simone.deponti@abstract.it>\n"
 "Language-Team: Abstract <simone.deponti@abstract.it>\n"
@@ -20,182 +20,188 @@ msgstr ""
 "X-Poedit-Country: ITALY\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: browser/entry.py:191
+#: ./browser/entry.py:191
 msgid "Invalid time"
 msgstr "Ora invalida"
 
 #. Default: "Book"
-#: browser/templates/unassigned_task_select.pt:38
+#: ./browser/templates/unassigned_task_select.pt:38
 msgid "book_button"
 msgstr "Segna"
 
 #. Default: "Orphaned tasks"
-#: browser/templates/select.pt:30
+#: ./browser/templates/select.pt:30
 msgid "head_orphaned_tasks"
 msgstr "Task orfane"
 
 #. Default: "Time Tracker"
-#: browser/templates/tracker.pt:7
+#: ./browser/templates/tracker.pt:7
 msgid "head_timetracker"
 msgstr "Conteggio ore"
 
-#. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker.  Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
-#: browser/templates/select.pt:31
+#. Default: "These are tasks that have been removed or are not in the to-do state but are still in the tracker. Please consider deselecting them here or changing the state, otherwise you may not be able to book your time on them."
+#: ./browser/templates/select.pt:31
 msgid "help_orphaned_tasks"
 msgstr "Queste sono le task che sono state eliminate oppure non sono nello stato 'da fare' ma sono comunque nel diario delle lavorazioni. Si consiglia di deselezionarle qui o di cambiare il loro stato, altrimenti potrebbe non essere possibile assegnare ad esse le ore lavorate."
 
 #. Default: "Time tracked on this task (hours:minutes)"
-#: browser/templates/task.pt:18
+#: ./browser/templates/task.pt:18
 msgid "help_time_tracked_task"
 msgstr "Tempo lavorato sulla task (ore:minuti)"
 
 #. Default: "Book"
-#: browser/templates/task.pt:86
+#: ./browser/templates/task.pt:86
 msgid "label_book"
 msgstr "Segna"
 
 #. Default: "Book to task"
-#: browser/templates/entries.pt:54
+#: ./browser/templates/entries.pt:54
 msgid "label_book_to_task"
 msgstr "Assegna alla task"
 
 #. Default: "Book and close"
-#: browser/templates/task.pt:94
+#: ./browser/templates/task.pt:94
 msgid "label_close"
 msgstr "Segna e chiudi"
 
 #. Default: "Go to task"
-#: browser/templates/task.pt:34
+#: ./browser/templates/task.pt:34
 msgid "label_go_to_task"
 msgstr "Vai alla task"
 
 #. Default: "Remove this entry"
-#: browser/templates/entries.pt:18
+#: ./browser/templates/entries.pt:18
 msgid "label_remove_entry"
 msgstr "Rimuovi questa voce"
 
 #. Default: "Select Tasks"
-#: browser/templates/select.pt:4
+#: ./browser/templates/select.pt:4
+#: ./browser/templates/tracker.pt:59
 msgid "label_select_tasks"
 msgstr "Task selezionate"
 
 #. Default: "Select task for the unassigned entry"
-#: browser/templates/unassigned_task_select.pt:4
+#: ./browser/templates/unassigned_task_select.pt:4
 msgid "label_select_tasks_for_unassigned"
 msgstr "Seleziona una task per questa voce non assegnata"
 
 #. Default: "Start working"
-#: browser/templates/startstop.pt:8
+#: ./browser/templates/startstop.pt:8
 msgid "label_start"
 msgstr "Attiva il cronometro"
 
 #. Default: "Stop and reset"
-#: browser/templates/startstop.pt:21
+#: ./browser/templates/startstop.pt:21
 msgid "label_stop"
 msgstr "Ferma il cronometro"
 
 #. Default: "Added booking to task"
-#: browser/tracker.py:301
+#: ./browser/tracker.py:304
 msgid "msg_added_booking"
 msgstr "Voce aggiunta ed ore assegnate alla task"
 
 #. Default: "Added entry"
-#: browser/ksstracker.py:97
+#: ./browser/ksstracker.py:97
+#: ./browser/tracker.py:426
 msgid "msg_added_entry"
 msgstr "Voce aggiunta (ma non assegnata)"
 
 #. Default: "Closing of task failed."
-#: browser/tracker.py:490
+#: ./browser/tracker.py:493
 msgid "msg_close_task_failed"
 msgstr "Non è stato possibile chiudere la task"
 
 #. Default: "Task has been closed."
-#: browser/tracker.py:500
+#: ./browser/tracker.py:503
 msgid "msg_close_task_success"
 msgstr "Task chiusa con successo"
 
 #. Default: "Empty text, this is not allowed"
-#: browser/entry.py:178
+#: ./browser/entry.py:178
+#: ./browser/ksstracker.py:84
 msgid "msg_empty_text"
 msgstr "È necessario inserire una descrizione o un commento."
 
 #. Default: "Not permitted to add booking to task. Check if the task is in the correct state."
-#: browser/tracker.py:139
+#: ./browser/tracker.py:142
 msgid "msg_failed_add_booking"
 msgstr "Non è possibile assegnare le ore alla task. Controlla che la task sia nello stato corretto."
 
 #. Default: "Entry not added. Please provide a description."
-#: browser/tracker.py:402
+#: ./browser/tracker.py:405
 msgid "msg_missing_description"
 msgstr "Voce non aggiunta. È obbligatorio inserire una descrizione."
 
 #. Default: "No task selected, cannot book entry."
-#: browser/tracker.py:264
+#: ./browser/tracker.py:267
 msgid "msg_missing_task"
 msgstr "Nessuna task selezionata, impossibile assegnare la voce."
 
 #. Default: "No entries found for this task"
-#: browser/tracker.py:436
+#: ./browser/tracker.py:439
 msgid "msg_no_entries_found"
 msgstr "Nessuna voce trovata per questa task."
 
 #. Default: "No task found with this UID"
-#: browser/entry.py:124
+#: ./browser/entry.py:124
+#: ./browser/tracker.py:275
 msgid "msg_no_task_found"
 msgstr "Nessuna task trovata con tale UID."
 
 #. Default: "Cannot track time when the tracker has not started."
-#: browser/tracker.py:410
+#: ./browser/tracker.py:413
 msgid "msg_no_tracking_without_starttime"
 msgstr "Impossibile conteggiare il tempo se il cronometro non è partito."
 
-#. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state.  You cannot book your hours.  Please investigate."
-#: browser/templates/task.pt:25
+#. Default: "This tracker task has been orphaned: the corresponding xm task has been removed or it is in the wrong state. You cannot book your hours. Please investigate."
+#: ./browser/templates/task.pt:25
 msgid "msg_orphaned_task_warning"
 msgstr "Questa task è orfana: la task corrispondente nel sistema di gestione progetto è mancante o si trova in uno stato sbagliato. È impossibile assegnarvi delle ore. Si consiglia di controllare il problema."
 
 #. Default: "Failed to remove entry"
-#: browser/entry.py:133
+#: ./browser/entry.py:133
 msgid "msg_remove_entry_failed"
 msgstr "Impossibile rimuovere la voce"
 
 #. Default: "Removed entry"
-#: browser/entry.py:137
+#: ./browser/entry.py:137
 msgid "msg_remove_entry_success"
 msgstr "Voce rimossa"
 
 #. Default: "Started the timer"
-#: browser/ksstracker.py:28
+#: ./browser/ksstracker.py:28
+#: ./browser/tracker.py:393
 msgid "msg_started_timer"
 msgstr "Cronometro attivato"
 
 #. Default: "Stopped the timer"
-#: browser/ksstracker.py:44
+#: ./browser/ksstracker.py:44
+#: ./browser/tracker.py:382
 msgid "msg_stopped_timer"
 msgstr "Cronometro fermato"
 
 #. Default: "Booked: $booked | Tracked: $tracked"
-#: browser/tracker.py:368
+#: ./browser/tracker.py:371
 msgid "msg_total_booked_tracked"
 msgstr "Assegnate: $booked | Conteggiate: $tracked"
 
 #. Default: "Entry updated"
-#: browser/entry.py:196
+#: ./browser/entry.py:196
 msgid "msg_update_entry"
 msgstr "Voce modificata"
 
 #. Default: "Remaining:"
-#: browser/templates/task.pt:40
+#: ./browser/templates/task.pt:40
 msgid "remaining"
 msgstr "Rimanenti:"
 
 #. Default: "Invalid time format. Must be x:xx or xx:xx"
-#: browser/entry.py:25
+#: ./browser/entry.py:25
 msgid "time_formatting_error"
 msgstr "Formato sbagliato. Inserire il tempo in formato h:mm oppure hh:mm."
 
 #. Default: "Track"
-#: browser/templates/task.pt:60
+#: ./browser/templates/task.pt:60
 msgid "track_button"
 msgstr "Cronometra"
 

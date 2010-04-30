@@ -34,7 +34,7 @@
         </li>
         <li>
         <a tal:attributes="href string:${context/absolute_url}/@@tracker"
-            i18n:translate="head_timetracker">time tracker</a>
+            i18n:translate="head_timetracker">Time Tracker</a>
         </li>
     </ul>
              <div id="project-header"><a tal:attributes="href context/absolute_url"
@@ -59,7 +59,7 @@
 			<input type="submit"
 			    name="select"
 			    id="select-tasks"
-			    value="select tasks"
+			    value="Select Tasks"
 			    i18n:attributes="value label_select_tasks" />
 		</form>
              <div tal:replace="structure provider:xm.tracker.timer" />
