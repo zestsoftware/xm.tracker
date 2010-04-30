@@ -2,7 +2,7 @@ History of xm.tracker
 =====================
 
 
-1.0.3 (unreleased)
+1.0.2 (2010-05-01)
 ------------------
 
 - Round booked time up to multiple of 15 minutes.  Round tracked time
