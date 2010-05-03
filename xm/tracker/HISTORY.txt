@@ -2,7 +2,7 @@ History of xm.tracker
 =====================
 
 
-1.0.3 (unreleased)
+1.0.3 (2010-05-03)
 ------------------
 
 - Fixed rounding error: hours in entries were counted twice (2:15
