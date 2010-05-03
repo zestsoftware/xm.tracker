@@ -1,4 +1,3 @@
-import math
 from AccessControl import Unauthorized
 from Acquisition import aq_inner, Explicit
 from zope.cachedescriptors.property import Lazy
@@ -24,6 +23,7 @@ from xm.tracker import XMTrackerMessageFactory as _
 from xm.tracker.tracker import Entry
 from xm.tracker.tracker import Task
 from xm.tracker.tracker import Tracker
+from xm.tracker.utils import round_time_to_minutes
 from xm.tracker.utils import round_time_to_quarter_hours
 
 
@@ -32,10 +32,44 @@ classImplements(MemberData, IAttributeAnnotatable)
 
 
 def add_entry(tracker, task, text):
+    """Add entry with 'text' to the task in the tracker, with correct time.
+
+    Add a tracker and a task:
+
+      >>> tracker = Tracker()
+      >>> task = Task(uid='1')
+      >>> tracker.tasks.append(task)
+
+    Start the timer 1 hours and 30 minutes ago (well, slightly less,
+    but we want to be sure to round up to 1:30 and not to 1:31 when
+    the tests take a few milliseconds to run.)
+
+      >>> almost_one_thirty = mx.DateTime.DateTimeDelta(0, 1, 29, 55)
+      >>> tracker.starttime = mx.DateTime.now() - almost_one_thirty
+
+    Now add an entry using this method that we are now testing.
+
+      >>> add_entry(tracker, task, "worked hard")
+      >>> print task.total_time()
+      01:30:00.00
+      >>> task.total_time().hour
+      1
+      >>> task.total_time().minute
+      30
+
+    Check that the starttime of the tracker has been reset as well, by
+    checking that the difference between the new starttime and 'now'
+    is less than a few seconds:
+
+      >>> five_seconds = mx.DateTime.DateTimeDelta(0, 0, 0, 5)
+      >>> mx.DateTime.now() - tracker.starttime < five_seconds
+      True
+
+    """
+
     current_time = mx.DateTime.now()
     time = current_time - tracker.starttime
-    rounded_time = mx.DateTime.DateTimeDelta(
-        time.day, time.hour, math.ceil(time.minutes))
+    rounded_time = round_time_to_minutes(time)
     task.entries.append(Entry(text, rounded_time))
     # Reset the timer's start time
     tracker.starttime = current_time

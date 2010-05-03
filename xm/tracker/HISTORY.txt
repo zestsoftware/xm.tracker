@@ -5,7 +5,10 @@ History of xm.tracker
 1.0.3 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Fixed rounding error: hours in entries were counted twice (2:15
+  tracked in the timer would mean 2 hours plus (2*60 + 15 = 135)
+  minutes = 4 hours, 15 minutes tracked.
+  [maurits]
 
 
 1.0.2 (2010-05-01)
