@@ -5,6 +5,11 @@ History of xm.tracker
 1.0.4 (unreleased)
 ------------------
 
+- Explicitly load the permissions.zcml file from
+  Products.eXtremeManagement, otherwise you can get a
+  ComponentLookupError on zope startup.
+  [maurits]
+
 - Added z3c.autoinclude.plugin target plone.
   [maurits]
 

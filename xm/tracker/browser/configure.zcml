@@ -3,6 +3,8 @@
     xmlns:zope="http://namespaces.zope.org/zope"
     i18n_domain="tracker">
 
+    <include package="Products.eXtremeManagement" file="permissions.zcml" />
+
     <!-- All views related to tracker go into tracker.zcml -->
     <include file="tracker.zcml" />
 
