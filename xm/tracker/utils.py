@@ -18,16 +18,25 @@ def round_time_to_minutes(time):
       >>> fmt = '%H:%M:%S'
       >>> time = DateTimeDeltaFrom(hours=1, minutes=37, seconds=29)
       >>> round_time_to_minutes(time).strftime(fmt)
-      '01:37:00'
-      >>> time = DateTimeDeltaFrom(hours=1, minutes=37, seconds=30)
-      >>> round_time_to_minutes(time).strftime(fmt)
       '01:38:00'
+
+    Even one or zero seconds should be rounded up to one minute:
+
+      >>> time = DateTimeDeltaFrom(hours=0, minutes=0, seconds=1)
+      >>> round_time_to_minutes(time).strftime(fmt)
+      '00:01:00'
+      >>> time = DateTimeDeltaFrom(hours=0, minutes=0, seconds=0)
+      >>> round_time_to_minutes(time).strftime(fmt)
+      '00:01:00'
 
     """
     if not hasattr(time, 'absvalues'):
         raise Exception('time must be an mx.DateTimeDelta')
 
-    return DateTimeDeltaFrom(minutes=round(time.minutes))
+    minutes = math.ceil(time.minutes)
+    if not minutes:
+        minutes = 1
+    return DateTimeDeltaFrom(minutes=minutes)
 
 
 def round_time_to_quarter_hours(time):

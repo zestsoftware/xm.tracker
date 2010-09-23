@@ -5,7 +5,8 @@ History of xm.tracker
 1.0.4 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- For entries, always round up to the nearest minute.
+  [maurits]
 
 
 1.0.3 (2010-05-03)
