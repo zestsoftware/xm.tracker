@@ -46,6 +46,7 @@ setup(name='xm.tracker',
           'egenix-mx-base',
       ],
       entry_points="""
-      # -*- Entry points: -*-
+      [z3c.autoinclude.plugin]
+      target = plone
       """,
       )

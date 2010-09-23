@@ -5,6 +5,9 @@ History of xm.tracker
 1.0.4 (unreleased)
 ------------------
 
+- Added z3c.autoinclude.plugin target plone.
+  [maurits]
+
 - For entries, always round up to the nearest minute.
   [maurits]
 
