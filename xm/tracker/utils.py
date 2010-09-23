@@ -20,22 +20,24 @@ def round_time_to_minutes(time):
       >>> round_time_to_minutes(time).strftime(fmt)
       '01:38:00'
 
-    Even one or zero seconds should be rounded up to one minute:
+    Even one second should be rounded up to one minute:
 
       >>> time = DateTimeDeltaFrom(hours=0, minutes=0, seconds=1)
       >>> round_time_to_minutes(time).strftime(fmt)
       '00:01:00'
+
+    Zero seconds should stay at zero minutes though, otherwise the
+    total time of a tracker task is already one minute when it has no
+    entries.
+
       >>> time = DateTimeDeltaFrom(hours=0, minutes=0, seconds=0)
       >>> round_time_to_minutes(time).strftime(fmt)
-      '00:01:00'
+      '00:00:00'
 
     """
     if not hasattr(time, 'absvalues'):
         raise Exception('time must be an mx.DateTimeDelta')
-
     minutes = math.ceil(time.minutes)
-    if not minutes:
-        minutes = 1
     return DateTimeDeltaFrom(minutes=minutes)
 
 
