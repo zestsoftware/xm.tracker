@@ -188,7 +188,8 @@ class EditEntry(KSSTaskRefresher):
         try:
             seconds = time_to_seconds(time)
         except TimeformattingError:
-            msg = _(u'Invalid time') + u' (0:00-23:59): ' + unicode(time)
+            msg = _(u'Invalid time (0:00-23:59): ${time}',
+                    mapping=dict(time=unicode(time)))
             plone.issuePortalMessage(msg, msgtype='error')
             return
         entry.time = mx.DateTime.DateTimeDeltaFrom(seconds=seconds)

@@ -4,7 +4,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: xm.tracker\n"
-"POT-Creation-Date: 2010-04-30 23:16+0000\n"
+"POT-Creation-Date: 2010-09-28 18:47+0000\n"
 "PO-Revision-Date: 2010-04-05 20:02+0100\n"
 "Last-Translator: Simone Deponti <simone.deponti@abstract.it>\n"
 "Language-Team: Abstract <simone.deponti@abstract.it>\n"
@@ -21,8 +21,8 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 
 #: ./browser/entry.py:191
-msgid "Invalid time"
-msgstr "Ora invalida"
+msgid "Invalid time (0:00-23:59): ${time}"
+msgstr ""
 
 #. Default: "Book"
 #: ./browser/templates/unassigned_task_select.pt:38
@@ -96,23 +96,23 @@ msgid "label_stop"
 msgstr "Ferma il cronometro"
 
 #. Default: "Added booking to task"
-#: ./browser/tracker.py:304
+#: ./browser/tracker.py:338
 msgid "msg_added_booking"
 msgstr "Voce aggiunta ed ore assegnate alla task"
 
 #. Default: "Added entry"
 #: ./browser/ksstracker.py:97
-#: ./browser/tracker.py:426
+#: ./browser/tracker.py:460
 msgid "msg_added_entry"
 msgstr "Voce aggiunta (ma non assegnata)"
 
 #. Default: "Closing of task failed."
-#: ./browser/tracker.py:493
+#: ./browser/tracker.py:527
 msgid "msg_close_task_failed"
 msgstr "Non è stato possibile chiudere la task"
 
 #. Default: "Task has been closed."
-#: ./browser/tracker.py:503
+#: ./browser/tracker.py:537
 msgid "msg_close_task_success"
 msgstr "Task chiusa con successo"
 
@@ -123,33 +123,33 @@ msgid "msg_empty_text"
 msgstr "È necessario inserire una descrizione o un commento."
 
 #. Default: "Not permitted to add booking to task. Check if the task is in the correct state."
-#: ./browser/tracker.py:142
+#: ./browser/tracker.py:176
 msgid "msg_failed_add_booking"
 msgstr "Non è possibile assegnare le ore alla task. Controlla che la task sia nello stato corretto."
 
 #. Default: "Entry not added. Please provide a description."
-#: ./browser/tracker.py:405
+#: ./browser/tracker.py:439
 msgid "msg_missing_description"
 msgstr "Voce non aggiunta. È obbligatorio inserire una descrizione."
 
 #. Default: "No task selected, cannot book entry."
-#: ./browser/tracker.py:267
+#: ./browser/tracker.py:301
 msgid "msg_missing_task"
 msgstr "Nessuna task selezionata, impossibile assegnare la voce."
 
 #. Default: "No entries found for this task"
-#: ./browser/tracker.py:439
+#: ./browser/tracker.py:473
 msgid "msg_no_entries_found"
 msgstr "Nessuna voce trovata per questa task."
 
 #. Default: "No task found with this UID"
 #: ./browser/entry.py:124
-#: ./browser/tracker.py:275
+#: ./browser/tracker.py:309
 msgid "msg_no_task_found"
 msgstr "Nessuna task trovata con tale UID."
 
 #. Default: "Cannot track time when the tracker has not started."
-#: ./browser/tracker.py:413
+#: ./browser/tracker.py:447
 msgid "msg_no_tracking_without_starttime"
 msgstr "Impossibile conteggiare il tempo se il cronometro non è partito."
 
@@ -170,23 +170,23 @@ msgstr "Voce rimossa"
 
 #. Default: "Started the timer"
 #: ./browser/ksstracker.py:28
-#: ./browser/tracker.py:393
+#: ./browser/tracker.py:427
 msgid "msg_started_timer"
 msgstr "Cronometro attivato"
 
 #. Default: "Stopped the timer"
 #: ./browser/ksstracker.py:44
-#: ./browser/tracker.py:382
+#: ./browser/tracker.py:416
 msgid "msg_stopped_timer"
 msgstr "Cronometro fermato"
 
 #. Default: "Booked: $booked | Tracked: $tracked"
-#: ./browser/tracker.py:371
+#: ./browser/tracker.py:405
 msgid "msg_total_booked_tracked"
 msgstr "Assegnate: $booked | Conteggiate: $tracked"
 
 #. Default: "Entry updated"
-#: ./browser/entry.py:196
+#: ./browser/entry.py:197
 msgid "msg_update_entry"
 msgstr "Voce modificata"
 
