@@ -9,8 +9,6 @@
     </script>
     <script type="text/javascript" src="jquery-integration.js">
     </script>
-    <script type="text/javascript" src="++resource++base2-dom-fp.js">
-    </script>
     <script type="text/javascript" src="++resource++kukit-devel.js">
     </script>
 
