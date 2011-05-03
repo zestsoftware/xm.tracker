@@ -2,7 +2,7 @@ History of xm.tracker
 =====================
 
 
-1.0.5 (unreleased)
+1.0.5 (2011-05-03)
 ------------------
 
 - Removed base2 library from head section. [jladage]
