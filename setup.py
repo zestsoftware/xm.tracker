@@ -8,7 +8,7 @@ install = open(os.path.join('docs', 'INSTALL.txt')).read().strip()
 long_description = readme + '\n\n' + history + '\n\n' + install
 
 setup(name='xm.tracker',
-      version='1.0.6.dev0',
+      version='1.0.6',
       description="A time tracker based on the concepts of gtimelog",
       long_description=long_description,
       classifiers=[

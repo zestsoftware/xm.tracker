@@ -2,7 +2,7 @@ History of xm.tracker
 =====================
 
 
-1.0.6 (unreleased)
+1.0.6 (2012-09-12)
 ------------------
 
 - Moved to github: https://github.com/zestsoftware/xm.tracker
