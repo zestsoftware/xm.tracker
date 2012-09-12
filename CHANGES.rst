@@ -5,7 +5,8 @@ History of xm.tracker
 1.0.6 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Moved to github: https://github.com/zestsoftware/xm.tracker
+  [maurits]
 
 
 1.0.5 (2011-05-03)
