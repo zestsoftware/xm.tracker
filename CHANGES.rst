@@ -2,6 +2,12 @@ History of xm.tracker
 =====================
 
 
+1.0.8 (unreleased)
+------------------
+
+- Nothing changed yet.
+
+
 1.0.7 (2014-03-31)
 ------------------
 
