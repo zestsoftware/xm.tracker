@@ -189,6 +189,15 @@ class TrackerView(BrowserView):
     """
 
     def tracker(self):
+        # Make sure that proxy caches and browsers do not keep the
+        # response in the cache.
+        self.request.response.setHeader(
+            'Expires', 'Mon, 26 Jul 1997 05:00:00 GMT')
+        self.request.response.setHeader(
+            'Cache-Control', 'no-cache')
+        self.request.response.setHeader(
+            'Pragma', 'no-cache')
+
         context = aq_inner(self.context)
         portal_state = getMultiAdapter(
             (context, self.request), name=u'plone_portal_state')
