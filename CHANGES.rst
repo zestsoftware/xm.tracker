@@ -2,7 +2,7 @@ History of xm.tracker
 =====================
 
 
-1.0.7 (unreleased)
+1.0.7 (2014-03-31)
 ------------------
 
 - Never cache the tracker view.  It always needs to be fresh.
