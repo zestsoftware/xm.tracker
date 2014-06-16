@@ -2,7 +2,7 @@ History of xm.tracker
 =====================
 
 
-1.0.8 (unreleased)
+1.0.8 (2014-06-16)
 ------------------
 
 - Do not use kukit-devel.js in the tracker.  It is nice for debugging
