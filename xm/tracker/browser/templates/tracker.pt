@@ -9,7 +9,7 @@
     </script>
     <script type="text/javascript" src="jquery-integration.js">
     </script>
-    <script type="text/javascript" src="++resource++kukit-devel.js">
+    <script type="text/javascript" src="++resource++kukit.js">
     </script>
 
     <link rel="stylesheet" type="text/css" href="++resource++xm.tracker.css/tracker.css" />

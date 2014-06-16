@@ -5,7 +5,13 @@ History of xm.tracker
 1.0.8 (unreleased)
 ------------------
 
-- Nothing changed yet.
+- Do not use kukit-devel.js in the tracker.  It is nice for debugging
+  when you are developing on the tracker, but not in production.  I
+  updated to Firefox 30 and Firebug 2.0 today and the tracker gave a
+  javascript error for kukit-devel.js: ``TypeError: 'log' called on an
+  object that does not implement interface Console.``  It did work
+  when I actually enabled Firebug.  Bonus: now it works on Safari too.
+  [maurits]
 
 
 1.0.7 (2014-03-31)
